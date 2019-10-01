@@ -1,0 +1,10 @@
+C:\Users\Matias\Desktop\Groupon2019\src\FrbaOfertas\FrbaOfertas\bin\Debug\FrbaOfertas.exe.config
+C:\Users\Susana\Google Drive - UTN\UTN\3º Año 2019\Gestion de Datos\TP Frba Cupon 1.0 - 2C 2019\Aplicacion\FrbaOfertas\FrbaOfertas\bin\Debug\FrbaOfertas.exe.config
+C:\Users\Susana\Google Drive - UTN\UTN\3º Año 2019\Gestion de Datos\TP Frba Cupon 1.0 - 2C 2019\Aplicacion\FrbaOfertas\FrbaOfertas\bin\Debug\FrbaOfertas.exe
+C:\Users\Susana\Google Drive - UTN\UTN\3º Año 2019\Gestion de Datos\TP Frba Cupon 1.0 - 2C 2019\Aplicacion\FrbaOfertas\FrbaOfertas\bin\Debug\FrbaOfertas.pdb
+C:\Users\Susana\Google Drive - UTN\UTN\3º Año 2019\Gestion de Datos\TP Frba Cupon 1.0 - 2C 2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.csprojAssemblyReference.cache
+C:\Users\Susana\Google Drive - UTN\UTN\3º Año 2019\Gestion de Datos\TP Frba Cupon 1.0 - 2C 2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.Properties.Resources.resources
+C:\Users\Susana\Google Drive - UTN\UTN\3º Año 2019\Gestion de Datos\TP Frba Cupon 1.0 - 2C 2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.csproj.GenerateResource.cache
+C:\Users\Susana\Google Drive - UTN\UTN\3º Año 2019\Gestion de Datos\TP Frba Cupon 1.0 - 2C 2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.csproj.CoreCompileInputs.cache
+C:\Users\Susana\Google Drive - UTN\UTN\3º Año 2019\Gestion de Datos\TP Frba Cupon 1.0 - 2C 2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.exe
+C:\Users\Susana\Google Drive - UTN\UTN\3º Año 2019\Gestion de Datos\TP Frba Cupon 1.0 - 2C 2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.pdb

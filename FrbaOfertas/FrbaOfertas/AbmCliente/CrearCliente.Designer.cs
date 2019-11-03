@@ -50,6 +50,8 @@
             this.cbCasaODepartamento = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtNroDepartamentoAltaCliente = new System.Windows.Forms.TextBox();
+            this.txtCiudadAltaCliente = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -111,7 +113,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(588, 101);
+            this.label7.Location = new System.Drawing.Point(673, 101);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(75, 20);
             this.label7.TabIndex = 6;
@@ -172,7 +174,7 @@
             // 
             // txtDireccionAltaCliente
             // 
-            this.txtDireccionAltaCliente.Location = new System.Drawing.Point(688, 101);
+            this.txtDireccionAltaCliente.Location = new System.Drawing.Point(788, 101);
             this.txtDireccionAltaCliente.Name = "txtDireccionAltaCliente";
             this.txtDireccionAltaCliente.Size = new System.Drawing.Size(262, 26);
             this.txtDireccionAltaCliente.TabIndex = 14;
@@ -194,17 +196,18 @@
             // 
             // btnDarAltaCliente
             // 
-            this.btnDarAltaCliente.Location = new System.Drawing.Point(885, 337);
+            this.btnDarAltaCliente.Location = new System.Drawing.Point(917, 352);
             this.btnDarAltaCliente.Name = "btnDarAltaCliente";
-            this.btnDarAltaCliente.Size = new System.Drawing.Size(137, 56);
+            this.btnDarAltaCliente.Size = new System.Drawing.Size(133, 72);
             this.btnDarAltaCliente.TabIndex = 17;
             this.btnDarAltaCliente.Text = "Dar de alta";
             this.btnDarAltaCliente.UseVisualStyleBackColor = true;
+            this.btnDarAltaCliente.Click += new System.EventHandler(this.btnDarAltaCliente_Click);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(588, 153);
+            this.label10.Location = new System.Drawing.Point(673, 153);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(181, 20);
             this.label10.TabIndex = 18;
@@ -216,7 +219,7 @@
             this.cbCasaODepartamento.Items.AddRange(new object[] {
             "Casa",
             "Departamento"});
-            this.cbCasaODepartamento.Location = new System.Drawing.Point(791, 150);
+            this.cbCasaODepartamento.Location = new System.Drawing.Point(891, 153);
             this.cbCasaODepartamento.Name = "cbCasaODepartamento";
             this.cbCasaODepartamento.Size = new System.Drawing.Size(159, 28);
             this.cbCasaODepartamento.TabIndex = 19;
@@ -225,7 +228,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(588, 208);
+            this.label11.Location = new System.Drawing.Point(673, 208);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(138, 20);
             this.label11.TabIndex = 20;
@@ -233,17 +236,35 @@
             // 
             // txtNroDepartamentoAltaCliente
             // 
-            this.txtNroDepartamentoAltaCliente.Location = new System.Drawing.Point(746, 205);
+            this.txtNroDepartamentoAltaCliente.Location = new System.Drawing.Point(891, 208);
             this.txtNroDepartamentoAltaCliente.Name = "txtNroDepartamentoAltaCliente";
-            this.txtNroDepartamentoAltaCliente.Size = new System.Drawing.Size(262, 26);
+            this.txtNroDepartamentoAltaCliente.Size = new System.Drawing.Size(159, 26);
             this.txtNroDepartamentoAltaCliente.TabIndex = 21;
             this.txtNroDepartamentoAltaCliente.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // txtCiudadAltaCliente
+            // 
+            this.txtCiudadAltaCliente.Location = new System.Drawing.Point(788, 253);
+            this.txtCiudadAltaCliente.Name = "txtCiudadAltaCliente";
+            this.txtCiudadAltaCliente.Size = new System.Drawing.Size(262, 26);
+            this.txtCiudadAltaCliente.TabIndex = 23;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(673, 256);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(59, 20);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "Ciudad";
             // 
             // CrearCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1178, 456);
+            this.Controls.Add(this.txtCiudadAltaCliente);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.txtNroDepartamentoAltaCliente);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.cbCasaODepartamento);
@@ -267,7 +288,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "CrearCliente";
-            this.Text = "Alta cliente";
+            this.Text = "Crear cliente";
             this.Load += new System.EventHandler(this.CrearCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -298,5 +319,7 @@
         private System.Windows.Forms.ComboBox cbCasaODepartamento;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtNroDepartamentoAltaCliente;
+        private System.Windows.Forms.TextBox txtCiudadAltaCliente;
+        private System.Windows.Forms.Label label12;
     }
 }

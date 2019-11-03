@@ -39,11 +39,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtNombreAltaCliente = new System.Windows.Forms.TextBox();
             this.txtApellidoAltaCliente = new System.Windows.Forms.TextBox();
-            this.txtDNIAltaCliente = new System.Windows.Forms.TextBox();
             this.txtMailAltaCliente = new System.Windows.Forms.TextBox();
-            this.txtTelefonoAltaCliente = new System.Windows.Forms.TextBox();
             this.txtDireccionAltaCliente = new System.Windows.Forms.TextBox();
-            this.txtCPAltaCliente = new System.Windows.Forms.TextBox();
             this.dtpFechaNacimientoAltaCliente = new System.Windows.Forms.DateTimePicker();
             this.btnDarAltaCliente = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -52,6 +49,12 @@
             this.txtNroDepartamentoAltaCliente = new System.Windows.Forms.TextBox();
             this.txtCiudadAltaCliente = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.udDNIAltaCliente = new System.Windows.Forms.NumericUpDown();
+            this.udTelefonoAltaCliente = new System.Windows.Forms.NumericUpDown();
+            this.udCPAltaCliente = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.udDNIAltaCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udTelefonoAltaCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udCPAltaCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -88,9 +91,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(43, 208);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 20);
+            this.label4.Size = new System.Drawing.Size(127, 20);
             this.label4.TabIndex = 3;
-            this.label4.Text = "DNI";
+            this.label4.Text = "DNI (Obligatorio)";
             // 
             // label5
             // 
@@ -124,9 +127,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(43, 352);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(106, 20);
+            this.label8.Size = new System.Drawing.Size(196, 20);
             this.label8.TabIndex = 7;
-            this.label8.Text = "Codigo postal";
+            this.label8.Text = "Codigo postal (Obligatorio)";
             // 
             // label9
             // 
@@ -139,38 +142,25 @@
             // 
             // txtNombreAltaCliente
             // 
-            this.txtNombreAltaCliente.Location = new System.Drawing.Point(238, 101);
+            this.txtNombreAltaCliente.Location = new System.Drawing.Point(273, 101);
             this.txtNombreAltaCliente.Name = "txtNombreAltaCliente";
             this.txtNombreAltaCliente.Size = new System.Drawing.Size(277, 26);
             this.txtNombreAltaCliente.TabIndex = 9;
+            this.txtNombreAltaCliente.TextChanged += new System.EventHandler(this.txtNombreAltaCliente_TextChanged);
             // 
             // txtApellidoAltaCliente
             // 
-            this.txtApellidoAltaCliente.Location = new System.Drawing.Point(238, 153);
+            this.txtApellidoAltaCliente.Location = new System.Drawing.Point(273, 153);
             this.txtApellidoAltaCliente.Name = "txtApellidoAltaCliente";
             this.txtApellidoAltaCliente.Size = new System.Drawing.Size(277, 26);
             this.txtApellidoAltaCliente.TabIndex = 10;
             // 
-            // txtDNIAltaCliente
-            // 
-            this.txtDNIAltaCliente.Location = new System.Drawing.Point(238, 208);
-            this.txtDNIAltaCliente.Name = "txtDNIAltaCliente";
-            this.txtDNIAltaCliente.Size = new System.Drawing.Size(277, 26);
-            this.txtDNIAltaCliente.TabIndex = 11;
-            // 
             // txtMailAltaCliente
             // 
-            this.txtMailAltaCliente.Location = new System.Drawing.Point(238, 256);
+            this.txtMailAltaCliente.Location = new System.Drawing.Point(273, 256);
             this.txtMailAltaCliente.Name = "txtMailAltaCliente";
             this.txtMailAltaCliente.Size = new System.Drawing.Size(277, 26);
             this.txtMailAltaCliente.TabIndex = 12;
-            // 
-            // txtTelefonoAltaCliente
-            // 
-            this.txtTelefonoAltaCliente.Location = new System.Drawing.Point(238, 303);
-            this.txtTelefonoAltaCliente.Name = "txtTelefonoAltaCliente";
-            this.txtTelefonoAltaCliente.Size = new System.Drawing.Size(277, 26);
-            this.txtTelefonoAltaCliente.TabIndex = 13;
             // 
             // txtDireccionAltaCliente
             // 
@@ -179,16 +169,9 @@
             this.txtDireccionAltaCliente.Size = new System.Drawing.Size(262, 26);
             this.txtDireccionAltaCliente.TabIndex = 14;
             // 
-            // txtCPAltaCliente
-            // 
-            this.txtCPAltaCliente.Location = new System.Drawing.Point(238, 352);
-            this.txtCPAltaCliente.Name = "txtCPAltaCliente";
-            this.txtCPAltaCliente.Size = new System.Drawing.Size(277, 26);
-            this.txtCPAltaCliente.TabIndex = 15;
-            // 
             // dtpFechaNacimientoAltaCliente
             // 
-            this.dtpFechaNacimientoAltaCliente.Location = new System.Drawing.Point(238, 404);
+            this.dtpFechaNacimientoAltaCliente.Location = new System.Drawing.Point(273, 404);
             this.dtpFechaNacimientoAltaCliente.Name = "dtpFechaNacimientoAltaCliente";
             this.dtpFechaNacimientoAltaCliente.Size = new System.Drawing.Size(277, 26);
             this.dtpFechaNacimientoAltaCliente.TabIndex = 16;
@@ -236,7 +219,7 @@
             // 
             // txtNroDepartamentoAltaCliente
             // 
-            this.txtNroDepartamentoAltaCliente.Location = new System.Drawing.Point(891, 208);
+            this.txtNroDepartamentoAltaCliente.Location = new System.Drawing.Point(891, 206);
             this.txtNroDepartamentoAltaCliente.Name = "txtNroDepartamentoAltaCliente";
             this.txtNroDepartamentoAltaCliente.Size = new System.Drawing.Size(159, 26);
             this.txtNroDepartamentoAltaCliente.TabIndex = 21;
@@ -258,11 +241,36 @@
             this.label12.TabIndex = 22;
             this.label12.Text = "Ciudad";
             // 
+            // udDNIAltaCliente
+            // 
+            this.udDNIAltaCliente.Location = new System.Drawing.Point(273, 206);
+            this.udDNIAltaCliente.Name = "udDNIAltaCliente";
+            this.udDNIAltaCliente.Size = new System.Drawing.Size(277, 26);
+            this.udDNIAltaCliente.TabIndex = 24;
+            this.udDNIAltaCliente.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // udTelefonoAltaCliente
+            // 
+            this.udTelefonoAltaCliente.Location = new System.Drawing.Point(273, 301);
+            this.udTelefonoAltaCliente.Name = "udTelefonoAltaCliente";
+            this.udTelefonoAltaCliente.Size = new System.Drawing.Size(277, 26);
+            this.udTelefonoAltaCliente.TabIndex = 25;
+            // 
+            // udCPAltaCliente
+            // 
+            this.udCPAltaCliente.Location = new System.Drawing.Point(273, 350);
+            this.udCPAltaCliente.Name = "udCPAltaCliente";
+            this.udCPAltaCliente.Size = new System.Drawing.Size(277, 26);
+            this.udCPAltaCliente.TabIndex = 26;
+            // 
             // CrearCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1178, 456);
+            this.Controls.Add(this.udCPAltaCliente);
+            this.Controls.Add(this.udTelefonoAltaCliente);
+            this.Controls.Add(this.udDNIAltaCliente);
             this.Controls.Add(this.txtCiudadAltaCliente);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtNroDepartamentoAltaCliente);
@@ -271,11 +279,8 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnDarAltaCliente);
             this.Controls.Add(this.dtpFechaNacimientoAltaCliente);
-            this.Controls.Add(this.txtCPAltaCliente);
             this.Controls.Add(this.txtDireccionAltaCliente);
-            this.Controls.Add(this.txtTelefonoAltaCliente);
             this.Controls.Add(this.txtMailAltaCliente);
-            this.Controls.Add(this.txtDNIAltaCliente);
             this.Controls.Add(this.txtApellidoAltaCliente);
             this.Controls.Add(this.txtNombreAltaCliente);
             this.Controls.Add(this.label9);
@@ -290,6 +295,9 @@
             this.Name = "CrearCliente";
             this.Text = "Crear cliente";
             this.Load += new System.EventHandler(this.CrearCliente_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.udDNIAltaCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udTelefonoAltaCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udCPAltaCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,11 +316,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtNombreAltaCliente;
         private System.Windows.Forms.TextBox txtApellidoAltaCliente;
-        private System.Windows.Forms.TextBox txtDNIAltaCliente;
         private System.Windows.Forms.TextBox txtMailAltaCliente;
-        private System.Windows.Forms.TextBox txtTelefonoAltaCliente;
         private System.Windows.Forms.TextBox txtDireccionAltaCliente;
-        private System.Windows.Forms.TextBox txtCPAltaCliente;
         private System.Windows.Forms.DateTimePicker dtpFechaNacimientoAltaCliente;
         private System.Windows.Forms.Button btnDarAltaCliente;
         private System.Windows.Forms.Label label10;
@@ -321,5 +326,8 @@
         private System.Windows.Forms.TextBox txtNroDepartamentoAltaCliente;
         private System.Windows.Forms.TextBox txtCiudadAltaCliente;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown udDNIAltaCliente;
+        private System.Windows.Forms.NumericUpDown udTelefonoAltaCliente;
+        private System.Windows.Forms.NumericUpDown udCPAltaCliente;
     }
 }

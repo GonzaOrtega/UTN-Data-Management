@@ -14,7 +14,7 @@ namespace FrbaOfertas.AbmCliente
 {
     public partial class CrearCliente : Form
     {
-        public string nombre = null, apellido = null, direccion = null, telefono = null, email = null, ciudad = null;
+        public string nombre, apellido, direccion, email, ciudad;
         DBAccess dB = new DBAccess();
 
         public CrearCliente()
@@ -32,6 +32,15 @@ namespace FrbaOfertas.AbmCliente
 
         }
 
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombreAltaCliente_TextChanged(object sender, EventArgs e)
+        {
+        }
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string casaODepartamento = cbCasaODepartamento.Text;
@@ -45,7 +54,12 @@ namespace FrbaOfertas.AbmCliente
         private void CrearCliente_Load(object sender, EventArgs e)
         {
             txtNroDepartamentoAltaCliente.Enabled = false;
-
+            udDNIAltaCliente.Controls.RemoveAt(0);
+            udDNIAltaCliente.Text = "";
+            udCPAltaCliente.Controls.RemoveAt(0);
+            udCPAltaCliente.Text = "";
+            udTelefonoAltaCliente.Controls.RemoveAt(0);
+            udTelefonoAltaCliente.Text = "";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -56,19 +70,22 @@ namespace FrbaOfertas.AbmCliente
         {
             try
             {
-                Double DNI = Convert.ToDouble(txtDNIAltaCliente.Text);
-                Double codigoPostal = Convert.ToDouble(txtCPAltaCliente.Text);
+                Decimal DNI = udDNIAltaCliente.Value;
+                Decimal codigoPostal = udCPAltaCliente.Value;
                 nombre = txtNombreAltaCliente.Text;
                 apellido = txtApellidoAltaCliente.Text;
-                direccion = txtDireccionAltaCliente.Text;
-                telefono = txtTelefonoAltaCliente.Text;
+                direccion = txtDireccionAltaCliente.Text + txtNroDepartamentoAltaCliente.Text + txtCiudadAltaCliente.Text;
+                Decimal telefono = udTelefonoAltaCliente.Value;
                 email = txtMailAltaCliente.Text;
                 DateTime fechaNacimiento = dtpFechaNacimientoAltaCliente.Value;
                 ciudad = txtCiudadAltaCliente.Text;
                 double credito = 200;
 
-                string query = "INSERT INTO CLIENTES VALUES (@DNI, @CP, @Nombre, @Apellido, @Direccion, @Telefono, @Mail,"
-                    + "@FechaNacimiento, @Ciudad, @Credito)";
+                string query = "INSERT INTO CLIENTES VALUES (@dni, @cp, @nombre, @apellido, @direccion, @telefono, @mail,"
+                    + "@fechanacimiento, @ciudad, @credito)";
+
+                //string query = "INSERT INTO CLIENTES VALUES ('"+DNI+"', '"+codigoPostal+"', '"+nombre+"','"+apellido+"', '"+
+                //    direccion+"', '"+telefono+"', '"+email+"', '"+fechaNacimiento+"', '"+ciudad+"', '"+credito+"')";
 
                 SqlCommand insertarNuevoCliente = new SqlCommand(query);
                 insertarNuevoCliente.Parameters.AddWithValue("@DNI", DNI);

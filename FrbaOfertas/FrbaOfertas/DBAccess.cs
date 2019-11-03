@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace PruebaSQLVisualStudio01
+namespace FrbaOfertas
 {
     class DBAccess
     {
@@ -16,7 +16,7 @@ namespace PruebaSQLVisualStudio01
         private static SqlDataAdapter adapter = new SqlDataAdapter();
         public SqlTransaction DbTran;
 
-        private static string strConnString = "Data Source=LAPTOP-10J4C3F9\\SQLEXPRESS;Initial Catalog=SocialNetwork;Integrated Security=True";
+        private static string strConnString = "Data Source=LAPTOP-10J4C3F9\\SQLEXPRESS;Initial Catalog=GD2C2019;Integrated Security=True";
 
 
 

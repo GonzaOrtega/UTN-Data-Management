@@ -44,7 +44,10 @@ namespace FrbaOfertas.AbmCliente
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data.Common;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SqlClient;
 
 namespace FrbaOfertas.AbmCliente
@@ -32,13 +29,16 @@ namespace FrbaOfertas.AbmCliente
 
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtNombreAltaCliente_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -54,12 +54,6 @@ namespace FrbaOfertas.AbmCliente
         private void CrearCliente_Load(object sender, EventArgs e)
         {
             txtNroDepartamentoAltaCliente.Enabled = false;
-            udDNIAltaCliente.Controls.RemoveAt(0);
-            udDNIAltaCliente.Text = "";
-            udCPAltaCliente.Controls.RemoveAt(0);
-            udCPAltaCliente.Text = "";
-            udTelefonoAltaCliente.Controls.RemoveAt(0);
-            udTelefonoAltaCliente.Text = "";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -70,12 +64,12 @@ namespace FrbaOfertas.AbmCliente
         {
             try
             {
-                Decimal DNI = udDNIAltaCliente.Value;
-                Decimal codigoPostal = udCPAltaCliente.Value;
+                Double DNI = Convert.ToDouble(txtDNIAltaCliente.Text);
+                Double codigoPostal = Convert.ToDouble(txtCPAltaCliente.Text);
                 nombre = txtNombreAltaCliente.Text;
                 apellido = txtApellidoAltaCliente.Text;
                 direccion = txtDireccionAltaCliente.Text + txtNroDepartamentoAltaCliente.Text + txtCiudadAltaCliente.Text;
-                Decimal telefono = udTelefonoAltaCliente.Value;
+                Double telefono = Convert.ToDouble(txtTelefonoAltaCliente.Text);
                 email = txtMailAltaCliente.Text;
                 DateTime fechaNacimiento = dtpFechaNacimientoAltaCliente.Value;
                 ciudad = txtCiudadAltaCliente.Text;
@@ -114,18 +108,39 @@ namespace FrbaOfertas.AbmCliente
 
         }
 
-        public void metodoMejorado()
-        {
-            var conexion = DBConnection.getConnection();
+        //static public void registarUsuario(Afiliado afiliado)
+        //{
 
-            SqlCommand comando = new SqlCommand("GEDDES.registrarMotivo", conexion);
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@afil", afiliado);
-            comando.Parameters.AddWithValue("@motivo", motivo);
-            comando.Parameters.AddWithValue("@fecha", fecha);
-            conexion.Open();
+        //    var conexion = DBConnection.getConnection();
 
-            SqlDataReader reader = comando.ExecuteReader();
-        }
+        //    SqlCommand comando = new SqlCommand("GEDDES.ingresarUsuario", conexion);
+
+        //    comando.CommandType = CommandType.StoredProcedure;
+
+        //    comando.Parameters.AddWithValue("@username", afiliado.getUsername());
+        //    comando.Parameters.AddWithValue("@password", afiliado.getPassword());
+        //    comando.Parameters.AddWithValue("@nombre", afiliado.getNombre());
+        //    comando.Parameters.AddWithValue("@apellido", afiliado.getApellido());
+        //    comando.Parameters.AddWithValue("@tipoDoc", afiliado.getTipoDoc());
+        //    comando.Parameters.AddWithValue("@nroDoc", afiliado.getNroDoc());
+        //    comando.Parameters.AddWithValue("@direccion", afiliado.getDireccion());
+        //    comando.Parameters.AddWithValue("@telefono", afiliado.getTelefono());
+        //    comando.Parameters.AddWithValue("@fechaNacimiento", afiliado.getFechaNac());
+        //    comando.Parameters.AddWithValue("@sexo", afiliado.getSexo());
+
+        //    if (afiliado.getMail() != null)
+        //    {
+        //        comando.Parameters.AddWithValue("@mail", afiliado.getMail());
+        //    }
+        //    else
+        //    {
+        //        comando.Parameters.AddWithValue("@mail", DBNull.Value);
+        //    }
+
+
+        //    conexion.Open();
+        //    comando.ExecuteReader();
+
+        //}
     }
 }

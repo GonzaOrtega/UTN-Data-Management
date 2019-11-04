@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,28 +48,16 @@
             this.txtNroDepartamentoAltaCliente = new System.Windows.Forms.TextBox();
             this.txtCiudadAltaCliente = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.udDNIAltaCliente = new System.Windows.Forms.NumericUpDown();
-            this.udTelefonoAltaCliente = new System.Windows.Forms.NumericUpDown();
-            this.udCPAltaCliente = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.udDNIAltaCliente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udTelefonoAltaCliente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udCPAltaCliente)).BeginInit();
+            this.txtDNIAltaCliente = new System.Windows.Forms.TextBox();
+            this.txtTelefonoAltaCliente = new System.Windows.Forms.TextBox();
+            this.txtCPAltaCliente = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(40, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 37);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Alta cliente";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 101);
+            this.label2.Location = new System.Drawing.Point(12, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 20);
             this.label2.TabIndex = 1;
@@ -79,7 +66,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(43, 153);
+            this.label3.Location = new System.Drawing.Point(12, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 20);
             this.label3.TabIndex = 2;
@@ -89,7 +76,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 206);
+            this.label4.Location = new System.Drawing.Point(12, 125);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 20);
             this.label4.TabIndex = 3;
@@ -98,7 +85,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(43, 256);
+            this.label5.Location = new System.Drawing.Point(12, 175);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 20);
             this.label5.TabIndex = 4;
@@ -107,7 +94,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(43, 303);
+            this.label6.Location = new System.Drawing.Point(12, 222);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 20);
             this.label6.TabIndex = 5;
@@ -116,7 +103,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(673, 101);
+            this.label7.Location = new System.Drawing.Point(12, 377);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(75, 20);
             this.label7.TabIndex = 6;
@@ -125,7 +112,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(43, 352);
+            this.label8.Location = new System.Drawing.Point(12, 271);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(196, 20);
             this.label8.TabIndex = 7;
@@ -134,7 +121,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(43, 404);
+            this.label9.Location = new System.Drawing.Point(12, 323);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(157, 20);
             this.label9.TabIndex = 8;
@@ -142,7 +129,7 @@
             // 
             // txtNombreAltaCliente
             // 
-            this.txtNombreAltaCliente.Location = new System.Drawing.Point(273, 101);
+            this.txtNombreAltaCliente.Location = new System.Drawing.Point(242, 20);
             this.txtNombreAltaCliente.Name = "txtNombreAltaCliente";
             this.txtNombreAltaCliente.Size = new System.Drawing.Size(277, 26);
             this.txtNombreAltaCliente.TabIndex = 9;
@@ -150,28 +137,28 @@
             // 
             // txtApellidoAltaCliente
             // 
-            this.txtApellidoAltaCliente.Location = new System.Drawing.Point(273, 153);
+            this.txtApellidoAltaCliente.Location = new System.Drawing.Point(242, 72);
             this.txtApellidoAltaCliente.Name = "txtApellidoAltaCliente";
             this.txtApellidoAltaCliente.Size = new System.Drawing.Size(277, 26);
             this.txtApellidoAltaCliente.TabIndex = 10;
             // 
             // txtMailAltaCliente
             // 
-            this.txtMailAltaCliente.Location = new System.Drawing.Point(273, 256);
+            this.txtMailAltaCliente.Location = new System.Drawing.Point(242, 175);
             this.txtMailAltaCliente.Name = "txtMailAltaCliente";
             this.txtMailAltaCliente.Size = new System.Drawing.Size(277, 26);
             this.txtMailAltaCliente.TabIndex = 12;
             // 
             // txtDireccionAltaCliente
             // 
-            this.txtDireccionAltaCliente.Location = new System.Drawing.Point(788, 101);
+            this.txtDireccionAltaCliente.Location = new System.Drawing.Point(242, 374);
             this.txtDireccionAltaCliente.Name = "txtDireccionAltaCliente";
-            this.txtDireccionAltaCliente.Size = new System.Drawing.Size(262, 26);
+            this.txtDireccionAltaCliente.Size = new System.Drawing.Size(277, 26);
             this.txtDireccionAltaCliente.TabIndex = 14;
             // 
             // dtpFechaNacimientoAltaCliente
             // 
-            this.dtpFechaNacimientoAltaCliente.Location = new System.Drawing.Point(273, 404);
+            this.dtpFechaNacimientoAltaCliente.Location = new System.Drawing.Point(242, 323);
             this.dtpFechaNacimientoAltaCliente.Name = "dtpFechaNacimientoAltaCliente";
             this.dtpFechaNacimientoAltaCliente.Size = new System.Drawing.Size(277, 26);
             this.dtpFechaNacimientoAltaCliente.TabIndex = 16;
@@ -179,9 +166,9 @@
             // 
             // btnDarAltaCliente
             // 
-            this.btnDarAltaCliente.Location = new System.Drawing.Point(917, 352);
+            this.btnDarAltaCliente.Location = new System.Drawing.Point(16, 579);
             this.btnDarAltaCliente.Name = "btnDarAltaCliente";
-            this.btnDarAltaCliente.Size = new System.Drawing.Size(133, 72);
+            this.btnDarAltaCliente.Size = new System.Drawing.Size(222, 39);
             this.btnDarAltaCliente.TabIndex = 17;
             this.btnDarAltaCliente.Text = "Dar de alta";
             this.btnDarAltaCliente.UseVisualStyleBackColor = true;
@@ -190,11 +177,11 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(673, 209);
+            this.label10.Location = new System.Drawing.Point(12, 485);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(181, 20);
+            this.label10.Size = new System.Drawing.Size(121, 20);
             this.label10.TabIndex = 18;
-            this.label10.Text = "Casa o departamento??";
+            this.label10.Text = "Tipo de vivienda";
             // 
             // cbCasaODepartamento
             // 
@@ -202,16 +189,16 @@
             this.cbCasaODepartamento.Items.AddRange(new object[] {
             "Casa",
             "Departamento"});
-            this.cbCasaODepartamento.Location = new System.Drawing.Point(891, 206);
+            this.cbCasaODepartamento.Location = new System.Drawing.Point(242, 482);
             this.cbCasaODepartamento.Name = "cbCasaODepartamento";
-            this.cbCasaODepartamento.Size = new System.Drawing.Size(159, 28);
+            this.cbCasaODepartamento.Size = new System.Drawing.Size(277, 28);
             this.cbCasaODepartamento.TabIndex = 19;
             this.cbCasaODepartamento.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(673, 261);
+            this.label11.Location = new System.Drawing.Point(12, 537);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(138, 20);
             this.label11.TabIndex = 20;
@@ -219,58 +206,68 @@
             // 
             // txtNroDepartamentoAltaCliente
             // 
-            this.txtNroDepartamentoAltaCliente.Location = new System.Drawing.Point(891, 259);
+            this.txtNroDepartamentoAltaCliente.Location = new System.Drawing.Point(242, 531);
             this.txtNroDepartamentoAltaCliente.Name = "txtNroDepartamentoAltaCliente";
-            this.txtNroDepartamentoAltaCliente.Size = new System.Drawing.Size(159, 26);
+            this.txtNroDepartamentoAltaCliente.Size = new System.Drawing.Size(277, 26);
             this.txtNroDepartamentoAltaCliente.TabIndex = 21;
             this.txtNroDepartamentoAltaCliente.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtCiudadAltaCliente
             // 
-            this.txtCiudadAltaCliente.Location = new System.Drawing.Point(788, 153);
+            this.txtCiudadAltaCliente.Location = new System.Drawing.Point(242, 426);
             this.txtCiudadAltaCliente.Name = "txtCiudadAltaCliente";
-            this.txtCiudadAltaCliente.Size = new System.Drawing.Size(262, 26);
+            this.txtCiudadAltaCliente.Size = new System.Drawing.Size(277, 26);
             this.txtCiudadAltaCliente.TabIndex = 23;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(673, 156);
+            this.label12.Location = new System.Drawing.Point(12, 432);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(59, 20);
             this.label12.TabIndex = 22;
             this.label12.Text = "Ciudad";
             // 
-            // udDNIAltaCliente
+            // txtDNIAltaCliente
             // 
-            this.udDNIAltaCliente.Location = new System.Drawing.Point(273, 206);
-            this.udDNIAltaCliente.Name = "udDNIAltaCliente";
-            this.udDNIAltaCliente.Size = new System.Drawing.Size(277, 26);
-            this.udDNIAltaCliente.TabIndex = 24;
-            this.udDNIAltaCliente.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.txtDNIAltaCliente.Location = new System.Drawing.Point(242, 122);
+            this.txtDNIAltaCliente.Name = "txtDNIAltaCliente";
+            this.txtDNIAltaCliente.Size = new System.Drawing.Size(277, 26);
+            this.txtDNIAltaCliente.TabIndex = 27;
             // 
-            // udTelefonoAltaCliente
+            // txtTelefonoAltaCliente
             // 
-            this.udTelefonoAltaCliente.Location = new System.Drawing.Point(273, 301);
-            this.udTelefonoAltaCliente.Name = "udTelefonoAltaCliente";
-            this.udTelefonoAltaCliente.Size = new System.Drawing.Size(277, 26);
-            this.udTelefonoAltaCliente.TabIndex = 25;
+            this.txtTelefonoAltaCliente.Location = new System.Drawing.Point(242, 219);
+            this.txtTelefonoAltaCliente.Name = "txtTelefonoAltaCliente";
+            this.txtTelefonoAltaCliente.Size = new System.Drawing.Size(277, 26);
+            this.txtTelefonoAltaCliente.TabIndex = 28;
             // 
-            // udCPAltaCliente
+            // txtCPAltaCliente
             // 
-            this.udCPAltaCliente.Location = new System.Drawing.Point(273, 350);
-            this.udCPAltaCliente.Name = "udCPAltaCliente";
-            this.udCPAltaCliente.Size = new System.Drawing.Size(277, 26);
-            this.udCPAltaCliente.TabIndex = 26;
+            this.txtCPAltaCliente.Location = new System.Drawing.Point(242, 271);
+            this.txtCPAltaCliente.Name = "txtCPAltaCliente";
+            this.txtCPAltaCliente.Size = new System.Drawing.Size(277, 26);
+            this.txtCPAltaCliente.TabIndex = 29;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(297, 579);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(222, 39);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "Cancelar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // CrearCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1178, 456);
-            this.Controls.Add(this.udCPAltaCliente);
-            this.Controls.Add(this.udTelefonoAltaCliente);
-            this.Controls.Add(this.udDNIAltaCliente);
+            this.ClientSize = new System.Drawing.Size(536, 627);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txtCPAltaCliente);
+            this.Controls.Add(this.txtTelefonoAltaCliente);
+            this.Controls.Add(this.txtDNIAltaCliente);
             this.Controls.Add(this.txtCiudadAltaCliente);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtNroDepartamentoAltaCliente);
@@ -291,21 +288,15 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "CrearCliente";
-            this.Text = "Crear cliente";
+            this.Text = "Alta cliente";
             this.Load += new System.EventHandler(this.CrearCliente_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.udDNIAltaCliente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udTelefonoAltaCliente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.udCPAltaCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -326,8 +317,9 @@
         private System.Windows.Forms.TextBox txtNroDepartamentoAltaCliente;
         private System.Windows.Forms.TextBox txtCiudadAltaCliente;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.NumericUpDown udDNIAltaCliente;
-        private System.Windows.Forms.NumericUpDown udTelefonoAltaCliente;
-        private System.Windows.Forms.NumericUpDown udCPAltaCliente;
+        private System.Windows.Forms.TextBox txtDNIAltaCliente;
+        private System.Windows.Forms.TextBox txtTelefonoAltaCliente;
+        private System.Windows.Forms.TextBox txtCPAltaCliente;
+        private System.Windows.Forms.Button button1;
     }
 }

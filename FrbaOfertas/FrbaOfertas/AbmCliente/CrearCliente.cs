@@ -113,5 +113,19 @@ namespace FrbaOfertas.AbmCliente
             }
 
         }
+
+        public void metodoMejorado()
+        {
+            var conexion = DBConnection.getConnection();
+
+            SqlCommand comando = new SqlCommand("GEDDES.registrarMotivo", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@afil", afiliado);
+            comando.Parameters.AddWithValue("@motivo", motivo);
+            comando.Parameters.AddWithValue("@fecha", fecha);
+            conexion.Open();
+
+            SqlDataReader reader = comando.ExecuteReader();
+        }
     }
 }

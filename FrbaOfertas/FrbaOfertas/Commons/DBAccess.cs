@@ -16,9 +16,8 @@ namespace FrbaOfertas
         private static SqlDataAdapter adapter = new SqlDataAdapter();
         public SqlTransaction DbTran;
 
-        private static string strConnString = "Data Source=LAPTOP-10J4C3F9\\SQLEXPRESS;Initial Catalog=GD2C2019;Integrated Security=True";
-
-
+        // Cambiar esto acorde a su server
+        private static string strConnString = "Data Source=LAPTOP-10J4C3F9\\SQLEXPRESS;Initial Catalog=GD2C2019;Persist Security Info=True;User ID=gd;Password=***********";
 
         public void createConn()
         {

@@ -36,10 +36,11 @@ namespace FrbaOfertas.AbmCliente
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            //if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            //{
+            //    this.Close();
+            //}
+            var conexion = DBConnection.getConnection();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -80,9 +81,19 @@ namespace FrbaOfertas.AbmCliente
         {
             cliente.DNI = Convert.ToDouble(txtDNIAltaCliente.Text);
             cliente.CodigoPostal = Convert.ToDouble(txtCPAltaCliente.Text);
-            cliente.Nombre = txtNombreAltaCliente.Text;
+            cliente.Nombre = String.IsNullOrWhiteSpace(txtNombreAltaCliente.Text)? null : txtNombreAltaCliente.Text;
             cliente.Apellido = txtApellidoAltaCliente.Text;
-            cliente.Direccion = txtDireccionAltaCliente.Text + txtNroDepartamentoAltaCliente.Text + txtCiudadAltaCliente.Text;
+
+            if (cbCasaODepartamento.Equals("Departamento"))
+            {
+                cliente.Direccion = txtDireccionAltaCliente.Text + ", Nro dpto:"
+                    + txtNroDepartamentoAltaCliente.Text;
+            }
+            else
+            {
+                cliente.Direccion = txtDireccionAltaCliente.Text;
+            }
+
             cliente.Telefono = Convert.ToDouble(txtTelefonoAltaCliente.Text);
             cliente.Email = txtMailAltaCliente.Text;
             cliente.FechaVencimiento = dtpFechaNacimientoAltaCliente.Value;

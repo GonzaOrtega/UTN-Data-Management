@@ -15,8 +15,8 @@ namespace FrbaOfertas.Commons
         public static void insertarCliente(Cliente cliente, DBAccess dB)
         {
             string query = "dbo.insertarCliente";
-
-            SqlCommand insertarCliente = new SqlCommand(query);
+            var conexion = DBConnection.getConnection();
+            SqlCommand insertarCliente = new SqlCommand(query, conexion);
 
             insertarCliente.CommandType = CommandType.StoredProcedure;
 
@@ -31,13 +31,16 @@ namespace FrbaOfertas.Commons
             insertarCliente.Parameters.AddWithValue("@FechaNacimiento", cliente.FechaVencimiento);
             insertarCliente.Parameters.AddWithValue("@Credito", cliente.Credito);
 
-            // Retorna el numero de filas afectadas
-            int row = dB.executeQuery(insertarCliente, CommandType.StoredProcedure);
+            conexion.Open();
+            insertarCliente.ExecuteReader();
 
-            if (row == 1)
-            {
-                MessageBox.Show("Cliente creado satisfactoriamente", "Alta cliente");
-            }
+            //// Retorna el numero de filas afectadas
+            //int row = dB.executeQuery(insertarCliente, CommandType.StoredProcedure);
+
+            //if (row == 1)
+            //{
+            //    MessageBox.Show("Cliente creado satisfactoriamente", "Alta cliente");
+            //}
         }
 
     }

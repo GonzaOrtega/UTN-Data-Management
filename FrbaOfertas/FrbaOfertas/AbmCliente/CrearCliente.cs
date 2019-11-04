@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Data;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Data.Common;
-using System.Data;
-using System.Data.SqlClient;
-using System.Data.SqlClient;
 using FrbaOfertas.Commons;
+using System.Collections.Generic;
 
 namespace FrbaOfertas.AbmCliente
 {
@@ -14,6 +9,7 @@ namespace FrbaOfertas.AbmCliente
     {
         DBAccess dB = new DBAccess();
         Cliente cliente = new Cliente();
+        List<TextBox> textboxes = new List<TextBox>();
 
         public CrearCliente()
         {
@@ -50,11 +46,12 @@ namespace FrbaOfertas.AbmCliente
             {
                 txtNroDepartamentoAltaCliente.Enabled = true;
             }
-        }
+        }   
 
         private void CrearCliente_Load(object sender, EventArgs e)
         {
             txtNroDepartamentoAltaCliente.Enabled = false;
+            agregarTextboxes();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -70,6 +67,7 @@ namespace FrbaOfertas.AbmCliente
                     validarCliente();
                     inicializoCliente();
                     Inserts.insertarCliente(cliente, dB);
+                    limpiarTextboxes();
                 }
                 else
                 {
@@ -84,10 +82,6 @@ namespace FrbaOfertas.AbmCliente
 
         }
 
-        public bool seCargaronPKs()
-        {
-            return !String.IsNullOrEmpty(txtDNIAltaCliente.Text) && !String.IsNullOrEmpty(txtCPAltaCliente.Text);
-        }
 
         public void inicializoCliente()
         {
@@ -105,7 +99,6 @@ namespace FrbaOfertas.AbmCliente
             {
                 cliente.Direccion = txtDireccionAltaCliente.Text;
             }
-
             cliente.Telefono = Convert.ToDouble(txtTelefonoAltaCliente.Text);
             cliente.Email = txtMailAltaCliente.Text;
             cliente.FechaVencimiento = dtpFechaNacimientoAltaCliente.Value;
@@ -113,27 +106,47 @@ namespace FrbaOfertas.AbmCliente
             cliente.Credito = 200; // Lo indicado por la consigna
         }
 
+        public void validarCliente()
+        {
+            if (!this.esEntero(txtDNIAltaCliente.Text)){
+                txtDNIAltaCliente.Text = "0";
+            }
+            if (!this.esEntero(txtCPAltaCliente.Text))
+            {
+                txtCPAltaCliente.Text = "0";
+            }
+            if (!this.esEntero(txtTelefonoAltaCliente.Text))
+            {
+                txtTelefonoAltaCliente.Text = "0";
+            }
+        }
         public bool esEntero(string texto)
         {
             int a;
             return int.TryParse(texto, out a);
         }
-
-        public void validarCliente()
+        public bool seCargaronPKs()
         {
+            return !String.IsNullOrEmpty(txtDNIAltaCliente.Text) && !String.IsNullOrEmpty(txtCPAltaCliente.Text);
+        }
 
-            if (!this.esEntero(txtDNIAltaCliente.Text)){
-                txtDNIAltaCliente.Text = "0";
-            }
-
-            if (!this.esEntero(txtCPAltaCliente.Text))
-            {
-                txtCPAltaCliente.Text = "0";
-            }
-
-            if (!this.esEntero(txtTelefonoAltaCliente.Text))
-            {
-                txtTelefonoAltaCliente.Text = "0";
+        public void agregarTextboxes()
+        {
+            textboxes.Add(txtApellidoAltaCliente);
+            textboxes.Add(txtCiudadAltaCliente);
+            textboxes.Add(txtCPAltaCliente);
+            textboxes.Add(txtDireccionAltaCliente);
+            textboxes.Add(txtDNIAltaCliente);
+            textboxes.Add(txtMailAltaCliente);
+            textboxes.Add(txtNombreAltaCliente);
+            textboxes.Add(txtNroDepartamentoAltaCliente);
+            textboxes.Add(txtTelefonoAltaCliente);
+        }
+        
+        public void limpiarTextboxes()
+        {
+            foreach(TextBox txt in textboxes) {
+                txt.Clear();
             }
         }
     }

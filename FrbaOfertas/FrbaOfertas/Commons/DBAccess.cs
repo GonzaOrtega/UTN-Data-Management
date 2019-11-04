@@ -120,7 +120,7 @@ namespace FrbaOfertas
         }
 
 
-        public int executeQuery(SqlCommand dbCommand)
+        public int executeQuery(SqlCommand dbCommand, CommandType tipoComando)
         {
             try
             {
@@ -130,7 +130,7 @@ namespace FrbaOfertas
                 }
 
                 dbCommand.Connection = connection;
-                dbCommand.CommandType = CommandType.Text;
+                dbCommand.CommandType = tipoComando;
 
 
                 return dbCommand.ExecuteNonQuery();

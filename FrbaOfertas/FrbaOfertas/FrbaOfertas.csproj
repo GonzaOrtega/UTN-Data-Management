@@ -76,6 +76,7 @@
     <Compile Include="AbmRol\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Commons\Inserts.cs" />
     <Compile Include="ComprarOferta\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,8 +95,8 @@
     <Compile Include="CrearOferta\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Connections\DBAccess.cs" />
-    <Compile Include="Connections\DBConnection.cs" />
+    <Compile Include="Commons\DBAccess.cs" />
+    <Compile Include="Commons\DBConnection.cs" />
     <Compile Include="Facturar\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

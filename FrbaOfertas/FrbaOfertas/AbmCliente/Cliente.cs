@@ -29,6 +29,9 @@ namespace FrbaOfertas.AbmCliente
 
         Double credito;
 
+        Double codigoPostal;
+
+        // Getters y setters
         public double DNI { get => dni; set => dni = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Apellido { get => apellido; set => apellido = value; }
@@ -38,5 +41,6 @@ namespace FrbaOfertas.AbmCliente
         public DateTime FechaVencimiento { get => fechaVencimiento; set => fechaVencimiento = value; }
         public string Ciudad { get => ciudad; set => ciudad = value; }
         public double Credito { get => credito; set => credito = value; }
+        public double CodigoPostal { get => codigoPostal; set => codigoPostal = value; }
     }
 }

@@ -22,7 +22,7 @@ namespace FrbaOfertas
         public static SqlConnection getConnection()
         {
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = "Data Source=LAPTOP-10J4C3F9\\SQLEXPRESS;Initial Catalog=GD2C2016;Integrated Security=True";
+            connection.ConnectionString = "Data Source=LAPTOP-10J4C3F9\\SQLEXPRESS;Initial Catalog=GD2C2019;User ID=gd;Password=***********";
             return connection;
         }
 

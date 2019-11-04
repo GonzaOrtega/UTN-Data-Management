@@ -34,13 +34,7 @@ namespace FrbaOfertas.Commons
             conexion.Open();
             insertarCliente.ExecuteReader();
 
-            //// Retorna el numero de filas afectadas
-            //int row = dB.executeQuery(insertarCliente, CommandType.StoredProcedure);
-
-            //if (row == 1)
-            //{
-            //    MessageBox.Show("Cliente creado satisfactoriamente", "Alta cliente");
-            //}
+            MessageBox.Show("Cliente creado satisfactoriamente", "Alta cliente");
         }
 
     }

@@ -36,11 +36,10 @@ namespace FrbaOfertas.AbmCliente
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            //{
-            //    this.Close();
-            //}
-            var conexion = DBConnection.getConnection();
+            if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,8 +65,16 @@ namespace FrbaOfertas.AbmCliente
         {
             try
             {
-                inicializoCliente();
-                Inserts.insertarCliente(cliente, dB);
+                if (seCargaronPKs())
+                {
+                    validarCliente();
+                    inicializoCliente();
+                    Inserts.insertarCliente(cliente, dB);
+                }
+                else
+                {
+                    MessageBox.Show("Por favor ingrese los campos obligatorios", "Alta cliente");
+                }
             }
             catch (Exception ex)
             {
@@ -77,11 +84,16 @@ namespace FrbaOfertas.AbmCliente
 
         }
 
-        private void inicializoCliente()
+        public bool seCargaronPKs()
+        {
+            return !String.IsNullOrEmpty(txtDNIAltaCliente.Text) && !String.IsNullOrEmpty(txtCPAltaCliente.Text);
+        }
+
+        public void inicializoCliente()
         {
             cliente.DNI = Convert.ToDouble(txtDNIAltaCliente.Text);
             cliente.CodigoPostal = Convert.ToDouble(txtCPAltaCliente.Text);
-            cliente.Nombre = String.IsNullOrWhiteSpace(txtNombreAltaCliente.Text)? null : txtNombreAltaCliente.Text;
+            cliente.Nombre = txtNombreAltaCliente.Text;
             cliente.Apellido = txtApellidoAltaCliente.Text;
 
             if (cbCasaODepartamento.Equals("Departamento"))
@@ -99,6 +111,30 @@ namespace FrbaOfertas.AbmCliente
             cliente.FechaVencimiento = dtpFechaNacimientoAltaCliente.Value;
             cliente.Ciudad = txtCiudadAltaCliente.Text;
             cliente.Credito = 200; // Lo indicado por la consigna
+        }
+
+        public bool esEntero(string texto)
+        {
+            int a;
+            return int.TryParse(texto, out a);
+        }
+
+        public void validarCliente()
+        {
+
+            if (!this.esEntero(txtDNIAltaCliente.Text)){
+                txtDNIAltaCliente.Text = "0";
+            }
+
+            if (!this.esEntero(txtCPAltaCliente.Text))
+            {
+                txtCPAltaCliente.Text = "0";
+            }
+
+            if (!this.esEntero(txtTelefonoAltaCliente.Text))
+            {
+                txtTelefonoAltaCliente.Text = "0";
+            }
         }
     }
 }

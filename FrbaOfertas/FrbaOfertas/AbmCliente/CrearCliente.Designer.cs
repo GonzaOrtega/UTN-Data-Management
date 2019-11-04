@@ -51,7 +51,7 @@
             this.txtDNIAltaCliente = new System.Windows.Forms.TextBox();
             this.txtTelefonoAltaCliente = new System.Windows.Forms.TextBox();
             this.txtCPAltaCliente = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cancelarAltaCliente = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -249,22 +249,22 @@
             this.txtCPAltaCliente.Size = new System.Drawing.Size(277, 26);
             this.txtCPAltaCliente.TabIndex = 29;
             // 
-            // button1
+            // cancelarAltaCliente
             // 
-            this.button1.Location = new System.Drawing.Point(297, 579);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(222, 39);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.cancelarAltaCliente.Location = new System.Drawing.Point(297, 579);
+            this.cancelarAltaCliente.Name = "cancelarAltaCliente";
+            this.cancelarAltaCliente.Size = new System.Drawing.Size(222, 39);
+            this.cancelarAltaCliente.TabIndex = 30;
+            this.cancelarAltaCliente.Text = "Cancelar";
+            this.cancelarAltaCliente.UseVisualStyleBackColor = true;
+            this.cancelarAltaCliente.Click += new System.EventHandler(this.button1_Click);
             // 
             // CrearCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(536, 627);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cancelarAltaCliente);
             this.Controls.Add(this.txtCPAltaCliente);
             this.Controls.Add(this.txtTelefonoAltaCliente);
             this.Controls.Add(this.txtDNIAltaCliente);
@@ -320,6 +320,6 @@
         private System.Windows.Forms.TextBox txtDNIAltaCliente;
         private System.Windows.Forms.TextBox txtTelefonoAltaCliente;
         private System.Windows.Forms.TextBox txtCPAltaCliente;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button cancelarAltaCliente;
     }
 }

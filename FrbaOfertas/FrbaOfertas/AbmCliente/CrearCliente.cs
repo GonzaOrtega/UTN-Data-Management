@@ -16,6 +16,7 @@ namespace FrbaOfertas.AbmCliente
             InitializeComponent();
         }
 
+        // Metodos de formas
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -83,6 +84,10 @@ namespace FrbaOfertas.AbmCliente
         }
 
 
+
+
+
+        // Metodos auxiliares
         public void inicializoCliente()
         {
             cliente.DNI = Convert.ToDouble(txtDNIAltaCliente.Text);
@@ -120,11 +125,13 @@ namespace FrbaOfertas.AbmCliente
                 txtTelefonoAltaCliente.Text = "0";
             }
         }
+        
         public bool esEntero(string texto)
         {
             int a;
             return int.TryParse(texto, out a);
         }
+        
         public bool seCargaronPKs()
         {
             return !String.IsNullOrEmpty(txtDNIAltaCliente.Text) && !String.IsNullOrEmpty(txtCPAltaCliente.Text);

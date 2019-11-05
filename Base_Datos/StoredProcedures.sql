@@ -7,6 +7,7 @@ BEGIN
 	insert into RUBRO (Descripcion)
 	(select Provee_Rubro from gd_esquema.Maestra group by Provee_Rubro)
 END
+GO
 CREATE PROCEDURE migrarClientes--ProblemasConCredito probar ir cargandolo a medida que migra credito
 AS
 BEGIN
@@ -15,6 +16,7 @@ BEGIN
 		from gd_esquema.Maestra
 		GROUP BY Cli_Dni,Cli_Nombre,Cli_Apellido,Cli_Direccion,Cli_Telefono,Cli_Mail,Cli_Fecha_Nac,Cli_Ciudad)
 END
+GO
 CREATE PROCEDURE migrarCarga
 AS
 BEGIN
@@ -23,23 +25,25 @@ BEGIN
 	UPDATE CLIENTES 
 	set Credito = (SELECT COALESCE(sum (Credito),0) FROM CARGA where CLIENTES.DNI_cliente = CARGA.DNI_Cliente)
 END
-/*drop procedure migrarProveedor
+GO
 CREATE PROCEDURE migrarProveedor
 AS
 BEGIN
 	insert into PROVEEDOR (CUIT_proveedor,Razon_social,Domicilio, Ciudad,Telefono, ID_rubro)
-	(Select Provee_CUIT,Provee_RS,Provee_Dom,Provee_Ciudad,Provee_Telefono, (select ID_RUBRO FROM RUBRO WHERE Descripcion=m.Provee_Rubro)
+	(Select Provee_CUIT,Provee_RS,Provee_Dom,Provee_Ciudad,Provee_Telefono, ID_Rubro
 		FROM gd_esquema.Maestra m
+		JOIN RUBRO r ON m.Provee_Rubro= r.Descripcion
 		where Provee_CUIT IS NOT NULL
-		GROUP BY  Provee_CUIT,Provee_RS,Provee_Dom,Provee_Ciudad,Provee_Telefono)
-END*/
+		GROUP BY  Provee_CUIT,Provee_RS,Provee_Dom,Provee_Ciudad,Provee_Telefono,ID_Rubro)
+END
+GO
 CREATE PROCEDURE iniciarMigracionTablaMaestra
 AS
 BEGIN
 	exec migrarRubro
 	exec migrarClientes
 	exec migrarCarga
-	--exec migrarProveedor
+	exec migrarProveedor
 END
 exec iniciarMigracionTablaMaestra
 delete RUBRO
@@ -48,3 +52,4 @@ select * from CLIENTES
 select * from gd_esquema.Maestra;
 delete CLIENTES
 select * from CARGA
+select * from PROVEEDOR

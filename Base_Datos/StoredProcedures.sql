@@ -67,6 +67,14 @@ BEGIN
 	GROUP BY Oferta_Codigo,Cli_Dni,Oferta_Cantidad,Oferta_Fecha_Compra)
 END
 GO
+CREATE PROCEDURE migrarCupon
+AS
+BEGIN
+	insert into Cupon (Entregado_fecha,	DNI_cliente_origen, Codigo_oferta)
+	(select Oferta_Entregado_Fecha,Cli_Dni,Oferta_Codigo  FROM gd_esquema.Maestra
+	where Oferta_Entregado_Fecha IS NOT NULL)
+END
+GO
 CREATE PROCEDURE iniciarMigracionTablaMaestra
 AS
 BEGIN
@@ -77,15 +85,16 @@ BEGIN
 	exec migrarOfertas
 	exec migrarFacturas
 	exec migrarCompras
+	exec migrarCupon
 END
 exec iniciarMigracionTablaMaestra
 delete RUBRO
 select * from rubro
 select * from CLIENTES
 select * from gd_esquema.Maestra
-delete CLIENTES
 select * from CARGA
 select * from PROVEEDOR
 select * from OFERTAS
 select * from FACTURA
 select *from COMPRA
+select * from CUPON

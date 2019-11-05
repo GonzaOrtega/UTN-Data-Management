@@ -129,11 +129,10 @@ CREATE TABLE FACTURA(
 	Num_factura numeric(18,0) Primary Key,
 	Fecha_factura datetime,
 	Importe numeric (18,2),
-	DNI_cliente numeric(18,0),
-	Codigo_oferta nvarchar(50),
-	FOREIGN KEY (DNI_cliente) REFERENCES clientes (DNI_cliente),
-	FOREIGN KEY (Codigo_oferta) REFERENCES ofertas(Codigo_oferta)
-);
+	CUIT_proveedor nvarchar(20),
+	Razon_social nvarchar(100),
+	FOREIGN KEY (CUIT_proveedor,Razon_social) REFERENCES proveedor(CUIT_proveedor,Razon_social) 
+	)
 CREATE TABLE CUPON(
 	Codigo_cupon int identity(1,1) PRIMARY KEY,
 	Entregado_fecha datetime,

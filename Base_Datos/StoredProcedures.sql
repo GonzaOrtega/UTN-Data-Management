@@ -57,12 +57,16 @@ BEGIN
 	GROUP BY Factura_Nro,Factura_Fecha,Provee_CUIT,Provee_RS)
 END
 GO
-/*
 CREATE PROCEDURE migrarCompras
 AS
 BEGIN
+	insert into COMPRA(Codigo_oferta, DNI_cliente,Cantidad_compra,Fecha_compra)
+	(select Oferta_Codigo,Cli_Dni,Oferta_Cantidad,Oferta_Fecha_Compra 
+	FROM gd_esquema.Maestra
+	where Oferta_Codigo IS NOT NULL
+	GROUP BY Oferta_Codigo,Cli_Dni,Oferta_Cantidad,Oferta_Fecha_Compra)
 END
-GO*/
+GO
 CREATE PROCEDURE iniciarMigracionTablaMaestra
 AS
 BEGIN
@@ -72,16 +76,16 @@ BEGIN
 	exec migrarProveedor
 	exec migrarOfertas
 	exec migrarFacturas
-	--exec migrarCompras
+	exec migrarCompras
 END
 exec iniciarMigracionTablaMaestra
 delete RUBRO
 select * from rubro
 select * from CLIENTES
 select * from gd_esquema.Maestra
-ORDER BY Factura_Nro,Factura_Fecha;
 delete CLIENTES
 select * from CARGA
 select * from PROVEEDOR
 select * from OFERTAS
 select * from FACTURA
+select *from COMPRA

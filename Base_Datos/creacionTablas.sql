@@ -122,8 +122,9 @@ CREATE TABLE COMPRA(
 	DNI_cliente numeric(18,0),
 	Cantidad_compra numeric(18,0),
 	Fecha_compra datetime,
-	PRIMARY KEY (Codigo_oferta,DNI_cliente),
-	FOREIGN KEY (DNI_cliente) REFERENCES clientes(DNI_cliente)
+	PRIMARY KEY (Codigo_oferta,DNI_cliente,Fecha_compra),
+	FOREIGN KEY (DNI_cliente) REFERENCES clientes(DNI_cliente),
+	FOREIGN KEY (Codigo_oferta) REFERENCES OFERTAS(Codigo_oferta)
 );
 CREATE TABLE FACTURA(
 	Num_factura numeric(18,0) Primary Key,
@@ -134,7 +135,7 @@ CREATE TABLE FACTURA(
 	FOREIGN KEY (CUIT_proveedor,Razon_social) REFERENCES proveedor(CUIT_proveedor,Razon_social) 
 	)
 CREATE TABLE CUPON(
-	Codigo_cupon int identity(1,1) PRIMARY KEY,
+	Codigo_cupon int identity PRIMARY KEY,
 	Entregado_fecha datetime,
 	DNI_cliente_origen numeric(18,0),
 	DNI_cliente_destino numeric(18,0), 

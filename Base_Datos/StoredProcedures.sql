@@ -37,6 +37,23 @@ BEGIN
 		GROUP BY  Provee_CUIT,Provee_RS,Provee_Dom,Provee_Ciudad,Provee_Telefono,ID_Rubro)
 END
 GO
+CREATE PROCEDURE migrarOfertas
+AS
+BEGIN
+	insert into OFERTAS(Codigo_oferta,Precio_oferta,Fecha_publicacion,Fecha_vencimiento,Stock,Description,Precio_lista,Cant_maxima ,CUIT_proveedor,Razon_social)
+	(SELECT Oferta_Codigo, Oferta_Precio_Ficticio,Oferta_Fecha,Oferta_Fecha_Venc,sum(Oferta_Cantidad),Oferta_Descripcion,Oferta_Precio,max(Oferta_Cantidad),Provee_CUIT,Provee_RS
+		FROM gd_esquema.Maestra
+		where Oferta_Codigo IS NOT NULL
+		GROUP BY Oferta_Codigo,Oferta_Precio_Ficticio,Oferta_Fecha,Oferta_Fecha_Venc, Oferta_Descripcion,Oferta_Precio,Provee_CUIT,Provee_RS)
+END
+GO
+/*
+CREATE PROCEDURE migrarFacturas
+AS
+BEGIN
+END
+GO*/
+
 CREATE PROCEDURE iniciarMigracionTablaMaestra
 AS
 BEGIN
@@ -44,6 +61,8 @@ BEGIN
 	exec migrarClientes
 	exec migrarCarga
 	exec migrarProveedor
+	exec migrarOfertas
+	--exec migrarFacturas
 END
 exec iniciarMigracionTablaMaestra
 delete RUBRO
@@ -53,3 +72,4 @@ select * from gd_esquema.Maestra;
 delete CLIENTES
 select * from CARGA
 select * from PROVEEDOR
+select * from OFERTAS

@@ -117,15 +117,6 @@ CREATE TABLE OFERTAS(
 	Razon_social nvarchar(100),
 	FOREIGN KEY (CUIT_proveedor,Razon_social) REFERENCES proveedor(CUIT_proveedor,Razon_social) 
 );
-CREATE TABLE COMPRA(
-	Codigo_oferta nvarchar(50),
-	DNI_cliente numeric(18,0),
-	Cantidad_compra numeric(18,0),
-	Fecha_compra datetime,
-	PRIMARY KEY (Codigo_oferta,DNI_cliente,Fecha_compra),
-	FOREIGN KEY (DNI_cliente) REFERENCES clientes(DNI_cliente),
-	FOREIGN KEY (Codigo_oferta) REFERENCES OFERTAS(Codigo_oferta)
-);
 CREATE TABLE FACTURA(
 	Num_factura numeric(18,0) Primary Key,
 	Fecha_factura datetime,
@@ -133,7 +124,19 @@ CREATE TABLE FACTURA(
 	CUIT_proveedor nvarchar(20),
 	Razon_social nvarchar(100),
 	FOREIGN KEY (CUIT_proveedor,Razon_social) REFERENCES proveedor(CUIT_proveedor,Razon_social) 
-	)
+	);
+CREATE TABLE COMPRA(
+	Codigo_oferta nvarchar(50),
+	DNI_cliente numeric(18,0),
+	Cantidad_compra numeric(18,0),
+	Fecha_compra datetime,
+	Num_factura numeric(18,0),
+	PRIMARY KEY (Codigo_oferta,DNI_cliente,Fecha_compra),
+	FOREIGN KEY (Num_factura) REFERENCES FACTURA(Num_factura),
+	FOREIGN KEY (DNI_cliente) REFERENCES clientes(DNI_cliente),
+	FOREIGN KEY (Codigo_oferta) REFERENCES OFERTAS(Codigo_oferta)
+);
+
 CREATE TABLE CUPON(
 	Codigo_cupon int identity PRIMARY KEY,
 	Entregado_fecha datetime,

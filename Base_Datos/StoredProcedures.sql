@@ -88,7 +88,6 @@ BEGIN
 	exec migrarCupon
 END
 exec iniciarMigracionTablaMaestra
-delete RUBRO
 select * from rubro
 select * from CLIENTES
 select * from gd_esquema.Maestra

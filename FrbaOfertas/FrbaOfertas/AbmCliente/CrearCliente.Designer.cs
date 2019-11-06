@@ -52,6 +52,7 @@
             this.txtTelefonoAltaCliente = new System.Windows.Forms.TextBox();
             this.txtCPAltaCliente = new System.Windows.Forms.TextBox();
             this.cancelarAltaCliente = new System.Windows.Forms.Button();
+            this.btnLimpiarAltaCliente = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -114,9 +115,10 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(12, 271);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(196, 20);
+            this.label8.Size = new System.Drawing.Size(106, 20);
             this.label8.TabIndex = 7;
-            this.label8.Text = "Codigo postal (Obligatorio)";
+            this.label8.Text = "Codigo postal\r\n";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -168,9 +170,9 @@
             // 
             this.btnDarAltaCliente.Location = new System.Drawing.Point(16, 579);
             this.btnDarAltaCliente.Name = "btnDarAltaCliente";
-            this.btnDarAltaCliente.Size = new System.Drawing.Size(222, 39);
+            this.btnDarAltaCliente.Size = new System.Drawing.Size(163, 39);
             this.btnDarAltaCliente.TabIndex = 17;
-            this.btnDarAltaCliente.Text = "Dar de alta";
+            this.btnDarAltaCliente.Text = "Aceptar";
             this.btnDarAltaCliente.UseVisualStyleBackColor = true;
             this.btnDarAltaCliente.Click += new System.EventHandler(this.btnDarAltaCliente_Click);
             // 
@@ -251,19 +253,30 @@
             // 
             // cancelarAltaCliente
             // 
-            this.cancelarAltaCliente.Location = new System.Drawing.Point(297, 579);
+            this.cancelarAltaCliente.Location = new System.Drawing.Point(367, 579);
             this.cancelarAltaCliente.Name = "cancelarAltaCliente";
-            this.cancelarAltaCliente.Size = new System.Drawing.Size(222, 39);
+            this.cancelarAltaCliente.Size = new System.Drawing.Size(152, 39);
             this.cancelarAltaCliente.TabIndex = 30;
             this.cancelarAltaCliente.Text = "Cancelar";
             this.cancelarAltaCliente.UseVisualStyleBackColor = true;
             this.cancelarAltaCliente.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnLimpiarAltaCliente
+            // 
+            this.btnLimpiarAltaCliente.Location = new System.Drawing.Point(195, 579);
+            this.btnLimpiarAltaCliente.Name = "btnLimpiarAltaCliente";
+            this.btnLimpiarAltaCliente.Size = new System.Drawing.Size(163, 39);
+            this.btnLimpiarAltaCliente.TabIndex = 31;
+            this.btnLimpiarAltaCliente.Text = "Limpiar";
+            this.btnLimpiarAltaCliente.UseVisualStyleBackColor = true;
+            this.btnLimpiarAltaCliente.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // CrearCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(536, 627);
+            this.Controls.Add(this.btnLimpiarAltaCliente);
             this.Controls.Add(this.cancelarAltaCliente);
             this.Controls.Add(this.txtCPAltaCliente);
             this.Controls.Add(this.txtTelefonoAltaCliente);
@@ -305,21 +318,22 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtNombreAltaCliente;
         private System.Windows.Forms.TextBox txtApellidoAltaCliente;
-        private System.Windows.Forms.TextBox txtMailAltaCliente;
-        private System.Windows.Forms.TextBox txtDireccionAltaCliente;
-        private System.Windows.Forms.DateTimePicker dtpFechaNacimientoAltaCliente;
-        private System.Windows.Forms.Button btnDarAltaCliente;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cbCasaODepartamento;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtNroDepartamentoAltaCliente;
-        private System.Windows.Forms.TextBox txtCiudadAltaCliente;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtDNIAltaCliente;
+        private System.Windows.Forms.TextBox txtMailAltaCliente;
         private System.Windows.Forms.TextBox txtTelefonoAltaCliente;
         private System.Windows.Forms.TextBox txtCPAltaCliente;
+        private System.Windows.Forms.DateTimePicker dtpFechaNacimientoAltaCliente;
+        private System.Windows.Forms.TextBox txtDireccionAltaCliente;
+        private System.Windows.Forms.TextBox txtCiudadAltaCliente;
+        private System.Windows.Forms.ComboBox cbCasaODepartamento;
+        private System.Windows.Forms.TextBox txtNroDepartamentoAltaCliente;
+        private System.Windows.Forms.Button btnDarAltaCliente;
         private System.Windows.Forms.Button cancelarAltaCliente;
+        private System.Windows.Forms.Button btnLimpiarAltaCliente;
     }
 }

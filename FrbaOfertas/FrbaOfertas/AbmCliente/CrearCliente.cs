@@ -114,14 +114,17 @@ namespace FrbaOfertas.AbmCliente
         public void validarCliente()
         {
             if (!this.esEntero(txtDNIAltaCliente.Text)){
+                MessageBox.Show("Ingrese un DNI valido", "Error");
                 txtDNIAltaCliente.Text = "0";
             }
             if (!this.esEntero(txtCPAltaCliente.Text))
             {
+                MessageBox.Show("Ingrese un Codigo Postal valido", "Error");
                 txtCPAltaCliente.Text = "0";
             }
             if (!this.esEntero(txtTelefonoAltaCliente.Text))
             {
+                MessageBox.Show("Ingrese un Telefono valido", "Error");
                 txtTelefonoAltaCliente.Text = "0";
             }
         }
@@ -134,7 +137,7 @@ namespace FrbaOfertas.AbmCliente
         
         public bool seCargaronPKs()
         {
-            return !String.IsNullOrEmpty(txtDNIAltaCliente.Text) && !String.IsNullOrEmpty(txtCPAltaCliente.Text);
+            return !String.IsNullOrEmpty(txtDNIAltaCliente.Text);
         }
 
         public void agregarTextboxes()
@@ -155,6 +158,16 @@ namespace FrbaOfertas.AbmCliente
             foreach(TextBox txt in textboxes) {
                 txt.Clear();
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.limpiarTextboxes();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

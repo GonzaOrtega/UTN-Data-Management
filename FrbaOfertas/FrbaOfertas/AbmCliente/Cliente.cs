@@ -8,9 +8,6 @@ namespace FrbaOfertas.AbmCliente
 {
     class Cliente
     {
-        // Se que no es parte del dominio pero lo pongo igual
-        // para guardar el campo que se necesita despues
-
         private Double dni;
 
         private string nombre;

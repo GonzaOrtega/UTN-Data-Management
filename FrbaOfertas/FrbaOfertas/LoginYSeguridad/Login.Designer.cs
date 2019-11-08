@@ -37,7 +37,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(216, 324);
+            this.button1.Location = new System.Drawing.Point(204, 296);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 45);
             this.button1.TabIndex = 0;
@@ -48,7 +48,7 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBox1.Location = new System.Drawing.Point(106, 255);
+            this.textBox1.Location = new System.Drawing.Point(106, 205);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(300, 29);
             this.textBox1.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBox2.Location = new System.Drawing.Point(106, 188);
+            this.textBox2.Location = new System.Drawing.Point(106, 137);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(300, 29);
             this.textBox2.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(167, 97);
+            this.label1.Location = new System.Drawing.Point(168, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(173, 31);
             this.label1.TabIndex = 3;

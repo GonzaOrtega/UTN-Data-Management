@@ -98,7 +98,6 @@
             this.Controls.Add(this.cbCrearCliente);
             this.Name = "ABMCLiente";
             this.Text = "ABMCLiente";
-            this.Load += new System.EventHandler(this.ABMCLiente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

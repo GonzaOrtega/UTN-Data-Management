@@ -165,12 +165,13 @@ BEGIN
 		GROUP BY  Provee_CUIT,Provee_RS,Provee_Dom,Provee_Ciudad,Provee_Telefono,ID_Rubro)
 END
 GO
+drop procedure migrarOfertas
 CREATE PROCEDURE migrarOfertas
 AS
 BEGIN
 	insert into OFERTAS(Codigo_oferta,Precio_oferta,Fecha_publicacion,Fecha_vencimiento,Stock,Description,Precio_lista,Cant_maxima ,CUIT_proveedor,Razon_social)
-	(SELECT Oferta_Codigo, Oferta_Precio_Ficticio,Oferta_Fecha,Oferta_Fecha_Venc,sum(Oferta_Cantidad),Oferta_Descripcion,Oferta_Precio,max(Oferta_Cantidad),Provee_CUIT,Provee_RS
-		FROM gd_esquema.Maestra
+	(SELECT Oferta_Codigo, Oferta_Precio_Ficticio,Oferta_Fecha,Oferta_Fecha_Venc,sum(Oferta_Cantidad),Oferta_Descripcion,Oferta_Precio,(select top 1 sum(m2.Oferta_Cantidad) from gd_esquema.Maestra m2 where m2.Oferta_Codigo=m1.Oferta_Codigo group by m2.Cli_Dni),Provee_CUIT,Provee_RS
+		FROM gd_esquema.Maestra m1
 		where Oferta_Codigo IS NOT NULL
 		GROUP BY Oferta_Codigo,Oferta_Precio_Ficticio,Oferta_Fecha,Oferta_Fecha_Venc, Oferta_Descripcion,Oferta_Precio,Provee_CUIT,Provee_RS)
 END

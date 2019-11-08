@@ -72,7 +72,7 @@ AS
 BEGIN
 	insert into Cupon (Entregado_fecha,	DNI_cliente_origen, Codigo_oferta)
 	(select Oferta_Entregado_Fecha,Cli_Dni,Oferta_Codigo  FROM gd_esquema.Maestra
-	where Oferta_Entregado_Fecha IS NOT NULL)
+	where Oferta_Fecha_Compra IS NOT NULL)
 END
 GO
 CREATE PROCEDURE iniciarMigracionTablaMaestra

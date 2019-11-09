@@ -61,24 +61,23 @@ namespace FrbaOfertas.AbmCliente
 
         private void btnDarAltaCliente_Click(object sender, EventArgs e)
         {
-            try
+            if (seCargaronPKs())
             {
-                if (seCargaronPKs())
+                try
                 {
                     validarCliente();
                     inicializoCliente();
-                    Queries.insertarCliente(cliente, dB);
+                    Queries.insertarCliente(cliente);
                     limpiarTextboxes();
-                }
-                else
+                }catch(Exception ex)
                 {
-                    MessageBox.Show("Por favor ingrese los campos obligatorios", "Alta cliente");
+                    MessageBox.Show("No se pudo ingresar el usuario. Por favor verificar datos ingresados", "Alta cliente");
+                    throw ex;
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("No se pudo ingresar el usuario. Por favor verificar datos ingresados", "Alta cliente");
-                throw ex;
+                MessageBox.Show("Por favor ingrese los campos obligatorios", "Alta cliente");
             }
 
         }
@@ -113,23 +112,9 @@ namespace FrbaOfertas.AbmCliente
 
         public void validarCliente()
         {
-            if (!this.esEntero(txtDNIAltaCliente.Text)){
-                txtDNIAltaCliente.Text = "0";
-            }
-            if (!this.esEntero(txtCPAltaCliente.Text))
-            {
-                txtCPAltaCliente.Text = "0";
-            }
-            if (!this.esEntero(txtTelefonoAltaCliente.Text))
-            {
-                txtTelefonoAltaCliente.Text = "0";
-            }
-        }
-        
-        public bool esEntero(string texto)
-        {
-            int a;
-            return int.TryParse(texto, out a);
+            Validacion.validarDoubleTxt(ref txtDNIAltaCliente);
+            Validacion.validarDoubleTxt(ref txtCPAltaCliente);
+            Validacion.validarDoubleTxt(ref txtTelefonoAltaCliente);
         }
         
         public bool seCargaronPKs()

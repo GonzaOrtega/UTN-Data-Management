@@ -13,8 +13,10 @@ namespace FrbaOfertas.AbmCliente
 {
     public partial class ModificarCliente : Form
     {
+        string query = "select * from CLIENTES";
         DataTable dataTable = new DataTable();
         DBAccess dB = new DBAccess();
+        SqlDataAdapter adapter = new SqlDataAdapter();
 
         public ModificarCliente()
         {
@@ -23,24 +25,7 @@ namespace FrbaOfertas.AbmCliente
 
         private void ModificarUsuario_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'gD2C2019DataSet.CLIENTES' table. You can move, or remove it, as needed.
-            this.cLIENTESTableAdapter.Fill(this.gD2C2019DataSet.CLIENTES);
-            string query = "select * from CLIENTES";
-
-            //dB.readDatathroughAdapter(query, dataTable);
-
-            SqlConnection connection = DBConnection.getConnection();
-            SqlCommand command = new SqlCommand();
-            command.Connection = connection;
-            command.CommandText = query;
-            command.CommandType = CommandType.Text;
-
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            adapter = new SqlDataAdapter(command);
-            adapter.Fill(dataTable);
-
-            planillaModificarCliente.DataSource = dataTable;
-            //dB.closeConn();
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -75,18 +60,42 @@ namespace FrbaOfertas.AbmCliente
             //string update = sqlCommandBuilder.GetUpdateCommand().CommandText.ToString();
 
             //this.cLIENTESTableAdapter.Update()
+
+            DBConnection.getConnection();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string query = "select * from CLIENTES";
-            DBConnection.cargarPlanilla(planillaModificarCliente, query);
-            //SqlCommandBuilder DbCommandBuilder = new SqlCommandBuilder(adapter);
+            //string query = "select * from CLIENTES";
+            //DBConnection.cargarPlanilla(planillaModificarCliente, query);
+            ////SqlCommandBuilder DbCommandBuilder = new SqlCommandBuilder(adapter);
 
 
-            string nombre = Convert.ToString(this.cLIENTESTableAdapter
-                .GetClienteByPalabraExacta(txtPalabraExacta.Text).NombreColumn.DefaultValue);
-            MessageBox.Show("Lo obtenido es:" + nombre);
+            //string nombre = Convert.ToString(this.cLIENTESTableAdapter
+            //    .GetClienteByPalabraExacta(txtPalabraExacta.Text).NombreColumn.DefaultValue);
+            //MessageBox.Show("Lo obtenido es:" + nombre);
+
+            // TODO: This line of code loads data into the 'gD2C2019DataSet.CLIENTES' table. You can move, or remove it, as needed.
+            //this.cLIENTESTableAdapter.Fill(this.gD2C2019DataSet.CLIENTES);
+
+            //dB.readDatathroughAdapter(query, dataTable);
+
+            SqlConnection connection = DBConnection.getConnection();
+            SqlCommand command = new SqlCommand();
+            command.Connection = connection;
+            command.CommandText = query;
+            command.CommandType = CommandType.Text;
+
+            adapter = new SqlDataAdapter(command);
+            adapter.Fill(dataTable);
+
+            planillaModificarCliente.DataSource = dataTable;
+            //dB.closeConn();
+        }
+
+        private void txtEmailTLibre_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -12,7 +12,7 @@ namespace FrbaOfertas.Commons
 {
     class Queries
     {
-        public static void insertarCliente(Cliente cliente, DBAccess dB)
+        public static void insertarCliente(Cliente cliente)
         {
             string query = "dbo.insertarCliente";
 

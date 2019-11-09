@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FrbaOfertas.Commons
 {
@@ -34,6 +35,18 @@ namespace FrbaOfertas.Commons
                 return DBNull.Value;
             }
             return parametro;
+        }
+
+        public static void validarDoubleTxt(ref TextBox textBox)
+        {
+            if (!String.IsNullOrWhiteSpace(textBox.Text))
+            {
+                Convert.ToDouble(textBox.Text);
+            }
+            else
+            {
+                textBox.Text = "0";
+            }
         }
     }
 }

@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.lblIngrese = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtContrasenia = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblIngrese
@@ -42,13 +43,26 @@
             this.lblIngrese.TabIndex = 0;
             this.lblIngrese.Text = "Ingrese sus datos";
             // 
-            // textBox1
+            // txtUsuario
             // 
-            this.textBox1.Location = new System.Drawing.Point(182, 174);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtUsuario.Location = new System.Drawing.Point(157, 148);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(407, 34);
+            this.txtUsuario.TabIndex = 1;
+            this.txtUsuario.Text = "Usuario";
+            this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            // 
+            // txtContrasenia
+            // 
+            this.txtContrasenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContrasenia.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtContrasenia.Location = new System.Drawing.Point(157, 215);
+            this.txtContrasenia.Name = "txtContrasenia";
+            this.txtContrasenia.Size = new System.Drawing.Size(407, 34);
+            this.txtContrasenia.TabIndex = 2;
+            this.txtContrasenia.Text = "Contraseña";
             // 
             // Registrarse
             // 
@@ -56,7 +70,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtContrasenia);
+            this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblIngrese);
             this.Name = "Registrarse";
             this.Text = "Registrarse";
@@ -69,6 +84,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblIngrese;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtContrasenia;
     }
 }

@@ -137,7 +137,7 @@
             this.uSUARIOBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.uSUARIOBindingNavigator.Name = "uSUARIOBindingNavigator";
             this.uSUARIOBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.uSUARIOBindingNavigator.Size = new System.Drawing.Size(728, 27);
+            this.uSUARIOBindingNavigator.Size = new System.Drawing.Size(728, 31);
             this.uSUARIOBindingNavigator.TabIndex = 4;
             this.uSUARIOBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -147,7 +147,7 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
             // 
             // uSUARIOBindingSource

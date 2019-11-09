@@ -219,6 +219,17 @@ BEGIN
 END
 ----------------------------------------------------------------------------------------------------------Ejecuto stored procedure para realizar la migracion
 exec iniciarMigracionTablaMaestra
+----------------------------------------------------------------------------------------------------------Creo Trigger para encriptar la contraseña
+GO
+CREATE TRIGGER encriptarContrasenia
+ON USUARIO
+INSTEAD OF INSERT
+AS
+BEGIN
+	INSERT INTO USUARIO(ID_usuario,Nombre_usuario,contrasenia)
+	(SELECT ID_usuario,Nombre_usuario, HASHBYTES('SHA2_256', contrasenia) FROM inserted)
+END
+
 ----------------------------------------------------------------------------------------------------------Creado Usuario
 GO
 CREATE PROCEDURE crearUsuario

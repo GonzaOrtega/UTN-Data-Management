@@ -16767,8 +16767,8 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT COUNT(*) AS Expr1\r\nFROM     USUARIO\r\nWHERE  (contrasenia = @Contrasenia) A" +
-                "ND (Nombre_usuario = @Nombre_usuario)";
+            this._commandCollection[1].CommandText = "SELECT COUNT(*) AS Expr1\r\nFROM     USUARIO\r\nWHERE  (contrasenia = HASHBYTES(\'SHA2" +
+                "_256\', @Contrasenia)) AND (Nombre_usuario = @Nombre_usuario)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contrasenia", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "contrasenia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

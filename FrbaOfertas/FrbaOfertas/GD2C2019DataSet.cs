@@ -9,7 +9,5 @@
 
 namespace FrbaOfertas.GD2C2019DataSetTableAdapters {
     
-    
-    public partial class USUARIOTableAdapter {
-    }
+   
 }

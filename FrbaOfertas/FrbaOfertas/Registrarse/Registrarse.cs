@@ -16,5 +16,15 @@ namespace FrbaOfertas.Registrarse
         {
             InitializeComponent();
         }
+
+        private void Registrarse_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
     }
 }

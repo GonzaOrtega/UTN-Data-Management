@@ -56,5 +56,38 @@ namespace FrbaOfertas.LoginYSeguridad
             this.Hide();
  
         }
+
+        
+        private void txtUsuario_Click(object sender, EventArgs e)
+        {
+            if (txtUsuario.Text == "Usuario")
+            {
+                txtUsuario.Text = "";
+            }
+        }
+
+        private void txtContrasenia_Click(object sender, EventArgs e)
+        {
+            if (txtContrasenia.Text == "Contraseña")
+            {
+                txtContrasenia.Text = "";
+            }
+        }
+
+        private void txtUsuario_Leave(object sender, EventArgs e)
+        {
+            if (txtUsuario.Text == "")
+            {
+                txtUsuario.Text = "Usuario";
+            }
+        }
+
+        private void txtContrasenia_Leave(object sender, EventArgs e)
+        {
+            if (txtContrasenia.Text == "")
+            {
+                txtContrasenia.Text = "Contraseña";
+            }
+        }
     }
 }

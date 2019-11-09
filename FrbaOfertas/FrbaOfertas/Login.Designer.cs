@@ -36,8 +36,6 @@
             this.lblIniciarSesion = new System.Windows.Forms.Label();
             this.uSUARIOBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.uSUARIOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gD2C2019DataSet = new FrbaOfertas.GD2C2019DataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -49,6 +47,8 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.uSUARIOBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.uSUARIOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD2C2019DataSet = new FrbaOfertas.GD2C2019DataSet();
             this.uSUARIOTableAdapter = new FrbaOfertas.GD2C2019DataSetTableAdapters.USUARIOTableAdapter();
             this.tableAdapterManager = new FrbaOfertas.GD2C2019DataSetTableAdapters.TableAdapterManager();
             this.cLIENTESBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -81,6 +81,7 @@
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.Size = new System.Drawing.Size(399, 34);
             this.txtContrasenia.TabIndex = 1;
+            this.txtContrasenia.Text = "Contraseña";
             // 
             // txtUsuario
             // 
@@ -91,6 +92,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(399, 34);
             this.txtUsuario.TabIndex = 2;
+            this.txtUsuario.Text = "Usuario";
             // 
             // lblIniciarSesion
             // 
@@ -142,16 +144,6 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
-            // 
-            // uSUARIOBindingSource
-            // 
-            this.uSUARIOBindingSource.DataMember = "USUARIO";
-            this.uSUARIOBindingSource.DataSource = this.gD2C2019DataSet;
-            // 
-            // gD2C2019DataSet
-            // 
-            this.gD2C2019DataSet.DataSetName = "GD2C2019DataSet";
-            this.gD2C2019DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -237,6 +229,16 @@
             this.uSUARIOBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
             this.uSUARIOBindingNavigatorSaveItem.Text = "Guardar datos";
             this.uSUARIOBindingNavigatorSaveItem.Click += new System.EventHandler(this.uSUARIOBindingNavigatorSaveItem_Click);
+            // 
+            // uSUARIOBindingSource
+            // 
+            this.uSUARIOBindingSource.DataMember = "USUARIO";
+            this.uSUARIOBindingSource.DataSource = this.gD2C2019DataSet;
+            // 
+            // gD2C2019DataSet
+            // 
+            this.gD2C2019DataSet.DataSetName = "GD2C2019DataSet";
+            this.gD2C2019DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // uSUARIOTableAdapter
             // 

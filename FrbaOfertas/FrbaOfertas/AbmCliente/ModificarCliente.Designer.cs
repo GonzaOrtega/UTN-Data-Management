@@ -32,7 +32,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPalabraExacta = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -41,15 +41,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.gD2C2019DataSet = new FrbaOfertas.GD2C2019DataSet();
-            this.gD2C2019DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cLIENTESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD2C2019DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD2C2019DataSet = new FrbaOfertas.GD2C2019DataSet();
             this.cLIENTESTableAdapter = new FrbaOfertas.GD2C2019DataSetTableAdapters.CLIENTESTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.planillaModificarCliente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -58,7 +58,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtPalabraExacta);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(23, 24);
@@ -86,12 +86,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Filtro 2";
             // 
-            // textBox1
+            // txtPalabraExacta
             // 
-            this.textBox1.Location = new System.Drawing.Point(119, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 26);
-            this.textBox1.TabIndex = 3;
+            this.txtPalabraExacta.Location = new System.Drawing.Point(119, 39);
+            this.txtPalabraExacta.Name = "txtPalabraExacta";
+            this.txtPalabraExacta.Size = new System.Drawing.Size(146, 26);
+            this.txtPalabraExacta.TabIndex = 3;
             // 
             // textBox2
             // 
@@ -166,20 +166,20 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // gD2C2019DataSet
+            // cLIENTESBindingSource
             // 
-            this.gD2C2019DataSet.DataSetName = "GD2C2019DataSet";
-            this.gD2C2019DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.cLIENTESBindingSource.DataMember = "CLIENTES";
+            this.cLIENTESBindingSource.DataSource = this.gD2C2019DataSetBindingSource;
             // 
             // gD2C2019DataSetBindingSource
             // 
             this.gD2C2019DataSetBindingSource.DataSource = this.gD2C2019DataSet;
             this.gD2C2019DataSetBindingSource.Position = 0;
             // 
-            // cLIENTESBindingSource
+            // gD2C2019DataSet
             // 
-            this.cLIENTESBindingSource.DataMember = "CLIENTES";
-            this.cLIENTESBindingSource.DataSource = this.gD2C2019DataSetBindingSource;
+            this.gD2C2019DataSet.DataSetName = "GD2C2019DataSet";
+            this.gD2C2019DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // cLIENTESTableAdapter
             // 
@@ -201,9 +201,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.planillaModificarCliente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,7 +214,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPalabraExacta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;

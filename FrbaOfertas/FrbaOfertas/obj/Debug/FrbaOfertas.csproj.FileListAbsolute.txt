@@ -8,14 +8,3 @@ C:\Users\Susana\Google Drive - UTN\UTN\3º Año 2019\Gestion de Datos\TP Frba Cu
 C:\Users\Susana\Google Drive - UTN\UTN\3º Año 2019\Gestion de Datos\TP Frba Cupon 1.0 - 2C 2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.csproj.CoreCompileInputs.cache
 C:\Users\Susana\Google Drive - UTN\UTN\3º Año 2019\Gestion de Datos\TP Frba Cupon 1.0 - 2C 2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.exe
 C:\Users\Susana\Google Drive - UTN\UTN\3º Año 2019\Gestion de Datos\TP Frba Cupon 1.0 - 2C 2019\Aplicacion\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.pdb
-C:\Users\gonza\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\bin\Debug\FrbaOfertas.exe.config
-C:\Users\gonza\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\bin\Debug\FrbaOfertas.exe
-C:\Users\gonza\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\bin\Debug\FrbaOfertas.pdb
-C:\Users\gonza\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.csprojAssemblyReference.cache
-C:\Users\gonza\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.AbmCliente.ABMCLiente.resources
-C:\Users\gonza\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.AbmCliente.CrearCliente.resources
-C:\Users\gonza\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.AbmCliente.ModificarCliente.resources
-C:\Users\gonza\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.Properties.Resources.resources
-C:\Users\gonza\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.csproj.GenerateResource.cache
-C:\Users\gonza\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.exe
-C:\Users\gonza\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.pdb

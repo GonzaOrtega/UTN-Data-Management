@@ -31,14 +31,35 @@ namespace FrbaOfertas.AbmCliente
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string query = "select * from CLIENTES";
+            Decimal cp = Convert.ToDecimal(planillaModificarCliente.SelectedCells[1].Value);
+            string nombre = Convert.ToString(planillaModificarCliente.SelectedCells[2].Value);
+            string apellido = Convert.ToString(planillaModificarCliente.SelectedCells[3].Value);
+            string direccion = Convert.ToString(planillaModificarCliente.SelectedCells[4].Value);
+            Decimal telefono = Convert.ToDecimal(planillaModificarCliente.SelectedCells[5].Value);
+            string mail = Convert.ToString(planillaModificarCliente.SelectedCells[6].Value);
+            DateTime fechaNacimiento = Convert.ToDateTime(planillaModificarCliente.SelectedCells[7].Value);
+            string ciudad = Convert.ToString(planillaModificarCliente.SelectedCells[8].Value);
+            Decimal credito = Convert.ToDecimal(planillaModificarCliente.SelectedCells[9].Value);
 
-            DBConnection.cargarPlanilla(planillaModificarCliente, query);
+            this.cLIENTESTableAdapter.updateCliente(cp,
+                nombre,
+                apellido,
+                direccion,
+                telefono,
+                mail,
+                fechaNacimiento,
+                ciudad,
+                credito,
+                1);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            //string query = "select * from CLIENTES";
+            //DBConnection.cargarPlanilla(planillaModificarCliente, query);
+            //SqlCommandBuilder DbCommandBuilder = new SqlCommandBuilder(adapter);
+            string nombre = Convert.ToString(this.cLIENTESTableAdapter
+                .GetClienteByPalabraExacta(txtPalabraExacta.Text).NombreColumn.DefaultValue);
         }
     }
 }

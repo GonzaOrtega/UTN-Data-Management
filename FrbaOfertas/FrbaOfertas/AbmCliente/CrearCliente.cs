@@ -67,7 +67,7 @@ namespace FrbaOfertas.AbmCliente
                 {
                     validarCliente();
                     inicializoCliente();
-                    Inserts.insertarCliente(cliente, dB);
+                    Queries.insertarCliente(cliente, dB);
                     limpiarTextboxes();
                 }
                 else

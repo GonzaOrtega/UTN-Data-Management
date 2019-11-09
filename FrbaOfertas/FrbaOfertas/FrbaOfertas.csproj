@@ -76,7 +76,8 @@
     <Compile Include="AbmRol\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Commons\Inserts.cs" />
+    <Compile Include="Commons\Queries.cs" />
+    <Compile Include="Commons\Validacion.cs" />
     <Compile Include="ComprarOferta\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +109,9 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GD2C2019DataSet.cs">
+      <DependentUpon>GD2C2019DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="GD2C2019DataSet.Designer.cs">
       <AutoGen>True</AutoGen>

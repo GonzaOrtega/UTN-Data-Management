@@ -48,14 +48,15 @@ CREATE TABLE CARGA(
 	Foreign Key (DNI_Cliente) references clientes(DNI_Cliente),
 	Foreign Key (ID_tarjeta) references tarjeta (ID_tarjeta)
 );
+
 CREATE TABLE TIPO_USUARIO(
-	ID_usuario int Identity(1,1) Primary Key,
+	ID_usuario int identity Primary Key,
 	CUIT_proveedor nvarchar(20),
 	Razon_social nvarchar(100),
 	DNI_cliente numeric(18,0),
 	FOREIGN KEY (DNI_cliente) REFERENCES clientes(DNI_cliente),
 	FOREIGN KEY (CUIT_proveedor,Razon_social) REFERENCES proveedor(CUIT_proveedor,Razon_social)
-);
+); 
 CREATE TABLE USUARIO(
 	ID_usuario int Primary Key,
 	contrasenia nvarchar(50),
@@ -63,12 +64,12 @@ CREATE TABLE USUARIO(
 	Foreign Key (ID_usuario) REFERENCES tipo_usuario
 );
 CREATE TABLE ROL(
-	ID_rol smallint Primary Key,
+	ID_rol int identity Primary Key,
 	Nombre varchar(20)
 );
 CREATE TABLE USUARIO_ROL(
 	ID_usuario int,
-	ID_rol smallint,
+	ID_rol int,
 	PRIMARY KEY (ID_usuario,ID_rol),
 	FOREIGN KEY (ID_usuario) REFERENCES usuario,
 	FOREIGN KEY (ID_rol) REFERENCES rol
@@ -79,7 +80,7 @@ CREATE TABLE FUNCIONALIDAD(
 );
 CREATE TABLE ROL_FUNCIONALIDAD(
 	ID_funcionalidad int,
-	ID_rol smallint,
+	ID_rol int,
 	PRIMARY KEY (ID_funcionalidad,ID_rol),
 	FOREIGN KEY (ID_funcionalidad) REFERENCES funcionalidad,
 	FOREIGN KEY (ID_rol) REFERENCES rol
@@ -218,3 +219,26 @@ BEGIN
 END
 ----------------------------------------------------------------------------------------------------------Ejecuto stored procedure para realizar la migracion
 exec iniciarMigracionTablaMaestra
+----------------------------------------------------------------------------------------------------------Creado Usuario
+GO
+CREATE PROCEDURE crearUsuario
+AS
+BEGIN
+	--exec insertarTIPO_USUARIO
+	insert into TIPO_USUARIO(CUIT_proveedor,DNI_cliente,Razon_social)
+	values (NUll,Null,Null);
+	
+	insert into USUARIO (Nombre_usuario,contrasenia,ID_usuario)
+	(select top 1 'admin', 'w23e',ID_usuario from TIPO_USUARIO where CUIT_proveedor IS NULL AND DNI_cliente IS NULL AND Razon_social IS NULL );
+	
+	insert into ROL(Nombre)
+	values('AdministradorGeneral')
+	
+	insert into USUARIO_ROL(ID_usuario,ID_rol)
+	(select top 1 ID_usuario,ID_ROL FROM USUARIO,ROL
+	where Nombre_usuario like'admin' and Nombre like 'AdministradorGeneral')
+
+	insert into ROL_FUNCIONALIDAD(ID_funcionalidad,ID_rol)
+	(select top 1 ID_funcionalidad,ID_ROL FROM FUNCIONALIDAD,ROL where Nombre like 'AdministradorGeneral')
+END
+exec crearUsuario

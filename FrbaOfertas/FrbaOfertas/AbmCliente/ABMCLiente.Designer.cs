@@ -44,7 +44,6 @@
             this.cbCrearCliente.TabIndex = 0;
             this.cbCrearCliente.Text = "Crear cliente";
             this.cbCrearCliente.UseVisualStyleBackColor = true;
-            this.cbCrearCliente.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // cbBorrarCliente
             // 

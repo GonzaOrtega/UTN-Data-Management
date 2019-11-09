@@ -36,6 +36,8 @@
             this.lblIniciarSesion = new System.Windows.Forms.Label();
             this.uSUARIOBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.uSUARIOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD2C2019DataSet = new FrbaOfertas.GD2C2019DataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -47,12 +49,11 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.uSUARIOBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.uSUARIOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gD2C2019DataSet = new FrbaOfertas.GD2C2019DataSet();
             this.uSUARIOTableAdapter = new FrbaOfertas.GD2C2019DataSetTableAdapters.USUARIOTableAdapter();
             this.tableAdapterManager = new FrbaOfertas.GD2C2019DataSetTableAdapters.TableAdapterManager();
             this.cLIENTESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cLIENTESTableAdapter = new FrbaOfertas.GD2C2019DataSetTableAdapters.CLIENTESTableAdapter();
+            this.btnRegistrarse = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.uSUARIOBindingNavigator)).BeginInit();
             this.uSUARIOBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uSUARIOBindingSource)).BeginInit();
@@ -63,7 +64,7 @@
             // btnIniciar
             // 
             this.btnIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIniciar.Location = new System.Drawing.Point(272, 364);
+            this.btnIniciar.Location = new System.Drawing.Point(408, 373);
             this.btnIniciar.Margin = new System.Windows.Forms.Padding(4);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(132, 55);
@@ -145,6 +146,16 @@
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
             // 
+            // uSUARIOBindingSource
+            // 
+            this.uSUARIOBindingSource.DataMember = "USUARIO";
+            this.uSUARIOBindingSource.DataSource = this.gD2C2019DataSet;
+            // 
+            // gD2C2019DataSet
+            // 
+            this.gD2C2019DataSet.DataSetName = "GD2C2019DataSet";
+            this.gD2C2019DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
@@ -188,6 +199,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Posición";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -230,16 +242,6 @@
             this.uSUARIOBindingNavigatorSaveItem.Text = "Guardar datos";
             this.uSUARIOBindingNavigatorSaveItem.Click += new System.EventHandler(this.uSUARIOBindingNavigatorSaveItem_Click);
             // 
-            // uSUARIOBindingSource
-            // 
-            this.uSUARIOBindingSource.DataMember = "USUARIO";
-            this.uSUARIOBindingSource.DataSource = this.gD2C2019DataSet;
-            // 
-            // gD2C2019DataSet
-            // 
-            this.gD2C2019DataSet.DataSetName = "GD2C2019DataSet";
-            this.gD2C2019DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // uSUARIOTableAdapter
             // 
             this.uSUARIOTableAdapter.ClearBeforeFill = true;
@@ -274,12 +276,24 @@
             // 
             this.cLIENTESTableAdapter.ClearBeforeFill = true;
             // 
+            // btnRegistrarse
+            // 
+            this.btnRegistrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarse.Location = new System.Drawing.Point(141, 373);
+            this.btnRegistrarse.Name = "btnRegistrarse";
+            this.btnRegistrarse.Size = new System.Drawing.Size(215, 55);
+            this.btnRegistrarse.TabIndex = 5;
+            this.btnRegistrarse.Text = "REGISTRARSE";
+            this.btnRegistrarse.UseVisualStyleBackColor = true;
+            this.btnRegistrarse.Click += new System.EventHandler(this.btnRegistrarse_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(728, 627);
+            this.ClientSize = new System.Drawing.Size(728, 501);
+            this.Controls.Add(this.btnRegistrarse);
             this.Controls.Add(this.uSUARIOBindingNavigator);
             this.Controls.Add(this.lblIniciarSesion);
             this.Controls.Add(this.txtUsuario);
@@ -325,5 +339,6 @@
         private System.Windows.Forms.ToolStripButton uSUARIOBindingNavigatorSaveItem;
         private System.Windows.Forms.BindingSource cLIENTESBindingSource;
         private GD2C2019DataSetTableAdapters.CLIENTESTableAdapter cLIENTESTableAdapter;
+        private System.Windows.Forms.Button btnRegistrarse;
     }
 }

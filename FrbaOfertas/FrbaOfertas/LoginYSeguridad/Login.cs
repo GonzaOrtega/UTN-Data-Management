@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FrbaOfertas.GD2C2019DataSetTableAdapters;
+//using FrbaOfertas.Registrarse;
 namespace FrbaOfertas.LoginYSeguridad
 {
     public partial class Login : Form
@@ -47,6 +48,13 @@ namespace FrbaOfertas.LoginYSeguridad
             this.uSUARIOBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.gD2C2019DataSet);
 
+        }
+
+        private void btnRegistrarse_Click(object sender, EventArgs e)
+        {
+            new Registrarse.Registrarse().Show();
+            this.Hide();
+ 
         }
     }
 }

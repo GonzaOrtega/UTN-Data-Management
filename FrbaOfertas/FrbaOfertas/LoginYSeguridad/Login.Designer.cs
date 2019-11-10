@@ -49,16 +49,13 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.uSUARIOBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.btnRegistrarse = new System.Windows.Forms.Button();
             this.uSUARIOTableAdapter = new FrbaOfertas.GD2C2019DataSetTableAdapters.USUARIOTableAdapter();
             this.tableAdapterManager = new FrbaOfertas.GD2C2019DataSetTableAdapters.TableAdapterManager();
-            this.cLIENTESBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cLIENTESTableAdapter = new FrbaOfertas.GD2C2019DataSetTableAdapters.CLIENTESTableAdapter();
-            this.btnRegistrarse = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.uSUARIOBindingNavigator)).BeginInit();
             this.uSUARIOBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uSUARIOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnIniciar
@@ -137,7 +134,7 @@
             this.uSUARIOBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.uSUARIOBindingNavigator.Name = "uSUARIOBindingNavigator";
             this.uSUARIOBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.uSUARIOBindingNavigator.Size = new System.Drawing.Size(728, 31);
+            this.uSUARIOBindingNavigator.Size = new System.Drawing.Size(728, 27);
             this.uSUARIOBindingNavigator.TabIndex = 4;
             this.uSUARIOBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -147,7 +144,7 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
             // 
             // uSUARIOBindingSource
@@ -203,7 +200,6 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Posición";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -246,6 +242,17 @@
             this.uSUARIOBindingNavigatorSaveItem.Text = "Guardar datos";
             this.uSUARIOBindingNavigatorSaveItem.Click += new System.EventHandler(this.uSUARIOBindingNavigatorSaveItem_Click);
             // 
+            // btnRegistrarse
+            // 
+            this.btnRegistrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarse.Location = new System.Drawing.Point(141, 373);
+            this.btnRegistrarse.Name = "btnRegistrarse";
+            this.btnRegistrarse.Size = new System.Drawing.Size(215, 55);
+            this.btnRegistrarse.TabIndex = 5;
+            this.btnRegistrarse.Text = "REGISTRARSE";
+            this.btnRegistrarse.UseVisualStyleBackColor = true;
+            this.btnRegistrarse.Click += new System.EventHandler(this.btnRegistrarse_Click);
+            // 
             // uSUARIOTableAdapter
             // 
             this.uSUARIOTableAdapter.ClearBeforeFill = true;
@@ -271,26 +278,6 @@
             this.tableAdapterManager.USUARIO_ROLTableAdapter = null;
             this.tableAdapterManager.USUARIOTableAdapter = this.uSUARIOTableAdapter;
             // 
-            // cLIENTESBindingSource
-            // 
-            this.cLIENTESBindingSource.DataMember = "CLIENTES";
-            this.cLIENTESBindingSource.DataSource = this.gD2C2019DataSet;
-            // 
-            // cLIENTESTableAdapter
-            // 
-            this.cLIENTESTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnRegistrarse
-            // 
-            this.btnRegistrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarse.Location = new System.Drawing.Point(141, 373);
-            this.btnRegistrarse.Name = "btnRegistrarse";
-            this.btnRegistrarse.Size = new System.Drawing.Size(215, 55);
-            this.btnRegistrarse.TabIndex = 5;
-            this.btnRegistrarse.Text = "REGISTRARSE";
-            this.btnRegistrarse.UseVisualStyleBackColor = true;
-            this.btnRegistrarse.Click += new System.EventHandler(this.btnRegistrarse_Click);
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -312,7 +299,6 @@
             this.uSUARIOBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uSUARIOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,8 +327,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton uSUARIOBindingNavigatorSaveItem;
-        private System.Windows.Forms.BindingSource cLIENTESBindingSource;
-        private GD2C2019DataSetTableAdapters.CLIENTESTableAdapter cLIENTESTableAdapter;
         private System.Windows.Forms.Button btnRegistrarse;
     }
 }

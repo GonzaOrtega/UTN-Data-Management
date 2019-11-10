@@ -7,7 +7,9 @@
     }
 }
 
-namespace FrbaOfertas.GD2C2019DataSetTableAdapters {
-    
-   
+namespace FrbaOfertas.GD2C2019DataSetTableAdapters
+{
+    partial class ROLTableAdapter
+    {
+    }
 }

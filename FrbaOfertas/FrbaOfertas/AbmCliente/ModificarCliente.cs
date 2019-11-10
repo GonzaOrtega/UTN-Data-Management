@@ -37,75 +37,48 @@ namespace FrbaOfertas.AbmCliente
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //Decimal cp = Convert.ToDecimal(planillaModificarCliente.SelectedCells[1].Value);
-            //string nombre = Convert.ToString(planillaModificarCliente.SelectedCells[2].Value);
-            //string apellido = Convert.ToString(planillaModificarCliente.SelectedCells[3].Value);
-            //string direccion = Convert.ToString(planillaModificarCliente.SelectedCells[4].Value);
-            //Decimal telefono = Convert.ToDecimal(planillaModificarCliente.SelectedCells[5].Value);
-            //string mail = Convert.ToString(planillaModificarCliente.SelectedCells[6].Value);
-            //DateTime fechaNacimiento = Convert.ToDateTime(planillaModificarCliente.SelectedCells[7].Value);
-            //string ciudad = Convert.ToString(planillaModificarCliente.SelectedCells[8].Value);
-            //Decimal credito = Convert.ToDecimal(planillaModificarCliente.SelectedCells[9].Value);
+            SqlConnection connection = DBConnection.getConnection();
+            SqlCommand command = new SqlCommand();
 
-            //this.cLIENTESTableAdapter.updateCliente(cp,
-            //    nombre,
-            //    apellido,
-            //    direccion,
-            //    telefono,
-            //    mail,
-            //    fechaNacimiento,
-            //    ciudad,
-            //    credito,
-            //    1);
+            adapter.SelectCommand.CommandText = query;
+            adapter.SelectCommand.CommandType = CommandType.Text;
+            SqlCommandBuilder DbCommandBuilder = new SqlCommandBuilder(adapter);
 
-            //SqlCommandBuilder sqlCommandBuilder = new SqlCommandBuilder();
+            connection.Open();
+            int modificaciones = adapter.Update(dataTable);
 
-            //string update = sqlCommandBuilder.GetUpdateCommand().CommandText.ToString();
-
-            //this.cLIENTESTableAdapter.Update()
-
-            DBConnection.getConnection();
+            MessageBox.Show("Cambios realizados correctamente.\nCambios realizados: " + modificaciones);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //string query = "select * from CLIENTES";
-            //DBConnection.cargarPlanilla(planillaModificarCliente, query);
-            ////SqlCommandBuilder DbCommandBuilder = new SqlCommandBuilder(adapter);
-
-
-            //string nombre = Convert.ToString(this.cLIENTESTableAdapter
-            //    .GetClienteByPalabraExacta(txtPalabraExacta.Text).NombreColumn.DefaultValue);
-            //MessageBox.Show("Lo obtenido es:" + nombre);
-
-            // TODO: This line of code loads data into the 'gD2C2019DataSet.CLIENTES' table. You can move, or remove it, as needed.
-            //this.cLIENTESTableAdapter.Fill(this.gD2C2019DataSet.CLIENTES);
-
-            //dB.readDatathroughAdapter(query, dataTable);
-
             this.limpiarEstructuras();
-            if (this.hayCondicionesDeFiltro())
+            try
             {
-                this.guardarStringEnDiccionario("Nombre", txtNombreTLibre.Text);
-                this.guardarStringEnDiccionario("Apellido", txtApellidoTLibre.Text);
-                this.guardarStringEnDiccionario("Mail", txtEmailTLibre.Text);
-
-                try
+                if (this.hayCondicionesDeFiltro())
                 {
-                    if (!String.IsNullOrWhiteSpace(txtDNIPExacta.Text))
-                    {
-                        dniglobal = Convert.ToDouble(txtDNIPExacta.Text);
-                    }
+                    this.guardarStringEnDiccionario("Nombre", txtNombreTLibre.Text);
+                    this.guardarStringEnDiccionario("Apellido", txtApellidoTLibre.Text);
+                    this.guardarStringEnDiccionario("Mail", txtEmailTLibre.Text);
+                    DNIEsCorrecto();
                     this.buscar();
-
-                }catch(System.FormatException ex)
-                {
-                    MessageBox.Show("DNI ingresado incorrectamente");
                 }
-            }
-            else
+                else
+                {
+                    MessageBox.Show("No se ingresaron condiciones de filtro");
+                }
+
+            }catch(System.FormatException ex)
             {
-                MessageBox.Show("No se ingresaron condiciones de filtro");
+                MessageBox.Show("DNI ingresado incorrectamente");
+            }
+        }
+
+        private void DNIEsCorrecto()
+        {
+            if (!String.IsNullOrWhiteSpace(txtDNIPExacta.Text))
+            {
+                dniglobal = Convert.ToDouble(txtDNIPExacta.Text);
             }
         }
 
@@ -131,8 +104,6 @@ namespace FrbaOfertas.AbmCliente
         {
             dictionary.Clear();
             query = "select * from CLIENTES";
-            //planillaModificarCliente.Rows.Clear();
-            //planillaModificarCliente.Refresh();
             planillaModificarCliente.DataSource = null;
             dataTable.Clear();
         }
@@ -174,12 +145,6 @@ namespace FrbaOfertas.AbmCliente
             }
         }
 
-        public void guardarDouble(String key, TextBox textBox)
-        {
-            Validacion.validarDoubleTxt(ref textBox);
-            dniglobal = Convert.ToDouble(textBox.Text);           
-        }
-
         private void obtenerTabla()
         {
             SqlConnection connection = DBConnection.getConnection();
@@ -198,6 +163,11 @@ namespace FrbaOfertas.AbmCliente
         private void txtEmailTLibre_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -46,6 +46,7 @@
             this.gD2C2019DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD2C2019DataSet = new FrbaOfertas.GD2C2019DataSet();
             this.cLIENTESTableAdapter = new FrbaOfertas.GD2C2019DataSetTableAdapters.CLIENTESTableAdapter();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.planillaModificarCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource)).BeginInit();
@@ -194,11 +195,22 @@
             // 
             this.cLIENTESTableAdapter.ClearBeforeFill = true;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(23, 489);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(87, 35);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "Finalizar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // ModificarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(648, 536);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -236,5 +248,6 @@
         private GD2C2019DataSetTableAdapters.CLIENTESTableAdapter cLIENTESTableAdapter;
         private System.Windows.Forms.TextBox txtEmailTLibre;
         private System.Windows.Forms.TextBox txtDNIPExacta;
+        private System.Windows.Forms.Button button4;
     }
 }

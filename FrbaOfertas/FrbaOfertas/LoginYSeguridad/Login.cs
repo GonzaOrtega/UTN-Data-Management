@@ -21,14 +21,17 @@ namespace FrbaOfertas.LoginYSeguridad
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            if ((int)this.uSUARIOTableAdapter.chequearUsuario( txtContrasenia.Text, txtUsuario.Text) !=0)
+            if ((int)this.uSUARIOTableAdapter.chequearUsuario(txtContrasenia.Text, txtUsuario.Text) != 0)
             {
-                txtUsuario.Text = "Ingresado";//Pasar a la siguiente pagina
+                DataRow usuario= this.uSUARIOTableAdapter.GetDataByUsuario(txtContrasenia.Text, txtUsuario.Text).First();
+                new Funciones.Funciones(Convert.ToInt32(usuario["ID_Usuario"].ToString())).Show();
+                Hide();
             }
             else
             {
                 MessageBox.Show("Contraseña o Usuario invalidos", "ERROR", MessageBoxButtons.OK);
             }
+
 
         }
 

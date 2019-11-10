@@ -12,6 +12,7 @@ namespace FrbaOfertas.Commons
 {
     class Queries
     {
+        SqlDataAdapter adapter = new SqlDataAdapter();
         public static void insertarCliente(Cliente cliente)
         {
             string query = "dbo.insertarCliente";
@@ -40,6 +41,33 @@ namespace FrbaOfertas.Commons
             comando.ExecuteReader();
 
             MessageBox.Show("Cliente creado satisfactoriamente", "Alta cliente");
+        }
+
+        public void modificarTablaDeUna(String query, DataTable dataTable)
+        {
+            SqlConnection connection = DBConnection.getConnection();
+            SqlCommand command = new SqlCommand();
+
+            adapter.SelectCommand.CommandText = query;
+            adapter.SelectCommand.CommandType = CommandType.Text;
+            SqlCommandBuilder DbCommandBuilder = new SqlCommandBuilder(adapter);
+
+            connection.Open();
+            int modificaciones = adapter.Update(dataTable);
+
+            MessageBox.Show("Cambios realizados correctamente.\nClientes modificados: " + modificaciones);
+        }
+
+        public void obtenerTabla(String query, DataTable dataTable)
+        {
+            SqlConnection connection = DBConnection.getConnection();
+            SqlCommand command = new SqlCommand();
+            command.Connection = connection;
+            command.CommandText = query;
+            command.CommandType = CommandType.Text;
+
+            adapter = new SqlDataAdapter(command);
+            adapter.Fill(dataTable);
         }
 
     }

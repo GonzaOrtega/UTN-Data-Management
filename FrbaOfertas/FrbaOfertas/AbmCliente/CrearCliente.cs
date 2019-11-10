@@ -7,9 +7,9 @@ namespace FrbaOfertas.AbmCliente
 {
     public partial class CrearCliente : Form
     {
-        DBAccess dB = new DBAccess();
         Cliente cliente = new Cliente();
         List<TextBox> textboxes = new List<TextBox>();
+        CommonsForms commons = new CommonsForms();
 
         public CrearCliente()
         {
@@ -33,10 +33,7 @@ namespace FrbaOfertas.AbmCliente
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -68,11 +65,11 @@ namespace FrbaOfertas.AbmCliente
                     validarCliente();
                     inicializoCliente();
                     Queries.insertarCliente(cliente);
-                    limpiarTextboxes();
+                    commons.limpiarTextboxes(textboxes);
                 }catch(Exception ex)
                 {
                     MessageBox.Show("No se pudo ingresar el usuario. Por favor verificar datos ingresados", "Alta cliente");
-                    throw ex;
+                    //throw ex;
                 }
             }
             else
@@ -134,17 +131,10 @@ namespace FrbaOfertas.AbmCliente
             textboxes.Add(txtNroDepartamentoAltaCliente);
             textboxes.Add(txtTelefonoAltaCliente);
         }
-        
-        public void limpiarTextboxes()
-        {
-            foreach(TextBox txt in textboxes) {
-                txt.Clear();
-            }
-        }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            this.limpiarTextboxes();
+            commons.limpiarTextboxes(textboxes);
         }
 
         private void label8_Click(object sender, EventArgs e)

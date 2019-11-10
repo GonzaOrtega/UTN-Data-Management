@@ -14,12 +14,13 @@ namespace FrbaOfertas.AbmCliente
 {
     public partial class ModificarCliente : Form
     {
+        Queries queries = new Queries();
         string query = "select * from CLIENTES";
         DataTable dataTable = new DataTable();
-        //DBAccess dB = new DBAccess();
-        SqlDataAdapter adapter = new SqlDataAdapter();
         Dictionary<String, String> dictionary = new Dictionary<String, String>();
         Double dniglobal;
+        List<TextBox> textboxes = new List<TextBox>();
+        CommonsForms commons = new CommonsForms();
 
         public ModificarCliente()
         {
@@ -28,7 +29,7 @@ namespace FrbaOfertas.AbmCliente
 
         private void ModificarUsuario_Load(object sender, EventArgs e)
         {
-            
+            this.cargarTextboxes();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -37,17 +38,7 @@ namespace FrbaOfertas.AbmCliente
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SqlConnection connection = DBConnection.getConnection();
-            SqlCommand command = new SqlCommand();
-
-            adapter.SelectCommand.CommandText = query;
-            adapter.SelectCommand.CommandType = CommandType.Text;
-            SqlCommandBuilder DbCommandBuilder = new SqlCommandBuilder(adapter);
-
-            connection.Open();
-            int modificaciones = adapter.Update(dataTable);
-
-            MessageBox.Show("Cambios realizados correctamente.\nCambios realizados: " + modificaciones);
+            queries.modificarTablaDeUna(query, dataTable);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -60,7 +51,8 @@ namespace FrbaOfertas.AbmCliente
                     this.guardarStringEnDiccionario("Nombre", txtNombreTLibre.Text);
                     this.guardarStringEnDiccionario("Apellido", txtApellidoTLibre.Text);
                     this.guardarStringEnDiccionario("Mail", txtEmailTLibre.Text);
-                    DNIEsCorrecto();
+                    this.DNIEsCorrecto();
+                    
                     this.buscar();
                 }
                 else
@@ -97,7 +89,16 @@ namespace FrbaOfertas.AbmCliente
                 }
                 this.cargarCondiciones();
             }
-            obtenerTabla();
+            queries.obtenerTabla(query, dataTable);
+            planillaModificarCliente.DataSource = dataTable;
+        }
+
+        private void cargarTextboxes()
+        {
+            textboxes.Add(txtApellidoTLibre);
+            textboxes.Add(txtDNIPExacta);
+            textboxes.Add(txtEmailTLibre);
+            textboxes.Add(txtNombreTLibre);
         }
 
         public void limpiarEstructuras()
@@ -125,39 +126,24 @@ namespace FrbaOfertas.AbmCliente
             return !String.IsNullOrWhiteSpace(txtDNIPExacta.Text);
         }
 
-        public Boolean hayCondicionesDeFiltro()
+        private Boolean hayCondicionesDeFiltro()
         {
             return this.hayOtrasCondiciones() || this.hayDNI();
         }
 
-        private Boolean hayOtrasCondiciones()
+        public Boolean hayOtrasCondiciones()
         {
             return !String.IsNullOrWhiteSpace(txtApellidoTLibre.Text) 
                 || !String.IsNullOrWhiteSpace(txtEmailTLibre.Text)
                 || !String.IsNullOrWhiteSpace(txtNombreTLibre.Text);
         }
 
-        public void guardarStringEnDiccionario(String key, String value)
+        private void guardarStringEnDiccionario(String key, String value)
         {
             if (!String.IsNullOrWhiteSpace(value))
             {
                 dictionary.Add(key, value);
             }
-        }
-
-        private void obtenerTabla()
-        {
-            SqlConnection connection = DBConnection.getConnection();
-            SqlCommand command = new SqlCommand();
-            command.Connection = connection;
-            command.CommandText = query;
-            command.CommandType = CommandType.Text;
-
-            adapter = new SqlDataAdapter(command);
-            adapter.Fill(dataTable);
-
-            planillaModificarCliente.DataSource = dataTable;
-            //dB.closeConn();
         }
 
         private void txtEmailTLibre_TextChanged(object sender, EventArgs e)
@@ -168,6 +154,11 @@ namespace FrbaOfertas.AbmCliente
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            commons.limpiarTextboxes(textboxes);
         }
     }
 }

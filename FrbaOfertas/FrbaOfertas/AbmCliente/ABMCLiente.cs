@@ -25,17 +25,17 @@ namespace FrbaOfertas.AbmCliente
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (cbCrearCliente.Checked)
+            if (rbCrearCliente.Checked)
             {
                 new CrearCliente().Show();
 
-            }else if (cbModificarCliente.Checked)
+            }else if (rbModificarClientes.Checked)
             {
                 new ModificarCliente().Show();
 
-            }else if (cbBorrarCliente.Checked)
+            }else if (rbEliminarClientes.Checked)
             {
-
+                MessageBox.Show("Eliminar clientes esta en construccion... :)");
             }
         }
 
@@ -50,6 +50,11 @@ namespace FrbaOfertas.AbmCliente
             {
                 this.Close();
             }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

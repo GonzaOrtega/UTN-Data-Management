@@ -28,43 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cbCrearCliente = new System.Windows.Forms.CheckBox();
-            this.cbBorrarCliente = new System.Windows.Forms.CheckBox();
-            this.cbModificarCliente = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.rbCrearCliente = new System.Windows.Forms.RadioButton();
+            this.rbModificarClientes = new System.Windows.Forms.RadioButton();
+            this.rbEliminarClientes = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
-            // 
-            // cbCrearCliente
-            // 
-            this.cbCrearCliente.AutoSize = true;
-            this.cbCrearCliente.Location = new System.Drawing.Point(47, 37);
-            this.cbCrearCliente.Name = "cbCrearCliente";
-            this.cbCrearCliente.Size = new System.Drawing.Size(124, 24);
-            this.cbCrearCliente.TabIndex = 0;
-            this.cbCrearCliente.Text = "Crear cliente";
-            this.cbCrearCliente.UseVisualStyleBackColor = true;
-            this.cbCrearCliente.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // cbBorrarCliente
-            // 
-            this.cbBorrarCliente.AutoSize = true;
-            this.cbBorrarCliente.Location = new System.Drawing.Point(47, 183);
-            this.cbBorrarCliente.Name = "cbBorrarCliente";
-            this.cbBorrarCliente.Size = new System.Drawing.Size(129, 24);
-            this.cbBorrarCliente.TabIndex = 1;
-            this.cbBorrarCliente.Text = "Borrar cliente";
-            this.cbBorrarCliente.UseVisualStyleBackColor = true;
-            // 
-            // cbModificarCliente
-            // 
-            this.cbModificarCliente.AutoSize = true;
-            this.cbModificarCliente.Location = new System.Drawing.Point(47, 110);
-            this.cbModificarCliente.Name = "cbModificarCliente";
-            this.cbModificarCliente.Size = new System.Drawing.Size(149, 24);
-            this.cbModificarCliente.TabIndex = 2;
-            this.cbModificarCliente.Text = "Modificar cliente";
-            this.cbModificarCliente.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -86,16 +55,50 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // rbCrearCliente
+            // 
+            this.rbCrearCliente.AutoSize = true;
+            this.rbCrearCliente.Location = new System.Drawing.Point(38, 41);
+            this.rbCrearCliente.Name = "rbCrearCliente";
+            this.rbCrearCliente.Size = new System.Drawing.Size(123, 24);
+            this.rbCrearCliente.TabIndex = 5;
+            this.rbCrearCliente.TabStop = true;
+            this.rbCrearCliente.Text = "Crear cliente";
+            this.rbCrearCliente.UseVisualStyleBackColor = true;
+            this.rbCrearCliente.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // rbModificarClientes
+            // 
+            this.rbModificarClientes.AutoSize = true;
+            this.rbModificarClientes.Location = new System.Drawing.Point(38, 108);
+            this.rbModificarClientes.Name = "rbModificarClientes";
+            this.rbModificarClientes.Size = new System.Drawing.Size(156, 24);
+            this.rbModificarClientes.TabIndex = 6;
+            this.rbModificarClientes.TabStop = true;
+            this.rbModificarClientes.Text = "Modificar clientes";
+            this.rbModificarClientes.UseVisualStyleBackColor = true;
+            // 
+            // rbEliminarClientes
+            // 
+            this.rbEliminarClientes.AutoSize = true;
+            this.rbEliminarClientes.Location = new System.Drawing.Point(38, 182);
+            this.rbEliminarClientes.Name = "rbEliminarClientes";
+            this.rbEliminarClientes.Size = new System.Drawing.Size(148, 24);
+            this.rbEliminarClientes.TabIndex = 7;
+            this.rbEliminarClientes.TabStop = true;
+            this.rbEliminarClientes.Text = "Eliminar clientes";
+            this.rbEliminarClientes.UseVisualStyleBackColor = true;
+            // 
             // ABMCLiente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(319, 305);
+            this.Controls.Add(this.rbEliminarClientes);
+            this.Controls.Add(this.rbModificarClientes);
+            this.Controls.Add(this.rbCrearCliente);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.cbModificarCliente);
-            this.Controls.Add(this.cbBorrarCliente);
-            this.Controls.Add(this.cbCrearCliente);
             this.Name = "ABMCLiente";
             this.Text = "ABMCLiente";
             this.Load += new System.EventHandler(this.ABMCLiente_Load);
@@ -105,11 +108,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.CheckBox cbCrearCliente;
-        private System.Windows.Forms.CheckBox cbBorrarCliente;
-        private System.Windows.Forms.CheckBox cbModificarCliente;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RadioButton rbCrearCliente;
+        private System.Windows.Forms.RadioButton rbModificarClientes;
+        private System.Windows.Forms.RadioButton rbEliminarClientes;
     }
 }

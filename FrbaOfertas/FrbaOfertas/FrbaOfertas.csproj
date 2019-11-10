@@ -91,7 +91,8 @@
     <Compile Include="AbmRol\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Commons\Inserts.cs" />
+    <Compile Include="Commons\Queries2.cs" />
+    <Compile Include="Commons\Validacion2.cs" />
     <Compile Include="ComprarOferta\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

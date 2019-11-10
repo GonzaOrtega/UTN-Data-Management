@@ -113,7 +113,7 @@ namespace FrbaOfertas.AbmCliente
         public void validarCliente()
         {
             Validacion.validarDoubleTxt(ref txtDNIAltaCliente);
-            //Validacion.validarDoubleTxt(ref txtCPAltaCliente);
+            Validacion.validarDoubleTxt(ref txtCPAltaCliente);
             Validacion.validarDoubleTxt(ref txtTelefonoAltaCliente);
         }
         

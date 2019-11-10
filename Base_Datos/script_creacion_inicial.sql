@@ -276,4 +276,26 @@ insert into FUNCIONALIDAD(Descripcion)
 values('ABM_CLIENTES')
 insert into FUNCIONALIDAD(Descripcion)
 values('ABM_PROVEEDOR')
+ insert into ROL_FUNCIONALIDAD(ID_rol,ID_funcionalidad)
+ (select ID_rol ,ID_funcionalidad
+ FROM FUNCIONALIDAD f,ROL
+ where Nombre like 'AdministradorGeneral'
+ AND (Descripcion  like 'ListadoEstadistico'
+ OR Descripcion  like 'ABM_ROL'
+ OR Descripcion like 'ABM_CLIENTES'
+ OR Descripcion like 'ABM_PROVEEDOR'
+ OR  Descripcion like 'FacturarProveedor'))
  
+insert into ROL_FUNCIONALIDAD(ID_rol,ID_funcionalidad)
+ (select ID_rol,ID_funcionalidad
+ FROM ROL r,FUNCIONALIDAD f
+ where r.Nombre like 'Proveedor'
+ AND(f.Descripcion  like 'BajarOferta'
+ OR f.Descripcion  like 'ConfeccionarOferta'))
+ 
+ insert into ROL_FUNCIONALIDAD(ID_rol,ID_funcionalidad)
+ (select ID_rol,ID_funcionalidad
+ FROM ROL r,FUNCIONALIDAD f
+ where r.Nombre like 'Cliente'
+ AND (f.Descripcion  like 'CargarCredito'
+ OR f.Descripcion  like 'ComprarOferta'))

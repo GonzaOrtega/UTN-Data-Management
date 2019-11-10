@@ -4,7 +4,7 @@ create procedure reiniciarTablas
 AS
 Begin
 	drop table cupon;
-	drop table FACTURA;
+	
 	drop table COMPRA;
 	drop table OFERTAS;
 	drop table ROL_FUNCIONALIDAD;
@@ -16,9 +16,25 @@ Begin
 	drop table carga;
 	drop table TARJETA;
 	drop table clientes;
+	drop table FACTURA;
 	drop table PROVEEDOR;
 	drop table Rubro;
+
+	drop procedure migrarClientes;
+	drop procedure migrarProveedor;
+	drop procedure migrarCupon;
+	drop procedure migrarFacturas;
+	drop procedure migrarRubro;
+	drop procedure migrarCompras;
+	drop procedure migrarOfertas;
+	drop procedure iniciarMigracionTablaMaestra;
+	drop procedure crearUsuario;
+	drop procedure reiniciarTablas;
+	drop procedure migrarCarga;
+	drop procedure insertarTIPO_USUARIO;
 End
+select * from sys.tables
+select * from sys.procedures
 exec reiniciarTablas
 CREATE TABLE RUBRO(
 	ID_Rubro int IDENTITY PRIMARY KEY,

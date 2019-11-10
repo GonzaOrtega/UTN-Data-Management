@@ -166,7 +166,6 @@ BEGIN
 		GROUP BY  Provee_CUIT,Provee_RS,Provee_Dom,Provee_Ciudad,Provee_Telefono,ID_Rubro)
 END
 GO
-drop procedure migrarOfertas
 CREATE PROCEDURE migrarOfertas
 AS
 BEGIN
@@ -217,6 +216,7 @@ BEGIN
 	exec migrarCompras
 	exec migrarCupon
 END
+GO
 ----------------------------------------------------------------------------------------------------------Ejecuto stored procedure para realizar la migracion
 exec iniciarMigracionTablaMaestra
 ----------------------------------------------------------------------------------------------------------Creo Trigger para encriptar la contraseña
@@ -235,7 +235,6 @@ GO
 CREATE PROCEDURE crearUsuario
 AS
 BEGIN
-	--exec insertarTIPO_USUARIO
 	insert into TIPO_USUARIO(CUIT_proveedor,DNI_cliente,Razon_social)
 	values (NUll,Null,Null);
 	
@@ -252,7 +251,9 @@ BEGIN
 	insert into ROL_FUNCIONALIDAD(ID_funcionalidad,ID_rol)
 	(select top 1 ID_funcionalidad,ID_ROL FROM FUNCIONALIDAD,ROL where Nombre like 'AdministradorGeneral')
 END
+GO
 exec crearUsuario
+GO
 insert into ROL(Nombre)
 	values('Proveedor')
 insert into ROL(Nombre)
@@ -275,4 +276,4 @@ insert into FUNCIONALIDAD(Descripcion)
 values('ABM_CLIENTES')
 insert into FUNCIONALIDAD(Descripcion)
 values('ABM_PROVEEDOR')
-
+ 

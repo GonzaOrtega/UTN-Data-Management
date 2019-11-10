@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FrbaOfertas.Commons;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +16,10 @@ namespace FrbaOfertas.AbmCliente
     {
         string query = "select * from CLIENTES";
         DataTable dataTable = new DataTable();
-        DBAccess dB = new DBAccess();
+        //DBAccess dB = new DBAccess();
         SqlDataAdapter adapter = new SqlDataAdapter();
+        Dictionary<String, String> dictionary = new Dictionary<String, String>();
+        Double dniglobal;
 
         public ModificarCliente()
         {
@@ -80,6 +83,73 @@ namespace FrbaOfertas.AbmCliente
 
             //dB.readDatathroughAdapter(query, dataTable);
 
+            this.guardarStringEnDiccionario("Nombre", txtNombreTLibre.Text);
+            this.guardarStringEnDiccionario("Apellido", txtApellidoTLibre.Text);
+            this.guardarStringEnDiccionario("Email", txtEmailTLibre.Text);
+            this.buscar();
+        }
+
+        public void buscar()
+        {
+            if (this.hayCondicionesDeFiltro())
+            {
+                query = query + "WHERE ";
+                if (this.hayDNI())
+                {
+                    query = query + "DNI = " + dniglobal;
+                }
+                if (this.hayOtrasCondiciones())
+                {
+                    this.cargarCondiciones();
+                }
+                obtenerTabla();
+            }
+            else
+            {
+                MessageBox.Show("No se ingresaron condiciones de filtro");
+            }
+        }
+
+        public void cargarCondiciones()
+        {
+            foreach(KeyValuePair<String, String> entry in dictionary)
+            {
+                query = query + entry.Key + " LIKE " + entry.Value;
+            }
+        }
+
+        public Boolean hayDNI()
+        {
+            return txtDNIPExacta != null;
+        }
+
+        public Boolean hayCondicionesDeFiltro()
+        {
+            return this.hayOtrasCondiciones() && this.hayDNI();
+        }
+
+        private Boolean hayOtrasCondiciones()
+        {
+            return (txtApellidoTLibre != null) && (txtNombreTLibre != null)
+                             && (txtEmailTLibre != null);
+        }
+
+        public void guardarStringEnDiccionario(String key, String value)
+        {
+            if (String.IsNullOrWhiteSpace(value))
+            {
+                dictionary.Add(key, value);
+            }
+        }
+
+        public void guardarDouble(String key, TextBox textBox)
+        {
+            Validacion.validarDoubleTxt(ref textBox);
+            dniglobal = Convert.ToDouble(textBox.Text);           
+        }
+
+        private void obtenerTabla()
+        {
             SqlConnection connection = DBConnection.getConnection();
             SqlCommand command = new SqlCommand();
             command.Connection = connection;

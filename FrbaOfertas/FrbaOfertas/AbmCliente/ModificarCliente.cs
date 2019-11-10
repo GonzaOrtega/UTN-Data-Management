@@ -83,12 +83,25 @@ namespace FrbaOfertas.AbmCliente
 
             //dB.readDatathroughAdapter(query, dataTable);
 
+            this.limpiarEstructuras();
             if (this.hayCondicionesDeFiltro())
             {
                 this.guardarStringEnDiccionario("Nombre", txtNombreTLibre.Text);
                 this.guardarStringEnDiccionario("Apellido", txtApellidoTLibre.Text);
-                this.guardarStringEnDiccionario("Email", txtEmailTLibre.Text);
-                this.buscar();
+                this.guardarStringEnDiccionario("Mail", txtEmailTLibre.Text);
+
+                try
+                {
+                    if (!String.IsNullOrWhiteSpace(txtDNIPExacta.Text))
+                    {
+                        dniglobal = Convert.ToDouble(txtDNIPExacta.Text);
+                    }
+                    this.buscar();
+
+                }catch(System.FormatException ex)
+                {
+                    MessageBox.Show("DNI ingresado incorrectamente");
+                }
             }
             else
             {
@@ -101,20 +114,38 @@ namespace FrbaOfertas.AbmCliente
             query = query + " WHERE ";
             if (this.hayDNI())
             {
-                query = query + "DNI = " + dniglobal;
+                query = query + "DNI_cliente = " + dniglobal;
             }
             if (this.hayOtrasCondiciones())
             {
+                if (this.hayDNI())
+                {
+                    query = query + " AND ";
+                }
                 this.cargarCondiciones();
             }
             obtenerTabla();
         }
 
+        public void limpiarEstructuras()
+        {
+            dictionary.Clear();
+            query = "select * from CLIENTES";
+            //planillaModificarCliente.Rows.Clear();
+            //planillaModificarCliente.Refresh();
+            planillaModificarCliente.DataSource = null;
+            dataTable.Clear();
+        }
+
         public void cargarCondiciones()
         {
+            int longDiccionario = dictionary.Count;
             foreach(KeyValuePair<String, String> entry in dictionary)
             {
                 query = query + entry.Key + " LIKE '%" + entry.Value + "%'";
+                longDiccionario--;
+                if (longDiccionario > 0)
+                    query = query + " AND ";
             }
         }
 

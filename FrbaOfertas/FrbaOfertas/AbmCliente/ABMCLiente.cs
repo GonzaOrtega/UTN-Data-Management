@@ -28,13 +28,20 @@ namespace FrbaOfertas.AbmCliente
             if (cbCrearCliente.Checked)
             {
                 new CrearCliente().Show();
+
             }else if (cbModificarCliente.Checked)
             {
                 new ModificarCliente().Show();
+
             }else if (cbBorrarCliente.Checked)
             {
 
             }
+        }
+
+        private void ABMCLiente_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void button2_Click(object sender, EventArgs e)

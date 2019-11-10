@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtEmailTLibre = new System.Windows.Forms.TextBox();
+            this.txtDNIPExacta = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtApellidoTLibre = new System.Windows.Forms.TextBox();
@@ -44,12 +46,6 @@
             this.gD2C2019DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD2C2019DataSet = new FrbaOfertas.GD2C2019DataSet();
             this.cLIENTESTableAdapter = new FrbaOfertas.GD2C2019DataSetTableAdapters.CLIENTESTableAdapter();
-            this.txtDNIPExacta = new System.Windows.Forms.TextBox();
-            this.txtEmailTLibre = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.planillaModificarCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource)).BeginInit();
@@ -59,10 +55,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox4);
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.txtEmailTLibre);
             this.groupBox1.Controls.Add(this.txtDNIPExacta);
             this.groupBox1.Controls.Add(this.label4);
@@ -73,15 +65,30 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(23, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(611, 215);
+            this.groupBox1.Size = new System.Drawing.Size(611, 158);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de busqueda";
             // 
+            // txtEmailTLibre
+            // 
+            this.txtEmailTLibre.Location = new System.Drawing.Point(413, 97);
+            this.txtEmailTLibre.Name = "txtEmailTLibre";
+            this.txtEmailTLibre.Size = new System.Drawing.Size(146, 26);
+            this.txtEmailTLibre.TabIndex = 8;
+            this.txtEmailTLibre.TextChanged += new System.EventHandler(this.txtEmailTLibre_TextChanged);
+            // 
+            // txtDNIPExacta
+            // 
+            this.txtDNIPExacta.Location = new System.Drawing.Point(413, 39);
+            this.txtDNIPExacta.Name = "txtDNIPExacta";
+            this.txtDNIPExacta.Size = new System.Drawing.Size(146, 26);
+            this.txtDNIPExacta.TabIndex = 7;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(332, 131);
+            this.label4.Location = new System.Drawing.Point(332, 97);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 20);
             this.label4.TabIndex = 6;
@@ -98,7 +105,7 @@
             // 
             // txtApellidoTLibre
             // 
-            this.txtApellidoTLibre.Location = new System.Drawing.Point(119, 131);
+            this.txtApellidoTLibre.Location = new System.Drawing.Point(119, 97);
             this.txtApellidoTLibre.Name = "txtApellidoTLibre";
             this.txtApellidoTLibre.Size = new System.Drawing.Size(146, 26);
             this.txtApellidoTLibre.TabIndex = 4;
@@ -113,7 +120,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 131);
+            this.label2.Location = new System.Drawing.Point(30, 97);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 20);
             this.label2.TabIndex = 2;
@@ -131,7 +138,7 @@
             // planillaModificarCliente
             // 
             this.planillaModificarCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.planillaModificarCliente.Location = new System.Drawing.Point(23, 301);
+            this.planillaModificarCliente.Location = new System.Drawing.Point(23, 244);
             this.planillaModificarCliente.Name = "planillaModificarCliente";
             this.planillaModificarCliente.RowHeadersWidth = 62;
             this.planillaModificarCliente.RowTemplate.Height = 28;
@@ -141,7 +148,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(23, 248);
+            this.button1.Location = new System.Drawing.Point(23, 191);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 35);
             this.button1.TabIndex = 2;
@@ -150,7 +157,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(547, 248);
+            this.button2.Location = new System.Drawing.Point(547, 191);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(87, 35);
             this.button2.TabIndex = 3;
@@ -160,7 +167,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(547, 554);
+            this.button3.Location = new System.Drawing.Point(547, 489);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(87, 35);
             this.button3.TabIndex = 4;
@@ -187,66 +194,11 @@
             // 
             this.cLIENTESTableAdapter.ClearBeforeFill = true;
             // 
-            // txtDNIPExacta
-            // 
-            this.txtDNIPExacta.Location = new System.Drawing.Point(413, 39);
-            this.txtDNIPExacta.Name = "txtDNIPExacta";
-            this.txtDNIPExacta.Size = new System.Drawing.Size(146, 26);
-            this.txtDNIPExacta.TabIndex = 7;
-            // 
-            // txtEmailTLibre
-            // 
-            this.txtEmailTLibre.Location = new System.Drawing.Point(413, 131);
-            this.txtEmailTLibre.Name = "txtEmailTLibre";
-            this.txtEmailTLibre.Size = new System.Drawing.Size(146, 26);
-            this.txtEmailTLibre.TabIndex = 8;
-            this.txtEmailTLibre.TextChanged += new System.EventHandler(this.txtEmailTLibre_TextChanged);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(34, 87);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(160, 24);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "Filtrar por nombre";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(34, 172);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(160, 24);
-            this.checkBox2.TabIndex = 10;
-            this.checkBox2.Text = "Filtrar por apellido";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(336, 87);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(134, 24);
-            this.checkBox3.TabIndex = 11;
-            this.checkBox3.Text = "Filtrar por DNI";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(336, 172);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(143, 24);
-            this.checkBox4.TabIndex = 12;
-            this.checkBox4.Text = "Filtrar por email";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
             // ModificarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 662);
+            this.ClientSize = new System.Drawing.Size(648, 536);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -284,9 +236,5 @@
         private GD2C2019DataSetTableAdapters.CLIENTESTableAdapter cLIENTESTableAdapter;
         private System.Windows.Forms.TextBox txtEmailTLibre;
         private System.Windows.Forms.TextBox txtDNIPExacta;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

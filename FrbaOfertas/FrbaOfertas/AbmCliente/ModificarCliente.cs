@@ -83,26 +83,12 @@ namespace FrbaOfertas.AbmCliente
 
             //dB.readDatathroughAdapter(query, dataTable);
 
-            this.guardarStringEnDiccionario("Nombre", txtNombreTLibre.Text);
-            this.guardarStringEnDiccionario("Apellido", txtApellidoTLibre.Text);
-            this.guardarStringEnDiccionario("Email", txtEmailTLibre.Text);
-            this.buscar();
-        }
-
-        public void buscar()
-        {
             if (this.hayCondicionesDeFiltro())
             {
-                query = query + "WHERE ";
-                if (this.hayDNI())
-                {
-                    query = query + "DNI = " + dniglobal;
-                }
-                if (this.hayOtrasCondiciones())
-                {
-                    this.cargarCondiciones();
-                }
-                obtenerTabla();
+                this.guardarStringEnDiccionario("Nombre", txtNombreTLibre.Text);
+                this.guardarStringEnDiccionario("Apellido", txtApellidoTLibre.Text);
+                this.guardarStringEnDiccionario("Email", txtEmailTLibre.Text);
+                this.buscar();
             }
             else
             {
@@ -110,33 +96,48 @@ namespace FrbaOfertas.AbmCliente
             }
         }
 
+        public void buscar()
+        {
+            query = query + " WHERE ";
+            if (this.hayDNI())
+            {
+                query = query + "DNI = " + dniglobal;
+            }
+            if (this.hayOtrasCondiciones())
+            {
+                this.cargarCondiciones();
+            }
+            obtenerTabla();
+        }
+
         public void cargarCondiciones()
         {
             foreach(KeyValuePair<String, String> entry in dictionary)
             {
-                query = query + entry.Key + " LIKE " + entry.Value;
+                query = query + entry.Key + " LIKE '%" + entry.Value + "%'";
             }
         }
 
         public Boolean hayDNI()
         {
-            return txtDNIPExacta != null;
+            return !String.IsNullOrWhiteSpace(txtDNIPExacta.Text);
         }
 
         public Boolean hayCondicionesDeFiltro()
         {
-            return this.hayOtrasCondiciones() && this.hayDNI();
+            return this.hayOtrasCondiciones() || this.hayDNI();
         }
 
         private Boolean hayOtrasCondiciones()
         {
-            return (txtApellidoTLibre != null) && (txtNombreTLibre != null)
-                             && (txtEmailTLibre != null);
+            return !String.IsNullOrWhiteSpace(txtApellidoTLibre.Text) 
+                || !String.IsNullOrWhiteSpace(txtEmailTLibre.Text)
+                || !String.IsNullOrWhiteSpace(txtNombreTLibre.Text);
         }
 
         public void guardarStringEnDiccionario(String key, String value)
         {
-            if (String.IsNullOrWhiteSpace(value))
+            if (!String.IsNullOrWhiteSpace(value))
             {
                 dictionary.Add(key, value);
             }

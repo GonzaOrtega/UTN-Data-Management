@@ -70,13 +70,14 @@
             // rbModificarClientes
             // 
             this.rbModificarClientes.AutoSize = true;
-            this.rbModificarClientes.Location = new System.Drawing.Point(38, 108);
+            this.rbModificarClientes.Location = new System.Drawing.Point(38, 111);
             this.rbModificarClientes.Name = "rbModificarClientes";
             this.rbModificarClientes.Size = new System.Drawing.Size(156, 24);
             this.rbModificarClientes.TabIndex = 6;
             this.rbModificarClientes.TabStop = true;
             this.rbModificarClientes.Text = "Modificar clientes";
             this.rbModificarClientes.UseVisualStyleBackColor = true;
+            this.rbModificarClientes.CheckedChanged += new System.EventHandler(this.rbModificarClientes_CheckedChanged);
             // 
             // rbEliminarClientes
             // 

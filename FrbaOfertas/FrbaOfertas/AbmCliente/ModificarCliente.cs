@@ -43,6 +43,26 @@ namespace FrbaOfertas.AbmCliente
 
         private void button2_Click(object sender, EventArgs e)
         {
+            buscarClientes();
+        }
+       
+        private void txtEmailTLibre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            commons.limpiarTextboxes(textboxes);
+        }
+
+        private void buscarClientes()
+        {
             this.limpiarEstructuras();
             try
             {
@@ -52,7 +72,7 @@ namespace FrbaOfertas.AbmCliente
                     this.guardarStringEnDiccionario("Apellido", txtApellidoTLibre.Text);
                     this.guardarStringEnDiccionario("Mail", txtEmailTLibre.Text);
                     this.DNIEsCorrecto();
-                    
+
                     this.buscar();
                 }
                 else
@@ -60,19 +80,18 @@ namespace FrbaOfertas.AbmCliente
                     MessageBox.Show("No se ingresaron condiciones de filtro");
                 }
 
-            }catch(System.FormatException ex)
+            }
+            catch (System.FormatException ex)
             {
                 MessageBox.Show("DNI ingresado incorrectamente");
             }
         }
 
-        private void DNIEsCorrecto()
-        {
-            if (!String.IsNullOrWhiteSpace(txtDNIPExacta.Text))
-            {
-                dniglobal = Convert.ToDouble(txtDNIPExacta.Text);
-            }
-        }
+
+
+
+
+        // Metodos principales
 
         public void buscar()
         {
@@ -92,6 +111,33 @@ namespace FrbaOfertas.AbmCliente
             queries.obtenerTabla(query, dataTable);
             planillaModificarCliente.DataSource = dataTable;
         }
+       
+        public void cargarCondiciones()
+        {
+            int longDiccionario = dictionary.Count;
+            foreach(KeyValuePair<String, String> entry in dictionary)
+            {
+                query = query + entry.Key + " LIKE '%" + entry.Value + "%'";
+                longDiccionario--;
+                if (longDiccionario > 0)
+                    query = query + " AND ";
+            }
+        }
+
+        private void DNIEsCorrecto()
+        {
+            if (!String.IsNullOrWhiteSpace(txtDNIPExacta.Text))
+            {
+                dniglobal = Convert.ToDouble(txtDNIPExacta.Text);
+            }
+        }
+        private void guardarStringEnDiccionario(String key, String value)
+        {
+            if (!String.IsNullOrWhiteSpace(value))
+            {
+                dictionary.Add(key, value);
+            }
+        }
 
         private void cargarTextboxes()
         {
@@ -109,18 +155,9 @@ namespace FrbaOfertas.AbmCliente
             dataTable.Clear();
         }
 
-        public void cargarCondiciones()
-        {
-            int longDiccionario = dictionary.Count;
-            foreach(KeyValuePair<String, String> entry in dictionary)
-            {
-                query = query + entry.Key + " LIKE '%" + entry.Value + "%'";
-                longDiccionario--;
-                if (longDiccionario > 0)
-                    query = query + " AND ";
-            }
-        }
 
+
+        // Metodos auxiliares
         public Boolean hayDNI()
         {
             return !String.IsNullOrWhiteSpace(txtDNIPExacta.Text);
@@ -138,27 +175,6 @@ namespace FrbaOfertas.AbmCliente
                 || !String.IsNullOrWhiteSpace(txtNombreTLibre.Text);
         }
 
-        private void guardarStringEnDiccionario(String key, String value)
-        {
-            if (!String.IsNullOrWhiteSpace(value))
-            {
-                dictionary.Add(key, value);
-            }
-        }
 
-        private void txtEmailTLibre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            commons.limpiarTextboxes(textboxes);
-        }
     }
 }

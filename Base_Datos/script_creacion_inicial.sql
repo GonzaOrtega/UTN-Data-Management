@@ -75,7 +75,7 @@ CREATE TABLE USUARIO_ROL(
 	FOREIGN KEY (ID_rol) REFERENCES rol
 );
 CREATE TABLE FUNCIONALIDAD(
-	ID_funcionalidad int PRIMARY KEY,
+	ID_funcionalidad int identity PRIMARY KEY,
 	Descripcion varchar(100)
 );
 CREATE TABLE ROL_FUNCIONALIDAD(

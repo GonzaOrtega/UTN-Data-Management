@@ -31,10 +31,7 @@ Begin
 	drop procedure crearUsuario;
 	drop procedure reiniciarTablas;
 	drop procedure migrarCarga;
-	drop procedure insertarTIPO_USUARIO;
 End
-select * from sys.tables
-select * from sys.procedures
 exec reiniciarTablas
 CREATE TABLE RUBRO(
 	ID_Rubro int IDENTITY PRIMARY KEY,

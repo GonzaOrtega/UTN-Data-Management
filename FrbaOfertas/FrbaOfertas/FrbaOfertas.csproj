@@ -204,6 +204,9 @@
     <EmbeddedResource Include="Registrarse\DatosCliente.resx">
       <DependentUpon>DatosCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registrarse\DatosProveedor.resx">
+      <DependentUpon>DatosProveedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registrarse\Registrarse.resx">
       <DependentUpon>Registrarse.cs</DependentUpon>
     </EmbeddedResource>

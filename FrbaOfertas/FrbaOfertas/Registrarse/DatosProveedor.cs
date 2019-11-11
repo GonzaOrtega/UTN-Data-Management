@@ -33,16 +33,6 @@ namespace FrbaOfertas.Registrarse
             Close();
         }
 
-        private void txtRazonSocial_TextChanged(object sender, EventArgs e)
-        {
-            if (txtRazonSocial.Text == "Razón social") txtRazonSocial.Text="";
-        }
-
-        private void txtCuit_TextChanged(object sender, EventArgs e)
-        {
-            if (txtCuit.Text == "CUIT") txtCuit.Text() = "";
-        }
-
         private void txtCuit_Leave(object sender, EventArgs e)
         {
             if (txtCuit.Text == "") txtCuit.Text = "CUIT";
@@ -70,20 +60,20 @@ namespace FrbaOfertas.Registrarse
                         tipO_USUARIOTableAdapter1.UpdateQueryProveedor(txtCuit.Text,txtRazonSocial.Text, id);
                         DataRow rol = rolTableAdapter1.GetDataById("Proveedor").First();
                         usuariO_ROLTableAdapter1.InsertQuery(id, Convert.ToInt32(rol["ID_rol"]));
-                        MessageBox.Show("Se ha agregado exitosamente", "Felicidades", MessageBoxButtons.OK);
+                        MessageBox.Show("Se ha agregado exitosamente", "Felicidades!", MessageBoxButtons.OK);
                         registro.Close();
                         login.Show();
                         Close();
                     }
                     else
                     {
-                        tipO_USUARIOTableAdapter1.InsertarTipoUsuario(txtCuit.Text, txtRazonSocial.Text,null));
-                        DataRow usuario = tipO_USUARIOTableAdapter1.GetDataByCuitRazonsocial(txtCuit.Text,txtRazonSocial.Text()).First();
+                        tipO_USUARIOTableAdapter1.InsertarTipoUsuario(txtCuit.Text, txtRazonSocial.Text,null);
+                        DataRow usuario = tipO_USUARIOTableAdapter1.GetDataByCuitRazonsocial(txtCuit.Text,txtRazonSocial.Text).First();
                         int id = Convert.ToInt32(usuario["ID_usuario"].ToString());
                         this.usuarioTableAdapter1.InsertarUsuario(id, contrasenia, nombre);
                         DataRow rol = rolTableAdapter1.GetDataById("Proveedor").First();
                         usuariO_ROLTableAdapter1.InsertQuery(id, Convert.ToInt32(rol["ID_rol"]));
-                        MessageBox.Show("Se ha agregado exitosamente", "Felicidades", MessageBoxButtons.OK);
+                        MessageBox.Show("Se ha agregado exitosamente", "Felicidades!", MessageBoxButtons.OK);
                         registro.Close();
                         login.Show();
                         Close();
@@ -97,6 +87,16 @@ namespace FrbaOfertas.Registrarse
                     //UNIR CON LO DE GONZA
                 }
             }
+        }
+
+        private void txtCuit_Click(object sender, EventArgs e)
+        {
+            if (txtCuit.Text == "CUIT") txtCuit.Text = "";
+        }
+
+        private void txtRazonSocial_Click(object sender, EventArgs e)
+        {
+            if (txtRazonSocial.Text == "Razón social") txtRazonSocial.Text = "";
         }
     }
 }

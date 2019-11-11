@@ -25,3 +25,4 @@ C:\Users\Chiara\Desktop\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\bin\Debug\Frba
 C:\Users\Chiara\Desktop\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\bin\Debug\FrbaOfertas.pdb
 C:\Users\Chiara\Desktop\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.exe
 C:\Users\Chiara\Desktop\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.pdb
+C:\Users\Chiara\Desktop\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.Registrarse.DatosProveedor.resources

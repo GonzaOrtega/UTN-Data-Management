@@ -10998,12 +10998,17 @@ SELECT DNI_cliente, Codigo_postal, Nombre, Apellido, Direccion, Telefono, Mail, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT DNI_cliente, Codigo_postal, Nombre, Apellido, Direccion, Telefono, Mail, F" +
                 "echa_nacimiento, Ciudad, Credito FROM dbo.CLIENTES";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT DNI_cliente\r\nFROM     CLIENTES\r\nWHERE  (DNI_cliente = @DNI_cliente)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DNI_cliente", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "DNI_cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11025,6 +11030,32 @@ SELECT DNI_cliente, Codigo_postal, Nombre, Apellido, Direccion, Telefono, Mail, 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual GD2C2019DataSet.CLIENTESDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            GD2C2019DataSet.CLIENTESDataTable dataTable = new GD2C2019DataSet.CLIENTESDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(GD2C2019DataSet.CLIENTESDataTable dataTable, decimal DNI_cliente) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(DNI_cliente));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD2C2019DataSet.CLIENTESDataTable GetDataByDni(decimal DNI_cliente) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(DNI_cliente));
             GD2C2019DataSet.CLIENTESDataTable dataTable = new GD2C2019DataSet.CLIENTESDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -12852,11 +12883,14 @@ SELECT ID_funcionalidad, Descripcion FROM FUNCIONALIDAD WHERE (ID_funcionalidad 
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT f.ID_funcionalidad, f.Descripcion\r\nFROM     FUNCIONALIDAD AS f INNER JOIN\r" +
-                "\n                  ROL_FUNCIONALIDAD AS rf ON f.ID_funcionalidad = rf.ID_funcion" +
-                "alidad\r\nWHERE  (rf.ID_rol = @ID_rol)";
+            this._commandCollection[1].CommandText = @"SELECT f.Descripcion, f.ID_funcionalidad
+FROM     FUNCIONALIDAD AS f INNER JOIN
+                  ROL_FUNCIONALIDAD AS rf ON f.ID_funcionalidad = rf.ID_funcionalidad INNER JOIN
+                  ROL AS r ON r.ID_rol = rf.ID_rol INNER JOIN
+                  USUARIO_ROL AS ur ON ur.ID_rol = r.ID_rol
+WHERE  (ur.ID_usuario = @ID_usuario)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_rol", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_usuario", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12887,9 +12921,9 @@ SELECT ID_funcionalidad, Descripcion FROM FUNCIONALIDAD WHERE (ID_funcionalidad 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(GD2C2019DataSet.FUNCIONALIDADDataTable dataTable, int ID_rol) {
+        public virtual int FillBy1(GD2C2019DataSet.FUNCIONALIDADDataTable dataTable, int ID_usuario) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID_rol));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID_usuario));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -12901,9 +12935,9 @@ SELECT ID_funcionalidad, Descripcion FROM FUNCIONALIDAD WHERE (ID_funcionalidad 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual GD2C2019DataSet.FUNCIONALIDADDataTable GetDataByRol(int ID_rol) {
+        public virtual GD2C2019DataSet.FUNCIONALIDADDataTable dameFunciones(int ID_usuario) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID_rol));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID_usuario));
             GD2C2019DataSet.FUNCIONALIDADDataTable dataTable = new GD2C2019DataSet.FUNCIONALIDADDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -15112,7 +15146,8 @@ SELECT CUIT_proveedor, Razon_social, Domicilio, Ciudad, Telefono, ID_rubro, Mail
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT ID_rol, Nombre FROM dbo.ROL where Nombre not like\'AdministradorGeneral\'";
+            this._commandCollection[1].CommandText = "SELECT ID_rol, Nombre\r\nFROM     ROL\r\nWHERE  (Nombre NOT LIKE \'AdministradorGenera" +
+                "l\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -15157,7 +15192,7 @@ SELECT CUIT_proveedor, Razon_social, Domicilio, Ciudad, Telefono, ID_rubro, Mail
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual GD2C2019DataSet.ROLDataTable GetDataBy() {
+        public virtual GD2C2019DataSet.ROLDataTable GetDataSinAdministrador() {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             GD2C2019DataSet.ROLDataTable dataTable = new GD2C2019DataSet.ROLDataTable();
             this.Adapter.Fill(dataTable);
@@ -16489,12 +16524,34 @@ SELECT ID_usuario, CUIT_proveedor, Razon_social, DNI_cliente FROM TIPO_USUARIO W
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID_usuario, CUIT_proveedor, Razon_social, DNI_cliente FROM dbo.TIPO_USUARI" +
                 "O";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT COUNT(*) AS Expr1\r\nFROM     TIPO_USUARIO\r\nWHERE  (DNI_cliente = @dni_clien" +
+                "te)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dni_cliente", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "DNI_cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT ID_usuario, CUIT_proveedor, Razon_social, DNI_cliente\r\nFROM     TIPO_USUAR" +
+                "IO\r\nWHERE  (DNI_cliente = @DNI_cliente)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DNI_cliente", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "DNI_cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"INSERT INTO TIPO_USUARIO
+                  (CUIT_proveedor, Razon_social, DNI_cliente)
+VALUES (@CUIT_proveedor,@Razon_social,@DNI_cliente); 
+SELECT ID_usuario, CUIT_proveedor, Razon_social, DNI_cliente FROM TIPO_USUARIO WHERE (ID_usuario = SCOPE_IDENTITY())";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CUIT_proveedor", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CUIT_proveedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Razon_social", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Razon_social", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DNI_cliente", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "DNI_cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16516,6 +16573,42 @@ SELECT ID_usuario, CUIT_proveedor, Razon_social, DNI_cliente FROM TIPO_USUARIO W
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual GD2C2019DataSet.TIPO_USUARIODataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            GD2C2019DataSet.TIPO_USUARIODataTable dataTable = new GD2C2019DataSet.TIPO_USUARIODataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(GD2C2019DataSet.TIPO_USUARIODataTable dataTable, global::System.Nullable<decimal> DNI_cliente) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((DNI_cliente.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(DNI_cliente.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD2C2019DataSet.TIPO_USUARIODataTable GetDataByDni(global::System.Nullable<decimal> DNI_cliente) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((DNI_cliente.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(DNI_cliente.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             GD2C2019DataSet.TIPO_USUARIODataTable dataTable = new GD2C2019DataSet.TIPO_USUARIODataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -16707,6 +16800,81 @@ SELECT ID_usuario, CUIT_proveedor, Razon_social, DNI_cliente FROM TIPO_USUARIO W
         public virtual int Update(string CUIT_proveedor, string Razon_social, global::System.Nullable<decimal> DNI_cliente, int Original_ID_usuario, string Original_CUIT_proveedor, string Original_Razon_social, global::System.Nullable<decimal> Original_DNI_cliente) {
             return this.Update(CUIT_proveedor, Razon_social, DNI_cliente, Original_ID_usuario, Original_CUIT_proveedor, Original_Razon_social, Original_DNI_cliente, Original_ID_usuario);
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> chequearExistenciaCliente(global::System.Nullable<decimal> dni_cliente) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((dni_cliente.HasValue == true)) {
+                command.Parameters[0].Value = ((decimal)(dni_cliente.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertarTipoUsuario(string CUIT_proveedor, string Razon_social, global::System.Nullable<decimal> DNI_cliente) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            if ((CUIT_proveedor == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(CUIT_proveedor));
+            }
+            if ((Razon_social == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Razon_social));
+            }
+            if ((DNI_cliente.HasValue == true)) {
+                command.Parameters[2].Value = ((decimal)(DNI_cliente.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
     }
     
     /// <summary>
@@ -16877,7 +17045,7 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID_usuario, contrasenia, Nombre_usuario FROM dbo.USUARIO";
@@ -16891,12 +17059,33 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT ID_usuario, contrasenia, Nombre_usuario FROM dbo.USUARIO WHERE  (contrasen" +
+            this._commandCollection[2].CommandText = "SELECT COUNT(*) AS Expr1\r\nFROM     USUARIO\r\nWHERE  (Nombre_usuario = @Nombre_usua" +
+                "rio)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT ID_usuario, contrasenia, Nombre_usuario FROM dbo.USUARIO WHERE  (contrasen" +
                 "ia = HASHBYTES(\'SHA2_256\', @Contrasenia)) AND (Nombre_usuario = @Nombre_usuario)" +
                 "";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contrasenia", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "contrasenia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contrasenia", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "contrasenia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "INSERT INTO USUARIO\r\n                  (ID_usuario, contrasenia, Nombre_usuario)\r" +
+                "\nVALUES (@ID_usuario,@contrasenia,@Nombre_usuario); ";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_usuario", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contrasenia", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "contrasenia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "SELECT COUNT(*) AS Expr1\r\nFROM     USUARIO AS u INNER JOIN\r\n                  TIP" +
+                "O_USUARIO AS tu ON u.ID_usuario = tu.ID_usuario\r\nWHERE  (u.Nombre_usuario = @Nom" +
+                "bre_usuario) AND (tu.DNI_cliente IS NOT NULL)";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16928,7 +17117,7 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy(GD2C2019DataSet.USUARIODataTable dataTable, string Contrasenia, string Nombre_usuario) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((Contrasenia == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -16953,7 +17142,7 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual GD2C2019DataSet.USUARIODataTable GetDataByUsuario(string Contrasenia, string Nombre_usuario) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((Contrasenia == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -17170,6 +17359,110 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
                 return ((object)(returnValue));
             }
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> ExisteNombreUsuario(string Nombre_usuario) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((Nombre_usuario == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Nombre_usuario));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertarUsuario(int ID_usuario, string contrasenia, string Nombre_usuario) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            command.Parameters[0].Value = ((int)(ID_usuario));
+            if ((contrasenia == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((string)(contrasenia));
+            }
+            if ((Nombre_usuario == null)) {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[2].Value = ((string)(Nombre_usuario));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object poseeUnCliente(string Nombre_usuario) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            if ((Nombre_usuario == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Nombre_usuario));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
+        }
     }
     
     /// <summary>
@@ -17339,9 +17632,14 @@ SELECT ID_usuario, ID_rol FROM USUARIO_ROL WHERE (ID_rol = @ID_rol) AND (ID_usua
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT ID_usuario, ID_rol FROM dbo.USUARIO_ROL where (ID_usuario=@ID_usuario)";
+            this._commandCollection[1].CommandText = @"SELECT ur.ID_usuario, ur.ID_rol
+FROM     USUARIO_ROL AS ur INNER JOIN
+                  USUARIO AS u ON u.ID_usuario = ur.ID_usuario INNER JOIN
+                  ROL AS r ON r.ID_rol = ur.ID_rol
+WHERE  (u.Nombre_usuario = @Nombre_usuario) AND (r.Nombre = @Nombre)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_usuario", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17372,9 +17670,20 @@ SELECT ID_usuario, ID_rol FROM USUARIO_ROL WHERE (ID_rol = @ID_rol) AND (ID_usua
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(GD2C2019DataSet.USUARIO_ROLDataTable dataTable, int ID_usuario) {
+        public virtual int FillBy1(GD2C2019DataSet.USUARIO_ROLDataTable dataTable, string Nombre_usuario, string Nombre) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID_usuario));
+            if ((Nombre_usuario == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Nombre_usuario));
+            }
+            if ((Nombre == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Nombre));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -17386,9 +17695,20 @@ SELECT ID_usuario, ID_rol FROM USUARIO_ROL WHERE (ID_rol = @ID_rol) AND (ID_usua
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual GD2C2019DataSet.USUARIO_ROLDataTable GetDataByRol(int ID_usuario) {
+        public virtual GD2C2019DataSet.USUARIO_ROLDataTable poseeRol(string Nombre_usuario, string Nombre) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID_usuario));
+            if ((Nombre_usuario == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Nombre_usuario));
+            }
+            if ((Nombre == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(Nombre));
+            }
             GD2C2019DataSet.USUARIO_ROLDataTable dataTable = new GD2C2019DataSet.USUARIO_ROLDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

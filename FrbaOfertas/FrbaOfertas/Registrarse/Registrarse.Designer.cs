@@ -28,21 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lblIngrese = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContrasenia = new System.Windows.Forms.TextBox();
             this.cbROL = new System.Windows.Forms.ComboBox();
-            this.rOLBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rolTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.ROLTableAdapter();
-            this.gD2C2019DataSet1 = new FrbaOfertas.GD2C2019DataSet();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
             this.gbDatos = new System.Windows.Forms.GroupBox();
             this.txtCUIT = new System.Windows.Forms.TextBox();
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.rOLBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet1)).BeginInit();
+            this.rolTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.ROLTableAdapter();
+            this.clientesTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.CLIENTESTableAdapter();
+            this.tipO_USUARIOTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.TIPO_USUARIOTableAdapter();
+            this.usuarioTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.USUARIOTableAdapter();
+            this.usuariO_ROLTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.USUARIO_ROLTableAdapter();
             this.gbDatos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,15 +89,6 @@
             this.cbROL.TabIndex = 3;
             this.cbROL.SelectedIndexChanged += new System.EventHandler(this.cbROL_SelectedIndexChanged);
             // 
-            // rolTableAdapter1
-            // 
-            this.rolTableAdapter1.ClearBeforeFill = true;
-            // 
-            // gD2C2019DataSet1
-            // 
-            this.gD2C2019DataSet1.DataSetName = "GD2C2019DataSet";
-            this.gD2C2019DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // btnSiguiente
             // 
             this.btnSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -143,6 +133,9 @@
             this.txtCUIT.Size = new System.Drawing.Size(407, 34);
             this.txtCUIT.TabIndex = 7;
             this.txtCUIT.Text = "CUIT";
+            this.txtCUIT.Click += new System.EventHandler(this.txtCUIT_Click);
+            this.txtCUIT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCUIT_KeyPress);
+            this.txtCUIT.Leave += new System.EventHandler(this.txtCUIT_Leave);
             // 
             // txtRazonSocial
             // 
@@ -153,6 +146,28 @@
             this.txtRazonSocial.Size = new System.Drawing.Size(407, 34);
             this.txtRazonSocial.TabIndex = 8;
             this.txtRazonSocial.Text = "Razón social";
+            this.txtRazonSocial.Click += new System.EventHandler(this.txtRazonSocial_Click);
+            this.txtRazonSocial.Leave += new System.EventHandler(this.txtRazonSocial_Leave);
+            // 
+            // rolTableAdapter1
+            // 
+            this.rolTableAdapter1.ClearBeforeFill = true;
+            // 
+            // clientesTableAdapter1
+            // 
+            this.clientesTableAdapter1.ClearBeforeFill = true;
+            // 
+            // tipO_USUARIOTableAdapter1
+            // 
+            this.tipO_USUARIOTableAdapter1.ClearBeforeFill = true;
+            // 
+            // usuarioTableAdapter1
+            // 
+            this.usuarioTableAdapter1.ClearBeforeFill = true;
+            // 
+            // usuariO_ROLTableAdapter1
+            // 
+            this.usuariO_ROLTableAdapter1.ClearBeforeFill = true;
             // 
             // Registrarse
             // 
@@ -170,8 +185,6 @@
             this.Name = "Registrarse";
             this.Text = "Registrarse";
             this.Load += new System.EventHandler(this.Registrarse_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.rOLBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet1)).EndInit();
             this.gbDatos.ResumeLayout(false);
             this.gbDatos.PerformLayout();
             this.ResumeLayout(false);
@@ -186,12 +199,14 @@
         private System.Windows.Forms.TextBox txtContrasenia;
         private System.Windows.Forms.ComboBox cbROL;
         private GD2C2019DataSetTableAdapters.ROLTableAdapter rolTableAdapter1;
-        private System.Windows.Forms.BindingSource rOLBindingSource;
-        private GD2C2019DataSet gD2C2019DataSet1;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.GroupBox gbDatos;
         private System.Windows.Forms.TextBox txtRazonSocial;
         private System.Windows.Forms.TextBox txtCUIT;
+        private GD2C2019DataSetTableAdapters.CLIENTESTableAdapter clientesTableAdapter1;
+        private GD2C2019DataSetTableAdapters.TIPO_USUARIOTableAdapter tipO_USUARIOTableAdapter1;
+        private GD2C2019DataSetTableAdapters.USUARIOTableAdapter usuarioTableAdapter1;
+        private GD2C2019DataSetTableAdapters.USUARIO_ROLTableAdapter usuariO_ROLTableAdapter1;
     }
 }

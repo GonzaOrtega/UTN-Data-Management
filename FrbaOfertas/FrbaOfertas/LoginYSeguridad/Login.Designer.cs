@@ -94,6 +94,7 @@
             this.txtUsuario.TabIndex = 2;
             this.txtUsuario.Text = "Usuario";
             this.txtUsuario.Click += new System.EventHandler(this.txtUsuario_Click);
+            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
             // 
             // lblIniciarSesion

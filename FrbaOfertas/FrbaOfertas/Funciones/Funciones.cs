@@ -15,8 +15,8 @@ namespace FrbaOfertas.Funciones
         public Funciones(int ID_Usuario)
         {
             InitializeComponent();
-            DataRow usuariorol = this.usuariO_ROLTableAdapter1.GetDataByRol(ID_Usuario).First();
-            cbFunciones.DataSource = this.funcionalidadTableAdapter1.GetDataByRol(Convert.ToInt32(usuariorol["ID_rol"]));
+           
+            cbFunciones.DataSource = this.funcionalidadTableAdapter1.dameFunciones(ID_Usuario);
             cbFunciones.ValueMember = "Descripcion";
             
         }
@@ -32,5 +32,4 @@ namespace FrbaOfertas.Funciones
             {*/
         
         }
-    }
-}
+    }}

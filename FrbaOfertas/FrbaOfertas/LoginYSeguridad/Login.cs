@@ -89,5 +89,10 @@ namespace FrbaOfertas.LoginYSeguridad
                 txtContrasenia.Text = "Contraseña";
             }
         }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

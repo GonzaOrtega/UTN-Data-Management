@@ -66,11 +66,20 @@ namespace FrbaOfertas.CrearOferta
              }
             return token.Substring(0, longitud).ToUpper();
         }
+        private bool preciosValidos()
+        {
+            if(txtPrecioLista.Text == "Precio de lista" || txtPrecioOferta.Text == "Precio de oferta")
+            {
+                MessageBox.Show("Precios no validos", "Error", MessageBoxButtons.OK);
+                return false;
+            }
+            return true;
+        }
         private void btnCrear_Click(object sender, EventArgs e)
         {
             //validar
             //crearlo, etc
-            if (this.fechasValidas()){
+            if (this.fechasValidas()&& this.preciosValidos()){
                 oFERTASTableAdapter.InsertQuery(this.crearStringAleatorio(), Convert.ToDecimal(txtPrecioOferta.Text), dtpPublicacion.Value, dtpVencimiento.Value,ndStock.Value,txtDescripcion.Text,Convert.ToDecimal(txtPrecioLista.Text),ndMaxima.Value,cuit,razonSocial);
 
                 if (MessageBox.Show("Se ha creado una oferta ¿Desea crear otra?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.No)

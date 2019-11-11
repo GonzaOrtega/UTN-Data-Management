@@ -37,6 +37,10 @@ namespace FrbaOfertas.Funciones
                     }
                     Hide();
                     break;
+                case "Facturar":
+                    //new Facturar.Facturar().Show(this);
+                    Hide();
+                    break;
             }
         }
     }

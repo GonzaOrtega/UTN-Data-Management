@@ -44,6 +44,7 @@ namespace FrbaOfertas.CargaCredito
             {
                 if (seIngresaronDatos())
                 {
+                    // Recordar que se tiene que hacer con un DNI existente en la DB
                     credito.DniCliente = Convert.ToDouble(txtDNICliente.Text);
                     credito.Fecha = dtpFecha.Value;
                     credito.Monto = Convert.ToDouble(txtMonto.Text);
@@ -52,8 +53,8 @@ namespace FrbaOfertas.CargaCredito
                     if (eligieronTarjeta())
                     {
                         credito.HayTarjeta = true;
-
                         infoTarjeta.obtenerCredito(credito);
+                        infoTarjeta.Show();
                     }
                     else
                     {
@@ -73,7 +74,7 @@ namespace FrbaOfertas.CargaCredito
 
         private bool eligieronTarjeta()
         {
-            return cbTipoPago.Equals("Efectivo");
+            return !cbTipoPago.Text.Equals("Efectivo");
         }
 
         private bool seIngresaronDatos()

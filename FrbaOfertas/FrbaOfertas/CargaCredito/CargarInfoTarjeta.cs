@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FrbaOfertas.Commons;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,7 +24,18 @@ namespace FrbaOfertas.CargaCredito
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if (hayDatosIngresados())
+            {
+                try
+                {
+                    credito.NroTarjeta = Convert.ToDouble(txtNroTarjeta.Text);
+                    Queries.insertarCarga(credito);
+                    this.Close();
+                }catch(Exception ex)
+                {
+                    MessageBox.Show("Error al cargar credito, revisar datos ingresados");
+                }
+            }
         }
 
         private void CargarInfoTarjeta_Load(object sender, EventArgs e)
@@ -47,7 +59,13 @@ namespace FrbaOfertas.CargaCredito
         }
         public void obtenerCredito(Credito creditoRecibido)
         {
+            credito = creditoRecibido;
+        }
 
+        private bool hayDatosIngresados()
+        {
+            return !String.IsNullOrWhiteSpace(txtTitular.Text) &&
+                !String.IsNullOrWhiteSpace(cbTipoTarjeta.Text);
         }
     }
 }

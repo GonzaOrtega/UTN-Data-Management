@@ -85,7 +85,7 @@ namespace FrbaOfertas.Commons
             comando.CommandType = CommandType.StoredProcedure;
 
             comando.Parameters.AddWithValue("@Credito", Validacion.validarDouble(credito.Monto));
-            comando.Parameters.AddWithValue("@Fecha_carga", Validacion.validarDateTime(credito.Fecha));
+            comando.Parameters.AddWithValue("@Fecha_carga",credito.Fecha);
             comando.Parameters.AddWithValue("@Tipo_pago_desc", Validacion.validarString(credito.TipoPago));
 
             if (credito.HayTarjeta)

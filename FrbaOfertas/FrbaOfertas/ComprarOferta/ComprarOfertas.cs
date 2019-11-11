@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace FrbaOfertas.ComprarOferta
 {
-    public partial class ComprarOferta : Form
+    public partial class ComprarOfertas : Form
     {
         DataTable dataTable = new DataTable();
-        public ComprarOferta()
+        public ComprarOfertas()
         {
             InitializeComponent();
         }
@@ -28,14 +28,21 @@ namespace FrbaOfertas.ComprarOferta
         {
             string query = "select * from OFERTAS";
             Dictionary<String, String> dictionary = new Dictionary<String, String>();
-            this.limpiarEstructuras();
+            //this.limpiarEstructuras();
 
             try
             {
                 if (this.hayCondicionesDeFiltro())
                 {
-                    this.guardarStringEnDiccionario("Codigo_oferta", txtCodOferta.Text, dictionary);
-                    this.guardarStringEnDiccionario("Description", txtDescripcion.Text, dictionary);
+                    query = query + " where ";
+                    if (!String.IsNullOrWhiteSpace(txtCodOferta.Text))
+                    {
+                        query = query + "Codigo_oferta = " + Convert.ToDouble(txtCodOferta.Text);
+                    }
+                    if (!String.IsNullOrWhiteSpace(txtDescripcion.Text))
+                    {
+                        query = query + "Description LIKE '%" + txtDescripcion.Text + "%'";
+                    }
 
                     this.buscar(query, dictionary);
                 }
@@ -53,7 +60,6 @@ namespace FrbaOfertas.ComprarOferta
 
         public void buscar(String query, Dictionary<String, String> dictionary)
         {
-            this.cargarCondiciones(query, dictionary);
             new Queries().obtenerTabla(query, dataTable);
             planillaComprarOfertas.DataSource = dataTable;
             this.setRowNumber(planillaComprarOfertas);
@@ -67,27 +73,6 @@ namespace FrbaOfertas.ComprarOferta
             }
         }
 
-        public void cargarCondiciones(String query, Dictionary<String, String> dictionary)
-        {
-            int longDiccionario = dictionary.Count;
-            foreach (KeyValuePair<String, String> entry in dictionary)
-            {
-                query = query + entry.Key + " LIKE '%" + entry.Value + "%'";
-                longDiccionario--;
-                if (longDiccionario > 0)
-                    query = query + " AND ";
-            }
-        }
-
-        private void guardarStringEnDiccionario(String key, String value,
-            Dictionary<String, String> dictionary)
-        {
-            if (!String.IsNullOrWhiteSpace(value))
-            {
-                dictionary.Add(key, value);
-            }
-        }
-
         private void limpiarEstructuras()
         {
             txtCodOferta.Clear();
@@ -97,8 +82,8 @@ namespace FrbaOfertas.ComprarOferta
 
         private bool hayCondicionesDeFiltro()
         {
-            return !String.IsNullOrEmpty(txtCodOferta.Text) &&
-                !String.IsNullOrEmpty(txtDescripcion.Text);
+            return !String.IsNullOrWhiteSpace(txtCodOferta.Text) ||
+                !String.IsNullOrWhiteSpace(txtDescripcion.Text);
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

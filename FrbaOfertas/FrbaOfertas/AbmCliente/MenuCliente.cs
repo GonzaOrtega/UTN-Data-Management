@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FrbaOfertas.ComprarOferta;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,7 @@ namespace FrbaOfertas.AbmCliente
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            new ComprarOfertas().Show();
         }
 
         private void button2_Click(object sender, EventArgs e)

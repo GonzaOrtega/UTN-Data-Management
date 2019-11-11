@@ -114,11 +114,11 @@
     <Compile Include="Commons\CommonsForms.cs" />
     <Compile Include="Commons\Queries.cs" />
     <Compile Include="Commons\Validacion2.cs" />
-    <Compile Include="ComprarOferta\ComprarOferta.cs">
+    <Compile Include="ComprarOferta\ComprarOfertas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ComprarOferta\ComprarOferta.Designer.cs">
-      <DependentUpon>ComprarOferta.cs</DependentUpon>
+    <Compile Include="ComprarOferta\ComprarOfertas.Designer.cs">
+      <DependentUpon>ComprarOfertas.cs</DependentUpon>
     </Compile>
     <Compile Include="CargaCredito\CargarCredito.cs">
       <SubType>Form</SubType>
@@ -200,8 +200,8 @@
     <EmbeddedResource Include="CargaCredito\CargarInfoTarjeta.resx">
       <DependentUpon>CargarInfoTarjeta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ComprarOferta\ComprarOferta.resx">
-      <DependentUpon>ComprarOferta.cs</DependentUpon>
+    <EmbeddedResource Include="ComprarOferta\ComprarOfertas.resx">
+      <DependentUpon>ComprarOfertas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ComprarOferta\ElegirCantOfertas.resx">
       <DependentUpon>ElegirCantOfertas.cs</DependentUpon>

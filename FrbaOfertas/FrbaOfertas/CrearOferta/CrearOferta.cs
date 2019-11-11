@@ -24,19 +24,40 @@ namespace FrbaOfertas.CrearOferta
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            anterior.Show();
+            if (anterior != null)
+            {
+                anterior.Show();
+            }
+            else
+            {
+                funciones.Show();
+            }
             Close();
         }
-
+        private bool fechasValidas()
+        {
+            if (DateTime.Now.Date > dtpPublicacion.Value.Date)
+            {
+                MessageBox.Show("La fecha de publicacion no puede ser anterior a la fecha actual", "ERROR", MessageBoxButtons.OK);
+                return false;
+            }
+            if (dtpPublicacion.Value.Date > dtpVencimiento.Value.Date) {
+                MessageBox.Show("La fecha de vencimiento no puede ser anterior a la fecha de publicacion", "ERROR", MessageBoxButtons.OK);
+                return false;
+            }
+            return true;
+        }
         private void btnCrear_Click(object sender, EventArgs e)
         {
             //validar
             //crearlo, etc
-            if (MessageBox.Show("Se ha creado una oferta ¿Desea crear otra?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.No)
-            {
-                funciones.Show();
-                anterior.Close();
-                this.Close();
+            if (this.fechasValidas()){
+                if (MessageBox.Show("Se ha creado una oferta ¿Desea crear otra?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    funciones.Show();
+                    anterior.Close();
+                    this.Close();
+                }
             }
             
         }

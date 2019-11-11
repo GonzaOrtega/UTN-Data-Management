@@ -33,6 +33,7 @@
             this.funcionalidadTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.FUNCIONALIDADTableAdapter();
             this.lblElegir = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.tipO_USUARIOTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.TIPO_USUARIOTableAdapter();
             this.SuspendLayout();
             // 
             // cbFunciones
@@ -73,6 +74,10 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // tipO_USUARIOTableAdapter1
+            // 
+            this.tipO_USUARIOTableAdapter1.ClearBeforeFill = true;
+            // 
             // Funciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -96,5 +101,6 @@
         private GD2C2019DataSetTableAdapters.FUNCIONALIDADTableAdapter funcionalidadTableAdapter1;
         private System.Windows.Forms.Label lblElegir;
         private System.Windows.Forms.Button button1;
+        private GD2C2019DataSetTableAdapters.TIPO_USUARIOTableAdapter tipO_USUARIOTableAdapter1;
     }
 }

@@ -12,10 +12,11 @@ namespace FrbaOfertas.Funciones
 {
     public partial class Funciones : Form
     {
+        int usuario;
         public Funciones(int ID_Usuario)
         {
             InitializeComponent();
-           
+            usuario = ID_Usuario;
             cbFunciones.DataSource = this.funcionalidadTableAdapter1.dameFunciones(ID_Usuario);
             cbFunciones.ValueMember = "Descripcion";
             
@@ -23,13 +24,20 @@ namespace FrbaOfertas.Funciones
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(cbFunciones.Text == "ConfeccionarOferta"){
-                new CrearOferta.IngresaProveedor(this).Show();
-                Hide();
+            switch (cbFunciones.Text) {
+                case "ConfeccionarOferta":
+                    DataRow tipo = tipO_USUARIOTableAdapter1.GetDataByUsuario(usuario).First();
+                    if (tipo["CUIT_proveedor"] == null)
+                    {
+                        new CrearOferta.IngresaProveedor(this).Show();
+                    }
+                    else
+                    {
+                        new CrearOferta.CrearOferta(tipo["CUIT_proveedor"].ToString(), tipo["Razon_social"].ToString(), this, null).Show();
+                    }
+                    Hide();
+                    break;
             }
-            /*   FIJARME COMO HACER EL SWITCH ACA DESPUES PORQUE NO TENGO INTERNET :D
-            switch (cbFunciones.Text)
-            {*/
-        
         }
-    }}
+    }
+}

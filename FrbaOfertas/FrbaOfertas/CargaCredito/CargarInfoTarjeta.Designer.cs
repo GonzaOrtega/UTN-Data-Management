@@ -70,6 +70,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(221, 26);
             this.textBox2.TabIndex = 4;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // dateTimePicker1
             // 
@@ -77,6 +78,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(221, 26);
             this.dateTimePicker1.TabIndex = 5;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // button1
             // 
@@ -86,6 +88,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Finalizar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox1
             // 
@@ -97,6 +100,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(221, 28);
             this.comboBox1.TabIndex = 7;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // CargarInfoTarjeta
             // 
@@ -112,6 +116,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CargarInfoTarjeta";
             this.Text = "Cargar datos de tarjeta";
+            this.Load += new System.EventHandler(this.CargarInfoTarjeta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

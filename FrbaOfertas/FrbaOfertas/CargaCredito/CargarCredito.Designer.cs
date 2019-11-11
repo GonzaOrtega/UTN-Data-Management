@@ -32,11 +32,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.txtDNICliente = new System.Windows.Forms.TextBox();
+            this.cbTipoPago = new System.Windows.Forms.ComboBox();
+            this.txtMonto = new System.Windows.Forms.TextBox();
+            this.btSiguiente = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -76,59 +76,61 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Monto";
             // 
-            // dateTimePicker1
+            // dtpFecha
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(171, 14);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(223, 26);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dtpFecha.Location = new System.Drawing.Point(171, 14);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(223, 26);
+            this.dtpFecha.TabIndex = 4;
             // 
-            // textBox1
+            // txtDNICliente
             // 
-            this.textBox1.Location = new System.Drawing.Point(171, 60);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(223, 26);
-            this.textBox1.TabIndex = 5;
+            this.txtDNICliente.Location = new System.Drawing.Point(171, 60);
+            this.txtDNICliente.Name = "txtDNICliente";
+            this.txtDNICliente.Size = new System.Drawing.Size(223, 26);
+            this.txtDNICliente.TabIndex = 5;
             // 
-            // comboBox1
+            // cbTipoPago
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Tarjeta de Credito",
-            "Tarjeta de Debito"});
-            this.comboBox1.Location = new System.Drawing.Point(171, 108);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(223, 28);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbTipoPago.FormattingEnabled = true;
+            this.cbTipoPago.Items.AddRange(new object[] {
+            "Crédito",
+            "Débito",
+            "Efectivo"});
+            this.cbTipoPago.Location = new System.Drawing.Point(171, 108);
+            this.cbTipoPago.Name = "cbTipoPago";
+            this.cbTipoPago.Size = new System.Drawing.Size(223, 28);
+            this.cbTipoPago.TabIndex = 6;
+            this.cbTipoPago.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // textBox2
+            // txtMonto
             // 
-            this.textBox2.Location = new System.Drawing.Point(171, 159);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(223, 26);
-            this.textBox2.TabIndex = 7;
+            this.txtMonto.Location = new System.Drawing.Point(171, 159);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(223, 26);
+            this.txtMonto.TabIndex = 7;
+            this.txtMonto.TextChanged += new System.EventHandler(this.txtMonto_TextChanged);
             // 
-            // button1
+            // btSiguiente
             // 
-            this.button1.Location = new System.Drawing.Point(305, 207);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 34);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Siguiente";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btSiguiente.Location = new System.Drawing.Point(305, 207);
+            this.btSiguiente.Name = "btSiguiente";
+            this.btSiguiente.Size = new System.Drawing.Size(89, 34);
+            this.btSiguiente.TabIndex = 8;
+            this.btSiguiente.Text = "Siguiente";
+            this.btSiguiente.UseVisualStyleBackColor = true;
+            this.btSiguiente.Click += new System.EventHandler(this.button1_Click);
             // 
             // CargarCredito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(414, 259);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.btSiguiente);
+            this.Controls.Add(this.txtMonto);
+            this.Controls.Add(this.cbTipoPago);
+            this.Controls.Add(this.txtDNICliente);
+            this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -147,10 +149,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.TextBox txtDNICliente;
+        private System.Windows.Forms.ComboBox cbTipoPago;
+        private System.Windows.Forms.TextBox txtMonto;
+        private System.Windows.Forms.Button btSiguiente;
     }
 }

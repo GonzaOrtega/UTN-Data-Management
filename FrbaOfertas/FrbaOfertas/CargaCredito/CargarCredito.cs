@@ -12,6 +12,8 @@ namespace FrbaOfertas.CargaCredito
 {
     public partial class CargarCredito : Form
     {
+        Credito credito = new Credito();
+        CargarInfoTarjeta infoTarjeta = new CargarInfoTarjeta();
         public CargarCredito()
         {
             InitializeComponent();
@@ -31,10 +33,51 @@ namespace FrbaOfertas.CargaCredito
         {
 
         }
+        private void txtMonto_TextChanged(object sender, EventArgs e)
+        {
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new CargarInfoTarjeta().Show();
+            try
+            {
+                if (seIngresaronDatos())
+                {
+                    if (eligieronTarjeta())
+                    {
+                        credito.DniCliente = Convert.ToDouble(txtDNICliente.Text);
+                        credito.Fecha = dtpFecha.Value;
+                        credito.Monto = Convert.ToDouble(txtMonto.Text);
+                        credito.TipoPago = cbTipoPago.Text;
+
+                        infoTarjeta.obtenerCredito(credito);
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se ingresaron datos");
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Error al cargar credito, revisar datos ingresados");
+            }
         }
+
+        private bool eligieronTarjeta()
+        {
+            return !cbTipoPago.Equals("Efectivo");
+        }
+
+        private bool seIngresaronDatos()
+        {
+            return String.IsNullOrEmpty(txtDNICliente.Text) || String.IsNullOrEmpty(txtMonto.Text)
+                || String.IsNullOrEmpty(cbTipoPago.Text);
+        }
+
+
     }
 }

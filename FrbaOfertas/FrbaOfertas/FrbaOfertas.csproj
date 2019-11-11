@@ -103,6 +103,7 @@
     <Compile Include="CargaCredito\CargarInfoTarjeta.Designer.cs">
       <DependentUpon>CargarInfoTarjeta.cs</DependentUpon>
     </Compile>
+    <Compile Include="CargaCredito\Credito.cs" />
     <Compile Include="Commons\CommonsForms.cs" />
     <Compile Include="Commons\Queries.cs" />
     <Compile Include="Commons\Validacion2.cs" />

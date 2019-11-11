@@ -52,6 +52,10 @@ namespace FrbaOfertas.Commons
             adapter.SelectCommand.CommandType = CommandType.Text;
             SqlCommandBuilder DbCommandBuilder = new SqlCommandBuilder(adapter);
 
+            string insert = DbCommandBuilder.GetInsertCommand().CommandText.ToString();
+            string update = DbCommandBuilder.GetUpdateCommand().CommandText.ToString();
+            string delete = DbCommandBuilder.GetDeleteCommand().CommandText.ToString();
+
             connection.Open();
             int modificaciones = adapter.Update(dataTable);
 

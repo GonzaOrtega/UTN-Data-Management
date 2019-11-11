@@ -21,7 +21,7 @@ namespace FrbaOfertas.LoginYSeguridad
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            if ((int)this.uSUARIOTableAdapter.chequearUsuario(txtContrasenia.Text, txtUsuario.Text) != 0)
+            if (this.uSUARIOTableAdapter.GetDataByUsuario(txtContrasenia.Text, txtUsuario.Text).Count() != 0)
             {
                 DataRow usuario= this.uSUARIOTableAdapter.GetDataByUsuario(txtContrasenia.Text, txtUsuario.Text).First();
                 new Funciones.Funciones(Convert.ToInt32(usuario["ID_Usuario"].ToString())).Show();

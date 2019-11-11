@@ -41,7 +41,7 @@ namespace FrbaOfertas.Registrarse
             }
             else
             {
-                new DatosProveedor().Show();
+                new DatosProveedor(log, this, usuarioExistente, txtUsuario.Text, txtContrasenia.Text).Show();
             }
             Hide();
         }

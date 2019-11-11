@@ -13,19 +13,93 @@ namespace FrbaOfertas.CrearOferta
 {
     public partial class CrearOferta : Form
     {
-        public CrearOferta(String cuit,String razonSocial,Funciones.Funciones funcion)
+        IngresaProveedor anterior;
+        Funciones.Funciones funciones;
+        public CrearOferta(String cuit,String razonSocial,Funciones.Funciones funcion, IngresaProveedor formularioAnterior)
         {
             InitializeComponent();
+            anterior = formularioAnterior;
+            funciones = funcion;
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void btnAtras_Click(object sender, EventArgs e)
         {
+            anterior.Show();
+            Close();
+        }
+
+        private void btnCrear_Click(object sender, EventArgs e)
+        {
+            //validar
+            //crearlo, etc
+            if (MessageBox.Show("Se ha creado una oferta ¿Desea crear otra?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                funciones.Show();
+                anterior.Close();
+                this.Close();
+            }
+            
+        }
+
+        private void oFERTASBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.oFERTASBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.gD2C2019DataSet);
 
         }
 
         private void CrearOferta_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'gD2C2019DataSet.OFERTAS' Puede moverla o quitarla según sea necesario.
+            this.oFERTASTableAdapter.Fill(this.gD2C2019DataSet.OFERTAS);
 
+        }
+
+        private void tbPrecioOferta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar)&&!Char.IsControl(e.KeyChar)&&e.KeyChar!='.')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbPrecioLista_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescripcion_Click(object sender, EventArgs e)
+        {
+            if (txtDescripcion.Text == "Descripción") txtDescripcion.Text = "";
+        }
+
+        private void txtDescripcion_Leave(object sender, EventArgs e)
+        {
+            if (txtDescripcion.Text == "") txtDescripcion.Text = "Descripción";
+        }
+
+        private void tbPrecioOferta_Click(object sender, EventArgs e)
+        {
+            if (txtPrecioOferta.Text == "Precio de oferta") txtPrecioOferta.Text = "";
+        }
+
+        private void txtPrecioOferta_Leave(object sender, EventArgs e)
+        {
+            if (txtPrecioOferta.Text == "") txtPrecioOferta.Text = "Precio de oferta";
+        }
+
+        private void txtPrecioLista_Leave(object sender, EventArgs e)
+        {
+            if (txtPrecioLista.Text == "") txtPrecioLista.Text = "Precio de lista";
+        }
+
+        private void txtPrecioLista_Click(object sender, EventArgs e)
+        {
+            if (txtPrecioLista.Text == "Precio de lista") txtPrecioLista.Text = "";
         }
     }
 }

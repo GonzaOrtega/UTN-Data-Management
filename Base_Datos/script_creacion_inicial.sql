@@ -276,6 +276,7 @@ insert into FUNCIONALIDAD(Descripcion)
 values('ABM_CLIENTES')
 insert into FUNCIONALIDAD(Descripcion)
 values('ABM_PROVEEDOR')
+
  insert into ROL_FUNCIONALIDAD(ID_rol,ID_funcionalidad)
  (select ID_rol ,ID_funcionalidad
  FROM FUNCIONALIDAD f,ROL
@@ -284,7 +285,8 @@ values('ABM_PROVEEDOR')
  OR Descripcion  like 'ABM_ROL'
  OR Descripcion like 'ABM_CLIENTES'
  OR Descripcion like 'ABM_PROVEEDOR'
- OR  Descripcion like 'FacturarProveedor'))
+ OR  Descripcion like 'FacturarProveedor'
+ OR Descripcion like 'ConfeccionarOferta'))
  
 insert into ROL_FUNCIONALIDAD(ID_rol,ID_funcionalidad)
  (select ID_rol,ID_funcionalidad

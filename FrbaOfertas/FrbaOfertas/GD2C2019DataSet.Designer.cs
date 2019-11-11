@@ -12845,11 +12845,18 @@ SELECT ID_funcionalidad, Descripcion FROM FUNCIONALIDAD WHERE (ID_funcionalidad 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID_funcionalidad, Descripcion FROM dbo.FUNCIONALIDAD";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT f.ID_funcionalidad, f.Descripcion\r\nFROM     FUNCIONALIDAD AS f INNER JOIN\r" +
+                "\n                  ROL_FUNCIONALIDAD AS rf ON f.ID_funcionalidad = rf.ID_funcion" +
+                "alidad\r\nWHERE  (rf.ID_rol = @ID_rol)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_rol", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_rol", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12871,6 +12878,32 @@ SELECT ID_funcionalidad, Descripcion FROM FUNCIONALIDAD WHERE (ID_funcionalidad 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual GD2C2019DataSet.FUNCIONALIDADDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            GD2C2019DataSet.FUNCIONALIDADDataTable dataTable = new GD2C2019DataSet.FUNCIONALIDADDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(GD2C2019DataSet.FUNCIONALIDADDataTable dataTable, int ID_rol) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID_rol));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD2C2019DataSet.FUNCIONALIDADDataTable GetDataByRol(int ID_rol) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID_rol));
             GD2C2019DataSet.FUNCIONALIDADDataTable dataTable = new GD2C2019DataSet.FUNCIONALIDADDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -14443,12 +14476,20 @@ SELECT CUIT_proveedor, Razon_social, Domicilio, Ciudad, Telefono, ID_rubro, Mail
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT CUIT_proveedor, Razon_social, Domicilio, Ciudad, Telefono, ID_rubro, Mail," +
                 " Codigo_postal, Nombre_contacto FROM dbo.PROVEEDOR";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT CUIT_proveedor, Razon_social, Domicilio, Ciudad, Telefono, ID_rubro, Mail," +
+                " Codigo_postal, Nombre_contacto\r\nFROM     PROVEEDOR\r\nWHERE  (CUIT_proveedor = @c" +
+                "uit_proveedor) AND (Razon_social = @razon_social)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cuit_proveedor", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CUIT_proveedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@razon_social", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Razon_social", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14470,6 +14511,54 @@ SELECT CUIT_proveedor, Razon_social, Domicilio, Ciudad, Telefono, ID_rubro, Mail
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual GD2C2019DataSet.PROVEEDORDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            GD2C2019DataSet.PROVEEDORDataTable dataTable = new GD2C2019DataSet.PROVEEDORDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(GD2C2019DataSet.PROVEEDORDataTable dataTable, string cuit_proveedor, string razon_social) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((cuit_proveedor == null)) {
+                throw new global::System.ArgumentNullException("cuit_proveedor");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cuit_proveedor));
+            }
+            if ((razon_social == null)) {
+                throw new global::System.ArgumentNullException("razon_social");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(razon_social));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD2C2019DataSet.PROVEEDORDataTable GetDataByPk(string cuit_proveedor, string razon_social) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((cuit_proveedor == null)) {
+                throw new global::System.ArgumentNullException("cuit_proveedor");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cuit_proveedor));
+            }
+            if ((razon_social == null)) {
+                throw new global::System.ArgumentNullException("razon_social");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(razon_social));
+            }
             GD2C2019DataSet.PROVEEDORDataTable dataTable = new GD2C2019DataSet.PROVEEDORDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -15016,19 +15105,15 @@ SELECT CUIT_proveedor, Razon_social, Domicilio, Ciudad, Telefono, ID_rubro, Mail
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID_rol, Nombre FROM dbo.ROL";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT DISTINCT Nombre FROM dbo.ROL";
+            this._commandCollection[1].CommandText = "SELECT ID_rol, Nombre FROM dbo.ROL where Nombre not like\'AdministradorGeneral\'";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT Nombre\r\nFROM     ROL";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15074,17 +15159,6 @@ SELECT CUIT_proveedor, Razon_social, Domicilio, Ciudad, Telefono, ID_rubro, Mail
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual GD2C2019DataSet.ROLDataTable GetDataBy() {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            GD2C2019DataSet.ROLDataTable dataTable = new GD2C2019DataSet.ROLDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual GD2C2019DataSet.ROLDataTable GetDataBy1() {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
             GD2C2019DataSet.ROLDataTable dataTable = new GD2C2019DataSet.ROLDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -17258,11 +17332,16 @@ SELECT ID_usuario, ID_rol FROM USUARIO_ROL WHERE (ID_rol = @ID_rol) AND (ID_usua
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID_usuario, ID_rol FROM dbo.USUARIO_ROL";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT ID_usuario, ID_rol FROM dbo.USUARIO_ROL where (ID_usuario=@ID_usuario)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_usuario", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17284,6 +17363,32 @@ SELECT ID_usuario, ID_rol FROM USUARIO_ROL WHERE (ID_rol = @ID_rol) AND (ID_usua
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual GD2C2019DataSet.USUARIO_ROLDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            GD2C2019DataSet.USUARIO_ROLDataTable dataTable = new GD2C2019DataSet.USUARIO_ROLDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(GD2C2019DataSet.USUARIO_ROLDataTable dataTable, int ID_usuario) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID_usuario));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD2C2019DataSet.USUARIO_ROLDataTable GetDataByRol(int ID_usuario) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID_usuario));
             GD2C2019DataSet.USUARIO_ROLDataTable dataTable = new GD2C2019DataSet.USUARIO_ROLDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

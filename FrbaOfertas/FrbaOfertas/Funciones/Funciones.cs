@@ -15,11 +15,22 @@ namespace FrbaOfertas.Funciones
         public Funciones(int ID_Usuario)
         {
             InitializeComponent();
+            DataRow usuariorol = this.usuariO_ROLTableAdapter1.GetDataByRol(ID_Usuario).First();
+            cbFunciones.DataSource = this.funcionalidadTableAdapter1.GetDataByRol(Convert.ToInt32(usuariorol["ID_rol"]));
+            cbFunciones.ValueMember = "Descripcion";
+            
         }
 
-        private void Funciones_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            if(cbFunciones.Text == "ConfeccionarOferta"){
+                new CrearOferta.IngresaProveedor(this).Show();
+                Hide();
+            }
+            /*   FIJARME COMO HACER EL SWITCH ACA DESPUES PORQUE NO TENGO INTERNET :D
+            switch (cbFunciones.Text)
+            {*/
+        
         }
     }
 }

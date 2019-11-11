@@ -33,9 +33,11 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContrasenia = new System.Windows.Forms.TextBox();
             this.cbROL = new System.Windows.Forms.ComboBox();
-            this.rolTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.ROLTableAdapter();
             this.rOLBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rolTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.ROLTableAdapter();
             this.gD2C2019DataSet1 = new FrbaOfertas.GD2C2019DataSet();
+            this.btnSiguiente = new System.Windows.Forms.Button();
+            this.btnAtras = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.rOLBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet1)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +61,8 @@
             this.txtUsuario.Size = new System.Drawing.Size(407, 34);
             this.txtUsuario.TabIndex = 1;
             this.txtUsuario.Text = "Usuario";
+            this.txtUsuario.Click += new System.EventHandler(this.txtUsuario_Click);
+            this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
             // 
             // txtContrasenia
             // 
@@ -69,6 +73,8 @@
             this.txtContrasenia.Size = new System.Drawing.Size(407, 34);
             this.txtContrasenia.TabIndex = 2;
             this.txtContrasenia.Text = "Contraseña";
+            this.txtContrasenia.Click += new System.EventHandler(this.txtContrasenia_Click);
+            this.txtContrasenia.Leave += new System.EventHandler(this.txtContrasenia_Leave);
             // 
             // cbROL
             // 
@@ -88,12 +94,36 @@
             this.gD2C2019DataSet1.DataSetName = "GD2C2019DataSet";
             this.gD2C2019DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSiguiente.Location = new System.Drawing.Point(404, 358);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(160, 50);
+            this.btnSiguiente.TabIndex = 4;
+            this.btnSiguiente.Text = "SIGUIENTE";
+            this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
+            // 
+            // btnAtras
+            // 
+            this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtras.Location = new System.Drawing.Point(157, 358);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(160, 50);
+            this.btnAtras.TabIndex = 5;
+            this.btnAtras.Text = "ATRÁS";
+            this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            // 
             // Registrarse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
             this.ClientSize = new System.Drawing.Size(684, 452);
+            this.Controls.Add(this.btnAtras);
+            this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.cbROL);
             this.Controls.Add(this.txtContrasenia);
             this.Controls.Add(this.txtUsuario);
@@ -117,5 +147,7 @@
         private GD2C2019DataSetTableAdapters.ROLTableAdapter rolTableAdapter1;
         private System.Windows.Forms.BindingSource rOLBindingSource;
         private GD2C2019DataSet gD2C2019DataSet1;
+        private System.Windows.Forms.Button btnSiguiente;
+        private System.Windows.Forms.Button btnAtras;
     }
 }

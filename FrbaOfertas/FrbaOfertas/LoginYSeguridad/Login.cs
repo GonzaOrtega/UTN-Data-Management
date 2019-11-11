@@ -52,7 +52,7 @@ namespace FrbaOfertas.LoginYSeguridad
 
         private void btnRegistrarse_Click(object sender, EventArgs e)
         {
-            new Registrarse.Registrarse().Show();
+            new Registrarse.Registrarse(this).Show();
             this.Hide();
  
         }

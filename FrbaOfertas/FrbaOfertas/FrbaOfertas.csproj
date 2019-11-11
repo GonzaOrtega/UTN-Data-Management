@@ -105,24 +105,24 @@
     <Compile Include="CragaCredito\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="CrearOferta\Form1.cs">
+    <Compile Include="CrearOferta\CrearOferta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrearOferta\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="CrearOferta\CrearOferta.Designer.cs">
+      <DependentUpon>CrearOferta.cs</DependentUpon>
     </Compile>
     <Compile Include="Commons\DBAccess.cs" />
     <Compile Include="Commons\DBConnection.cs" />
+    <Compile Include="CrearOferta\IngresaProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearOferta\IngresaProveedor.Designer.cs">
+      <DependentUpon>IngresaProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facturar\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Facturar\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Funciones\Funciones.cs">
@@ -168,8 +168,11 @@
     <EmbeddedResource Include="AbmCliente\ModificarCliente.resx">
       <DependentUpon>ModificarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="CrearOferta\CrearOferta.resx">
+      <DependentUpon>CrearOferta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearOferta\IngresaProveedor.resx">
+      <DependentUpon>IngresaProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Funciones.resx">
       <DependentUpon>Funciones.cs</DependentUpon>

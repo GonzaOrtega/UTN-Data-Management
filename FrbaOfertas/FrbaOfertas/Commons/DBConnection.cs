@@ -15,15 +15,16 @@ namespace FrbaOfertas
 {
     public static class DBConnection
     {
-        //private static string server = ConfigurationManager.AppSettings["server"].ToString();
-        //private static string user = ConfigurationManager.AppSettings["user"].ToString();
-        //private static string password = ConfigurationManager.AppSettings["password"].ToString();
+        private static string server = ConfigurationManager.AppSettings["server"].ToString();
+        private static string user = ConfigurationManager.AppSettings["user"].ToString();
+        private static string password = ConfigurationManager.AppSettings["password"].ToString();
 
         public static SqlConnection getConnection()
         {
             SqlConnection connection = new SqlConnection();
-            // TODO: Cambiar esto acorde a su server
-            connection.ConnectionString = "Data Source=LAPTOP-10J4C3F9\\SQLEXPRESS;Initial Catalog=GD2C2019;User ID=gd;Password=gd2019";
+            //connection.ConnectionString = "Data Source=LAPTOP-10J4C3F9\\SQLEXPRESS;Initial Catalog=GD2C2019;User ID=gd;Password=gd2019";
+            connection.ConnectionString = "Data Source="+server+"\\SQLEXPRESS;Initial Catalog=GD2C2019;User ID="+user+";Password="+password+"";
+            //connection.ConnectionString = "SERVER=" + server + "\\SQLEXPRESS; DATABASE = GD2C2016;UID=" + user + ";PASSWORD=" + password + ";";
             return connection;
         }
 

@@ -203,7 +203,6 @@
     <EmbeddedResource Include="Registrarse\Registrarse.resx">
       <DependentUpon>Registrarse.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="FrbaOfertas.config" />
     <None Include="GD2C2019DataSet.xsc">
       <DependentUpon>GD2C2019DataSet.xsd</DependentUpon>
     </None>

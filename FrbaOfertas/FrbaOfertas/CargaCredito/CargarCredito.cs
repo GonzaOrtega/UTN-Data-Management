@@ -42,7 +42,7 @@ namespace FrbaOfertas.CargaCredito
         {
             try
             {
-                if (seIngresaronDatos())
+                if (seIngresaronDatos() && montoEsPositivo())
                 {
                     // Recordar que se tiene que hacer con un DNI existente en la DB
                     credito.DniCliente = Convert.ToDouble(txtDNICliente.Text);
@@ -64,12 +64,17 @@ namespace FrbaOfertas.CargaCredito
                 }
                 else
                 {
-                    MessageBox.Show("No se ingresaron datos");
+                    MessageBox.Show("No se ingresaron datos o el monto es negativo\nPor favor, revisar ");
                 }
             }catch(Exception ex)
             {
                 MessageBox.Show("Error al cargar credito, revisar datos ingresados");
             }
+        }
+
+        private bool montoEsPositivo()
+        {
+            return Convert.ToDouble(txtMonto.Text) > 0;
         }
 
         private bool eligieronTarjeta()
@@ -83,6 +88,9 @@ namespace FrbaOfertas.CargaCredito
                 && !String.IsNullOrEmpty(cbTipoPago.Text);
         }
 
+        private void dtpFecha_ValueChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

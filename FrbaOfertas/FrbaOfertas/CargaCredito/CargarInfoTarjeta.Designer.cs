@@ -37,6 +37,7 @@
             this.cbTipoTarjeta = new System.Windows.Forms.ComboBox();
             this.txtNroTarjeta = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -120,11 +121,22 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Nro tarjeta";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(17, 206);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(93, 41);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Salir";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // CargarInfoTarjeta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 259);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.txtNroTarjeta);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbTipoTarjeta);
@@ -153,5 +165,6 @@
         private System.Windows.Forms.ComboBox cbTipoTarjeta;
         private System.Windows.Forms.TextBox txtNroTarjeta;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button2;
     }
 }

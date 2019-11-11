@@ -41,12 +41,15 @@
             this.planillaModificarCliente = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.cLIENTESBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD2C2019DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD2C2019DataSet = new FrbaOfertas.GD2C2019DataSet();
             this.cLIENTESTableAdapter = new FrbaOfertas.GD2C2019DataSetTableAdapters.CLIENTESTableAdapter();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.labelOpcionEliminar = new System.Windows.Forms.Label();
+            this.txtIndiceClienteAEliminar = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.planillaModificarCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource)).BeginInit();
@@ -70,6 +73,7 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de busqueda";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtEmailTLibre
             // 
@@ -167,15 +171,15 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnModificar
             // 
-            this.button3.Location = new System.Drawing.Point(547, 489);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 35);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Modificar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnModificar.Location = new System.Drawing.Point(547, 549);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(87, 35);
+            this.btnModificar.TabIndex = 4;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.button3_Click);
             // 
             // cLIENTESBindingSource
             // 
@@ -196,29 +200,58 @@
             // 
             this.cLIENTESTableAdapter.ClearBeforeFill = true;
             // 
-            // button4
+            // btnSalir
             // 
-            this.button4.Location = new System.Drawing.Point(23, 489);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(87, 35);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Salir";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnSalir.Location = new System.Drawing.Point(23, 549);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(87, 35);
+            this.btnSalir.TabIndex = 5;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(436, 549);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(87, 35);
+            this.btnEliminar.TabIndex = 6;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // labelOpcionEliminar
+            // 
+            this.labelOpcionEliminar.AutoSize = true;
+            this.labelOpcionEliminar.Location = new System.Drawing.Point(19, 498);
+            this.labelOpcionEliminar.Name = "labelOpcionEliminar";
+            this.labelOpcionEliminar.Size = new System.Drawing.Size(329, 20);
+            this.labelOpcionEliminar.TabIndex = 7;
+            this.labelOpcionEliminar.Text = "Ingrese el numero de fila del cliente a eliminar";
+            // 
+            // txtIndiceClienteAEliminar
+            // 
+            this.txtIndiceClienteAEliminar.Location = new System.Drawing.Point(436, 498);
+            this.txtIndiceClienteAEliminar.Name = "txtIndiceClienteAEliminar";
+            this.txtIndiceClienteAEliminar.Size = new System.Drawing.Size(146, 26);
+            this.txtIndiceClienteAEliminar.TabIndex = 9;
             // 
             // ModificarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 536);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.ClientSize = new System.Drawing.Size(648, 604);
+            this.Controls.Add(this.txtIndiceClienteAEliminar);
+            this.Controls.Add(this.labelOpcionEliminar);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.planillaModificarCliente);
             this.Controls.Add(this.groupBox1);
             this.Name = "ModificarCliente";
-            this.Text = "ModificarCliente";
+            this.Text = "Seleccione cliente";
             this.Load += new System.EventHandler(this.ModificarUsuario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -227,6 +260,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -242,13 +276,16 @@
         private System.Windows.Forms.DataGridView planillaModificarCliente;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.BindingSource gD2C2019DataSetBindingSource;
         private GD2C2019DataSet gD2C2019DataSet;
         private System.Windows.Forms.BindingSource cLIENTESBindingSource;
         private GD2C2019DataSetTableAdapters.CLIENTESTableAdapter cLIENTESTableAdapter;
         private System.Windows.Forms.TextBox txtEmailTLibre;
         private System.Windows.Forms.TextBox txtDNIPExacta;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Label labelOpcionEliminar;
+        private System.Windows.Forms.TextBox txtIndiceClienteAEliminar;
     }
 }

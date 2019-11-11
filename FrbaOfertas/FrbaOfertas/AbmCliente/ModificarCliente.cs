@@ -21,6 +21,9 @@ namespace FrbaOfertas.AbmCliente
         Double dniglobal;
         List<TextBox> textboxes = new List<TextBox>();
         CommonsForms commons = new CommonsForms();
+        bool esModificar = false;
+
+        public bool EsModificar { get => esModificar; set => esModificar = value; }
 
         public ModificarCliente()
         {
@@ -30,6 +33,19 @@ namespace FrbaOfertas.AbmCliente
         private void ModificarUsuario_Load(object sender, EventArgs e)
         {
             this.cargarTextboxes();
+            if (esModificar)
+            {
+                btnEliminar.Enabled = false;
+                labelOpcionEliminar.Visible = false;
+                txtIndiceClienteAEliminar.Visible = false;
+            }
+            else
+            {
+                // Sino, el usuario eligio "Eliminar cliente"
+                btnModificar.Enabled = false;
+                planillaModificarCliente.ReadOnly = true;
+                txtIndiceClienteAEliminar.Enabled = false;
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -44,6 +60,7 @@ namespace FrbaOfertas.AbmCliente
         private void button2_Click(object sender, EventArgs e)
         {
             buscarClientes();
+            txtIndiceClienteAEliminar.Enabled = true;
         }
        
         private void txtEmailTLibre_TextChanged(object sender, EventArgs e)
@@ -93,6 +110,14 @@ namespace FrbaOfertas.AbmCliente
 
         // Metodos principales
 
+        private void setRowNumber(DataGridView dgv)
+        {
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                row.HeaderCell.Value = String.Format("{0}", row.Index + 1);
+            }
+        }
+
         public void buscar()
         {
             query = query + " WHERE ";
@@ -110,6 +135,7 @@ namespace FrbaOfertas.AbmCliente
             }
             queries.obtenerTabla(query, dataTable);
             planillaModificarCliente.DataSource = dataTable;
+            this.setRowNumber(planillaModificarCliente);
         }
        
         public void cargarCondiciones()
@@ -175,6 +201,14 @@ namespace FrbaOfertas.AbmCliente
                 || !String.IsNullOrWhiteSpace(txtNombreTLibre.Text);
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

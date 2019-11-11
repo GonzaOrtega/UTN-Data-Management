@@ -104,6 +104,7 @@
       <DependentUpon>CargarInfoTarjeta.cs</DependentUpon>
     </Compile>
     <Compile Include="CargaCredito\Credito.cs" />
+    <Compile Include="CargaCredito\Tarjeta.cs" />
     <Compile Include="Commons\CommonsForms.cs" />
     <Compile Include="Commons\Queries.cs" />
     <Compile Include="Commons\Validacion2.cs" />
@@ -202,6 +203,7 @@
     <EmbeddedResource Include="Registrarse\Registrarse.resx">
       <DependentUpon>Registrarse.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="FrbaOfertas.config" />
     <None Include="GD2C2019DataSet.xsc">
       <DependentUpon>GD2C2019DataSet.xsd</DependentUpon>
     </None>

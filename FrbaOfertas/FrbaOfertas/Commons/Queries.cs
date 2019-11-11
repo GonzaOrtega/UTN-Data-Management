@@ -105,5 +105,22 @@ namespace FrbaOfertas.Commons
             MessageBox.Show("Carga creada satisfactoriamente", "Carga de credito");
         }
 
+        public static void insertarTarjeta(Tarjeta tarjeta)
+        {
+            string query = "dbo.insertarTarjeta";
+
+            var conexion = DBConnection.getConnection();
+            SqlCommand comando = new SqlCommand(query, conexion);
+
+            comando.CommandType = CommandType.StoredProcedure;
+
+            
+            comando.Parameters.AddWithValue("@Fecha_Vencimiento", tarjeta.FechaVencimiento);
+            comando.Parameters.AddWithValue("@Nombre_tutorial", Validacion.validarString(tarjeta.Titular));
+            comando.Parameters.AddWithValue("@Tipo_pago_desc", Validacion.validarString(tarjeta.TipoTarjeta));
+
+            conexion.Open();
+            comando.ExecuteReader();
+        }
     }
 }

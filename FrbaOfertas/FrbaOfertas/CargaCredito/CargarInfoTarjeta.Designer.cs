@@ -96,8 +96,8 @@
             // 
             this.cbTipoTarjeta.FormattingEnabled = true;
             this.cbTipoTarjeta.Items.AddRange(new object[] {
-            "Credito",
-            "Debito"});
+            "Crédito",
+            "Débito"});
             this.cbTipoTarjeta.Location = new System.Drawing.Point(203, 162);
             this.cbTipoTarjeta.Name = "cbTipoTarjeta";
             this.cbTipoTarjeta.Size = new System.Drawing.Size(221, 28);

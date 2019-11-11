@@ -22,3 +22,11 @@ as begin
 	insert into CARGA (Credito, Fecha_carga,Tipo_pago_desc, ID_tarjeta, DNI_Cliente) 
 	values (@Credito, @Fecha_carga, @Tipo_pago_desc, @ID_tarjeta, @DNI_Cliente);
 end
+go
+
+create procedure insertarTarjeta(@Fecha_Vencimiento datetime,
+	@Nombre_tutorial nvarchar(1255), @Tipo_pago_desc char(2))
+as begin
+	insert into TARJETA (Fecha_Vencimiento, Nombre_tutorial, Tipo_pago_desc)
+		values (@Fecha_Vencimiento, @Nombre_tutorial, @Tipo_pago_desc);
+end

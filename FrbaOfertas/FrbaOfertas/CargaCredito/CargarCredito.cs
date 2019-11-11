@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -46,7 +47,7 @@ namespace FrbaOfertas.CargaCredito
                 {
                     // Recordar que se tiene que hacer con un DNI existente en la DB
                     credito.DniCliente = Convert.ToDouble(txtDNICliente.Text);
-                    credito.Fecha = dtpFecha.Value;
+                    credito.Fecha = this.obtenerFechaConfigFile();
                     credito.Monto = Convert.ToDouble(txtMonto.Text);
                     credito.TipoPago = cbTipoPago.Text;
 
@@ -60,6 +61,7 @@ namespace FrbaOfertas.CargaCredito
                     {
                         credito.HayTarjeta = false;
                         Queries.insertarCarga(credito);
+                        // Falta el trigger para que cuando se inserta la carga esta se refleje en el usuario o cliente
                     }
                 }
                 else
@@ -70,6 +72,13 @@ namespace FrbaOfertas.CargaCredito
             {
                 MessageBox.Show("Error al cargar credito, revisar datos ingresados");
             }
+        }
+
+        private DateTime obtenerFechaConfigFile()
+        {
+            String fechaConfigFile = ConfigurationManager.AppSettings["fecha"].ToString();
+            DateTime fecha = DateTime.ParseExact(fechaConfigFile, "yyyy-MM-dd HH:mm tt", System.Globalization.CultureInfo.InvariantCulture);
+            return fecha;
         }
 
         private bool montoEsPositivo()

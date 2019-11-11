@@ -45,9 +45,7 @@ namespace FrbaOfertas.CargaCredito
                     {
                         MessageBox.Show("Error: Tipo de pago especificado es distinto al tipo de tarjeta");
                     }
-                    //DateTime fechaSistema = Convert.ToDateTime(ConfigurationManager.AppSettings["fecha"].ToString());
-                    //MessageBox.Show("Prueba de fecha en archivo de config: " + fechaSistema);
-                    
+
                     this.Close();
                 }catch(Exception ex)
                 {

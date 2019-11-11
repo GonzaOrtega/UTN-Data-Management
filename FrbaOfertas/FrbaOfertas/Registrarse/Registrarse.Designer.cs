@@ -38,8 +38,12 @@
             this.gD2C2019DataSet1 = new FrbaOfertas.GD2C2019DataSet();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
+            this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.txtCUIT = new System.Windows.Forms.TextBox();
+            this.txtRazonSocial = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.rOLBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet1)).BeginInit();
+            this.gbDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblIngrese
@@ -84,6 +88,7 @@
             this.cbROL.Name = "cbROL";
             this.cbROL.Size = new System.Drawing.Size(407, 37);
             this.cbROL.TabIndex = 3;
+            this.cbROL.SelectedIndexChanged += new System.EventHandler(this.cbROL_SelectedIndexChanged);
             // 
             // rolTableAdapter1
             // 
@@ -97,7 +102,7 @@
             // btnSiguiente
             // 
             this.btnSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSiguiente.Location = new System.Drawing.Point(404, 358);
+            this.btnSiguiente.Location = new System.Drawing.Point(404, 516);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(160, 50);
             this.btnSiguiente.TabIndex = 4;
@@ -108,7 +113,7 @@
             // btnAtras
             // 
             this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.Location = new System.Drawing.Point(157, 358);
+            this.btnAtras.Location = new System.Drawing.Point(157, 516);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(160, 50);
             this.btnAtras.TabIndex = 5;
@@ -116,12 +121,46 @@
             this.btnAtras.UseVisualStyleBackColor = true;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
+            // gbDatos
+            // 
+            this.gbDatos.BackColor = System.Drawing.Color.Gainsboro;
+            this.gbDatos.Controls.Add(this.txtRazonSocial);
+            this.gbDatos.Controls.Add(this.txtCUIT);
+            this.gbDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbDatos.Location = new System.Drawing.Point(128, 337);
+            this.gbDatos.Name = "gbDatos";
+            this.gbDatos.Size = new System.Drawing.Size(469, 161);
+            this.gbDatos.TabIndex = 8;
+            this.gbDatos.TabStop = false;
+            this.gbDatos.Text = "Datos especificos segun el rol";
+            // 
+            // txtCUIT
+            // 
+            this.txtCUIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCUIT.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtCUIT.Location = new System.Drawing.Point(29, 40);
+            this.txtCUIT.Name = "txtCUIT";
+            this.txtCUIT.Size = new System.Drawing.Size(407, 34);
+            this.txtCUIT.TabIndex = 7;
+            this.txtCUIT.Text = "CUIT";
+            // 
+            // txtRazonSocial
+            // 
+            this.txtRazonSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRazonSocial.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtRazonSocial.Location = new System.Drawing.Point(29, 95);
+            this.txtRazonSocial.Name = "txtRazonSocial";
+            this.txtRazonSocial.Size = new System.Drawing.Size(407, 34);
+            this.txtRazonSocial.TabIndex = 8;
+            this.txtRazonSocial.Text = "Razón social";
+            // 
             // Registrarse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(684, 452);
+            this.ClientSize = new System.Drawing.Size(721, 601);
+            this.Controls.Add(this.gbDatos);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.cbROL);
@@ -133,6 +172,8 @@
             this.Load += new System.EventHandler(this.Registrarse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rOLBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet1)).EndInit();
+            this.gbDatos.ResumeLayout(false);
+            this.gbDatos.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,5 +190,8 @@
         private GD2C2019DataSet gD2C2019DataSet1;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnAtras;
+        private System.Windows.Forms.GroupBox gbDatos;
+        private System.Windows.Forms.TextBox txtRazonSocial;
+        private System.Windows.Forms.TextBox txtCUIT;
     }
 }

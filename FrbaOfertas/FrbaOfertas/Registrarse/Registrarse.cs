@@ -75,5 +75,19 @@ namespace FrbaOfertas.Registrarse
         {
             if (txtContrasenia.Text == "") txtContrasenia.Text = "Contraseña";
         }
+
+        private void cbROL_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbROL.Text == "Proveedor")
+            {
+                txtCUIT.Text = "CUIT";
+                txtRazonSocial.Visible = true;
+            }
+            else
+            {
+                txtCUIT.Text = "DNI";
+                txtRazonSocial.Visible = false;
+            }
+        }
     }
 }

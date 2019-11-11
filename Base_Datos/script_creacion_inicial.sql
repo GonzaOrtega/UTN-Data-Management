@@ -34,7 +34,7 @@ CREATE TABLE TARJETA (
 	ID_tarjeta smallint identity(1,1),
 	Fecha_Vencimiento datetime,
 	Nombre_tutorial nvarchar(1255),
-	Tipo_pago_desc char(2) check (Tipo_pago_desc IN ('Crédito','Débito')),
+	Tipo_pago_desc nvarchar(20) check (Tipo_pago_desc IN ('Crédito','Débito')),
 	Primary Key (ID_tarjeta)
 );
 

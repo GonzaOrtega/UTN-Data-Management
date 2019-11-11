@@ -49,7 +49,7 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.labelOpcionEliminar = new System.Windows.Forms.Label();
-            this.txtIndiceClienteAEliminar = new System.Windows.Forms.TextBox();
+            this.txtNroClienteAEliminar = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.planillaModificarCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource)).BeginInit();
@@ -225,23 +225,23 @@
             this.labelOpcionEliminar.AutoSize = true;
             this.labelOpcionEliminar.Location = new System.Drawing.Point(19, 498);
             this.labelOpcionEliminar.Name = "labelOpcionEliminar";
-            this.labelOpcionEliminar.Size = new System.Drawing.Size(329, 20);
+            this.labelOpcionEliminar.Size = new System.Drawing.Size(280, 20);
             this.labelOpcionEliminar.TabIndex = 7;
-            this.labelOpcionEliminar.Text = "Ingrese el numero de fila del cliente a eliminar";
+            this.labelOpcionEliminar.Text = "Ingrese el numero de cliente a eliminar";
             // 
-            // txtIndiceClienteAEliminar
+            // txtNroClienteAEliminar
             // 
-            this.txtIndiceClienteAEliminar.Location = new System.Drawing.Point(436, 498);
-            this.txtIndiceClienteAEliminar.Name = "txtIndiceClienteAEliminar";
-            this.txtIndiceClienteAEliminar.Size = new System.Drawing.Size(146, 26);
-            this.txtIndiceClienteAEliminar.TabIndex = 9;
+            this.txtNroClienteAEliminar.Location = new System.Drawing.Point(436, 498);
+            this.txtNroClienteAEliminar.Name = "txtNroClienteAEliminar";
+            this.txtNroClienteAEliminar.Size = new System.Drawing.Size(146, 26);
+            this.txtNroClienteAEliminar.TabIndex = 9;
             // 
             // ModificarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(648, 604);
-            this.Controls.Add(this.txtIndiceClienteAEliminar);
+            this.Controls.Add(this.txtNroClienteAEliminar);
             this.Controls.Add(this.labelOpcionEliminar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnSalir);
@@ -286,6 +286,6 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label labelOpcionEliminar;
-        private System.Windows.Forms.TextBox txtIndiceClienteAEliminar;
+        private System.Windows.Forms.TextBox txtNroClienteAEliminar;
     }
 }

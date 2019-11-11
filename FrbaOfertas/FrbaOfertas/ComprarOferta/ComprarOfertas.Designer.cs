@@ -100,9 +100,12 @@
             // 
             // planillaComprarOfertas
             // 
+            this.planillaComprarOfertas.AllowUserToAddRows = false;
+            this.planillaComprarOfertas.AllowUserToDeleteRows = false;
             this.planillaComprarOfertas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.planillaComprarOfertas.Location = new System.Drawing.Point(25, 230);
             this.planillaComprarOfertas.Name = "planillaComprarOfertas";
+            this.planillaComprarOfertas.ReadOnly = true;
             this.planillaComprarOfertas.RowHeadersWidth = 62;
             this.planillaComprarOfertas.RowTemplate.Height = 28;
             this.planillaComprarOfertas.Size = new System.Drawing.Size(611, 230);
@@ -153,7 +156,7 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Codigo de oferta";
             // 
-            // ComprarOferta
+            // ComprarOfertas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -166,7 +169,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.planillaComprarOfertas);
             this.Controls.Add(this.groupBox1);
-            this.Name = "ComprarOferta";
+            this.Name = "ComprarOfertas";
             this.Text = "Comprar ofertas";
             ((System.ComponentModel.ISupportInitialize)(this.planillaComprarOfertas)).EndInit();
             this.groupBox1.ResumeLayout(false);

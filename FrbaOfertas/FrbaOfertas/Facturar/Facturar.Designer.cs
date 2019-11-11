@@ -55,16 +55,17 @@
             this.btnFacturar = new System.Windows.Forms.Button();
             this.btnVer = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cOMPRABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD2C2019DataSet = new FrbaOfertas.GD2C2019DataSet();
             this.cOMPRATableAdapter = new FrbaOfertas.GD2C2019DataSetTableAdapters.COMPRATableAdapter();
             this.tableAdapterManager = new FrbaOfertas.GD2C2019DataSetTableAdapters.TableAdapterManager();
             this.proveedorTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.PROVEEDORTableAdapter();
             this.compraTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.COMPRATableAdapter();
+            this.ofertasTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.OFERTASTableAdapter();
+            this.Codigo_oferta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DNI_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cOMPRABindingNavigator)).BeginInit();
@@ -292,10 +293,10 @@
             this.cOMPRADataGridView.BackgroundColor = System.Drawing.Color.YellowGreen;
             this.cOMPRADataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cOMPRADataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
+            this.Codigo_oferta,
+            this.DNI_cliente,
+            this.Cantidad_compra,
+            this.Fecha_compra});
             this.cOMPRADataGridView.DataSource = this.cOMPRABindingSource;
             this.cOMPRADataGridView.GridColor = System.Drawing.Color.DarkOliveGreen;
             this.cOMPRADataGridView.Location = new System.Drawing.Point(29, 244);
@@ -314,6 +315,7 @@
             this.btnFacturar.TabIndex = 4;
             this.btnFacturar.Text = "FACTURAR";
             this.btnFacturar.UseVisualStyleBackColor = true;
+            this.btnFacturar.Click += new System.EventHandler(this.btnFacturar_Click);
             // 
             // btnVer
             // 
@@ -336,38 +338,6 @@
             this.btnAtras.Text = "ATRÁS";
             this.btnAtras.UseVisualStyleBackColor = true;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Codigo_oferta";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Codigo_oferta";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "DNI_cliente";
-            this.dataGridViewTextBoxColumn2.HeaderText = "DNI_cliente";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Cantidad_compra";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Cantidad_compra";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Fecha_compra";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Fecha_compra";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 125;
             // 
             // cOMPRABindingSource
             // 
@@ -412,6 +382,42 @@
             // 
             this.compraTableAdapter1.ClearBeforeFill = true;
             // 
+            // ofertasTableAdapter1
+            // 
+            this.ofertasTableAdapter1.ClearBeforeFill = true;
+            // 
+            // Codigo_oferta
+            // 
+            this.Codigo_oferta.DataPropertyName = "Codigo_oferta";
+            this.Codigo_oferta.HeaderText = "Codigo_oferta";
+            this.Codigo_oferta.MinimumWidth = 6;
+            this.Codigo_oferta.Name = "Codigo_oferta";
+            this.Codigo_oferta.Width = 125;
+            // 
+            // DNI_cliente
+            // 
+            this.DNI_cliente.DataPropertyName = "DNI_cliente";
+            this.DNI_cliente.HeaderText = "DNI_cliente";
+            this.DNI_cliente.MinimumWidth = 6;
+            this.DNI_cliente.Name = "DNI_cliente";
+            this.DNI_cliente.Width = 125;
+            // 
+            // Cantidad_compra
+            // 
+            this.Cantidad_compra.DataPropertyName = "Cantidad_compra";
+            this.Cantidad_compra.HeaderText = "Cantidad_compra";
+            this.Cantidad_compra.MinimumWidth = 6;
+            this.Cantidad_compra.Name = "Cantidad_compra";
+            this.Cantidad_compra.Width = 125;
+            // 
+            // Fecha_compra
+            // 
+            this.Fecha_compra.DataPropertyName = "Fecha_compra";
+            this.Fecha_compra.HeaderText = "Fecha_compra";
+            this.Fecha_compra.MinimumWidth = 6;
+            this.Fecha_compra.Name = "Fecha_compra";
+            this.Fecha_compra.Width = 125;
+            // 
             // Facturar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -428,7 +434,6 @@
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Name = "Facturar";
             this.Text = "Facturar";
-            this.Load += new System.EventHandler(this.Facturar_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -472,14 +477,15 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton cOMPRABindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView cOMPRADataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Button btnFacturar;
         private System.Windows.Forms.Button btnVer;
         private GD2C2019DataSetTableAdapters.PROVEEDORTableAdapter proveedorTableAdapter1;
         private System.Windows.Forms.Button btnAtras;
         private GD2C2019DataSetTableAdapters.COMPRATableAdapter compraTableAdapter1;
+        private GD2C2019DataSetTableAdapters.OFERTASTableAdapter ofertasTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo_oferta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DNI_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad_compra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_compra;
     }
 }

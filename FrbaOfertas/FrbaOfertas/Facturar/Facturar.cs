@@ -69,10 +69,9 @@ namespace FrbaOfertas.Facturar
         {
             if (this.fechasValidas() && this.existeProveedor())
             {
-                cOMPRADataGridView.DataSource = this.compraTableAdapter1.GetDataBy(txtRazonSocial.Text, txtCuit.Text);
-                //cOMPRADataGridView.DataBind();
-               /* DataRow[] rowArray = compraTableAdapter1.GetDataBy(txtRazonSocial.Text, txtCuit.Text).Select();
-                cOMPRADataGridView.Rows.AddRange((DataGridViewRow [])rowArray);*/
+                cOMPRADataGridView.DataSource = this.compraTableAdapter1.GetDataBy(txtRazonSocial.Text, txtCuit.Text,dtpInicio.Value,dtpFin.Value);
+                if (cOMPRADataGridView.RowCount >1)
+                    btnFacturar.Visible = true;
             }
         }
 
@@ -80,6 +79,21 @@ namespace FrbaOfertas.Facturar
         {
             funciones.Show();
             Close();
+        }
+
+        private void btnFacturar_Click(object sender, EventArgs e)
+        {
+            double total = 0;
+            foreach(DataGridViewRow row in cOMPRADataGridView.Rows)
+            {
+                String oferta = Convert.ToString(row.Cells["Codigo_oferta"].Value);
+                if (oferta != "")
+                {
+                    DataRow dataRow = ofertasTableAdapter1.GetDataBy1(oferta).First();
+                    total += Convert.ToInt32(row.Cells["Cantidad_compra"].Value) * Convert.ToDouble(dataRow["Precio_oferta"].ToString());
+                }        
+            }
+            txtCuit.Text = total.ToString();
         }
     }
 }

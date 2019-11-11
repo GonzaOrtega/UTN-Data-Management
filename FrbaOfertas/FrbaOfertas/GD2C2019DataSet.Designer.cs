@@ -11645,10 +11645,12 @@ SELECT Codigo_oferta, DNI_cliente, Cantidad_compra, Fecha_compra, Num_factura FR
             this._commandCollection[1].CommandText = @"SELECT c.Codigo_oferta, c.DNI_cliente, c.Cantidad_compra, c.Fecha_compra
 FROM     COMPRA AS c INNER JOIN
                   OFERTAS AS o ON c.Codigo_oferta = o.Codigo_oferta
-WHERE  (o.Razon_social = @razon_social) AND (o.CUIT_proveedor = @cuit_proveedor) AND (c.Num_factura IS NULL)";
+WHERE  (o.Razon_social = @razon_social) AND (o.CUIT_proveedor = @cuit_proveedor) AND (c.Num_factura IS NULL) AND (Fecha_compra BETWEEN @FechaInicio AND @fechaFin)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@razon_social", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Razon_social", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cuit_proveedor", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CUIT_proveedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaInicio", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_compra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaFin", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_compra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11679,7 +11681,7 @@ WHERE  (o.Razon_social = @razon_social) AND (o.CUIT_proveedor = @cuit_proveedor)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(GD2C2019DataSet.COMPRADataTable dataTable, string razon_social, string cuit_proveedor) {
+        public virtual int FillBy(GD2C2019DataSet.COMPRADataTable dataTable, string razon_social, string cuit_proveedor, System.DateTime FechaInicio, System.DateTime fechaFin) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((razon_social == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -11693,6 +11695,8 @@ WHERE  (o.Razon_social = @razon_social) AND (o.CUIT_proveedor = @cuit_proveedor)
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(cuit_proveedor));
             }
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(FechaInicio));
+            this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(fechaFin));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -11704,7 +11708,7 @@ WHERE  (o.Razon_social = @razon_social) AND (o.CUIT_proveedor = @cuit_proveedor)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual GD2C2019DataSet.COMPRADataTable GetDataBy(string razon_social, string cuit_proveedor) {
+        public virtual GD2C2019DataSet.COMPRADataTable GetDataBy(string razon_social, string cuit_proveedor, System.DateTime FechaInicio, System.DateTime fechaFin) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((razon_social == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -11718,6 +11722,8 @@ WHERE  (o.Razon_social = @razon_social) AND (o.CUIT_proveedor = @cuit_proveedor)
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((string)(cuit_proveedor));
             }
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(FechaInicio));
+            this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(fechaFin));
             GD2C2019DataSet.COMPRADataTable dataTable = new GD2C2019DataSet.COMPRADataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -13911,7 +13917,7 @@ SELECT Codigo_oferta, Precio_oferta, Fecha_publicacion, Fecha_vencimiento, Stock
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Codigo_oferta, Precio_oferta, Fecha_publicacion, Fecha_vencimiento, Stock," +
@@ -13920,20 +13926,27 @@ SELECT Codigo_oferta, Precio_oferta, Fecha_publicacion, Fecha_vencimiento, Stock
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"INSERT INTO OFERTAS
-                  (Codigo_oferta, Precio_oferta, Fecha_publicacion, Fecha_vencimiento, Stock, Description, Precio_lista, Cant_maxima, CUIT_proveedor, Razon_social)
-VALUES (@Codigo_oferta,@Precio_oferta,@Fecha_publicacion,@Fecha_vencimiento,@Stock,@Description,@Precio_lista,@Cant_maxima,@CUIT_proveedor,@Razon_social); ";
+            this._commandCollection[1].CommandText = "SELECT Codigo_oferta, Precio_oferta, Fecha_publicacion, Fecha_vencimiento, Stock," +
+                " Description, Precio_lista, Cant_maxima, CUIT_proveedor, Razon_social FROM dbo.O" +
+                "FERTAS \r\nWhere Codigo_oferta like @Codigo_oferta";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo_oferta", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo_oferta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Precio_oferta", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "Precio_oferta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_publicacion", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_publicacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_vencimiento", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_vencimiento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Stock", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "Stock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Precio_lista", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "Precio_lista", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cant_maxima", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "Cant_maxima", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CUIT_proveedor", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CUIT_proveedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Razon_social", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Razon_social", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"INSERT INTO OFERTAS
+                  (Codigo_oferta, Precio_oferta, Fecha_publicacion, Fecha_vencimiento, Stock, Description, Precio_lista, Cant_maxima, CUIT_proveedor, Razon_social)
+VALUES (@Codigo_oferta,@Precio_oferta,@Fecha_publicacion,@Fecha_vencimiento,@Stock,@Description,@Precio_lista,@Cant_maxima,@CUIT_proveedor,@Razon_social); ";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo_oferta", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo_oferta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Precio_oferta", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "Precio_oferta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_publicacion", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_publicacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_vencimiento", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_vencimiento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Stock", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "Stock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Precio_lista", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "Precio_lista", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cant_maxima", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "Cant_maxima", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CUIT_proveedor", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CUIT_proveedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Razon_social", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Razon_social", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13955,6 +13968,42 @@ VALUES (@Codigo_oferta,@Precio_oferta,@Fecha_publicacion,@Fecha_vencimiento,@Sto
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual GD2C2019DataSet.OFERTASDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            GD2C2019DataSet.OFERTASDataTable dataTable = new GD2C2019DataSet.OFERTASDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(GD2C2019DataSet.OFERTASDataTable dataTable, string Codigo_oferta) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Codigo_oferta == null)) {
+                throw new global::System.ArgumentNullException("Codigo_oferta");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Codigo_oferta));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD2C2019DataSet.OFERTASDataTable GetDataBy1(string Codigo_oferta) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Codigo_oferta == null)) {
+                throw new global::System.ArgumentNullException("Codigo_oferta");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Codigo_oferta));
+            }
             GD2C2019DataSet.OFERTASDataTable dataTable = new GD2C2019DataSet.OFERTASDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -14380,7 +14429,7 @@ VALUES (@Codigo_oferta,@Precio_oferta,@Fecha_publicacion,@Fecha_vencimiento,@Sto
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertQuery(string Codigo_oferta, global::System.Nullable<decimal> Precio_oferta, global::System.Nullable<global::System.DateTime> Fecha_publicacion, global::System.Nullable<global::System.DateTime> Fecha_vencimiento, global::System.Nullable<decimal> Stock, string Description, global::System.Nullable<decimal> Precio_lista, global::System.Nullable<decimal> Cant_maxima, string CUIT_proveedor, string Razon_social) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             if ((Codigo_oferta == null)) {
                 throw new global::System.ArgumentNullException("Codigo_oferta");
             }

@@ -15,6 +15,7 @@ namespace FrbaOfertas.Registrarse
     public partial class Registrarse : Form
     {
         Login log;
+        bool usuarioExistente;
         public Registrarse(Login login)
         { 
             InitializeComponent();
@@ -25,22 +26,18 @@ namespace FrbaOfertas.Registrarse
         {
             cbROL.DataSource = this.rolTableAdapter1.GetDataSinAdministrador();
             cbROL.ValueMember = "Nombre";
-
         }
-
-        
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
             log.Show();
-            Close();
-           
+            Close();  
         }
         private void enviarAlProximoFormulario()
         {
             if (cbROL.Text == "Cliente")
             {
-                new DatosCliente().Show();
+                new DatosCliente(log, this,usuarioExistente,txtUsuario.Text,txtContrasenia.Text).Show();
             }
             else
             {
@@ -71,13 +68,19 @@ namespace FrbaOfertas.Registrarse
                 {
                     if (this.yaPoseeEseROL())
                     {
-                        MessageBox.Show("El usuario ya se le ha asignado ese ROl", "ERROR", MessageBoxButtons.OK);
+                        MessageBox.Show("El usuario ya se le ha asignado ese ROL", "ERROR", MessageBoxButtons.OK);
                     }
                     else
                     {
+                        usuarioExistente = true;
                         this.enviarAlProximoFormulario();
                     }
                 }
+            }
+            else
+            {
+                usuarioExistente = false;
+                this.enviarAlProximoFormulario();
             }
         }
         private void txtUsuario_Click(object sender, EventArgs e)

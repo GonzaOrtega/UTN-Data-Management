@@ -14,6 +14,7 @@ namespace FrbaOfertas.AbmCliente
 {
     public partial class ModificarCliente : Form
     {
+        // En un rato arreglo este quilombo de variables globales
         Queries queries = new Queries();
         string query = "select * from CLIENTES";
         DataTable dataTable = new DataTable();

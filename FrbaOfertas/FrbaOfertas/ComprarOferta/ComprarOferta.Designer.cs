@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtNroClienteAEliminar = new System.Windows.Forms.TextBox();
+            this.txtNroOfertaDefinitiva = new System.Windows.Forms.TextBox();
             this.labelOpcionEliminar = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.planillaModificarCliente = new System.Windows.Forms.DataGridView();
+            this.planillaComprarOfertas = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtApellidoTLibre = new System.Windows.Forms.TextBox();
-            this.txtNombreTLibre = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.txtCodOferta = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.planillaModificarCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planillaComprarOfertas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtNroClienteAEliminar
+            // txtNroOfertaDefinitiva
             // 
-            this.txtNroClienteAEliminar.Location = new System.Drawing.Point(483, 481);
-            this.txtNroClienteAEliminar.Name = "txtNroClienteAEliminar";
-            this.txtNroClienteAEliminar.Size = new System.Drawing.Size(153, 26);
-            this.txtNroClienteAEliminar.TabIndex = 17;
+            this.txtNroOfertaDefinitiva.Location = new System.Drawing.Point(483, 481);
+            this.txtNroOfertaDefinitiva.Name = "txtNroOfertaDefinitiva";
+            this.txtNroOfertaDefinitiva.Size = new System.Drawing.Size(153, 26);
+            this.txtNroOfertaDefinitiva.TabIndex = 17;
             // 
             // labelOpcionEliminar
             // 
@@ -77,6 +77,7 @@
             this.btnModificar.TabIndex = 14;
             this.btnModificar.Text = "Siguiente";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // button2
             // 
@@ -86,6 +87,7 @@
             this.button2.TabIndex = 13;
             this.button2.Text = "Buscar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -96,20 +98,20 @@
             this.button1.Text = "Limpiar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // planillaModificarCliente
+            // planillaComprarOfertas
             // 
-            this.planillaModificarCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.planillaModificarCliente.Location = new System.Drawing.Point(25, 230);
-            this.planillaModificarCliente.Name = "planillaModificarCliente";
-            this.planillaModificarCliente.RowHeadersWidth = 62;
-            this.planillaModificarCliente.RowTemplate.Height = 28;
-            this.planillaModificarCliente.Size = new System.Drawing.Size(611, 230);
-            this.planillaModificarCliente.TabIndex = 11;
+            this.planillaComprarOfertas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.planillaComprarOfertas.Location = new System.Drawing.Point(25, 230);
+            this.planillaComprarOfertas.Name = "planillaComprarOfertas";
+            this.planillaComprarOfertas.RowHeadersWidth = 62;
+            this.planillaComprarOfertas.RowTemplate.Height = 28;
+            this.planillaComprarOfertas.Size = new System.Drawing.Size(611, 230);
+            this.planillaComprarOfertas.TabIndex = 11;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtApellidoTLibre);
-            this.groupBox1.Controls.Add(this.txtNombreTLibre);
+            this.groupBox1.Controls.Add(this.txtDescripcion);
+            this.groupBox1.Controls.Add(this.txtCodOferta);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(25, 13);
@@ -119,19 +121,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de busqueda";
             // 
-            // txtApellidoTLibre
+            // txtDescripcion
             // 
-            this.txtApellidoTLibre.Location = new System.Drawing.Point(180, 97);
-            this.txtApellidoTLibre.Name = "txtApellidoTLibre";
-            this.txtApellidoTLibre.Size = new System.Drawing.Size(216, 26);
-            this.txtApellidoTLibre.TabIndex = 4;
+            this.txtDescripcion.Location = new System.Drawing.Point(180, 97);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(216, 26);
+            this.txtDescripcion.TabIndex = 4;
             // 
-            // txtNombreTLibre
+            // txtCodOferta
             // 
-            this.txtNombreTLibre.Location = new System.Drawing.Point(180, 39);
-            this.txtNombreTLibre.Name = "txtNombreTLibre";
-            this.txtNombreTLibre.Size = new System.Drawing.Size(216, 26);
-            this.txtNombreTLibre.TabIndex = 3;
+            this.txtCodOferta.Location = new System.Drawing.Point(180, 39);
+            this.txtCodOferta.Name = "txtCodOferta";
+            this.txtCodOferta.Size = new System.Drawing.Size(216, 26);
+            this.txtCodOferta.TabIndex = 3;
             // 
             // label2
             // 
@@ -156,17 +158,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 584);
-            this.Controls.Add(this.txtNroClienteAEliminar);
+            this.Controls.Add(this.txtNroOfertaDefinitiva);
             this.Controls.Add(this.labelOpcionEliminar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.planillaModificarCliente);
+            this.Controls.Add(this.planillaComprarOfertas);
             this.Controls.Add(this.groupBox1);
             this.Name = "ComprarOferta";
             this.Text = "Comprar ofertas";
-            ((System.ComponentModel.ISupportInitialize)(this.planillaModificarCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planillaComprarOfertas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -176,16 +178,16 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtNroClienteAEliminar;
+        private System.Windows.Forms.TextBox txtNroOfertaDefinitiva;
         private System.Windows.Forms.Label labelOpcionEliminar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView planillaModificarCliente;
+        private System.Windows.Forms.DataGridView planillaComprarOfertas;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtApellidoTLibre;
-        private System.Windows.Forms.TextBox txtNombreTLibre;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.TextBox txtCodOferta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
     }

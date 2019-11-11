@@ -1,4 +1,5 @@
 ﻿using FrbaOfertas.AbmCliente;
+using FrbaOfertas.CargaCredito;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -72,6 +73,36 @@ namespace FrbaOfertas.Commons
 
             adapter = new SqlDataAdapter(command);
             adapter.Fill(dataTable);
+        }
+
+        public static void insertarCarga(Credito credito)
+        {
+            string query = "dbo.insertarCarga";
+
+            var conexion = DBConnection.getConnection();
+            SqlCommand comando = new SqlCommand(query, conexion);
+
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@Credito", Validacion.validarDouble(credito.Monto));
+            comando.Parameters.AddWithValue("@Fecha_carga", Validacion.validarDateTime(credito.Fecha));
+            comando.Parameters.AddWithValue("@Tipo_pago_desc", Validacion.validarString(credito.TipoPago));
+
+            if (credito.HayTarjeta)
+            {
+                comando.Parameters.AddWithValue("@ID_tarjeta", Validacion.validarDouble(credito.NroTarjeta));
+            }
+            else
+            {
+                comando.Parameters.AddWithValue("@ID_tarjeta", DBNull.Value);
+            }
+            comando.Parameters.AddWithValue("@DNI_Cliente", Validacion.validarDouble(credito.DniCliente));
+            
+
+            conexion.Open();
+            comando.ExecuteReader();
+
+            MessageBox.Show("Carga creada satisfactoriamente", "Carga de credito");
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FrbaOfertas.Commons;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,18 +44,21 @@ namespace FrbaOfertas.CargaCredito
             {
                 if (seIngresaronDatos())
                 {
+                    credito.DniCliente = Convert.ToDouble(txtDNICliente.Text);
+                    credito.Fecha = dtpFecha.Value;
+                    credito.Monto = Convert.ToDouble(txtMonto.Text);
+                    credito.TipoPago = cbTipoPago.Text;
+
                     if (eligieronTarjeta())
                     {
-                        credito.DniCliente = Convert.ToDouble(txtDNICliente.Text);
-                        credito.Fecha = dtpFecha.Value;
-                        credito.Monto = Convert.ToDouble(txtMonto.Text);
-                        credito.TipoPago = cbTipoPago.Text;
+                        credito.HayTarjeta = true;
 
                         infoTarjeta.obtenerCredito(credito);
                     }
                     else
                     {
-
+                        credito.HayTarjeta = false;
+                        Queries.insertarCarga(credito);
                     }
                 }
                 else
@@ -69,13 +73,13 @@ namespace FrbaOfertas.CargaCredito
 
         private bool eligieronTarjeta()
         {
-            return !cbTipoPago.Equals("Efectivo");
+            return cbTipoPago.Equals("Efectivo");
         }
 
         private bool seIngresaronDatos()
         {
-            return String.IsNullOrEmpty(txtDNICliente.Text) || String.IsNullOrEmpty(txtMonto.Text)
-                || String.IsNullOrEmpty(cbTipoPago.Text);
+            return !String.IsNullOrEmpty(txtDNICliente.Text) && !String.IsNullOrEmpty(txtMonto.Text)
+                && !String.IsNullOrEmpty(cbTipoPago.Text);
         }
 
 

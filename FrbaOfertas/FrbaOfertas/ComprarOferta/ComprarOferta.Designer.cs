@@ -46,9 +46,9 @@
             // 
             // txtNroClienteAEliminar
             // 
-            this.txtNroClienteAEliminar.Location = new System.Drawing.Point(438, 484);
+            this.txtNroClienteAEliminar.Location = new System.Drawing.Point(483, 481);
             this.txtNroClienteAEliminar.Name = "txtNroClienteAEliminar";
-            this.txtNroClienteAEliminar.Size = new System.Drawing.Size(146, 26);
+            this.txtNroClienteAEliminar.Size = new System.Drawing.Size(153, 26);
             this.txtNroClienteAEliminar.TabIndex = 17;
             // 
             // labelOpcionEliminar
@@ -151,7 +151,7 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Codigo de oferta";
             // 
-            // Form1
+            // ComprarOferta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -164,7 +164,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.planillaModificarCliente);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form1";
+            this.Name = "ComprarOferta";
             this.Text = "Comprar ofertas";
             ((System.ComponentModel.ISupportInitialize)(this.planillaModificarCliente)).EndInit();
             this.groupBox1.ResumeLayout(false);

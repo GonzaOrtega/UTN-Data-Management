@@ -13854,13 +13854,29 @@ SELECT Codigo_oferta, Precio_oferta, Fecha_publicacion, Fecha_vencimiento, Stock
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Codigo_oferta, Precio_oferta, Fecha_publicacion, Fecha_vencimiento, Stock," +
                 " Description, Precio_lista, Cant_maxima, CUIT_proveedor, Razon_social FROM dbo.O" +
                 "FERTAS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"INSERT INTO OFERTAS
+                  (Codigo_oferta, Precio_oferta, Fecha_publicacion, Fecha_vencimiento, Stock, Description, Precio_lista, Cant_maxima, CUIT_proveedor, Razon_social)
+VALUES (@Codigo_oferta,@Precio_oferta,@Fecha_publicacion,@Fecha_vencimiento,@Stock,@Description,@Precio_lista,@Cant_maxima,@CUIT_proveedor,@Razon_social); ";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Codigo_oferta", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo_oferta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Precio_oferta", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "Precio_oferta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_publicacion", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_publicacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_vencimiento", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_vencimiento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Stock", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "Stock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Precio_lista", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 2, "Precio_lista", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cant_maxima", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "Cant_maxima", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CUIT_proveedor", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CUIT_proveedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Razon_social", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Razon_social", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14300,6 +14316,89 @@ SELECT Codigo_oferta, Precio_oferta, Fecha_publicacion, Fecha_vencimiento, Stock
                     string Original_CUIT_proveedor, 
                     string Original_Razon_social) {
             return this.Update(Original_Codigo_oferta, Precio_oferta, Fecha_publicacion, Fecha_vencimiento, Stock, Description, Precio_lista, Cant_maxima, CUIT_proveedor, Razon_social, Original_Codigo_oferta, Original_Precio_oferta, Original_Fecha_publicacion, Original_Fecha_vencimiento, Original_Stock, Original_Description, Original_Precio_lista, Original_Cant_maxima, Original_CUIT_proveedor, Original_Razon_social);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery(string Codigo_oferta, global::System.Nullable<decimal> Precio_oferta, global::System.Nullable<global::System.DateTime> Fecha_publicacion, global::System.Nullable<global::System.DateTime> Fecha_vencimiento, global::System.Nullable<decimal> Stock, string Description, global::System.Nullable<decimal> Precio_lista, global::System.Nullable<decimal> Cant_maxima, string CUIT_proveedor, string Razon_social) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((Codigo_oferta == null)) {
+                throw new global::System.ArgumentNullException("Codigo_oferta");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Codigo_oferta));
+            }
+            if ((Precio_oferta.HasValue == true)) {
+                command.Parameters[1].Value = ((decimal)(Precio_oferta.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_publicacion.HasValue == true)) {
+                command.Parameters[2].Value = ((System.DateTime)(Fecha_publicacion.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Fecha_vencimiento.HasValue == true)) {
+                command.Parameters[3].Value = ((System.DateTime)(Fecha_vencimiento.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Stock.HasValue == true)) {
+                command.Parameters[4].Value = ((decimal)(Stock.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Description == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[5].Value = ((string)(Description));
+            }
+            if ((Precio_lista.HasValue == true)) {
+                command.Parameters[6].Value = ((decimal)(Precio_lista.Value));
+            }
+            else {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Cant_maxima.HasValue == true)) {
+                command.Parameters[7].Value = ((decimal)(Cant_maxima.Value));
+            }
+            else {
+                command.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((CUIT_proveedor == null)) {
+                command.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[8].Value = ((string)(CUIT_proveedor));
+            }
+            if ((Razon_social == null)) {
+                command.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[9].Value = ((string)(Razon_social));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

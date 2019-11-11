@@ -15,11 +15,15 @@ namespace FrbaOfertas.CrearOferta
     {
         IngresaProveedor anterior;
         Funciones.Funciones funciones;
-        public CrearOferta(String cuit,String razonSocial,Funciones.Funciones funcion, IngresaProveedor formularioAnterior)
+        String cuit;
+        String razonSocial;
+        public CrearOferta(String cuitP,String razonSocialP,Funciones.Funciones funcion, IngresaProveedor formularioAnterior)
         {
             InitializeComponent();
             anterior = formularioAnterior;
             funciones = funcion;
+            cuit = cuitP;
+            razonSocial = razonSocialP;
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
@@ -47,39 +51,42 @@ namespace FrbaOfertas.CrearOferta
             }
             return true;
         }
+        private String crearStringAleatorio()
+        {
+            int longitud = 11;
+            Guid miGuid = Guid.NewGuid();
+            string token = Convert.ToBase64String(miGuid.ToByteArray());
+            token = token.Replace("=", "").Replace("+", "").Replace("/", "");
+            token.Substring(0, longitud).ToUpper();
+            while( oFERTASTableAdapter.GetData().FindByCodigo_oferta(token)!=null){
+                 longitud = 11;
+                 miGuid = Guid.NewGuid();
+                 token = Convert.ToBase64String(miGuid.ToByteArray());
+                 token.Replace("=", "").Replace("+", "").Replace("/", "");
+             }
+            return token.Substring(0, longitud).ToUpper();
+        }
         private void btnCrear_Click(object sender, EventArgs e)
         {
             //validar
             //crearlo, etc
             if (this.fechasValidas()){
+                oFERTASTableAdapter.InsertQuery(this.crearStringAleatorio(), Convert.ToDecimal(txtPrecioOferta.Text), dtpPublicacion.Value, dtpVencimiento.Value,ndStock.Value,txtDescripcion.Text,Convert.ToDecimal(txtPrecioLista.Text),ndMaxima.Value,cuit,razonSocial);
+
                 if (MessageBox.Show("Se ha creado una oferta ¿Desea crear otra?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.No)
                 {
                     funciones.Show();
-                    anterior.Close();
+                    if(anterior!=null) anterior.Close();
                     this.Close();
                 }
             }
             
         }
 
-        private void oFERTASBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.oFERTASBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gD2C2019DataSet);
-
-        }
-
-        private void CrearOferta_Load(object sender, EventArgs e)
-        {
-            // TODO: esta línea de código carga datos en la tabla 'gD2C2019DataSet.OFERTAS' Puede moverla o quitarla según sea necesario.
-            this.oFERTASTableAdapter.Fill(this.gD2C2019DataSet.OFERTAS);
-
-        }
-
+       
         private void tbPrecioOferta_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar)&&!Char.IsControl(e.KeyChar)&&e.KeyChar!='.')
+            if (!Char.IsDigit(e.KeyChar)&&!Char.IsControl(e.KeyChar)&&e.KeyChar!=',')
             {
                 e.Handled = true;
             }
@@ -87,7 +94,7 @@ namespace FrbaOfertas.CrearOferta
 
         private void tbPrecioLista_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar) && e.KeyChar != '.')
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar) && e.KeyChar != ',')
             {
                 e.Handled = true;
             }

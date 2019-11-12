@@ -80,9 +80,18 @@ namespace FrbaOfertas.ListadoEstadistico
             }
             return true;
         }
+        private bool validarAnio()
+        {
+            if(txtAnio.Text == "Año")
+            {
+                MessageBox.Show("Ingrese el año", "ERROR", MessageBoxButtons.OK);
+                return false;
+            }
+            return true;
+        }
         private void btnListar_Click(object sender, EventArgs e)
         {
-            if (this.validarListado())
+            if (this.validarListado()&&this.validarAnio())
             {
                 if (tipoListado == 2)
                 {
@@ -98,7 +107,9 @@ namespace FrbaOfertas.ListadoEstadistico
                     dataGridView1.Columns.Add(columna1);
                     dataGridView1.Columns.Add(columna2);
                     dataGridView1.Columns.Add(columna3);
-                    foreach (DataRow row in facturaTableAdapter1.maximaFacturacion().Rows)
+                    DateTime fechaInicio = new DateTime(Convert.ToInt32(txtAnio.Text),1,1);
+                    DateTime fechaFin = new DateTime(Convert.ToInt32(txtAnio.Text), 6, 30);
+                    foreach (DataRow row in facturaTableAdapter1.maximaFacturacion(fechaInicio, fechaFin).Rows)
                     {
                         dataGridView1.Rows.Add(Convert.ToDecimal(row["Total_importes"]), Convert.ToString(row["CUIT_proveedor"]), Convert.ToString(row["Razon_social"]));
                        

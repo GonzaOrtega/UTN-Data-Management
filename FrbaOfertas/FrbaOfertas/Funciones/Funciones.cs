@@ -41,6 +41,10 @@ namespace FrbaOfertas.Funciones
                     new Facturar.Facturar(this).Show();
                     Hide();
                     break;
+                case "ListadoEstadistico":
+                    new ListadoEstadistico.ListadoEstadistico(this).Show();
+                    Hide();
+                    break;
             }
         }
     }

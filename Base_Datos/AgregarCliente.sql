@@ -47,3 +47,14 @@ as begin
 	insert into COMPRA (Codigo_oferta, DNI_cliente, Cantidad_compra, Fecha_compra, Num_factura)
 		values (@Codigo_oferta, @DNI_cliente, @Cantidad_compra, @Fecha_compra, @Num_factura)
 end
+go
+
+
+
+create procedure insertarCupon(@Entregado_fecha datetime, @DNI_cliente_origen numeric(18,0), 
+	@DNI_cliente_destino numeric(18,0), @Codigo_oferta nvarchar(50))
+as begin
+	insert into CUPON (Entregado_fecha, DNI_cliente_origen, DNI_cliente_destino, Codigo_oferta)
+		values (@Entregado_fecha, @DNI_cliente_origen, @DNI_cliente_destino, @Codigo_oferta)
+end
+go

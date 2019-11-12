@@ -103,9 +103,10 @@ namespace FrbaOfertas.ComprarOferta
             cupon.CodOferta = codOferta;
             cupon.DniClienteOrigen = dniClienteOrigen;
             cupon.DniClienteDestino = dniClienteDestino;
+            // Como no tengo informacion de la fecha la entrega le pongo siempre una fecha aleatoria
             cupon.FechaEntrega = this.diaAleatorio();
-            
 
+            Queries.insertarCupon(cupon);
         }
 
         private DateTime diaAleatorio()

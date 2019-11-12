@@ -158,5 +158,24 @@ namespace FrbaOfertas.Commons
             conexion.Open();
             comando.ExecuteReader();
         }
+
+        public static void insertarCupon(Cupon cupon)
+        {
+            string query = "dbo.insertarCupon";
+
+            var conexion = DBConnection.getConnection();
+            SqlCommand comando = new SqlCommand(query, conexion);
+
+            comando.CommandType = CommandType.StoredProcedure;
+
+
+            comando.Parameters.AddWithValue("@Entregado_fecha", cupon.FechaEntrega);
+            comando.Parameters.AddWithValue("@DNI_cliente_origen", Validacion.validarDouble(cupon.DniClienteOrigen));
+            comando.Parameters.AddWithValue("@DNI_cliente_destino", Validacion.validarDouble(cupon.DniClienteDestino));
+            comando.Parameters.AddWithValue("@Codigo_oferta", Validacion.validarString(cupon.CodOferta));
+
+            conexion.Open();
+            comando.ExecuteReader();
+        }
     }
 }

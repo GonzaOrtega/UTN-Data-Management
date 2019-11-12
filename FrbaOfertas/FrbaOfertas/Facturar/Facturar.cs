@@ -59,7 +59,7 @@ namespace FrbaOfertas.Facturar
         }
         private bool existeProveedor()
         {
-            if(proveedorTableAdapter1.GetDataByCuitRazonsocial(txtCuit.Text,txtRazonSocial.Text).Count() == 0)
+            if(proveedorTableAdapter1.GetDataByPk(txtCuit.Text,txtRazonSocial.Text).Count() == 0)
             {
                 MessageBox.Show("El proveedor ingresado no existe", "ERROR", MessageBoxButtons.OK);
                 return false;
@@ -102,7 +102,7 @@ namespace FrbaOfertas.Facturar
                 String oferta = Convert.ToString(row.Cells["Codigo_oferta"].Value);
                 if (oferta != "")
                 {
-                    DataRow dataRow = ofertasTableAdapter1.GetDataBy1(oferta).First();
+                    DataRow dataRow = ofertasTableAdapter1.GetData().FindByCodigo_oferta(oferta);
                     total += Convert.ToInt32(row.Cells["Cantidad_compra"].Value) * Convert.ToDecimal(dataRow["Precio_oferta"].ToString());
                 }       
             }
@@ -113,7 +113,7 @@ namespace FrbaOfertas.Facturar
                 String oferta = Convert.ToString(row.Cells["Codigo_oferta"].Value);
                 if (oferta != "")
                 {
-                    cOMPRATableAdapter.UpdateQuery(nroFactura, oferta, Convert.ToDecimal(row.Cells["DNI_cliente"].Value), Convert.ToDateTime(row.Cells["Fecha_compra"].Value));
+                    cOMPRATableAdapter.UpdateNroFactura(nroFactura, oferta, Convert.ToDecimal(row.Cells["DNI_cliente"].Value), Convert.ToDateTime(row.Cells["Fecha_compra"].Value));
             
                 }
              }

@@ -47,7 +47,7 @@ namespace FrbaOfertas.Registrarse
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            if (proveedorTableAdapter1.GetDataByCuitRazonsocial(txtCuit.Text,txtRazonSocial.Text).Count() != 0)
+            if (proveedorTableAdapter1.GetDataByPk(txtCuit.Text,txtRazonSocial.Text).Count() != 0)
             {
                 if (tipO_USUARIOTableAdapter1.GetDataByCuitRazonsocial(txtCuit.Text, txtRazonSocial.Text).Count() != 0)
                 {

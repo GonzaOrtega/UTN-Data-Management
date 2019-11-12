@@ -234,6 +234,7 @@ BEGIN
 END
 ----------------------------------------------------------------------------------------------------------Creo Trigger para manejar los deletes en proveedor,cliente y rol
 GO
+
 Create trigger borrarRol
 ON ROL
 INSTEAD OF DELETE
@@ -241,6 +242,10 @@ AS
 BEGIN
 	UPDATE ROL
 	SET habilitado = 'False'
+	where ID_rol in (select ID_rol from deleted)
+	DELETE USUARIO_ROL
+	where ID_rol in (select ID_rol from deleted)
+	DELETE ROL_FUNCIONALIDAD
 	where ID_rol in (select ID_rol from deleted)
 END
 GO
@@ -251,6 +256,9 @@ AS
 BEGIN
 	UPDATE CLIENTES
 	SET habilitado = 'False'
+	where DNI_cliente in (select DNI_cliente from deleted)
+	UPDATE TIPO_USUARIO
+	SET DNI_cliente=NULL
 	where DNI_cliente in (select DNI_cliente from deleted)
 END
 GO
@@ -263,13 +271,11 @@ BEGIN
 	SET habilitado = 'False'
 	where CUIT_proveedor in (select CUIT_proveedor from deleted)
 	and Razon_social in (select Razon_social from deleted)
+	UPDATE TIPO_USUARIO
+	SET CUIT_proveedor=NULL,Razon_social=NULL
+	where CUIT_proveedor in (select CUIT_proveedor from deleted)
+	and Razon_social in (select Razon_social from deleted)
 END
-
-
-
-
-
-
 ----------------------------------------------------------------------------------------------------------Creado Usuario
 GO
 CREATE PROCEDURE crearUsuario

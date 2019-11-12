@@ -31,7 +31,7 @@
             this.txtNroOfertaDefinitiva = new System.Windows.Forms.TextBox();
             this.labelOpcionEliminar = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnSiguiente = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.planillaComprarOfertas = new System.Windows.Forms.DataGridView();
@@ -68,16 +68,17 @@
             this.btnSalir.TabIndex = 15;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // btnModificar
+            // btnSiguiente
             // 
-            this.btnModificar.Location = new System.Drawing.Point(549, 535);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(87, 35);
-            this.btnModificar.TabIndex = 14;
-            this.btnModificar.Text = "Siguiente";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnSiguiente.Location = new System.Drawing.Point(549, 535);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(87, 35);
+            this.btnSiguiente.TabIndex = 14;
+            this.btnSiguiente.Text = "Siguiente";
+            this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // button2
             // 
@@ -164,13 +165,14 @@
             this.Controls.Add(this.txtNroOfertaDefinitiva);
             this.Controls.Add(this.labelOpcionEliminar);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.planillaComprarOfertas);
             this.Controls.Add(this.groupBox1);
             this.Name = "ComprarOfertas";
             this.Text = "Comprar ofertas";
+            this.Load += new System.EventHandler(this.ComprarOfertas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.planillaComprarOfertas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -184,7 +186,7 @@
         private System.Windows.Forms.TextBox txtNroOfertaDefinitiva;
         private System.Windows.Forms.Label labelOpcionEliminar;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView planillaComprarOfertas;

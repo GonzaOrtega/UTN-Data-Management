@@ -12,9 +12,35 @@ namespace FrbaOfertas.ComprarOferta
 {
     public partial class ElegirCantOfertas : Form
     {
+        Double clienteId;
+        String codOferta;
+        // Tambien hardcodeado para poner las condiciones
+        Double credito = 250;
+
+        public double ClienteId { get => clienteId; set => clienteId = value; }
+        public string CodOferta { get => codOferta; set => codOferta = value; }
+
         public ElegirCantOfertas()
         {
             InitializeComponent();
+        }
+
+        private void ElegirCantOfertas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int cantCompra = Convert.ToInt32(txtCantOfertas);
+                Double dniClienteDestino = Convert.ToDouble(txtClienteDestino.Text);
+
+            }catch(Exception ex)
+            {
+                MessageBox.Show("Error: verificar datos ingresados");
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -14,6 +15,9 @@ namespace FrbaOfertas.ComprarOferta
     public partial class ComprarOfertas : Form
     {
         DataTable dataTable = new DataTable();
+
+        // Lo hardcodeo hasta que hagamos el merge
+        Double clienteId = 1;
         public ComprarOfertas()
         {
             InitializeComponent();
@@ -29,26 +33,27 @@ namespace FrbaOfertas.ComprarOferta
             string query = "SELECT * FROM OFERTAS";
             //Dictionary<String, String> dictionary = new Dictionary<String, String>();
             this.limpiarEstructuras();
+            DateTime fechaConfigFile = this.obtenerFechaConfigFile();
 
             try
             {
                 if (this.hayCondicionesDeFiltro())
                 {
-                    query = query + " WHERE ";
+                    // Agrego restriccion de la fecha de vencimiento
+                    query = query + " WHERE Fecha_vencimiento > '" + fechaConfigFile + "' ";
                     if (hayCodOferta())
                     {
-                        query = query + "Codigo_oferta = '" + txtCodOferta.Text + "'";
+                        query = query + "AND Codigo_oferta = '" + txtCodOferta.Text + "'";
                     }
                     if (hayDescripcion())
                     {
-                        if (hayCodOferta())
-                        {
-                            query = query + " AND ";
-                        }
-                        query = query + "Description LIKE '%" + txtDescripcion.Text + "%'";
+                        query = query + "AND Description LIKE '%" + txtDescripcion.Text + "%'";
                     }
 
                     this.buscar(query);
+
+                    // Si todo esta ok, le permite al usuario avanzar
+                    btnSiguiente.Enabled = true;
                 }
                 else
                 {
@@ -60,6 +65,13 @@ namespace FrbaOfertas.ComprarOferta
             {
                 MessageBox.Show("Codigo de oferta ingresado incorrectamente");
             }
+        }
+
+        private DateTime obtenerFechaConfigFile()
+        {
+            String fechaConfigFile = ConfigurationManager.AppSettings["fecha"].ToString();
+            DateTime fecha = DateTime.ParseExact(fechaConfigFile, "yyyy-MM-dd HH:mm tt", System.Globalization.CultureInfo.InvariantCulture);
+            return fecha;
         }
 
         private bool hayDescripcion()
@@ -100,7 +112,26 @@ namespace FrbaOfertas.ComprarOferta
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            string nroOferta = txtNroOfertaDefinitiva.Text;
+            ElegirCantOfertas ofertas = new ElegirCantOfertas();
+            ofertas.CodOferta = txtCodOferta.Text;
+            ofertas.ClienteId = clienteId;
+            ofertas.Show();
+        }
 
+        private bool eligioOferta()
+        {
+            return !String.IsNullOrEmpty(txtNroOfertaDefinitiva.Text);
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ComprarOfertas_Load(object sender, EventArgs e)
+        {
+            btnSiguiente.Enabled = false;
         }
     }
 }

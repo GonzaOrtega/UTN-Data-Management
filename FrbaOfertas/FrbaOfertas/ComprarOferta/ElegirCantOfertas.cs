@@ -127,14 +127,14 @@ namespace FrbaOfertas.ComprarOferta
         private bool creditoSeaSuficiente(int cantDeseada)
         {
             string query = "SELECT * FROM OFERTAS WHERE Codigo_oferta = '" + codOferta + "'";
-            Double preciOferta = Convert.ToDouble(Queries.obtenerDatoOferta(query, 1));
+            Double preciOferta = Convert.ToDouble(Queries.obtenerDatoTabla(query, 1));
             return credito >= preciOferta * cantDeseada;
         }
 
         private bool cantPedidaEsMenorACantidadMaxima(int cantDeseada)
         {
             string query = "SELECT * FROM OFERTAS WHERE Codigo_oferta = '" + codOferta + "'";
-            int cantMaximaOferta = Convert.ToInt32(Queries.obtenerDatoOferta(query, 7));
+            int cantMaximaOferta = Convert.ToInt32(Queries.obtenerDatoTabla(query, 7));
             return cantDeseada <= cantMaximaOferta;
         }
     }

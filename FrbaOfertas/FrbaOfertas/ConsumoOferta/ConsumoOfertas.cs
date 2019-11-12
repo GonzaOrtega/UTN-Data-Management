@@ -15,6 +15,9 @@ namespace FrbaOfertas.ConsumoOferta
     public partial class ConsumoOfertas : Form
     {
         Cupon cupon;
+        // Valores que me los van a pasar por parametro
+        string cuit;
+        string razonSocial;
         public ConsumoOfertas()
         {
             InitializeComponent();
@@ -43,35 +46,41 @@ namespace FrbaOfertas.ConsumoOferta
             }
         }
 
-        private static void cuponEsDeProveedorYNoEstaVencido()
+        private void cuponEsDeProveedorYNoEstaVencido()
         {
-            //if (cuponEsDeProveedor())
-            //{
-            //    if (cuponNoEstaVencido())
-            //    {
-            //        canjearCupon();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("El cupon esta vencido");
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("El cupon no es de este proveedor");
-            //}
+            if (cuponEsDeProveedor())
+            {
+                //if (cuponNoEstaVencido())
+                //{
+                //    canjearCupon();
+                //}
+                //else
+                //{
+                //    MessageBox.Show("El cupon esta vencido");
+                //}
+            }
+            else
+            {
+                MessageBox.Show("El cupon no es de este proveedor");
+            }
         }
 
         private bool cuponEsDeProveedor()
         {
-
+            string query = "SELECT * FROM OFERTAS WHERE Codigo_oferta = '" +
+                cupon.CodOferta + "'";
+            //DateTime fechaVencimientoOferta = Convert.ToDateTime(Queries.obtenerDatoTabla(query, 3));
+            string cuitObtenido = Convert.ToString(Queries.obtenerDatoTabla(query, 8));
+            string razonSocialObtenida = Convert.ToString(Queries.obtenerDatoTabla(query, 9));
+            return cuit.Equals(cuitObtenido) && razonSocial.Equals(razonSocialObtenida); 
         }
 
         private bool existeCupon(int nroCupon)
         {
-            bool existeCupon = false;
-            cupon =  Queries.existeCupon(nroCupon, ref existeCupon);
-            return existeCupon;
+            string codOfertaObtenido = null;
+            bool existe =  Queries.existeCupon(nroCupon, ref codOfertaObtenido);
+            cupon.CodOferta = codOfertaObtenido;
+            return existe;
         }
     }
 }

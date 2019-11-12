@@ -124,7 +124,7 @@ namespace FrbaOfertas.Commons
             comando.ExecuteReader();
         }
 
-        public static object obtenerDatoOferta(String query, int indiceDeTabla)
+        public static object obtenerDatoTabla(String query, int indiceDeTabla)
         {
             object dato = null;
             var conexion = DBConnection.getConnection();
@@ -178,23 +178,20 @@ namespace FrbaOfertas.Commons
             comando.ExecuteReader();
         }
 
-        public static Cupon existeCupon(int nroCupon, ref bool existe)
+        public static bool existeCupon(int nroCupon, ref string codOferta)
         {
             string query = "SELECT * FROM CUPON WHERE Codigo_cupon = " + nroCupon;
             Cupon cupon = new Cupon();
 
             try
             {
-                cupon.CodOferta = Convert.ToString(obtenerDatoOferta(query, 0));
-                cupon.FechaEntrega = Convert.ToDateTime(obtenerDatoOferta(query, 1));
-                existe = true;
+                codOferta = Convert.ToString(obtenerDatoTabla(query, 4));
+                return true;
 
             }catch(Exception ex)
             {
-                existe = false;
+                return false;
             }
-
-            return cupon;
         }
     }
 }

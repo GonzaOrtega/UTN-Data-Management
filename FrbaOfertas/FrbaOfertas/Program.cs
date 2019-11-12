@@ -17,7 +17,7 @@ namespace FrbaOfertas
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
-            Application.Run(new AbmCliente.MenuCliente());
+            Application.Run(new ConsumoOferta.ConsumoOfertas());
         }
     }
 }

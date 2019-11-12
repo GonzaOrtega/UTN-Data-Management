@@ -16,6 +16,10 @@ namespace FrbaOfertas.ComprarOferta
     {
         // Variable harcodeada para poder insertar los datos, se obtiene de las otras formas
         Double credito = 250;
+        // Aclaracion, como tenemos como PK al codOferta y DNICliente => Un cliente solo puede comprar una oferta
+        // (Independientemente de sus cantidades) solo una vez, porque sino no se cumple unicidad.
+        // Lo cual me parece que tiene sentido ya que cuando una compra una oferta, por mas que compre muchas unidades, solo la compra una vez
+        // Funcionar funciona, el problema es que por las FKs y todo eso, se tiene que probar con pruebas muy bien pensadas!!
         Double dniClienteOrigen = 1;
 
         // Esta se obtiene por la forma ComprarOfertas
@@ -82,7 +86,7 @@ namespace FrbaOfertas.ComprarOferta
             compra.CodOferta = codOferta;
             compra.DniCliente = dniClienteOrigen;
             compra.FechaCompra = this.obtenerFechaConfigFile();
-            compra.NumFactura = 0; // ESto indica que siempre va a ser nulo, se va a actualizar cuando se haga la facturacion
+            compra.NumFactura = 0; // Esto indica que siempre va a ser nulo, se va a actualizar cuando se haga la facturacion
             // Nota: Agregar el trigger correspondiente
 
             Queries.insertarCompra(compra);
@@ -112,7 +116,7 @@ namespace FrbaOfertas.ComprarOferta
         private DateTime diaAleatorio()
         {
             Random gen = new Random();
-            DateTime start = new DateTime(1995, 1, 1);
+            DateTime start = this.obtenerFechaConfigFile();
             int range = (DateTime.Today - start).Days;
             return start.AddDays(gen.Next(range));
         }

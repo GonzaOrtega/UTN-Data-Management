@@ -16,6 +16,7 @@ namespace FrbaOfertas.Registrarse
     {
         Login log;
         bool usuarioExistente;
+        bool cerrado = false;
         public Registrarse(Login login)
         { 
             InitializeComponent();
@@ -104,17 +105,22 @@ namespace FrbaOfertas.Registrarse
         }
 
        
-
+        
         private void Registrarse_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro que desea salir del sistema?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (e.CloseReason == CloseReason.UserClosing)
             {
-                e.Cancel = true;
-            }
-            else
-            {
-                log.CLose();
+                if (MessageBox.Show("¿Está seguro que desea salir del sistema?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Application.Exit();
+                }
             }
         }
+
+       
     }
 }

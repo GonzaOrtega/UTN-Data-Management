@@ -55,17 +55,17 @@
             this.btnFacturar = new System.Windows.Forms.Button();
             this.btnVer = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
+            this.Codigo_oferta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DNI_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cOMPRABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gD2C2019DataSet = new FrbaOfertas.GD2C2019DataSet();
             this.cOMPRATableAdapter = new FrbaOfertas.GD2C2019DataSetTableAdapters.COMPRATableAdapter();
             this.tableAdapterManager = new FrbaOfertas.GD2C2019DataSetTableAdapters.TableAdapterManager();
             this.proveedorTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.PROVEEDORTableAdapter();
-            this.compraTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.COMPRATableAdapter();
             this.ofertasTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.OFERTASTableAdapter();
-            this.Codigo_oferta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DNI_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidad_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.facturaTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.FACTURATableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cOMPRABindingNavigator)).BeginInit();
@@ -107,6 +107,7 @@
             this.dtpFin.Name = "dtpFin";
             this.dtpFin.Size = new System.Drawing.Size(477, 34);
             this.dtpFin.TabIndex = 8;
+            this.dtpFin.ValueChanged += new System.EventHandler(this.dtpFin_ValueChanged);
             // 
             // label1
             // 
@@ -125,6 +126,7 @@
             this.dtpInicio.Name = "dtpInicio";
             this.dtpInicio.Size = new System.Drawing.Size(477, 34);
             this.dtpInicio.TabIndex = 6;
+            this.dtpInicio.ValueChanged += new System.EventHandler(this.dtpInicio_ValueChanged);
             // 
             // groupBox2
             // 
@@ -148,6 +150,7 @@
             this.txtRazonSocial.TabIndex = 1;
             this.txtRazonSocial.Text = "Razón social";
             this.txtRazonSocial.Click += new System.EventHandler(this.txtRazonSocial_Click);
+            this.txtRazonSocial.TextChanged += new System.EventHandler(this.txtRazonSocial_TextChanged);
             this.txtRazonSocial.Leave += new System.EventHandler(this.txtRazonSocial_Leave);
             // 
             // txtCuit
@@ -159,6 +162,7 @@
             this.txtCuit.TabIndex = 0;
             this.txtCuit.Text = "CUIT";
             this.txtCuit.Click += new System.EventHandler(this.txtCuit_Click);
+            this.txtCuit.TextChanged += new System.EventHandler(this.txtCuit_TextChanged);
             this.txtCuit.Leave += new System.EventHandler(this.txtCuit_Leave);
             // 
             // cOMPRABindingNavigator
@@ -244,7 +248,6 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Posición";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -339,6 +342,38 @@
             this.btnAtras.UseVisualStyleBackColor = true;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
+            // Codigo_oferta
+            // 
+            this.Codigo_oferta.DataPropertyName = "Codigo_oferta";
+            this.Codigo_oferta.HeaderText = "Codigo_oferta";
+            this.Codigo_oferta.MinimumWidth = 6;
+            this.Codigo_oferta.Name = "Codigo_oferta";
+            this.Codigo_oferta.Width = 125;
+            // 
+            // DNI_cliente
+            // 
+            this.DNI_cliente.DataPropertyName = "DNI_cliente";
+            this.DNI_cliente.HeaderText = "DNI_cliente";
+            this.DNI_cliente.MinimumWidth = 6;
+            this.DNI_cliente.Name = "DNI_cliente";
+            this.DNI_cliente.Width = 125;
+            // 
+            // Cantidad_compra
+            // 
+            this.Cantidad_compra.DataPropertyName = "Cantidad_compra";
+            this.Cantidad_compra.HeaderText = "Cantidad_compra";
+            this.Cantidad_compra.MinimumWidth = 6;
+            this.Cantidad_compra.Name = "Cantidad_compra";
+            this.Cantidad_compra.Width = 125;
+            // 
+            // Fecha_compra
+            // 
+            this.Fecha_compra.DataPropertyName = "Fecha_compra";
+            this.Fecha_compra.HeaderText = "Fecha_compra";
+            this.Fecha_compra.MinimumWidth = 6;
+            this.Fecha_compra.Name = "Fecha_compra";
+            this.Fecha_compra.Width = 125;
+            // 
             // cOMPRABindingSource
             // 
             this.cOMPRABindingSource.DataMember = "COMPRA";
@@ -378,45 +413,13 @@
             // 
             this.proveedorTableAdapter1.ClearBeforeFill = true;
             // 
-            // compraTableAdapter1
-            // 
-            this.compraTableAdapter1.ClearBeforeFill = true;
-            // 
             // ofertasTableAdapter1
             // 
             this.ofertasTableAdapter1.ClearBeforeFill = true;
             // 
-            // Codigo_oferta
+            // facturaTableAdapter1
             // 
-            this.Codigo_oferta.DataPropertyName = "Codigo_oferta";
-            this.Codigo_oferta.HeaderText = "Codigo_oferta";
-            this.Codigo_oferta.MinimumWidth = 6;
-            this.Codigo_oferta.Name = "Codigo_oferta";
-            this.Codigo_oferta.Width = 125;
-            // 
-            // DNI_cliente
-            // 
-            this.DNI_cliente.DataPropertyName = "DNI_cliente";
-            this.DNI_cliente.HeaderText = "DNI_cliente";
-            this.DNI_cliente.MinimumWidth = 6;
-            this.DNI_cliente.Name = "DNI_cliente";
-            this.DNI_cliente.Width = 125;
-            // 
-            // Cantidad_compra
-            // 
-            this.Cantidad_compra.DataPropertyName = "Cantidad_compra";
-            this.Cantidad_compra.HeaderText = "Cantidad_compra";
-            this.Cantidad_compra.MinimumWidth = 6;
-            this.Cantidad_compra.Name = "Cantidad_compra";
-            this.Cantidad_compra.Width = 125;
-            // 
-            // Fecha_compra
-            // 
-            this.Fecha_compra.DataPropertyName = "Fecha_compra";
-            this.Fecha_compra.HeaderText = "Fecha_compra";
-            this.Fecha_compra.MinimumWidth = 6;
-            this.Fecha_compra.Name = "Fecha_compra";
-            this.Fecha_compra.Width = 125;
+            this.facturaTableAdapter1.ClearBeforeFill = true;
             // 
             // Facturar
             // 
@@ -481,11 +484,11 @@
         private System.Windows.Forms.Button btnVer;
         private GD2C2019DataSetTableAdapters.PROVEEDORTableAdapter proveedorTableAdapter1;
         private System.Windows.Forms.Button btnAtras;
-        private GD2C2019DataSetTableAdapters.COMPRATableAdapter compraTableAdapter1;
         private GD2C2019DataSetTableAdapters.OFERTASTableAdapter ofertasTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo_oferta;
         private System.Windows.Forms.DataGridViewTextBoxColumn DNI_cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad_compra;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_compra;
+        private GD2C2019DataSetTableAdapters.FACTURATableAdapter facturaTableAdapter1;
     }
 }

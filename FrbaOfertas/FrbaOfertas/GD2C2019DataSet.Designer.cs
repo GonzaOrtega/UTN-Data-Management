@@ -11634,7 +11634,7 @@ SELECT Codigo_oferta, DNI_cliente, Cantidad_compra, Fecha_compra, Num_factura FR
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Codigo_oferta, DNI_cliente, Cantidad_compra, Fecha_compra, Num_factura FRO" +
@@ -11651,6 +11651,16 @@ WHERE  (o.Razon_social = @razon_social) AND (o.CUIT_proveedor = @cuit_proveedor)
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cuit_proveedor", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CUIT_proveedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaInicio", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_compra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaFin", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_compra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "UPDATE COMPRA\r\nSET          Num_factura = @Num_factura\r\nWHERE  (Codigo_oferta = @" +
+                "Original_Codigo_oferta) AND (DNI_cliente = @Original_DNI_cliente) AND (Fecha_com" +
+                "pra = @Original_Fecha_compra); ";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Num_factura", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "Num_factura", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Codigo_oferta", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Codigo_oferta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DNI_cliente", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "DNI_cliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_compra", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_compra", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11915,6 +11925,43 @@ WHERE  (o.Razon_social = @razon_social) AND (o.CUIT_proveedor = @cuit_proveedor)
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(global::System.Nullable<decimal> Cantidad_compra, global::System.Nullable<decimal> Num_factura, string Original_Codigo_oferta, decimal Original_DNI_cliente, global::System.Nullable<decimal> Original_Cantidad_compra, System.DateTime Original_Fecha_compra, global::System.Nullable<decimal> Original_Num_factura) {
             return this.Update(Original_Codigo_oferta, Original_DNI_cliente, Cantidad_compra, Original_Fecha_compra, Num_factura, Original_Codigo_oferta, Original_DNI_cliente, Original_Cantidad_compra, Original_Fecha_compra, Original_Num_factura);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateQuery(global::System.Nullable<decimal> Num_factura, string Original_Codigo_oferta, decimal Original_DNI_cliente, System.DateTime Original_Fecha_compra) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            if ((Num_factura.HasValue == true)) {
+                command.Parameters[0].Value = ((decimal)(Num_factura.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Codigo_oferta == null)) {
+                throw new global::System.ArgumentNullException("Original_Codigo_oferta");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Original_Codigo_oferta));
+            }
+            command.Parameters[2].Value = ((decimal)(Original_DNI_cliente));
+            command.Parameters[3].Value = ((System.DateTime)(Original_Fecha_compra));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

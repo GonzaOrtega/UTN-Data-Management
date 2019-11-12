@@ -69,7 +69,7 @@ namespace FrbaOfertas.Facturar
         {
             if (this.fechasValidas() && this.existeProveedor())
             {
-                cOMPRADataGridView.DataSource = this.compraTableAdapter1.GetDataBy(txtRazonSocial.Text, txtCuit.Text,dtpInicio.Value,dtpFin.Value);
+                cOMPRADataGridView.DataSource = this.cOMPRATableAdapter.GetDataBy(txtRazonSocial.Text, txtCuit.Text,dtpInicio.Value,dtpFin.Value);
                 if (cOMPRADataGridView.RowCount >1)
                     btnFacturar.Visible = true;
             }
@@ -80,20 +80,61 @@ namespace FrbaOfertas.Facturar
             funciones.Show();
             Close();
         }
-
+        private int crearNroFactura()
+        {
+            var seed = Environment.TickCount;
+            var random = new Random(seed);
+            int nroFactura = random.Next(100000, 999999);
+            while (facturaTableAdapter1.GetData().FindByNum_factura(nroFactura) !=null)
+            {
+                nroFactura = random.Next(100000,999999);
+            }
+            return nroFactura;
+        }
         private void btnFacturar_Click(object sender, EventArgs e)
         {
-            double total = 0;
-            foreach(DataGridViewRow row in cOMPRADataGridView.Rows)
+            decimal total = 0;
+            int nroFactura = this.crearNroFactura();
+            foreach (DataGridViewRow row in cOMPRADataGridView.Rows)
             {
                 String oferta = Convert.ToString(row.Cells["Codigo_oferta"].Value);
                 if (oferta != "")
                 {
                     DataRow dataRow = ofertasTableAdapter1.GetDataBy1(oferta).First();
-                    total += Convert.ToInt32(row.Cells["Cantidad_compra"].Value) * Convert.ToDouble(dataRow["Precio_oferta"].ToString());
-                }        
+                    total += Convert.ToInt32(row.Cells["Cantidad_compra"].Value) * Convert.ToDecimal(dataRow["Precio_oferta"].ToString());
+                }       
             }
-            txtCuit.Text = total.ToString();
+            
+            facturaTableAdapter1.Insert(Convert.ToDecimal(nroFactura),DateTime.Now,total, txtCuit.Text,txtRazonSocial.Text);
+            foreach (DataGridViewRow row in cOMPRADataGridView.Rows)
+            {
+                cOMPRATableAdapter.UpdateQuery(nroFactura, Convert.ToString(row.Cells["Codigo_oferta"].Value), Convert.ToDecimal(row.Cells["DNI_cliente"].Value), Convert.ToDateTime(row.Cells["Fecha_compra"].Value));
+            }
+            if(MessageBox.Show("Compras facturadas ¿Desea continuar facturanto?","FELICIDADES!",MessageBoxButtons.YesNo) ==DialogResult.No)
+            {
+                funciones.Show();
+                Close();
+            }
+            btnFacturar.Visible = false;
+        }
+
+        private void txtCuit_TextChanged(object sender, EventArgs e)
+        {
+            btnFacturar.Visible = false;
+        }
+
+        private void txtRazonSocial_TextChanged(object sender, EventArgs e)
+        {
+            btnFacturar.Visible = false;
+        }
+        private void dtpInicio_ValueChanged(object sender, EventArgs e)
+        {
+            btnFacturar.Visible = false;
+        }
+
+        private void dtpFin_ValueChanged(object sender, EventArgs e)
+        {
+            btnFacturar.Visible = false;
         }
     }
 }

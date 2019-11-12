@@ -15,6 +15,9 @@ as begin
 end
 go
 
+
+
+
 create procedure insertarCarga(@Credito numeric(18,2),
 	@Fecha_carga datetime, @Tipo_pago_desc nvarchar(100), 
 	@ID_tarjeta smallint, @DNI_Cliente numeric(18,0))
@@ -24,9 +27,23 @@ as begin
 end
 go
 
+
+
+
 create procedure insertarTarjeta(@Fecha_Vencimiento datetime,
 	@Nombre_tutorial nvarchar(1255), @Tipo_pago_desc char(2))
 as begin
 	insert into TARJETA (Fecha_Vencimiento, Nombre_tutorial, Tipo_pago_desc)
 		values (@Fecha_Vencimiento, @Nombre_tutorial, @Tipo_pago_desc);
+end
+go
+
+
+
+create procedure insertarCompra(@Codigo_oferta nvarchar(50), 
+	@DNI_cliente numeric(18,0), @Cantidad_compra numeric(18,0), 
+	@Fecha_compra datetime, @Num_factura numeric(18,0))
+as begin
+	insert into COMPRA (Codigo_oferta, DNI_cliente, Cantidad_compra, Fecha_compra, Num_factura)
+		values (@Codigo_oferta, @DNI_cliente, @Cantidad_compra, @Fecha_compra, @Num_factura)
 end

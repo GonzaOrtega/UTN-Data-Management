@@ -1,5 +1,6 @@
 ﻿using FrbaOfertas.AbmCliente;
 using FrbaOfertas.CargaCredito;
+using FrbaOfertas.ComprarOferta;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -127,7 +128,6 @@ namespace FrbaOfertas.Commons
         {
             object dato = null;
             var conexion = DBConnection.getConnection();
-            //String query = "SELECT TOP(1) MessageNumber FROM ncslbpHighWay";
             SqlCommand SDA = new SqlCommand(query, conexion);
 
             conexion.Open();
@@ -138,6 +138,25 @@ namespace FrbaOfertas.Commons
                 MessageBox.Show("El valor obtenido es: " + dato);
             }
             return dato;
+        }
+        public static void insertarCompra(Compra compra)
+        {
+            string query = "dbo.insertarCompra";
+
+            var conexion = DBConnection.getConnection();
+            SqlCommand comando = new SqlCommand(query, conexion);
+
+            comando.CommandType = CommandType.StoredProcedure;
+
+
+            comando.Parameters.AddWithValue("@Nombre_tutorial", Validacion.validarString(compra.CodOferta));
+            comando.Parameters.AddWithValue("@DNI_Cliente", Validacion.validarDouble(compra.DniCliente));
+            comando.Parameters.AddWithValue("@DNI_Cliente", Validacion.validarDouble(compra.CantCompra));
+            comando.Parameters.AddWithValue("@Fecha_Vencimiento", compra.FechaCompra);
+            comando.Parameters.AddWithValue("@DNI_Cliente", Validacion.validarDouble(compra.NumFactura));
+
+            conexion.Open();
+            comando.ExecuteReader();
         }
     }
 }

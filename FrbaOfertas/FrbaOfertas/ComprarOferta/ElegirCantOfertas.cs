@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -13,12 +14,16 @@ namespace FrbaOfertas.ComprarOferta
 {
     public partial class ElegirCantOfertas : Form
     {
-        Double clienteId;
+        // Variables harcodeadas para poder insertar los datos
+        Double dniClienteOrigen;
         String codOferta;
-        // Tambien hardcodeado para poner las condiciones
         Double credito = 250;
 
-        public double ClienteId { get => clienteId; set => clienteId = value; }
+        // Estas se obtienen posta
+        int cantCompraDeseada;
+        Double dniClienteDestino;
+
+        public double DniClienteOrigen { get => dniClienteOrigen; set => dniClienteOrigen = value; }
         public string CodOferta { get => codOferta; set => codOferta = value; }
 
         public ElegirCantOfertas()
@@ -35,8 +40,8 @@ namespace FrbaOfertas.ComprarOferta
         {
             try
             {
-                int cantCompraDeseada = Convert.ToInt32(txtCantOfertas.Text);
-                Double dniClienteDestino = Convert.ToDouble(txtClienteDestino.Text);
+                cantCompraDeseada = Convert.ToInt32(txtCantOfertas.Text);
+                dniClienteDestino = Convert.ToDouble(txtClienteDestino.Text);
 
                 if (cantPedidaEsMenorACantidadMaxima(cantCompraDeseada))
                 {
@@ -46,7 +51,8 @@ namespace FrbaOfertas.ComprarOferta
                         // Por ahora voy a considerar que los cupones que se generan son mandados a la misma persona,
                         //      que la elije el usuario
                         
-                        
+                        this.comprar();
+                        this.otorgarCupon();
                         
                     }
                     else
@@ -63,6 +69,30 @@ namespace FrbaOfertas.ComprarOferta
             {
                 MessageBox.Show("Error: verificar datos ingresados");
             }
+        }
+
+        public void comprar()
+        {
+            Compra compra = new Compra();
+            compra.CantCompra = cantCompraDeseada;
+            compra.CodOferta = codOferta;
+            compra.DniCliente = dniClienteDestino;
+            compra.FechaCompra = this.obtenerFechaConfigFile();
+            compra.NumFactura = 0;
+
+
+        }
+
+        private DateTime obtenerFechaConfigFile()
+        {
+            String fechaConfigFile = ConfigurationManager.AppSettings["fecha"].ToString();
+            DateTime fecha = DateTime.ParseExact(fechaConfigFile, "yyyy-MM-dd HH:mm tt", System.Globalization.CultureInfo.InvariantCulture);
+            return fecha;
+        }
+
+        public void otorgarCupon()
+        {
+
         }
 
         private bool creditoSeaSuficiente(int cantDeseada)

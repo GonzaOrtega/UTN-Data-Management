@@ -114,6 +114,7 @@
     <Compile Include="Commons\CommonsForms.cs" />
     <Compile Include="Commons\Queries.cs" />
     <Compile Include="Commons\Validacion2.cs" />
+    <Compile Include="ComprarOferta\Compra.cs" />
     <Compile Include="ComprarOferta\ComprarOfertas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +127,7 @@
     <Compile Include="CargaCredito\CargarCredito.Designer.cs">
       <DependentUpon>CargarCredito.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComprarOferta\Cupon.cs" />
     <Compile Include="ComprarOferta\ElegirCantOfertas.cs">
       <SubType>Form</SubType>
     </Compile>

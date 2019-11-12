@@ -91,6 +91,7 @@ namespace FrbaOfertas.ComprarOferta
             this.setRowNumber(planillaComprarOfertas);
         }
 
+        // Para que quede mas lindo
         private void setRowNumber(DataGridView dgv)
         {
             foreach (DataGridViewRow row in dgv.Rows)
@@ -115,7 +116,7 @@ namespace FrbaOfertas.ComprarOferta
             string nroOferta = txtNroOfertaDefinitiva.Text;
             ElegirCantOfertas ofertas = new ElegirCantOfertas();
             ofertas.CodOferta = txtNroOfertaDefinitiva.Text;
-            ofertas.ClienteId = clienteId;
+            ofertas.DniClienteOrigen = clienteId;
             ofertas.Show();
         }
 

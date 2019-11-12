@@ -180,6 +180,9 @@
     <EmbeddedResource Include="AbmCliente\ModificarCliente.resx">
       <DependentUpon>ModificarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AbmRol\AbmRol.resx">
+      <DependentUpon>AbmRol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrearOferta\CrearOferta.resx">
       <DependentUpon>CrearOferta.cs</DependentUpon>
     </EmbeddedResource>

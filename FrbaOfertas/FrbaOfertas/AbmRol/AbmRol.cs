@@ -31,5 +31,10 @@ namespace FrbaOfertas.AbmRol
             this.rOLTableAdapter.Fill(this.gD2C2019DataSet.ROL);
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

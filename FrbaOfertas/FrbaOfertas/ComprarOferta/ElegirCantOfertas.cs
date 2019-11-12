@@ -53,7 +53,9 @@ namespace FrbaOfertas.ComprarOferta
                         
                         this.comprar();
                         this.otorgarCupon();
-                        
+
+                        //MessageBox.Show("Compra realizada correctamente");
+                        this.Close();
                     }
                     else
                     {
@@ -78,8 +80,10 @@ namespace FrbaOfertas.ComprarOferta
             compra.CodOferta = codOferta;
             compra.DniCliente = dniClienteDestino;
             compra.FechaCompra = this.obtenerFechaConfigFile();
-            compra.NumFactura = 0;
+            compra.NumFactura = 0; // ESto indica que siempre va a ser nulo, se va a actualizar cuando se haga la facturacion
+            // Nota: Agregar el trigger correspondiente
 
+            Queries.insertarCompra(compra);
 
         }
 

@@ -135,7 +135,7 @@ namespace FrbaOfertas.Commons
             if (data.Read())
             {
                 dato = data.GetValue(indiceDeTabla).ToString();
-                MessageBox.Show("El valor obtenido es: " + dato);
+                //MessageBox.Show("El valor obtenido es: " + dato);
             }
             return dato;
         }
@@ -149,11 +149,11 @@ namespace FrbaOfertas.Commons
             comando.CommandType = CommandType.StoredProcedure;
 
 
-            comando.Parameters.AddWithValue("@Nombre_tutorial", Validacion.validarString(compra.CodOferta));
-            comando.Parameters.AddWithValue("@DNI_Cliente", Validacion.validarDouble(compra.DniCliente));
-            comando.Parameters.AddWithValue("@DNI_Cliente", Validacion.validarDouble(compra.CantCompra));
-            comando.Parameters.AddWithValue("@Fecha_Vencimiento", compra.FechaCompra);
-            comando.Parameters.AddWithValue("@DNI_Cliente", Validacion.validarDouble(compra.NumFactura));
+            comando.Parameters.AddWithValue("@Codigo_oferta", Validacion.validarString(compra.CodOferta));
+            comando.Parameters.AddWithValue("@DNI_cliente", Validacion.validarDouble(compra.DniCliente));
+            comando.Parameters.AddWithValue("@Cantidad_compra", Validacion.validarDouble(compra.CantCompra));
+            comando.Parameters.AddWithValue("@Fecha_compra", compra.FechaCompra);
+            comando.Parameters.AddWithValue("@Num_factura", Validacion.validarDouble(compra.NumFactura));
 
             conexion.Open();
             comando.ExecuteReader();

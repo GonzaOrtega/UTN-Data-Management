@@ -95,6 +95,14 @@ namespace FrbaOfertas.ListadoEstadistico
                     DataGridViewTextBoxColumn columna3 = new DataGridViewTextBoxColumn();
                     columna3.HeaderText = "Razon_social";
                     columna3.Width = 200;
+                    dataGridView1.Columns.Add(columna1);
+                    dataGridView1.Columns.Add(columna2);
+                    dataGridView1.Columns.Add(columna3);
+                    foreach (DataRow row in facturaTableAdapter1.maximaFacturacion().Rows)
+                    {
+                        dataGridView1.Rows.Add(Convert.ToDecimal(row["Total_importes"]), Convert.ToString(row["CUIT_proveedor"]), Convert.ToString(row["Razon_social"]));
+                       
+                    }
                 }
             }
         }

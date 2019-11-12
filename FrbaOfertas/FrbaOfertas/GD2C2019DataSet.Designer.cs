@@ -12582,8 +12582,9 @@ SELECT Num_factura, Fecha_factura, Importe, CUIT_proveedor, Razon_social FROM FA
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT TOP 5 SUM(Importe) AS Total_importes, CUIT_proveedor, Razon_social\r\nFROM  " +
-                "   FACTURA\r\nGROUP BY CUIT_proveedor, Razon_social\r\nORDER BY Total_importes DESC";
+            this._commandCollection[1].CommandText = "SELECT TOP (5) SUM(Importe) AS Total_importes, CUIT_proveedor, Razon_social, MAX(" +
+                "Num_factura) AS Num_factura\r\nFROM     FACTURA\r\nGROUP BY CUIT_proveedor, Razon_so" +
+                "cial\r\nORDER BY Total_importes DESC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         

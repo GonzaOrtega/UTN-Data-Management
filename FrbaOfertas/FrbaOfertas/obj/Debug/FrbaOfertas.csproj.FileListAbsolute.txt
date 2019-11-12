@@ -27,3 +27,4 @@ C:\Users\Chiara\Desktop\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\Frba
 C:\Users\Chiara\Desktop\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.pdb
 C:\Users\Chiara\Desktop\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.Registrarse.DatosProveedor.resources
 C:\Users\Chiara\Desktop\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.Facturar.Facturar.resources
+C:\Users\Chiara\Desktop\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.ListadoEstadistico.ListadoEstadistico.resources

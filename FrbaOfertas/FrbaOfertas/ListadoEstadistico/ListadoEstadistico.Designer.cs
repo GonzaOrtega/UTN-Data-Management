@@ -39,6 +39,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.facturaTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.FACTURATableAdapter();
             this.ofertasTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.OFERTASTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -125,14 +126,14 @@
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(212, 54);
             this.btnListar.TabIndex = 6;
-            this.btnListar.Text = "LISTAR";
+            this.btnListar.Text = "BUSCAR";
             this.btnListar.UseVisualStyleBackColor = true;
             this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // btnAtras
             // 
             this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.Location = new System.Drawing.Point(579, 326);
+            this.btnAtras.Location = new System.Drawing.Point(579, 389);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(212, 54);
             this.btnAtras.TabIndex = 7;
@@ -162,12 +163,24 @@
             // 
             this.ofertasTableAdapter1.ClearBeforeFill = true;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(579, 316);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(212, 54);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "LIMPIAR";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ListadoEstadistico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
             this.ClientSize = new System.Drawing.Size(893, 519);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnListar);
@@ -198,5 +211,6 @@
         private System.Windows.Forms.TextBox txtAnio;
         private GD2C2019DataSetTableAdapters.FACTURATableAdapter facturaTableAdapter1;
         private GD2C2019DataSetTableAdapters.OFERTASTableAdapter ofertasTableAdapter1;
+        private System.Windows.Forms.Button button1;
     }
 }

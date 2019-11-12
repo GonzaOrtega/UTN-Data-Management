@@ -108,8 +108,13 @@ namespace FrbaOfertas.Facturar
             facturaTableAdapter1.Insert(Convert.ToDecimal(nroFactura),DateTime.Now,total, txtCuit.Text,txtRazonSocial.Text);
             foreach (DataGridViewRow row in cOMPRADataGridView.Rows)
             {
-                cOMPRATableAdapter.UpdateQuery(nroFactura, Convert.ToString(row.Cells["Codigo_oferta"].Value), Convert.ToDecimal(row.Cells["DNI_cliente"].Value), Convert.ToDateTime(row.Cells["Fecha_compra"].Value));
-            }
+                String oferta = Convert.ToString(row.Cells["Codigo_oferta"].Value);
+                if (oferta != "")
+                {
+                    cOMPRATableAdapter.UpdateQuery(nroFactura, oferta, Convert.ToDecimal(row.Cells["DNI_cliente"].Value), Convert.ToDateTime(row.Cells["Fecha_compra"].Value));
+            
+                }
+             }
             if(MessageBox.Show("Compras facturadas ¿Desea continuar facturanto?","FELICIDADES!",MessageBoxButtons.YesNo) ==DialogResult.No)
             {
                 funciones.Show();

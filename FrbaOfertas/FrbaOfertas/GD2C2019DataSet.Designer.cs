@@ -12582,8 +12582,8 @@ SELECT Num_factura, Fecha_factura, Importe, CUIT_proveedor, Razon_social FROM FA
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT SUM(Importe) AS Total_importes, CUIT_proveedor, Razon_social\r\nFROM     FAC" +
-                "TURA\r\nGROUP BY CUIT_proveedor, Razon_social\r\nORDER BY Total_importes DESC";
+            this._commandCollection[1].CommandText = "SELECT TOP 5 SUM(Importe) AS Total_importes, CUIT_proveedor, Razon_social\r\nFROM  " +
+                "   FACTURA\r\nGROUP BY CUIT_proveedor, Razon_social\r\nORDER BY Total_importes DESC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -12628,7 +12628,7 @@ SELECT Num_factura, Fecha_factura, Importe, CUIT_proveedor, Razon_social FROM FA
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual GD2C2019DataSet.FACTURADataTable GetDataBy() {
+        public virtual GD2C2019DataSet.FACTURADataTable maximaFacturacion() {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             GD2C2019DataSet.FACTURADataTable dataTable = new GD2C2019DataSet.FACTURADataTable();
             this.Adapter.Fill(dataTable);

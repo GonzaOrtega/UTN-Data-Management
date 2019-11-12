@@ -17,6 +17,7 @@ namespace FrbaOfertas.Registrarse
         bool existencia;
         String nombre;
         string contrasenia;
+        bool cerrado=false;
         public DatosProveedor(LoginYSeguridad.Login log, Registrarse reg, bool exis, String nom, string cont)
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace FrbaOfertas.Registrarse
         private void btnAtras_Click(object sender, EventArgs e)
         {
             registro.Show();
+            cerrado = true;
             Close();
         }
 
@@ -102,7 +104,7 @@ namespace FrbaOfertas.Registrarse
 
         private void DatosProveedor_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing &&cerrado==false)
             {
                 if (MessageBox.Show("¿Está seguro que desea salir del sistema?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.No)
                 {

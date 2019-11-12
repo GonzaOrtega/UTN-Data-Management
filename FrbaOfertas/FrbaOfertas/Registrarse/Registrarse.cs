@@ -32,6 +32,7 @@ namespace FrbaOfertas.Registrarse
         private void btnAtras_Click(object sender, EventArgs e)
         {
             log.Show();
+            cerrado = true;
             Close();  
         }
         private void enviarAlProximoFormulario()
@@ -108,7 +109,7 @@ namespace FrbaOfertas.Registrarse
         
         private void Registrarse_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing && cerrado ==false&&cerrado == false)
             {
                 if (MessageBox.Show("¿Está seguro que desea salir del sistema?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.No)
                 {

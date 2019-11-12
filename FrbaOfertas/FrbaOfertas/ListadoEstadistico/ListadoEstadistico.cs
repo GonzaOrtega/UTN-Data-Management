@@ -17,6 +17,7 @@ namespace FrbaOfertas.ListadoEstadistico
         int tipoListado = 0;
         Funciones.Funciones funciones;
         Color colorLetra;
+        bool cerrado = false;
         public ListadoEstadistico(Funciones.Funciones fun)
         {
             InitializeComponent();
@@ -69,6 +70,7 @@ namespace FrbaOfertas.ListadoEstadistico
         private void btnAtras_Click(object sender, EventArgs e)
         {
             funciones.Show();
+            cerrado = true;
             Close();
         }
         private bool validarListado()
@@ -145,7 +147,7 @@ namespace FrbaOfertas.ListadoEstadistico
 
         private void ListadoEstadistico_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing && cerrado==false)
             {
                 if (MessageBox.Show("¿Está seguro que desea salir del sistema?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.No)
                 {

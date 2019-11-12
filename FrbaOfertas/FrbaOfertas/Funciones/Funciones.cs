@@ -45,6 +45,20 @@ namespace FrbaOfertas.Funciones
                     new ListadoEstadistico.ListadoEstadistico(this).Show();
                     Hide();
                     break;
+                case "ABM_ROL":
+                    new AbmRol.AbmRol().Show();
+                    Hide();
+                    break;
+                case "ABM_CLIENTES":
+                    break;
+                case "ABM_PROVEEDOR":
+                    break;
+                case "BajarOferta":
+                    break;
+                case "ComprarOferta":
+                    break;
+                case "CargarCredito":
+                    break;
             }
         }
 

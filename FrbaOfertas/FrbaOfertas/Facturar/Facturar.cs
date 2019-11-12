@@ -12,6 +12,7 @@ namespace FrbaOfertas.Facturar
 {
     public partial class Facturar : Form
     {
+        bool cerrar = false;
         Funciones.Funciones funciones;
         public Facturar(Funciones.Funciones fun)
         {
@@ -78,6 +79,7 @@ namespace FrbaOfertas.Facturar
         private void btnAtras_Click(object sender, EventArgs e)
         {
             funciones.Show();
+            cerrar = true;
             Close();
         }
         private int crearNroFactura()
@@ -144,7 +146,7 @@ namespace FrbaOfertas.Facturar
 
         private void Facturar_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing &&cerrar == false)
             {
                 if (MessageBox.Show("¿Está seguro que desea salir del sistema?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.No)
                 {
@@ -157,5 +159,10 @@ namespace FrbaOfertas.Facturar
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ((DataTable)cOMPRADataGridView.DataSource).Clear();
+            btnFacturar.Visible = false;
+        }
     }
 }

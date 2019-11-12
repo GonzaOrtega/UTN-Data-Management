@@ -66,6 +66,7 @@
             this.proveedorTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.PROVEEDORTableAdapter();
             this.ofertasTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.OFERTASTableAdapter();
             this.facturaTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.FACTURATableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cOMPRABindingNavigator)).BeginInit();
@@ -303,6 +304,7 @@
             // 
             // cOMPRADataGridView
             // 
+            this.cOMPRADataGridView.AllowUserToAddRows = false;
             this.cOMPRADataGridView.AutoGenerateColumns = false;
             this.cOMPRADataGridView.BackgroundColor = System.Drawing.Color.YellowGreen;
             this.cOMPRADataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -314,10 +316,12 @@
             this.cOMPRADataGridView.DataSource = this.cOMPRABindingSource;
             this.cOMPRADataGridView.GridColor = System.Drawing.Color.DarkOliveGreen;
             this.cOMPRADataGridView.Location = new System.Drawing.Point(29, 244);
+            this.cOMPRADataGridView.MultiSelect = false;
             this.cOMPRADataGridView.Name = "cOMPRADataGridView";
+            this.cOMPRADataGridView.ReadOnly = true;
             this.cOMPRADataGridView.RowHeadersWidth = 51;
             this.cOMPRADataGridView.RowTemplate.Height = 24;
-            this.cOMPRADataGridView.Size = new System.Drawing.Size(555, 209);
+            this.cOMPRADataGridView.Size = new System.Drawing.Size(552, 209);
             this.cOMPRADataGridView.TabIndex = 3;
             // 
             // Codigo_oferta
@@ -355,9 +359,9 @@
             // btnFacturar
             // 
             this.btnFacturar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFacturar.Location = new System.Drawing.Point(682, 331);
+            this.btnFacturar.Location = new System.Drawing.Point(682, 344);
             this.btnFacturar.Name = "btnFacturar";
-            this.btnFacturar.Size = new System.Drawing.Size(227, 53);
+            this.btnFacturar.Size = new System.Drawing.Size(227, 42);
             this.btnFacturar.TabIndex = 4;
             this.btnFacturar.Text = "FACTURAR";
             this.btnFacturar.UseVisualStyleBackColor = true;
@@ -366,20 +370,20 @@
             // btnVer
             // 
             this.btnVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVer.Location = new System.Drawing.Point(682, 244);
+            this.btnVer.Location = new System.Drawing.Point(682, 294);
             this.btnVer.Name = "btnVer";
-            this.btnVer.Size = new System.Drawing.Size(227, 53);
+            this.btnVer.Size = new System.Drawing.Size(227, 44);
             this.btnVer.TabIndex = 5;
-            this.btnVer.Text = "VER COMPRAS";
+            this.btnVer.Text = "BUSCAR";
             this.btnVer.UseVisualStyleBackColor = true;
             this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
             // 
             // btnAtras
             // 
             this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.Location = new System.Drawing.Point(682, 407);
+            this.btnAtras.Location = new System.Drawing.Point(682, 392);
             this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(227, 46);
+            this.btnAtras.Size = new System.Drawing.Size(227, 44);
             this.btnAtras.TabIndex = 6;
             this.btnAtras.Text = "ATRÁS";
             this.btnAtras.UseVisualStyleBackColor = true;
@@ -422,12 +426,24 @@
             // 
             this.facturaTableAdapter1.ClearBeforeFill = true;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(682, 244);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(227, 44);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "LIMPIAR";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Facturar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
             this.ClientSize = new System.Drawing.Size(991, 476);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnVer);
             this.Controls.Add(this.btnFacturar);
@@ -492,5 +508,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad_compra;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_compra;
         private GD2C2019DataSetTableAdapters.FACTURATableAdapter facturaTableAdapter1;
+        private System.Windows.Forms.Button button1;
     }
 }

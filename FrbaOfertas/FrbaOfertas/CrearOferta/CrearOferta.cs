@@ -17,6 +17,7 @@ namespace FrbaOfertas.CrearOferta
         Funciones.Funciones funciones;
         String cuit;
         String razonSocial;
+        bool cerrar = false;
         public CrearOferta(String cuitP,String razonSocialP,Funciones.Funciones funcion, IngresaProveedor formularioAnterior)
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace FrbaOfertas.CrearOferta
             {
                 funciones.Show();
             }
+            cerrar = true;
             Close();
         }
         private bool fechasValidas()
@@ -141,7 +143,7 @@ namespace FrbaOfertas.CrearOferta
 
         private void CrearOferta_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing && cerrar == false)
             {
                 if (MessageBox.Show("¿Está seguro que desea salir del sistema?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.No)
                 {

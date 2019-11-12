@@ -105,17 +105,17 @@ namespace FrbaOfertas.ListadoEstadistico
                     fechaInicio = new DateTime(Convert.ToInt32(txtAnio.Text), 6, 1);
                     fechaFin = new DateTime(Convert.ToInt32(txtAnio.Text), 12, 31);
                 }
+                DataGridViewTextBoxColumn columna3 = new DataGridViewTextBoxColumn();
+                DataGridViewTextBoxColumn columna2 = new DataGridViewTextBoxColumn();
+                DataGridViewTextBoxColumn columna1 = new DataGridViewTextBoxColumn();
+                columna1.Width = 100;
+                columna2.Width = 100;
+                columna3.Width = 100;
                 if (tipoListado == 2)
                 {
-                    DataGridViewTextBoxColumn columna1 = new DataGridViewTextBoxColumn();
-                    columna1.HeaderText = "Total_facturas";
-                    columna1.Width = 100;
-                    DataGridViewTextBoxColumn columna2 = new DataGridViewTextBoxColumn();
+                    columna1.HeaderText = "Total_facturas";               
                     columna2.HeaderText = "CUIT_proveedor";
-                    columna2.Width = 100;
-                    DataGridViewTextBoxColumn columna3 = new DataGridViewTextBoxColumn();
                     columna3.HeaderText = "Razon_social";
-                    columna3.Width = 100;
                     dataGridView1.Columns.Add(columna1);
                     dataGridView1.Columns.Add(columna2);
                     dataGridView1.Columns.Add(columna3);
@@ -124,6 +124,20 @@ namespace FrbaOfertas.ListadoEstadistico
                     {
                         dataGridView1.Rows.Add(Convert.ToDecimal(row["Total_importes"]), Convert.ToString(row["CUIT_proveedor"]), Convert.ToString(row["Razon_social"]));
                        
+                    }
+                }
+                else
+                {
+                    columna1.HeaderText = "Porcentaje de descuento";
+                    columna2.HeaderText = "CUIT_proveedor";
+                    columna3.HeaderText = "Razon_social";
+                    dataGridView1.Columns.Add(columna1);
+                    dataGridView1.Columns.Add(columna2);
+                    dataGridView1.Columns.Add(columna3);
+                    foreach (DataRow row in ofertasTableAdapter1.maximoDescuento(fechaInicio, fechaFin).Rows)
+                    {
+                        dataGridView1.Rows.Add(Convert.ToDecimal(row["porcentaje"]), Convert.ToString(row["CUIT_proveedor"]), Convert.ToString(row["Razon_social"]));
+
                     }
                 }
             }

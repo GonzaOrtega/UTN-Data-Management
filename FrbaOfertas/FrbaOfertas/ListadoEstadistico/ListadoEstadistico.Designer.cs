@@ -38,6 +38,7 @@
             this.btnAtras = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.facturaTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.FACTURATableAdapter();
+            this.ofertasTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.OFERTASTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -88,7 +89,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(394, 50);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(354, 150);
+            this.groupBox2.Size = new System.Drawing.Size(397, 150);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tipo de listado";
@@ -120,7 +121,7 @@
             // btnListar
             // 
             this.btnListar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListar.Location = new System.Drawing.Point(536, 247);
+            this.btnListar.Location = new System.Drawing.Point(579, 247);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(212, 54);
             this.btnListar.TabIndex = 6;
@@ -131,7 +132,7 @@
             // btnAtras
             // 
             this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.Location = new System.Drawing.Point(536, 331);
+            this.btnAtras.Location = new System.Drawing.Point(579, 326);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(212, 54);
             this.btnAtras.TabIndex = 7;
@@ -146,19 +147,23 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(474, 207);
+            this.dataGridView1.Size = new System.Drawing.Size(505, 230);
             this.dataGridView1.TabIndex = 8;
             // 
             // facturaTableAdapter1
             // 
             this.facturaTableAdapter1.ClearBeforeFill = true;
             // 
+            // ofertasTableAdapter1
+            // 
+            this.ofertasTableAdapter1.ClearBeforeFill = true;
+            // 
             // ListadoEstadistico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(789, 516);
+            this.ClientSize = new System.Drawing.Size(893, 519);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnListar);
@@ -187,5 +192,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox txtAnio;
         private GD2C2019DataSetTableAdapters.FACTURATableAdapter facturaTableAdapter1;
+        private GD2C2019DataSetTableAdapters.OFERTASTableAdapter ofertasTableAdapter1;
     }
 }

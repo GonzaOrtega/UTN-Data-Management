@@ -177,5 +177,17 @@ namespace FrbaOfertas.Commons
             conexion.Open();
             comando.ExecuteReader();
         }
+
+        public static object existeCupon(int nroCupon, ref bool existe)
+        {
+            string query = "SELECT * FROM CUPON WHERE Codigo_cupon = " + nroCupon;
+            object value = null;
+            value = obtenerDatoOferta(query, 0);
+            if (value != null)
+            {
+                existe = true;
+            }
+            return value;
+        }
     }
 }

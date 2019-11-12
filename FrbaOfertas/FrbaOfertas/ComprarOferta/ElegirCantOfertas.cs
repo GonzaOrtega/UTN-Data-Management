@@ -58,7 +58,7 @@ namespace FrbaOfertas.ComprarOferta
                         //      que la elije el usuario
                         
                         this.comprar();
-                        this.otorgarCupon();
+                        this.otorgarCupon(cantCompraDeseada);
 
                         //MessageBox.Show("Compra realizada correctamente");
                         this.Close();
@@ -100,7 +100,7 @@ namespace FrbaOfertas.ComprarOferta
             return fecha;
         }
 
-        public void otorgarCupon()
+        public void otorgarCupon(int cantCompraDeseada)
         {
             Cupon cupon = new Cupon();
 
@@ -110,7 +110,10 @@ namespace FrbaOfertas.ComprarOferta
             // Como no tengo informacion de la fecha la entrega le pongo siempre una fecha aleatoria
             cupon.FechaEntrega = this.diaAleatorio();
 
-            Queries.insertarCupon(cupon);
+            // Insertar cupon funciona, falta probar lo de los N cupones (loop)
+            for (int i = 0; i < cantCompraDeseada; i ++) { 
+                Queries.insertarCupon(cupon);
+            }
         }
 
         private DateTime diaAleatorio()

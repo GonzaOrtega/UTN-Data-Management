@@ -140,7 +140,6 @@
     <Compile Include="ConsumoOferta\ConsumoOfertas.Designer.cs">
       <DependentUpon>ConsumoOfertas.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConsumoOferta\Cupon.cs" />
     <Compile Include="CrearOferta\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

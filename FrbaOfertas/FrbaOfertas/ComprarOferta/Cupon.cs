@@ -8,13 +8,11 @@ namespace FrbaOfertas.ComprarOferta
 {
     class Cupon
     {
-        int codCupon;
         DateTime fechaEntrega;
         Double dniClienteOrigen;
         Double dniClienteDestino;
         String codOferta;
 
-        public int CodCupon { get => codCupon; set => codCupon = value; }
         public DateTime FechaEntrega { get => fechaEntrega; set => fechaEntrega = value; }
         public double DniClienteOrigen { get => dniClienteOrigen; set => dniClienteOrigen = value; }
         public double DniClienteDestino { get => dniClienteDestino; set => dniClienteDestino = value; }

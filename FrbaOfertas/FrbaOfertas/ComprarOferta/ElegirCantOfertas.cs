@@ -14,12 +14,14 @@ namespace FrbaOfertas.ComprarOferta
 {
     public partial class ElegirCantOfertas : Form
     {
-        // Variables harcodeadas para poder insertar los datos
-        Double dniClienteOrigen;
-        String codOferta;
+        // Variable harcodeada para poder insertar los datos, se obtiene de las otras formas
         Double credito = 250;
+        Double dniClienteOrigen = 1;
 
-        // Estas se obtienen posta
+        // Esta se obtiene por la forma ComprarOfertas
+        String codOferta;
+
+        // Estas son de esta forma
         int cantCompraDeseada;
         Double dniClienteDestino;
 
@@ -78,7 +80,7 @@ namespace FrbaOfertas.ComprarOferta
             Compra compra = new Compra();
             compra.CantCompra = cantCompraDeseada;
             compra.CodOferta = codOferta;
-            compra.DniCliente = dniClienteDestino;
+            compra.DniCliente = dniClienteOrigen;
             compra.FechaCompra = this.obtenerFechaConfigFile();
             compra.NumFactura = 0; // ESto indica que siempre va a ser nulo, se va a actualizar cuando se haga la facturacion
             // Nota: Agregar el trigger correspondiente
@@ -96,7 +98,22 @@ namespace FrbaOfertas.ComprarOferta
 
         public void otorgarCupon()
         {
+            Cupon cupon = new Cupon();
 
+            cupon.CodOferta = codOferta;
+            cupon.DniClienteOrigen = dniClienteOrigen;
+            cupon.DniClienteDestino = dniClienteDestino;
+            cupon.FechaEntrega = this.diaAleatorio();
+            
+
+        }
+
+        private DateTime diaAleatorio()
+        {
+            Random gen = new Random();
+            DateTime start = new DateTime(1995, 1, 1);
+            int range = (DateTime.Today - start).Days;
+            return start.AddDays(gen.Next(range));
         }
 
         private bool creditoSeaSuficiente(int cantDeseada)

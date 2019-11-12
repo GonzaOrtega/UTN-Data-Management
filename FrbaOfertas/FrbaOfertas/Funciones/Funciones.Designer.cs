@@ -89,6 +89,7 @@
             this.Controls.Add(this.cbFunciones);
             this.Name = "Funciones";
             this.Text = "Funciones";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Funciones_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -239,6 +239,7 @@
             this.Controls.Add(this.lblCrea);
             this.Name = "CrearOferta";
             this.Text = "OfertaNueva";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CrearOferta_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.ndStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ndMaxima)).EndInit();
             this.ResumeLayout(false);

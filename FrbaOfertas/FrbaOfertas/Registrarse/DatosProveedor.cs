@@ -98,5 +98,15 @@ namespace FrbaOfertas.Registrarse
         {
             if (txtRazonSocial.Text == "Razón social") txtRazonSocial.Text = "";
         }
+
+
+        private void DatosProveedor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro que desea salir del sistema?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else { login.Close(); }
+        }
     }
 }

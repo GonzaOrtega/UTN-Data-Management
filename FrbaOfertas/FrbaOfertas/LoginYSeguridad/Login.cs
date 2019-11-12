@@ -11,11 +11,14 @@ using System.Windows.Forms;
 using FrbaOfertas.GD2C2019DataSetTableAdapters;
 namespace FrbaOfertas.LoginYSeguridad
 {
+    
     public partial class Login : Form
     {
+        Color colorTexto;
         public Login()
         {
             InitializeComponent();
+            colorTexto = txtUsuario.ForeColor;
         }
 
 
@@ -63,6 +66,7 @@ namespace FrbaOfertas.LoginYSeguridad
             if (txtUsuario.Text == "Usuario")
             {
                 txtUsuario.Text = "";
+                txtUsuario.ForeColor = Color.Black;
             }
         }
 
@@ -71,6 +75,7 @@ namespace FrbaOfertas.LoginYSeguridad
             if (txtContrasenia.Text == "Contraseña")
             {
                 txtContrasenia.Text = "";
+                txtContrasenia.ForeColor = Color.Black;
             }
         }
 
@@ -79,6 +84,7 @@ namespace FrbaOfertas.LoginYSeguridad
             if (txtUsuario.Text == "")
             {
                 txtUsuario.Text = "Usuario";
+                txtUsuario.ForeColor = colorTexto;
             }
         }
 
@@ -87,12 +93,16 @@ namespace FrbaOfertas.LoginYSeguridad
             if (txtContrasenia.Text == "")
             {
                 txtContrasenia.Text = "Contraseña";
+                txtContrasenia.ForeColor = colorTexto;
             }
         }
 
-        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            if (MessageBox.Show("¿Está seguro que desea salir del sistema?","WARNING",MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

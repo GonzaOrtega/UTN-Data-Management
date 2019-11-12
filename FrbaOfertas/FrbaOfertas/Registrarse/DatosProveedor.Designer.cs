@@ -129,6 +129,7 @@
             this.Controls.Add(this.lblIngrese);
             this.Name = "DatosProveedor";
             this.Text = "DatosProveedor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DatosProveedor_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

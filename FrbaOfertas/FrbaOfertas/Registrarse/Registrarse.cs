@@ -102,5 +102,19 @@ namespace FrbaOfertas.Registrarse
         {
             if (txtContrasenia.Text == "") txtContrasenia.Text = "Contraseña";
         }
+
+       
+
+        private void Registrarse_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro que desea salir del sistema?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                log.CLose();
+            }
+        }
     }
 }

@@ -138,5 +138,14 @@ namespace FrbaOfertas.CrearOferta
         {
             if (txtPrecioLista.Text == "Precio de lista") txtPrecioLista.Text = "";
         }
+
+        private void CrearOferta_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro que desea salir del sistema?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else { Application.Exit(); }
+        }
     }
 }

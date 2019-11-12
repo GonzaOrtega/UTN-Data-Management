@@ -140,6 +140,7 @@
             this.Controls.Add(this.lblIngrese);
             this.Name = "Registrarse";
             this.Text = "Registrarse";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Registrarse_FormClosing);
             this.Load += new System.EventHandler(this.Registrarse_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

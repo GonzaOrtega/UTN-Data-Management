@@ -40,6 +40,8 @@
             this.txtCuit = new System.Windows.Forms.TextBox();
             this.cOMPRABindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.cOMPRABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD2C2019DataSet = new FrbaOfertas.GD2C2019DataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -52,15 +54,13 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.cOMPRABindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.cOMPRADataGridView = new System.Windows.Forms.DataGridView();
-            this.btnFacturar = new System.Windows.Forms.Button();
-            this.btnVer = new System.Windows.Forms.Button();
-            this.btnAtras = new System.Windows.Forms.Button();
             this.Codigo_oferta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DNI_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha_compra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cOMPRABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gD2C2019DataSet = new FrbaOfertas.GD2C2019DataSet();
+            this.btnFacturar = new System.Windows.Forms.Button();
+            this.btnVer = new System.Windows.Forms.Button();
+            this.btnAtras = new System.Windows.Forms.Button();
             this.cOMPRATableAdapter = new FrbaOfertas.GD2C2019DataSetTableAdapters.COMPRATableAdapter();
             this.tableAdapterManager = new FrbaOfertas.GD2C2019DataSetTableAdapters.TableAdapterManager();
             this.proveedorTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.PROVEEDORTableAdapter();
@@ -70,9 +70,9 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cOMPRABindingNavigator)).BeginInit();
             this.cOMPRABindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cOMPRADataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cOMPRABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cOMPRADataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -192,7 +192,7 @@
             this.cOMPRABindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.cOMPRABindingNavigator.Name = "cOMPRABindingNavigator";
             this.cOMPRABindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.cOMPRABindingNavigator.Size = new System.Drawing.Size(991, 31);
+            this.cOMPRABindingNavigator.Size = new System.Drawing.Size(991, 27);
             this.cOMPRABindingNavigator.TabIndex = 2;
             this.cOMPRABindingNavigator.Text = "bindingNavigator1";
             // 
@@ -202,13 +202,23 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            // 
+            // cOMPRABindingSource
+            // 
+            this.cOMPRABindingSource.DataMember = "COMPRA";
+            this.cOMPRABindingSource.DataSource = this.gD2C2019DataSet;
+            // 
+            // gD2C2019DataSet
+            // 
+            this.gD2C2019DataSet.DataSetName = "GD2C2019DataSet";
+            this.gD2C2019DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 28);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 24);
             this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
             // 
@@ -218,7 +228,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorDeleteItem.Text = "Eliminar";
             // 
             // bindingNavigatorMoveFirstItem
@@ -227,7 +237,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveFirstItem.Text = "Mover primero";
             // 
             // bindingNavigatorMovePreviousItem
@@ -236,18 +246,19 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Posición";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -256,7 +267,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -264,7 +275,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveNextItem.Text = "Mover siguiente";
             // 
             // bindingNavigatorMoveLastItem
@@ -273,20 +284,20 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveLastItem.Text = "Mover último";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // cOMPRABindingNavigatorSaveItem
             // 
             this.cOMPRABindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.cOMPRABindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("cOMPRABindingNavigatorSaveItem.Image")));
             this.cOMPRABindingNavigatorSaveItem.Name = "cOMPRABindingNavigatorSaveItem";
-            this.cOMPRABindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 28);
+            this.cOMPRABindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
             this.cOMPRABindingNavigatorSaveItem.Text = "Guardar datos";
             this.cOMPRABindingNavigatorSaveItem.Click += new System.EventHandler(this.cOMPRABindingNavigatorSaveItem_Click);
             // 
@@ -308,39 +319,6 @@
             this.cOMPRADataGridView.RowTemplate.Height = 24;
             this.cOMPRADataGridView.Size = new System.Drawing.Size(555, 209);
             this.cOMPRADataGridView.TabIndex = 3;
-            // 
-            // btnFacturar
-            // 
-            this.btnFacturar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFacturar.Location = new System.Drawing.Point(682, 331);
-            this.btnFacturar.Name = "btnFacturar";
-            this.btnFacturar.Size = new System.Drawing.Size(227, 53);
-            this.btnFacturar.TabIndex = 4;
-            this.btnFacturar.Text = "FACTURAR";
-            this.btnFacturar.UseVisualStyleBackColor = true;
-            this.btnFacturar.Click += new System.EventHandler(this.btnFacturar_Click);
-            // 
-            // btnVer
-            // 
-            this.btnVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVer.Location = new System.Drawing.Point(682, 244);
-            this.btnVer.Name = "btnVer";
-            this.btnVer.Size = new System.Drawing.Size(227, 53);
-            this.btnVer.TabIndex = 5;
-            this.btnVer.Text = "VER COMPRAS";
-            this.btnVer.UseVisualStyleBackColor = true;
-            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
-            // 
-            // btnAtras
-            // 
-            this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.Location = new System.Drawing.Point(682, 407);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(227, 46);
-            this.btnAtras.TabIndex = 6;
-            this.btnAtras.Text = "ATRÁS";
-            this.btnAtras.UseVisualStyleBackColor = true;
-            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // Codigo_oferta
             // 
@@ -374,15 +352,38 @@
             this.Fecha_compra.Name = "Fecha_compra";
             this.Fecha_compra.Width = 125;
             // 
-            // cOMPRABindingSource
+            // btnFacturar
             // 
-            this.cOMPRABindingSource.DataMember = "COMPRA";
-            this.cOMPRABindingSource.DataSource = this.gD2C2019DataSet;
+            this.btnFacturar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFacturar.Location = new System.Drawing.Point(682, 331);
+            this.btnFacturar.Name = "btnFacturar";
+            this.btnFacturar.Size = new System.Drawing.Size(227, 53);
+            this.btnFacturar.TabIndex = 4;
+            this.btnFacturar.Text = "FACTURAR";
+            this.btnFacturar.UseVisualStyleBackColor = true;
+            this.btnFacturar.Click += new System.EventHandler(this.btnFacturar_Click);
             // 
-            // gD2C2019DataSet
+            // btnVer
             // 
-            this.gD2C2019DataSet.DataSetName = "GD2C2019DataSet";
-            this.gD2C2019DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.btnVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVer.Location = new System.Drawing.Point(682, 244);
+            this.btnVer.Name = "btnVer";
+            this.btnVer.Size = new System.Drawing.Size(227, 53);
+            this.btnVer.TabIndex = 5;
+            this.btnVer.Text = "VER COMPRAS";
+            this.btnVer.UseVisualStyleBackColor = true;
+            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
+            // 
+            // btnAtras
+            // 
+            this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtras.Location = new System.Drawing.Point(682, 407);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(227, 46);
+            this.btnAtras.TabIndex = 6;
+            this.btnAtras.Text = "ATRÁS";
+            this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // cOMPRATableAdapter
             // 
@@ -437,6 +438,7 @@
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Name = "Facturar";
             this.Text = "Facturar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Facturar_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -444,9 +446,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.cOMPRABindingNavigator)).EndInit();
             this.cOMPRABindingNavigator.ResumeLayout(false);
             this.cOMPRABindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cOMPRADataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cOMPRABindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cOMPRADataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

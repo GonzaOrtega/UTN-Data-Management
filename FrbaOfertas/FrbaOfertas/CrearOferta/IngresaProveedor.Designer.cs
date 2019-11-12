@@ -109,6 +109,7 @@
             this.Controls.Add(this.lblIngrese);
             this.Name = "IngresaProveedor";
             this.Text = "IngresaProveedor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.IngresaProveedor_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

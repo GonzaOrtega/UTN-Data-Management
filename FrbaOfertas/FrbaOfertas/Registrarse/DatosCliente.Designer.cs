@@ -115,6 +115,7 @@
             this.Controls.Add(this.lblIngrese);
             this.Name = "DatosCliente";
             this.Text = "DatosCliente";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DatosCliente_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

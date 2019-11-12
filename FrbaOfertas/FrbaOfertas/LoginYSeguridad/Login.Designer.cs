@@ -94,7 +94,6 @@
             this.txtUsuario.TabIndex = 2;
             this.txtUsuario.Text = "Usuario";
             this.txtUsuario.Click += new System.EventHandler(this.txtUsuario_Click);
-            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
             // 
             // lblIniciarSesion
@@ -295,6 +294,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.uSUARIOBindingNavigator)).EndInit();
             this.uSUARIOBindingNavigator.ResumeLayout(false);

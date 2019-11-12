@@ -245,8 +245,6 @@ BEGIN
 	where ID_rol in (select ID_rol from deleted)
 	DELETE USUARIO_ROL
 	where ID_rol in (select ID_rol from deleted)
-	DELETE ROL_FUNCIONALIDAD
-	where ID_rol in (select ID_rol from deleted)
 END
 GO
 Create trigger borrarClientes

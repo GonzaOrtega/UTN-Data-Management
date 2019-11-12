@@ -93,22 +93,33 @@ namespace FrbaOfertas.ListadoEstadistico
         {
             if (this.validarListado()&&this.validarAnio())
             {
+                DateTime fechaInicio;
+                DateTime fechaFin;
+                if (dudSemestre.Text == "Primer semestre")
+                {
+                    fechaInicio = new DateTime(Convert.ToInt32(txtAnio.Text), 1, 1);
+                    fechaFin = new DateTime(Convert.ToInt32(txtAnio.Text), 6, 30);
+                }
+                else
+                {
+                    fechaInicio = new DateTime(Convert.ToInt32(txtAnio.Text), 6, 1);
+                    fechaFin = new DateTime(Convert.ToInt32(txtAnio.Text), 12, 31);
+                }
                 if (tipoListado == 2)
                 {
                     DataGridViewTextBoxColumn columna1 = new DataGridViewTextBoxColumn();
                     columna1.HeaderText = "Total_facturas";
-                    columna1.Width = 200;
+                    columna1.Width = 100;
                     DataGridViewTextBoxColumn columna2 = new DataGridViewTextBoxColumn();
                     columna2.HeaderText = "CUIT_proveedor";
-                    columna2.Width = 200;
+                    columna2.Width = 100;
                     DataGridViewTextBoxColumn columna3 = new DataGridViewTextBoxColumn();
                     columna3.HeaderText = "Razon_social";
-                    columna3.Width = 200;
+                    columna3.Width = 100;
                     dataGridView1.Columns.Add(columna1);
                     dataGridView1.Columns.Add(columna2);
                     dataGridView1.Columns.Add(columna3);
-                    DateTime fechaInicio = new DateTime(Convert.ToInt32(txtAnio.Text),1,1);
-                    DateTime fechaFin = new DateTime(Convert.ToInt32(txtAnio.Text), 6, 30);
+                    
                     foreach (DataRow row in facturaTableAdapter1.maximaFacturacion(fechaInicio, fechaFin).Rows)
                     {
                         dataGridView1.Rows.Add(Convert.ToDecimal(row["Total_importes"]), Convert.ToString(row["CUIT_proveedor"]), Convert.ToString(row["Razon_social"]));

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
+            this.dudSemestre = new System.Windows.Forms.DomainUpDown();
             this.txtAnio = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rbFrecuencia = new System.Windows.Forms.RadioButton();
@@ -46,7 +46,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.groupBox1.Controls.Add(this.domainUpDown1);
+            this.groupBox1.Controls.Add(this.dudSemestre);
             this.groupBox1.Controls.Add(this.txtAnio);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(39, 50);
@@ -56,15 +56,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fecha";
             // 
-            // domainUpDown1
+            // dudSemestre
             // 
-            this.domainUpDown1.Items.Add("Primer semestre");
-            this.domainUpDown1.Items.Add("Segundo semestre");
-            this.domainUpDown1.Location = new System.Drawing.Point(31, 100);
-            this.domainUpDown1.Name = "domainUpDown1";
-            this.domainUpDown1.Size = new System.Drawing.Size(290, 34);
-            this.domainUpDown1.TabIndex = 6;
-            this.domainUpDown1.Text = "Primer semestre";
+            this.dudSemestre.Items.Add("Primer semestre");
+            this.dudSemestre.Items.Add("Segundo semestre");
+            this.dudSemestre.Location = new System.Drawing.Point(31, 100);
+            this.dudSemestre.Name = "dudSemestre";
+            this.dudSemestre.Size = new System.Drawing.Size(290, 34);
+            this.dudSemestre.TabIndex = 6;
+            this.dudSemestre.Text = "Primer semestre";
             // 
             // txtAnio
             // 
@@ -146,7 +146,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(459, 176);
+            this.dataGridView1.Size = new System.Drawing.Size(474, 207);
             this.dataGridView1.TabIndex = 8;
             // 
             // facturaTableAdapter1
@@ -158,7 +158,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(787, 452);
+            this.ClientSize = new System.Drawing.Size(789, 516);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnListar);
@@ -178,7 +178,7 @@
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DomainUpDown domainUpDown1;
+        private System.Windows.Forms.DomainUpDown dudSemestre;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rbFrecuencia;
         private System.Windows.Forms.RadioButton rbDescuento;

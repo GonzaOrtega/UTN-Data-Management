@@ -122,5 +122,22 @@ namespace FrbaOfertas.Commons
             conexion.Open();
             comando.ExecuteReader();
         }
+
+        public static Double obtenerCantidadCompra(String query)
+        {
+            String cantidad = null;
+            var conexion = DBConnection.getConnection();
+            //String query = "SELECT TOP(1) MessageNumber FROM ncslbpHighWay";
+            SqlCommand SDA = new SqlCommand(query, conexion);
+
+            conexion.Open();
+            SqlDataReader data = SDA.ExecuteReader();
+            if (data.Read())
+            {
+                cantidad = data.GetValue(7).ToString();
+                MessageBox.Show("El valor obtenido es: " + cantidad);
+            }
+            return Convert.ToDouble(cantidad);
+        }
     }
 }

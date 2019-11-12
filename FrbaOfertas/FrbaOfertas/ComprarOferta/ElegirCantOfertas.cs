@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FrbaOfertas.Commons;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,13 +35,32 @@ namespace FrbaOfertas.ComprarOferta
         {
             try
             {
-                int cantCompra = Convert.ToInt32(txtCantOfertas);
+                int cantCompraDeseada = Convert.ToInt32(txtCantOfertas.Text);
                 Double dniClienteDestino = Convert.ToDouble(txtClienteDestino.Text);
+
+                if (creditoSeaSuficiente(cantCompraDeseada))
+                {
+                    //if (!cantEsMayorACantMaxima())
+                    //{
+
+                    //}
+                }
+                else
+                {
+                    MessageBox.Show("No tiene suficiente credito para realizar la transaccion");
+                }
 
             }catch(Exception ex)
             {
                 MessageBox.Show("Error: verificar datos ingresados");
             }
+        }
+
+        private bool creditoSeaSuficiente(int cantDeseada)
+        {
+            string query = "SELECT * FROM OFERTAS WHERE Codigo_oferta = '" + codOferta + "'";
+            Double creditoLimite = Queries.obtenerCantidadCompra(query);
+            return credito >= creditoLimite * cantDeseada;
         }
     }
 }

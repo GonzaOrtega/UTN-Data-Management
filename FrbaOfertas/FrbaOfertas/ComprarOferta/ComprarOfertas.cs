@@ -114,7 +114,7 @@ namespace FrbaOfertas.ComprarOferta
         {
             string nroOferta = txtNroOfertaDefinitiva.Text;
             ElegirCantOfertas ofertas = new ElegirCantOfertas();
-            ofertas.CodOferta = txtCodOferta.Text;
+            ofertas.CodOferta = txtNroOfertaDefinitiva.Text;
             ofertas.ClienteId = clienteId;
             ofertas.Show();
         }

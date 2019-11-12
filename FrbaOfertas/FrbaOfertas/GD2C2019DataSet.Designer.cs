@@ -12574,12 +12574,17 @@ SELECT Num_factura, Fecha_factura, Importe, CUIT_proveedor, Razon_social FROM FA
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Num_factura, Fecha_factura, Importe, CUIT_proveedor, Razon_social FROM dbo" +
                 ".FACTURA";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT SUM(Importe) AS Total_importes, CUIT_proveedor, Razon_social\r\nFROM     FAC" +
+                "TURA\r\nGROUP BY CUIT_proveedor, Razon_social\r\nORDER BY Total_importes DESC";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12601,6 +12606,30 @@ SELECT Num_factura, Fecha_factura, Importe, CUIT_proveedor, Razon_social FROM FA
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual GD2C2019DataSet.FACTURADataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            GD2C2019DataSet.FACTURADataTable dataTable = new GD2C2019DataSet.FACTURADataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(GD2C2019DataSet.FACTURADataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD2C2019DataSet.FACTURADataTable GetDataBy() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             GD2C2019DataSet.FACTURADataTable dataTable = new GD2C2019DataSet.FACTURADataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

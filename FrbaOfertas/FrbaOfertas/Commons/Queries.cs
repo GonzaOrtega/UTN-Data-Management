@@ -123,9 +123,9 @@ namespace FrbaOfertas.Commons
             comando.ExecuteReader();
         }
 
-        public static Double obtenerCantidadCompra(String query)
+        public static object obtenerDatoOferta(String query, int indiceDeTabla)
         {
-            String cantidad = null;
+            object dato = null;
             var conexion = DBConnection.getConnection();
             //String query = "SELECT TOP(1) MessageNumber FROM ncslbpHighWay";
             SqlCommand SDA = new SqlCommand(query, conexion);
@@ -134,10 +134,10 @@ namespace FrbaOfertas.Commons
             SqlDataReader data = SDA.ExecuteReader();
             if (data.Read())
             {
-                cantidad = data.GetValue(7).ToString();
-                MessageBox.Show("El valor obtenido es: " + cantidad);
+                dato = data.GetValue(indiceDeTabla).ToString();
+                MessageBox.Show("El valor obtenido es: " + dato);
             }
-            return Convert.ToDouble(cantidad);
+            return dato;
         }
     }
 }

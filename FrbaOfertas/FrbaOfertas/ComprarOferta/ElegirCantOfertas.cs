@@ -38,16 +38,25 @@ namespace FrbaOfertas.ComprarOferta
                 int cantCompraDeseada = Convert.ToInt32(txtCantOfertas.Text);
                 Double dniClienteDestino = Convert.ToDouble(txtClienteDestino.Text);
 
-                if (creditoSeaSuficiente(cantCompraDeseada))
+                if (cantPedidaEsMenorACantidadMaxima(cantCompraDeseada))
                 {
-                    //if (!cantEsMayorACantMaxima())
-                    //{
-
-                    //}
+                    if (creditoSeaSuficiente(cantCompraDeseada))
+                    {
+                        // Insertar Compra y Cupones correspondientes
+                        // Por ahora voy a considerar que los cupones que se generan son mandados a la misma persona,
+                        //      que la elije el usuario
+                        
+                        
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("No tiene suficiente credito para realizar la transaccion");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No tiene suficiente credito para realizar la transaccion");
+                    MessageBox.Show("La cantidad deseada es mayor a la cantidad permitida por usuario");
                 }
 
             }catch(Exception ex)
@@ -59,8 +68,15 @@ namespace FrbaOfertas.ComprarOferta
         private bool creditoSeaSuficiente(int cantDeseada)
         {
             string query = "SELECT * FROM OFERTAS WHERE Codigo_oferta = '" + codOferta + "'";
-            Double creditoLimite = Queries.obtenerCantidadCompra(query);
-            return credito >= creditoLimite * cantDeseada;
+            Double preciOferta = Convert.ToDouble(Queries.obtenerDatoOferta(query, 1));
+            return credito >= preciOferta * cantDeseada;
+        }
+
+        private bool cantPedidaEsMenorACantidadMaxima(int cantDeseada)
+        {
+            string query = "SELECT * FROM OFERTAS WHERE Codigo_oferta = '" + codOferta + "'";
+            int cantMaximaOferta = Convert.ToInt32(Queries.obtenerDatoOferta(query, 7));
+            return cantDeseada <= cantMaximaOferta;
         }
     }
 }

@@ -178,16 +178,23 @@ namespace FrbaOfertas.Commons
             comando.ExecuteReader();
         }
 
-        public static object existeCupon(int nroCupon, ref bool existe)
+        public static Cupon existeCupon(int nroCupon, ref bool existe)
         {
             string query = "SELECT * FROM CUPON WHERE Codigo_cupon = " + nroCupon;
-            object value = null;
-            value = obtenerDatoOferta(query, 0);
-            if (value != null)
+            Cupon cupon = new Cupon();
+
+            try
             {
+                cupon.CodOferta = Convert.ToString(obtenerDatoOferta(query, 0));
+                cupon.FechaEntrega = Convert.ToDateTime(obtenerDatoOferta(query, 1));
                 existe = true;
+
+            }catch(Exception ex)
+            {
+                existe = false;
             }
-            return value;
+
+            return cupon;
         }
     }
 }

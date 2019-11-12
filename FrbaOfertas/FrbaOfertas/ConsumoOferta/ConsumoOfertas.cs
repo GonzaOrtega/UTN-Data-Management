@@ -1,4 +1,5 @@
 ﻿using FrbaOfertas.Commons;
+using FrbaOfertas.ComprarOferta;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace FrbaOfertas.ConsumoOferta
 {
     public partial class ConsumoOfertas : Form
     {
-        Cupon cupon = new Cupon();
+        Cupon cupon;
         public ConsumoOfertas()
         {
             InitializeComponent();
@@ -61,15 +62,15 @@ namespace FrbaOfertas.ConsumoOferta
             //}
         }
 
-        //private bool cuponEsDeProveedor()
-        //{
+        private bool cuponEsDeProveedor()
+        {
 
-        //}
+        }
 
         private bool existeCupon(int nroCupon)
         {
             bool existeCupon = false;
-            //cupon =  Queries.existeCupon(nroCupon, ref existeCupon);
+            cupon =  Queries.existeCupon(nroCupon, ref existeCupon);
             return existeCupon;
         }
     }

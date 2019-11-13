@@ -16,10 +16,11 @@ namespace FrbaOfertas.ConsumoOferta
     public partial class ConsumoOfertas : Form
     {
         Cupon cupon = new Cupon();
-        int nroCupon;
+        
         // Valores que me los van a pasar por parametro, por ahora los hardcodeo
         string cuit = "26-50981919-5";
         string razonSocial = "Proveedor N°24S.R.L.";
+        
         public ConsumoOfertas()
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace FrbaOfertas.ConsumoOferta
         {
             try
             {
-                nroCupon = Convert.ToInt32(txtNroCuponIngresado.Text);
+                cupon.CodCupon = Convert.ToInt32(txtNroCuponIngresado.Text);
                 if (existeCupon())
                 {
                     cuponEsDeProveedorYNoEstaVencido();
@@ -53,14 +54,7 @@ namespace FrbaOfertas.ConsumoOferta
         {
             if (cuponEsDeProveedor())
             {
-                if (cuponEstaVencido())
-                {
-                    //canjearCupon();
-                }
-                else
-                {
-                    MessageBox.Show("El cupon esta vencido");
-                }
+                cuponEstaVencidoYEstaCanjeado();
             }
             else
             {
@@ -68,12 +62,44 @@ namespace FrbaOfertas.ConsumoOferta
             }
         }
 
+        private void cuponEstaVencidoYEstaCanjeado()
+        {
+            if (cuponEstaVencido())
+            {
+                if (!cuponEstaCanjeado())
+                {
+                    canjearCupon();
+                    MessageBox.Show("Cupon canjeado correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("El cupon ya esta canjeado");
+                }
+            }
+            else
+            {
+                MessageBox.Show("El cupon esta vencido");
+            }
+        }
+
+        private bool cuponEstaCanjeado()
+        {
+            string query = "SELECT * FROM CUPON WHERE Codigo_cupon = " + cupon.CodCupon;
+            return !String.IsNullOrWhiteSpace(Queries.obtenerDatoTabla(query, 1));
+        }
+
+        private void canjearCupon()
+        {
+            Queries.canjearCupon(cupon);
+        }
+
         private bool cuponEstaVencido()
         {
             string query = "SELECT * FROM OFERTAS WHERE Codigo_oferta = '" +
                 cupon.CodOferta + "'";
             DateTime fechaVencimiento = Convert.ToDateTime(Queries.obtenerDatoTabla(query, 3));
-            return DateTime.Compare(fechaVencimiento, this.obtenerFechaConfigFile()) > 0;
+            cupon.FechaEntrega = this.obtenerFechaConfigFile();
+            return DateTime.Compare(fechaVencimiento, cupon.FechaEntrega) > 0;
         }
 
         private DateTime obtenerFechaConfigFile()
@@ -88,15 +114,15 @@ namespace FrbaOfertas.ConsumoOferta
             string query = "SELECT * FROM OFERTAS WHERE Codigo_oferta = '" +
                 cupon.CodOferta + "'";
             //DateTime fechaVencimientoOferta = Convert.ToDateTime(Queries.obtenerDatoTabla(query, 3));
-            string cuitObtenido = Convert.ToString(Queries.obtenerDatoTabla(query, 8));
-            string razonSocialObtenida = Convert.ToString(Queries.obtenerDatoTabla(query, 9));
+            string cuitObtenido = Queries.obtenerDatoTabla(query, 8);
+            string razonSocialObtenida = Queries.obtenerDatoTabla(query, 9);
             return cuit.Equals(cuitObtenido) && razonSocial.Equals(razonSocialObtenida); 
         }
 
         private bool existeCupon()
         {
             string codOfertaObtenido = null;
-            bool existe =  Queries.existeCupon(nroCupon, ref codOfertaObtenido);
+            bool existe =  Queries.existeCupon(cupon.CodCupon, ref codOfertaObtenido);
             cupon.CodOferta = codOfertaObtenido;
             return existe;
         }

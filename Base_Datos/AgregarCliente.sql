@@ -58,3 +58,10 @@ as begin
 		values (@Entregado_fecha, @DNI_cliente_origen, @DNI_cliente_destino, @Codigo_oferta)
 end
 go
+
+create procedure canjearCupon(@Entregado_fecha datetime, @Codigo_cupon int)
+as begin
+	update CUPON set Entregado_fecha = @Entregado_fecha
+		where Codigo_cupon = @Codigo_cupon
+end
+go

@@ -124,10 +124,10 @@ namespace FrbaOfertas.Commons
             comando.ExecuteReader();
         }
 
-        public static object obtenerDatoTabla(String query, int indiceDeTabla)
+        public static String obtenerDatoTabla(String query, int indiceDeTabla)
         {
             // Creo que podria hacer que devuelva solo un string
-            object dato = null;
+            String dato = null;
             var conexion = DBConnection.getConnection();
             SqlCommand SDA = new SqlCommand(query, conexion);
 
@@ -182,8 +182,25 @@ namespace FrbaOfertas.Commons
         {
             string query = "SELECT * FROM CUPON WHERE Codigo_cupon = " + nroCupon;
             Cupon cupon = new Cupon();
-            codOferta = Convert.ToString(obtenerDatoTabla(query, 4));
+            codOferta = obtenerDatoTabla(query, 4);
             return !String.IsNullOrWhiteSpace(codOferta);
+        }
+
+        public static void canjearCupon(Cupon cupon)
+        {
+            string query = "dbo.canjearCupon";
+
+            var conexion = DBConnection.getConnection();
+            SqlCommand comando = new SqlCommand(query, conexion);
+
+            comando.CommandType = CommandType.StoredProcedure;
+
+
+            comando.Parameters.AddWithValue("@Entregado_fecha", cupon.FechaEntrega);
+            comando.Parameters.AddWithValue("@Codigo_cupon", cupon.CodCupon);
+
+            conexion.Open();
+            comando.ExecuteReader();
         }
     }
 }

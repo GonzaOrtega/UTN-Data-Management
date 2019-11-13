@@ -102,8 +102,6 @@ namespace FrbaOfertas.Commons
 
             conexion.Open();
             comando.ExecuteReader();
-
-            MessageBox.Show("Carga creada satisfactoriamente", "Carga de credito");
         }
 
         public static void insertarTarjeta(Tarjeta tarjeta)
@@ -224,6 +222,22 @@ namespace FrbaOfertas.Commons
         public static void disminuirCreditoCliente(Double dniCliente, Double precioCompra)
         {
             string query = "dbo.cobrarCompra";
+
+            var conexion = DBConnection.getConnection();
+            SqlCommand comando = new SqlCommand(query, conexion);
+
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@DNI_cliente", dniCliente);
+            comando.Parameters.AddWithValue("@Credito", precioCompra);
+
+            conexion.Open();
+            comando.ExecuteReader();
+        }
+
+        public static void aumentarCredito(Double dniCliente, Double precioCompra)
+        {
+            string query = "dbo.aumentarCredito";
 
             var conexion = DBConnection.getConnection();
             SqlCommand comando = new SqlCommand(query, conexion);

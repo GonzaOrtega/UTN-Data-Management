@@ -26,7 +26,19 @@ namespace FrbaOfertas.CargaCredito
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (hayDatosIngresados() && vencimientoMayorAHoy())
+            if (hayDatosIngresados())
+            {
+                verificarTiposDeDatosIngresados();
+            }
+            else
+            {
+                MessageBox.Show("No hay datos ingresados");
+            }
+        }
+
+        private void verificarTiposDeDatosIngresados()
+        {
+            if (vencimientoMayorAHoy())
             {
                 try
                 {
@@ -36,10 +48,12 @@ namespace FrbaOfertas.CargaCredito
                     tarjeta.FechaVencimiento = dtpFechaVencimiento.Value;
                     tarjeta.TipoTarjeta = Convert.ToString(cbTipoTarjeta.Text);
                     tarjeta.Titular = txtTitular.Text;
+
                     if (tarjeta.TipoTarjeta.Equals(credito.TipoPago))
                     {
                         Queries.insertarTarjeta(tarjeta);
                         Queries.insertarCarga(credito);
+                        Queries.aumentarCredito(credito.DniCliente, credito.Monto);
                     }
                     else
                     {
@@ -47,14 +61,15 @@ namespace FrbaOfertas.CargaCredito
                     }
 
                     this.Close();
-                }catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show("Error en los datos ingresados");
                 }
             }
             else
             {
-                MessageBox.Show("No hay datos ingresados");
+                MessageBox.Show("La tarjeta esta vencida\n\nPor favor ingrese otra");
             }
         }
 

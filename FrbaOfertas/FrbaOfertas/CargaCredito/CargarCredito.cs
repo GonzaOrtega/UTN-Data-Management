@@ -45,7 +45,7 @@ namespace FrbaOfertas.CargaCredito
             {
                 if (seIngresaronDatos() && montoEsPositivo())
                 {
-                    // Recordar que se tiene que hacer con un DNI existente en la DB
+                    // Recordar que se tiene que hacer con un DNI existente en la DB, al mergear
                     credito.DniCliente = Convert.ToDouble(txtDNICliente.Text);
                     credito.Fecha = this.obtenerFechaConfigFile();
                     credito.Monto = Convert.ToDouble(txtMonto.Text);
@@ -61,12 +61,13 @@ namespace FrbaOfertas.CargaCredito
                     {
                         credito.HayTarjeta = false;
                         Queries.insertarCarga(credito);
-                        // Falta el trigger para que cuando se inserta la carga esta se refleje en el usuario o cliente
+                        Queries.aumentarCredito(credito.DniCliente, credito.Monto);
+                        MessageBox.Show("Carga realizada satisfactoriamente", "Carga de credito");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No se ingresaron datos o el monto es negativo\nPor favor, revisar ");
+                    MessageBox.Show("Error en los datos ingresados\n\nPor favor, revisar");
                 }
             }catch(Exception ex)
             {

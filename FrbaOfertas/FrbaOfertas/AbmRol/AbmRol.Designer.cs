@@ -32,6 +32,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Nombre_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion_funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Habilitado_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminar_rol = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbHabilitado = new System.Windows.Forms.ComboBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -42,11 +47,6 @@
             this.btnAtras = new System.Windows.Forms.Button();
             this.roL_FUNCIONALIDADTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.ROL_FUNCIONALIDADTableAdapter();
             this.rolTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.ROLTableAdapter();
-            this.Nombre_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion_funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Habilitado_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eliminar_rol = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +73,69 @@
             this.dataGridView1.Size = new System.Drawing.Size(769, 226);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Nombre_rol
+            // 
+            this.Nombre_rol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Nombre_rol.HeaderText = "Nombre_rol";
+            this.Nombre_rol.MinimumWidth = 6;
+            this.Nombre_rol.Name = "Nombre_rol";
+            this.Nombre_rol.ReadOnly = true;
+            this.Nombre_rol.ToolTipText = "NOMBRE";
+            this.Nombre_rol.Width = 111;
+            // 
+            // Descripcion_funcionalidad
+            // 
+            this.Descripcion_funcionalidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Descripcion_funcionalidad.HeaderText = "Descripcion_funcionalidad";
+            this.Descripcion_funcionalidad.MinimumWidth = 6;
+            this.Descripcion_funcionalidad.Name = "Descripcion_funcionalidad";
+            this.Descripcion_funcionalidad.ReadOnly = true;
+            this.Descripcion_funcionalidad.ToolTipText = "DESCRIPCIÓN";
+            this.Descripcion_funcionalidad.Width = 203;
+            // 
+            // Habilitado_rol
+            // 
+            this.Habilitado_rol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Habilitado_rol.HeaderText = "Habilitado_rol";
+            this.Habilitado_rol.MinimumWidth = 6;
+            this.Habilitado_rol.Name = "Habilitado_rol";
+            this.Habilitado_rol.ReadOnly = true;
+            this.Habilitado_rol.ToolTipText = "HABILITAR";
+            this.Habilitado_rol.Width = 124;
+            // 
+            // Eliminar_rol
+            // 
+            this.Eliminar_rol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.NullValue = "X";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightCoral;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.Eliminar_rol.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Eliminar_rol.HeaderText = "Eleminar_rol";
+            this.Eliminar_rol.MinimumWidth = 6;
+            this.Eliminar_rol.Name = "Eliminar_rol";
+            this.Eliminar_rol.ReadOnly = true;
+            this.Eliminar_rol.Text = "Eliminar";
+            this.Eliminar_rol.ToolTipText = "BORRAR";
+            this.Eliminar_rol.Width = 93;
+            // 
+            // Editar
+            // 
+            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = "Editar";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightCoral;
+            this.Editar.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Editar.HeaderText = "Editar";
+            this.Editar.MinimumWidth = 6;
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Text = "Editar";
+            this.Editar.ToolTipText = "EDITAR";
+            this.Editar.Width = 51;
             // 
             // groupBox1
             // 
@@ -153,6 +216,7 @@
             this.btnCrear.TabIndex = 5;
             this.btnCrear.Text = "CREAR";
             this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // btnAtras
             // 
@@ -172,69 +236,6 @@
             // rolTableAdapter1
             // 
             this.rolTableAdapter1.ClearBeforeFill = true;
-            // 
-            // Nombre_rol
-            // 
-            this.Nombre_rol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Nombre_rol.HeaderText = "Nombre_rol";
-            this.Nombre_rol.MinimumWidth = 6;
-            this.Nombre_rol.Name = "Nombre_rol";
-            this.Nombre_rol.ReadOnly = true;
-            this.Nombre_rol.ToolTipText = "NOMBRE";
-            this.Nombre_rol.Width = 111;
-            // 
-            // Descripcion_funcionalidad
-            // 
-            this.Descripcion_funcionalidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Descripcion_funcionalidad.HeaderText = "Descripcion_funcionalidad";
-            this.Descripcion_funcionalidad.MinimumWidth = 6;
-            this.Descripcion_funcionalidad.Name = "Descripcion_funcionalidad";
-            this.Descripcion_funcionalidad.ReadOnly = true;
-            this.Descripcion_funcionalidad.ToolTipText = "DESCRIPCIÓN";
-            this.Descripcion_funcionalidad.Width = 203;
-            // 
-            // Habilitado_rol
-            // 
-            this.Habilitado_rol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Habilitado_rol.HeaderText = "Habilitado_rol";
-            this.Habilitado_rol.MinimumWidth = 6;
-            this.Habilitado_rol.Name = "Habilitado_rol";
-            this.Habilitado_rol.ReadOnly = true;
-            this.Habilitado_rol.ToolTipText = "HABILITAR";
-            this.Habilitado_rol.Width = 124;
-            // 
-            // Eliminar_rol
-            // 
-            this.Eliminar_rol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.NullValue = "X";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightCoral;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.Eliminar_rol.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Eliminar_rol.HeaderText = "Eleminar_rol";
-            this.Eliminar_rol.MinimumWidth = 6;
-            this.Eliminar_rol.Name = "Eliminar_rol";
-            this.Eliminar_rol.ReadOnly = true;
-            this.Eliminar_rol.Text = "Eliminar";
-            this.Eliminar_rol.ToolTipText = "BORRAR";
-            this.Eliminar_rol.Width = 93;
-            // 
-            // Editar
-            // 
-            this.Editar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = "Editar";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightCoral;
-            this.Editar.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Editar.HeaderText = "Editar";
-            this.Editar.MinimumWidth = 6;
-            this.Editar.Name = "Editar";
-            this.Editar.ReadOnly = true;
-            this.Editar.Text = "Editar";
-            this.Editar.ToolTipText = "EDITAR";
-            this.Editar.Width = 51;
             // 
             // AbmRol
             // 

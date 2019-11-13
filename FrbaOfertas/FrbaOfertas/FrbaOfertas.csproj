@@ -91,11 +91,17 @@
     <Compile Include="AbmRol\AbmRol.Designer.cs">
       <DependentUpon>AbmRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="AbmRol\ABM_editar.cs">
+    <Compile Include="AbmRol\Rol_crear.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmRol\ABM_editar.Designer.cs">
-      <DependentUpon>ABM_editar.cs</DependentUpon>
+    <Compile Include="AbmRol\Rol_crear.Designer.cs">
+      <DependentUpon>Rol_crear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmRol\Rol_editar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmRol\Rol_editar.Designer.cs">
+      <DependentUpon>Rol_editar.cs</DependentUpon>
     </Compile>
     <Compile Include="Commons\Queries2.cs" />
     <Compile Include="Commons\Validacion2.cs" />
@@ -189,8 +195,11 @@
     <EmbeddedResource Include="AbmRol\AbmRol.resx">
       <DependentUpon>AbmRol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AbmRol\ABM_editar.resx">
-      <DependentUpon>ABM_editar.cs</DependentUpon>
+    <EmbeddedResource Include="AbmRol\Rol_crear.resx">
+      <DependentUpon>Rol_crear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmRol\Rol_editar.resx">
+      <DependentUpon>Rol_editar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrearOferta\CrearOferta.resx">
       <DependentUpon>CrearOferta.cs</DependentUpon>

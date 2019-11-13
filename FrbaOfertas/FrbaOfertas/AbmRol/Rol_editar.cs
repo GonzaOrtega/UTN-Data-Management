@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace FrbaOfertas.AbmRol
 {
-    public partial class ABM_editar : Form
+    public partial class Rol_editar : Form
     {
         String nombreRol;
         AbmRol anterior;
-        public ABM_editar(String nombre, AbmRol ant)
+        public Rol_editar(String nombre, AbmRol ant)
         {
             InitializeComponent();
             nombreRol = nombre;
@@ -38,9 +38,9 @@ namespace FrbaOfertas.AbmRol
             txtNombre.Text = nombreRol;
             if (rolTableAdapter1.GetDataById(nombreRol).Count != 0)
             {
-                cudHabilitado.Text = "Habilitado";
+                cudHabilitado.SelectedItem = "Habilitado";
             }
-            else { cudHabilitado.Text = "Deshabilitado";}
+            else { cudHabilitado.SelectedItem = "Deshabilitado";}
             foreach (DataRow row in funcionalidadTableAdapter1.GetData().Rows)
                 lbGlobales.Items.Add(row["Descripcion"]);
             foreach(DataRow row1 in roL_FUNCIONALIDADTableAdapter1.dameDescripcion(nombreRol))
@@ -77,7 +77,7 @@ namespace FrbaOfertas.AbmRol
             if (this.validarNombre())
             {
                 rolTableAdapter1.UpdateQuery(txtNombre.Text, "True", nombreRol);
-                if (cudHabilitado.Text == "Deshabilitado")
+                if (cudHabilitado.SelectedItem == "Deshabilitado")
                 {
                     rolTableAdapter1.DeleteQuery(txtNombre.Text);
                 }

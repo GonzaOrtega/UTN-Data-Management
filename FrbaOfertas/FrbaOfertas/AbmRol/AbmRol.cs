@@ -167,8 +167,13 @@ namespace FrbaOfertas.AbmRol
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0 && e.ColumnIndex == 4)
             {
-                new ABM_editar(Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[0].Value), this).Show();
+                new Rol_editar(Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[0].Value), this).Show();
             }
+        }
+
+        private void btnCrear_Click(object sender, EventArgs e)
+        {
+            new Rol_crear(this).Show();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace FrbaOfertas.AbmRol
 {
-    partial class ABM_editar
+    partial class Rol_crear
     {
         /// <summary>
         /// Required designer variable.
@@ -38,10 +38,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbLocales = new System.Windows.Forms.ListBox();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.rolTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.ROLTableAdapter();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.funcionalidadTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.FUNCIONALIDADTableAdapter();
+            this.rolTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.ROLTableAdapter();
             this.roL_FUNCIONALIDADTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.ROL_FUNCIONALIDADTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -53,10 +53,10 @@
             this.groupBox1.Controls.Add(this.cudHabilitado);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(39, 47);
+            this.groupBox1.Location = new System.Drawing.Point(66, 49);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(668, 165);
-            this.groupBox1.TabIndex = 1;
+            this.groupBox1.Size = new System.Drawing.Size(668, 174);
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del rol";
             // 
@@ -87,10 +87,10 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.lbLocales);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(39, 232);
+            this.groupBox2.Location = new System.Drawing.Point(71, 254);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(668, 362);
-            this.groupBox2.TabIndex = 3;
+            this.groupBox2.Size = new System.Drawing.Size(668, 357);
+            this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Funcionalidades";
             // 
@@ -152,53 +152,53 @@
             this.lbLocales.Size = new System.Drawing.Size(213, 229);
             this.lbLocales.TabIndex = 0;
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(461, 614);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(158, 57);
-            this.btnGuardar.TabIndex = 5;
-            this.btnGuardar.Text = "GUARDAR";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
             // btnLimpiar
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(39, 614);
+            this.btnLimpiar.Location = new System.Drawing.Point(71, 635);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(158, 57);
-            this.btnLimpiar.TabIndex = 6;
+            this.btnLimpiar.TabIndex = 7;
             this.btnLimpiar.Text = "LIMPIAR";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // rolTableAdapter1
+            // btnGuardar
             // 
-            this.rolTableAdapter1.ClearBeforeFill = true;
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Location = new System.Drawing.Point(581, 635);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(158, 57);
+            this.btnGuardar.TabIndex = 8;
+            this.btnGuardar.Text = "GUARDAR";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // funcionalidadTableAdapter1
             // 
             this.funcionalidadTableAdapter1.ClearBeforeFill = true;
             // 
+            // rolTableAdapter1
+            // 
+            this.rolTableAdapter1.ClearBeforeFill = true;
+            // 
             // roL_FUNCIONALIDADTableAdapter1
             // 
             this.roL_FUNCIONALIDADTableAdapter1.ClearBeforeFill = true;
             // 
-            // ABM_editar
+            // Rol_crear
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(750, 699);
-            this.Controls.Add(this.btnLimpiar);
+            this.ClientSize = new System.Drawing.Size(810, 718);
             this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "ABM_editar";
-            this.Text = "ABM_editar";
-            this.Load += new System.EventHandler(this.ABM_editar_Load);
+            this.Name = "Rol_crear";
+            this.Text = "Rol_crear";
+            this.Load += new System.EventHandler(this.Rol_crear_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -210,8 +210,8 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.DomainUpDown cudHabilitado;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnAgregar;
@@ -219,10 +219,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lbLocales;
-        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnLimpiar;
-        private GD2C2019DataSetTableAdapters.ROLTableAdapter rolTableAdapter1;
+        private System.Windows.Forms.Button btnGuardar;
         private GD2C2019DataSetTableAdapters.FUNCIONALIDADTableAdapter funcionalidadTableAdapter1;
+        private GD2C2019DataSetTableAdapters.ROLTableAdapter rolTableAdapter1;
         private GD2C2019DataSetTableAdapters.ROL_FUNCIONALIDADTableAdapter roL_FUNCIONALIDADTableAdapter1;
     }
 }

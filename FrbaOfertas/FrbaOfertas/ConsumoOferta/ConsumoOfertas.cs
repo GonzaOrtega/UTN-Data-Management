@@ -3,6 +3,7 @@ using FrbaOfertas.ComprarOferta;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace FrbaOfertas.ConsumoOferta
     public partial class ConsumoOfertas : Form
     {
         Cupon cupon = new Cupon();
+        int nroCupon;
         // Valores que me los van a pasar por parametro, por ahora los hardcodeo
         string cuit = "26-50981919-5";
         string razonSocial = "Proveedor N°24S.R.L.";
@@ -32,7 +34,8 @@ namespace FrbaOfertas.ConsumoOferta
         {
             try
             {
-                if (existeCupon(Convert.ToInt32(txtNroCuponIngresado.Text)))
+                nroCupon = Convert.ToInt32(txtNroCuponIngresado.Text);
+                if (existeCupon())
                 {
                     cuponEsDeProveedorYNoEstaVencido();
                 }
@@ -50,19 +53,34 @@ namespace FrbaOfertas.ConsumoOferta
         {
             if (cuponEsDeProveedor())
             {
-                //if (cuponNoEstaVencido())
-                //{
-                //    canjearCupon();
-                //}
-                //else
-                //{
-                //    MessageBox.Show("El cupon esta vencido");
-                //}
+                if (cuponEstaVencido())
+                {
+                    //canjearCupon();
+                }
+                else
+                {
+                    MessageBox.Show("El cupon esta vencido");
+                }
             }
             else
             {
                 MessageBox.Show("El cupon no es de este proveedor", "Error");
             }
+        }
+
+        private bool cuponEstaVencido()
+        {
+            string query = "SELECT * FROM OFERTAS WHERE Codigo_oferta = '" +
+                cupon.CodOferta + "'";
+            DateTime fechaVencimiento = Convert.ToDateTime(Queries.obtenerDatoTabla(query, 3));
+            return DateTime.Compare(fechaVencimiento, this.obtenerFechaConfigFile()) > 0;
+        }
+
+        private DateTime obtenerFechaConfigFile()
+        {
+            String fechaConfigFile = ConfigurationManager.AppSettings["fecha"].ToString();
+            DateTime fecha = DateTime.ParseExact(fechaConfigFile, "yyyy-MM-dd HH:mm tt", System.Globalization.CultureInfo.InvariantCulture);
+            return fecha;
         }
 
         private bool cuponEsDeProveedor()
@@ -75,7 +93,7 @@ namespace FrbaOfertas.ConsumoOferta
             return cuit.Equals(cuitObtenido) && razonSocial.Equals(razonSocialObtenida); 
         }
 
-        private bool existeCupon(int nroCupon)
+        private bool existeCupon()
         {
             string codOfertaObtenido = null;
             bool existe =  Queries.existeCupon(nroCupon, ref codOfertaObtenido);

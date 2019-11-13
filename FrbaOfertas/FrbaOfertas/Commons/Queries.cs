@@ -126,6 +126,7 @@ namespace FrbaOfertas.Commons
 
         public static object obtenerDatoTabla(String query, int indiceDeTabla)
         {
+            // Creo que podria hacer que devuelva solo un string
             object dato = null;
             var conexion = DBConnection.getConnection();
             SqlCommand SDA = new SqlCommand(query, conexion);
@@ -135,7 +136,6 @@ namespace FrbaOfertas.Commons
             if (data.Read())
             {
                 dato = data.GetValue(indiceDeTabla).ToString();
-                //MessageBox.Show("El valor obtenido es: " + dato);
             }
             return dato;
         }

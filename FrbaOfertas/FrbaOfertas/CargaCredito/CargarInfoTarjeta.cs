@@ -38,8 +38,8 @@ namespace FrbaOfertas.CargaCredito
                     tarjeta.Titular = txtTitular.Text;
                     if (tarjeta.TipoTarjeta.Equals(credito.TipoPago))
                     {
-                        //Queries.insertarTarjeta(tarjeta);
-                        //Queries.insertarCarga(credito);
+                        Queries.insertarTarjeta(tarjeta);
+                        Queries.insertarCarga(credito);
                     }
                     else
                     {
@@ -60,8 +60,14 @@ namespace FrbaOfertas.CargaCredito
 
         private bool vencimientoMayorAHoy()
         {
-            // TODO: Cambiar la "fecha de hoy" por la que esta en el archivo de configuracion
-            return DateTime.Compare(dtpFechaVencimiento.Value, DateTime.Today) != 0;
+            return DateTime.Compare(dtpFechaVencimiento.Value, this.obtenerFechaConfigFile()) > 0;
+        }
+
+        private DateTime obtenerFechaConfigFile()
+        {
+            String fechaConfigFile = ConfigurationManager.AppSettings["fecha"].ToString();
+            DateTime fecha = DateTime.ParseExact(fechaConfigFile, "yyyy-MM-dd HH:mm tt", System.Globalization.CultureInfo.InvariantCulture);
+            return fecha;
         }
 
         private void CargarInfoTarjeta_Load(object sender, EventArgs e)

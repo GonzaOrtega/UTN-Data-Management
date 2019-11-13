@@ -26,14 +26,12 @@ namespace FrbaOfertas.AbmRol
         }
 
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-
+            funciones.Show();
+            cerrado = true;
+            Close();
         }
 
         private void AbmRol_FormClosing(object sender, FormClosingEventArgs e)
@@ -49,6 +47,61 @@ namespace FrbaOfertas.AbmRol
                     Application.Exit();
                 }
             }
+        }
+
+        private void txtNombre_Click(object sender, EventArgs e)
+        {
+            if (txtNombre.Text == "Nombre")
+            {
+                txtNombre.Text = "";
+                txtNombre.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtNombre_Leave(object sender, EventArgs e)
+        {
+            if (txtNombre.Text == "")
+            {
+                txtNombre.Text = "Nombre";
+                txtNombre.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void txtDescripcion_Click(object sender, EventArgs e)
+        {
+            if (txtDescripcion.Text == "Descripción de la funcionalidad")
+            {
+                txtDescripcion.Text = "";
+                txtDescripcion.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtDescripcion_Leave(object sender, EventArgs e)
+        {
+            if (txtDescripcion.Text == "")
+            {
+                txtDescripcion.Text = "Descripción de la funcionalidad";
+                txtDescripcion.ForeColor = Color.Gainsboro;
+            }
+        }
+        private String validarFiltroHabilitar()
+        {
+            switch (cbHabilitado.Text)
+            {
+                case "Ambos":
+                    return "";
+                case "Habilitar":
+                    return "habilitado like 'True'";
+                case "Deshabilitado":
+                    return "habilitado like 'False'";
+            }
+            return "";
+        }
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            String expresion = this.validarFiltroHabilitar();
+
+
         }
 
     }

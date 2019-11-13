@@ -91,6 +91,8 @@
             this.txtDescripcion.Size = new System.Drawing.Size(344, 34);
             this.txtDescripcion.TabIndex = 1;
             this.txtDescripcion.Text = "Descripción de la funcionalidad";
+            this.txtDescripcion.Click += new System.EventHandler(this.txtDescripcion_Click);
+            this.txtDescripcion.Leave += new System.EventHandler(this.txtDescripcion_Leave);
             // 
             // txtNombre
             // 
@@ -100,6 +102,8 @@
             this.txtNombre.Size = new System.Drawing.Size(235, 34);
             this.txtNombre.TabIndex = 0;
             this.txtNombre.Text = "Nombre del rol";
+            this.txtNombre.Click += new System.EventHandler(this.txtNombre_Click);
+            this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
             // 
             // btnBuscar
             // 

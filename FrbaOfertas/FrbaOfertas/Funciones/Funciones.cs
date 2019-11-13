@@ -46,7 +46,7 @@ namespace FrbaOfertas.Funciones
                     Hide();
                     break;
                 case "ABM_ROL":
-                    new AbmRol.AbmRol().Show();
+                    new AbmRol.AbmRol(this).Show();
                     Hide();
                     break;
                 case "ABM_CLIENTES":

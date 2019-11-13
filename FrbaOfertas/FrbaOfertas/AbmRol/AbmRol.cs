@@ -22,8 +22,7 @@ namespace FrbaOfertas.AbmRol
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.DataSource!=null)
-            ((DataTable)dataGridView1.DataSource).Clear();
+            dataGridView1.Rows.Clear();
         }
 
 
@@ -91,9 +90,9 @@ namespace FrbaOfertas.AbmRol
             {
                 case "Ambos":
                     return "";
-                case "Habilitar":
+                case "Habilitados":
                     return "habilitado like 'True'";
-                case "Deshabilitado":
+                case "Deshabilitados":
                     return "habilitado like 'False'";
             }
             return "";
@@ -119,6 +118,7 @@ namespace FrbaOfertas.AbmRol
             String expresion = this.validarFiltroHabilitar();
             String expresion2 = this.validarFiltroRol();
             String expresion3 = this.validarFiltroFuncion();
+            dataGridView1.Rows.Clear();
             if (expresion != "" && (expresion2 != "" || expresion3 != ""))
             {
                 expresion += " AND "+expresion2;
@@ -131,11 +131,14 @@ namespace FrbaOfertas.AbmRol
             else { expresion += expresion3; }
             foreach (DataRow row in roL_FUNCIONALIDADTableAdapter1.dameAbmRol().Select(expresion))
             {
-                txtNombre.Text = "hola";
-               // dataGridView1.DataSource = roL_FUNCIONALIDADTableAdapter1;
+
+                dataGridView1.Rows.Add(row["Nombre"], row["Descripcion"], row["habilitado"]);
+            }
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("No se han encontrado elementos", "ERROR!", MessageBoxButtons.OK);
             }
         }
 
-      
     }
 }

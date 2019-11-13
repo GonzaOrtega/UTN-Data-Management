@@ -305,6 +305,7 @@
             // cOMPRADataGridView
             // 
             this.cOMPRADataGridView.AllowUserToAddRows = false;
+            this.cOMPRADataGridView.AllowUserToDeleteRows = false;
             this.cOMPRADataGridView.AutoGenerateColumns = false;
             this.cOMPRADataGridView.BackgroundColor = System.Drawing.Color.YellowGreen;
             this.cOMPRADataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -330,6 +331,7 @@
             this.Codigo_oferta.HeaderText = "Codigo_oferta";
             this.Codigo_oferta.MinimumWidth = 6;
             this.Codigo_oferta.Name = "Codigo_oferta";
+            this.Codigo_oferta.ReadOnly = true;
             this.Codigo_oferta.Width = 125;
             // 
             // DNI_cliente
@@ -338,6 +340,7 @@
             this.DNI_cliente.HeaderText = "DNI_cliente";
             this.DNI_cliente.MinimumWidth = 6;
             this.DNI_cliente.Name = "DNI_cliente";
+            this.DNI_cliente.ReadOnly = true;
             this.DNI_cliente.Width = 125;
             // 
             // Cantidad_compra
@@ -346,6 +349,7 @@
             this.Cantidad_compra.HeaderText = "Cantidad_compra";
             this.Cantidad_compra.MinimumWidth = 6;
             this.Cantidad_compra.Name = "Cantidad_compra";
+            this.Cantidad_compra.ReadOnly = true;
             this.Cantidad_compra.Width = 125;
             // 
             // Fecha_compra
@@ -354,6 +358,7 @@
             this.Fecha_compra.HeaderText = "Fecha_compra";
             this.Fecha_compra.MinimumWidth = 6;
             this.Fecha_compra.Name = "Fecha_compra";
+            this.Fecha_compra.ReadOnly = true;
             this.Fecha_compra.Width = 125;
             // 
             // btnFacturar

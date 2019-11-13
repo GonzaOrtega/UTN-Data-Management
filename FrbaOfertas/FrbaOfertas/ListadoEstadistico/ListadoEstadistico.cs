@@ -162,7 +162,7 @@ namespace FrbaOfertas.ListadoEstadistico
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ((DataTable)dataGridView1.DataSource).Clear();
+            dataGridView1.Rows.Clear();
         }
     }
 }

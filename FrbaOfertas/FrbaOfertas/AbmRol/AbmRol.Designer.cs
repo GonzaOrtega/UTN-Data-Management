@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Nombre_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion_funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Habilitado_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbHabilitado = new System.Windows.Forms.ComboBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -40,9 +43,6 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
             this.roL_FUNCIONALIDADTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.ROL_FUNCIONALIDADTableAdapter();
-            this.Nombre_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion_funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Habilitado_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +64,30 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(665, 226);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // Nombre_rol
+            // 
+            this.Nombre_rol.HeaderText = "Nombre_rol";
+            this.Nombre_rol.MinimumWidth = 6;
+            this.Nombre_rol.Name = "Nombre_rol";
+            this.Nombre_rol.ReadOnly = true;
+            this.Nombre_rol.Width = 125;
+            // 
+            // Descripcion_funcionalidad
+            // 
+            this.Descripcion_funcionalidad.HeaderText = "Descripcion_funcionalidad";
+            this.Descripcion_funcionalidad.MinimumWidth = 6;
+            this.Descripcion_funcionalidad.Name = "Descripcion_funcionalidad";
+            this.Descripcion_funcionalidad.ReadOnly = true;
+            this.Descripcion_funcionalidad.Width = 125;
+            // 
+            // Habilitado_rol
+            // 
+            this.Habilitado_rol.HeaderText = "Habilitado_rol";
+            this.Habilitado_rol.MinimumWidth = 6;
+            this.Habilitado_rol.Name = "Habilitado_rol";
+            this.Habilitado_rol.ReadOnly = true;
+            this.Habilitado_rol.Width = 125;
             // 
             // groupBox1
             // 
@@ -179,30 +203,6 @@
             // roL_FUNCIONALIDADTableAdapter1
             // 
             this.roL_FUNCIONALIDADTableAdapter1.ClearBeforeFill = true;
-            // 
-            // Nombre_rol
-            // 
-            this.Nombre_rol.HeaderText = "Nombre_rol";
-            this.Nombre_rol.MinimumWidth = 6;
-            this.Nombre_rol.Name = "Nombre_rol";
-            this.Nombre_rol.ReadOnly = true;
-            this.Nombre_rol.Width = 125;
-            // 
-            // Descripcion_funcionalidad
-            // 
-            this.Descripcion_funcionalidad.HeaderText = "Descripcion_funcionalidad";
-            this.Descripcion_funcionalidad.MinimumWidth = 6;
-            this.Descripcion_funcionalidad.Name = "Descripcion_funcionalidad";
-            this.Descripcion_funcionalidad.ReadOnly = true;
-            this.Descripcion_funcionalidad.Width = 125;
-            // 
-            // Habilitado_rol
-            // 
-            this.Habilitado_rol.HeaderText = "Habilitado_rol";
-            this.Habilitado_rol.MinimumWidth = 6;
-            this.Habilitado_rol.Name = "Habilitado_rol";
-            this.Habilitado_rol.ReadOnly = true;
-            this.Habilitado_rol.Width = 125;
             // 
             // AbmRol
             // 

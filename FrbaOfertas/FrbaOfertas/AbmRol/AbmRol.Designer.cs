@@ -110,6 +110,7 @@
             this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Text = "BUSCAR";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiar
             // 
@@ -120,6 +121,7 @@
             this.btnLimpiar.TabIndex = 4;
             this.btnLimpiar.Text = "LIMPIAR";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnCrear
             // 
@@ -160,6 +162,7 @@
             this.btnAtras.TabIndex = 8;
             this.btnAtras.Text = "ATRÁS";
             this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // AbmRol
             // 
@@ -177,6 +180,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "AbmRol";
             this.Text = "ROLES";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AbmRol_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -29,17 +29,20 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.cudHabilitado = new System.Windows.Forms.DomainUpDown();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lbLocales = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbGlobales = new System.Windows.Forms.ListBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.lbGlobales = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbLocales = new System.Windows.Forms.ListBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.rolTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.ROLTableAdapter();
+            this.funcionalidadTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.FUNCIONALIDADTableAdapter();
+            this.roL_FUNCIONALIDADTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.ROL_FUNCIONALIDADTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -52,19 +55,10 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(39, 47);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(580, 165);
+            this.groupBox1.Size = new System.Drawing.Size(668, 165);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del rol";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.ForeColor = System.Drawing.Color.Black;
-            this.txtNombre.Location = new System.Drawing.Point(36, 54);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(513, 34);
-            this.txtNombre.TabIndex = 1;
             // 
             // cudHabilitado
             // 
@@ -72,8 +66,16 @@
             this.cudHabilitado.Items.Add("Deshabilitado");
             this.cudHabilitado.Location = new System.Drawing.Point(36, 110);
             this.cudHabilitado.Name = "cudHabilitado";
-            this.cudHabilitado.Size = new System.Drawing.Size(513, 34);
+            this.cudHabilitado.Size = new System.Drawing.Size(585, 34);
             this.cudHabilitado.TabIndex = 3;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.ForeColor = System.Drawing.Color.Black;
+            this.txtNombre.Location = new System.Drawing.Point(36, 54);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(585, 34);
+            this.txtNombre.TabIndex = 1;
             // 
             // groupBox2
             // 
@@ -87,64 +89,67 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(39, 232);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(580, 362);
+            this.groupBox2.Size = new System.Drawing.Size(668, 362);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Funcionalidades";
             // 
-            // lbLocales
-            // 
-            this.lbLocales.FormattingEnabled = true;
-            this.lbLocales.ItemHeight = 29;
-            this.lbLocales.Location = new System.Drawing.Point(36, 103);
-            this.lbLocales.Name = "lbLocales";
-            this.lbLocales.Size = new System.Drawing.Size(160, 236);
-            this.lbLocales.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 56);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 29);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "LOCALES";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(397, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 29);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "GLOBALES";
-            // 
-            // lbGlobales
-            // 
-            this.lbGlobales.FormattingEnabled = true;
-            this.lbGlobales.ItemHeight = 29;
-            this.lbGlobales.Location = new System.Drawing.Point(389, 103);
-            this.lbGlobales.Name = "lbGlobales";
-            this.lbGlobales.Size = new System.Drawing.Size(160, 236);
-            this.lbGlobales.TabIndex = 3;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(212, 103);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(143, 49);
-            this.btnAgregar.TabIndex = 4;
-            this.btnAgregar.Text = "AGREGAR";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(212, 167);
+            this.btnBorrar.Location = new System.Drawing.Point(266, 158);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(143, 49);
             this.btnBorrar.TabIndex = 5;
             this.btnBorrar.Text = "BORRAR";
             this.btnBorrar.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(266, 103);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(143, 49);
+            this.btnAgregar.TabIndex = 4;
+            this.btnAgregar.Text = "AGREGAR";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // lbGlobales
+            // 
+            this.lbGlobales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGlobales.FormattingEnabled = true;
+            this.lbGlobales.ItemHeight = 25;
+            this.lbGlobales.Location = new System.Drawing.Point(422, 103);
+            this.lbGlobales.Name = "lbGlobales";
+            this.lbGlobales.Size = new System.Drawing.Size(213, 229);
+            this.lbGlobales.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(457, 56);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(139, 29);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "GLOBALES";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(72, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 29);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "LOCALES";
+            // 
+            // lbLocales
+            // 
+            this.lbLocales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLocales.FormattingEnabled = true;
+            this.lbLocales.ItemHeight = 25;
+            this.lbLocales.Location = new System.Drawing.Point(47, 103);
+            this.lbLocales.Name = "lbLocales";
+            this.lbLocales.Size = new System.Drawing.Size(213, 229);
+            this.lbLocales.TabIndex = 0;
             // 
             // btnGuardar
             // 
@@ -166,12 +171,24 @@
             this.btnLimpiar.Text = "LIMPIAR";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
+            // rolTableAdapter1
+            // 
+            this.rolTableAdapter1.ClearBeforeFill = true;
+            // 
+            // funcionalidadTableAdapter1
+            // 
+            this.funcionalidadTableAdapter1.ClearBeforeFill = true;
+            // 
+            // roL_FUNCIONALIDADTableAdapter1
+            // 
+            this.roL_FUNCIONALIDADTableAdapter1.ClearBeforeFill = true;
+            // 
             // ABM_editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(665, 699);
+            this.ClientSize = new System.Drawing.Size(750, 699);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox2);
@@ -201,5 +218,8 @@
         private System.Windows.Forms.ListBox lbLocales;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnLimpiar;
+        private GD2C2019DataSetTableAdapters.ROLTableAdapter rolTableAdapter1;
+        private GD2C2019DataSetTableAdapters.FUNCIONALIDADTableAdapter funcionalidadTableAdapter1;
+        private GD2C2019DataSetTableAdapters.ROL_FUNCIONALIDADTableAdapter roL_FUNCIONALIDADTableAdapter1;
     }
 }

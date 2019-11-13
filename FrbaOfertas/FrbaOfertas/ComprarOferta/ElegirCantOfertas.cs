@@ -19,15 +19,13 @@ namespace FrbaOfertas.ComprarOferta
         // Aclaracion, como tenemos como PK al codOferta y DNICliente => Un cliente solo puede comprar una oferta
         // (Independientemente de sus cantidades) solo una vez, porque sino no se cumple unicidad.
         // Lo cual me parece que tiene sentido ya que cuando una compra una oferta, por mas que compre muchas unidades, solo la compra una vez
-        // Funcionar funciona, el problema es que por las FKs y todo eso, se tiene que probar con pruebas muy bien pensadas!!
-        Double dniClienteOrigen = 1;
+        Double dniClienteOrigen;
 
         // Esta se obtiene por la forma ComprarOfertas
         String codOferta;
 
         // Estas son de esta forma
         int cantCompraDeseada;
-        Double dniClienteDestino;
 
         public double DniClienteOrigen { get => dniClienteOrigen; set => dniClienteOrigen = value; }
         public string CodOferta { get => codOferta; set => codOferta = value; }
@@ -47,7 +45,6 @@ namespace FrbaOfertas.ComprarOferta
             try
             {
                 cantCompraDeseada = Convert.ToInt32(txtCantOfertas.Text);
-                dniClienteDestino = Convert.ToDouble(txtClienteDestino.Text);
 
                 if (cantPedidaEsMenorACantidadMaxima(cantCompraDeseada))
                 {
@@ -60,7 +57,7 @@ namespace FrbaOfertas.ComprarOferta
                         this.comprar();
                         this.otorgarCupon(cantCompraDeseada);
 
-                        //MessageBox.Show("Compra realizada correctamente");
+                        MessageBox.Show("Compra realizada correctamente");
                         this.Close();
                     }
                     else
@@ -73,7 +70,12 @@ namespace FrbaOfertas.ComprarOferta
                     MessageBox.Show("La cantidad deseada es mayor a la cantidad permitida por usuario");
                 }
 
-            }catch(Exception ex)
+            }
+            catch(System.Data.SqlClient.SqlException ex)
+            {
+                MessageBox.Show("No se puede comprar esta oferta porque el usuario ya la ha comprado");
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show("Error: verificar datos ingresados");
             }
@@ -87,7 +89,7 @@ namespace FrbaOfertas.ComprarOferta
             compra.DniCliente = dniClienteOrigen;
             compra.FechaCompra = this.obtenerFechaConfigFile();
             compra.NumFactura = 0; // Esto indica que siempre va a ser nulo, se va a actualizar cuando se haga la facturacion
-            // Nota: Agregar el trigger correspondiente
+            // Descontar credito al usuario por la compra
 
             Queries.insertarCompra(compra);
 
@@ -106,7 +108,7 @@ namespace FrbaOfertas.ComprarOferta
 
             cupon.CodOferta = codOferta;
             cupon.DniClienteOrigen = dniClienteOrigen;
-            cupon.DniClienteDestino = dniClienteDestino;
+            cupon.DniClienteDestino = Convert.ToDouble(txtClienteDestino.Text);
 
             // Insertar cupon funciona, falta probar lo de los N cupones (loop)
             for (int i = 0; i < cantCompraDeseada; i ++) { 

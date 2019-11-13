@@ -56,8 +56,8 @@ namespace FrbaOfertas.ComprarOferta
                         
                         this.comprar();
                         this.otorgarCupon(cantCompraDeseada);
-
-                        MessageBox.Show("Compra realizada correctamente");
+                        this.mostrarCupones();
+                        //MessageBox.Show("Compra realizada correctamente");
                         this.Close();
                     }
                     else
@@ -79,6 +79,25 @@ namespace FrbaOfertas.ComprarOferta
             {
                 MessageBox.Show("Error: verificar datos ingresados");
             }
+        }
+
+        private void mostrarCupones()
+        {
+            List<String> nroCupones;
+            string query = "SELECT * FROM CUPON WHERE Codigo_oferta = '" + codOferta +
+                "' AND DNI_cliente_origen = " + dniClienteOrigen;
+            nroCupones = Queries.obtenerNroCuponesDeCliente(query);
+            mostrarCuponesEnPantalla(nroCupones);
+        }
+
+        private void mostrarCuponesEnPantalla(List<String> nroCupones)
+        {
+            string respuesta = "Compra realizada exitosamente\n\nLos cupones para canjear su compra son:\n";
+            foreach(String nroCupon in nroCupones)
+            {
+                respuesta = respuesta + nroCupon + "\n";
+            }
+            MessageBox.Show(respuesta);
         }
 
         public void comprar()

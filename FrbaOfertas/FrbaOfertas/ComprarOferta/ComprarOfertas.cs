@@ -17,7 +17,7 @@ namespace FrbaOfertas.ComprarOferta
         DataTable dataTable = new DataTable();
 
         // Lo hardcodeo hasta que hagamos el merge
-        Double clienteId = 1;
+        Double clienteId = 3;
         public ComprarOfertas()
         {
             InitializeComponent();

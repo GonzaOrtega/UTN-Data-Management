@@ -18,8 +18,8 @@ namespace FrbaOfertas.ConsumoOferta
         Cupon cupon = new Cupon();
         
         // Valores que me los van a pasar por parametro, por ahora los hardcodeo
-        string cuit = "26-50981919-5";
-        string razonSocial = "Proveedor N°24S.R.L.";
+        string cuit = "46-76549578-5";
+        string razonSocial = "Proveedor N°36S.R.L.";
         
         public ConsumoOfertas()
         {

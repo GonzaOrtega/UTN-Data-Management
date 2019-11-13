@@ -126,7 +126,6 @@ namespace FrbaOfertas.Commons
 
         public static String obtenerDatoTabla(String query, int indiceDeTabla)
         {
-            // Creo que podria hacer que devuelva solo un string
             String dato = null;
             var conexion = DBConnection.getConnection();
             SqlCommand SDA = new SqlCommand(query, conexion);
@@ -200,6 +199,35 @@ namespace FrbaOfertas.Commons
 
             conexion.Open();
             comando.ExecuteReader();
+        }
+
+        public static List<String> obtenerNroCuponesDeCliente(string query)
+        {
+            List<String> nroCuponesObtenidos = new List<String>();
+
+            var conexion = DBConnection.getConnection();
+            SqlCommand SDA = new SqlCommand(query, conexion);
+
+            conexion.Open();
+            SqlDataReader data = SDA.ExecuteReader();
+
+            //while (data.Read())
+            //{
+            //    //nroCuponesObtenidos.Add(Convert.ToInt32(data.GetValue(0).ToString()));
+            //    //data.NextResult();
+            //    data.GetString(0).
+            //}
+
+            //SqlDataReader Reader2 = SDA.ExecuteReader();
+            
+            if (data.HasRows)
+            {
+                while (data.Read())
+                {
+                    nroCuponesObtenidos.Add(data["Codigo_cupon"].ToString());
+                }
+            }
+            return nroCuponesObtenidos;
         }
     }
 }

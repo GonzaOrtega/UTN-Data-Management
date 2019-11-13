@@ -25,7 +25,10 @@ namespace FrbaOfertas.AbmRol
             dataGridView1.Rows.Clear();
         }
 
-
+        public void borrarTabla()
+        {
+            dataGridView1.Rows.Clear();
+        }
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
@@ -164,7 +167,7 @@ namespace FrbaOfertas.AbmRol
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0 && e.ColumnIndex == 4)
             {
-                new ABM_editar(Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[0].Value)).Show();
+                new ABM_editar(Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[0].Value), this).Show();
             }
         }
     }

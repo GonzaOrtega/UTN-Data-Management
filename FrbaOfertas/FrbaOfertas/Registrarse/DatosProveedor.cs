@@ -78,6 +78,7 @@ namespace FrbaOfertas.Registrarse
                         MessageBox.Show("Se ha agregado exitosamente", "Felicidades!", MessageBoxButtons.OK);
                         registro.Close();
                         login.Show();
+                        cerrado = true;
                         Close();
                     }
                 }

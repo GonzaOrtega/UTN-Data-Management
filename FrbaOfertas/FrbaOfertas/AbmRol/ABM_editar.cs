@@ -13,10 +13,12 @@ namespace FrbaOfertas.AbmRol
     public partial class ABM_editar : Form
     {
         String nombreRol;
-        public ABM_editar(String nombre)
+        AbmRol anterior;
+        public ABM_editar(String nombre, AbmRol ant)
         {
             InitializeComponent();
             nombreRol = nombre;
+            anterior = ant;
 
         }
 
@@ -74,13 +76,11 @@ namespace FrbaOfertas.AbmRol
         {
             if (this.validarNombre())
             {
-                if (cudHabilitado.Text == "Habilitado")
-                   {
-                      rolTableAdapter1.UpdateQuery(txtNombre.Text, "True", nombreRol);
-                    }else
-                    {
-                        rolTableAdapter1.UpdateQuery(txtNombre.Text, "False", nombreRol);
-                    }
+                rolTableAdapter1.UpdateQuery(txtNombre.Text, "True", nombreRol);
+                if (cudHabilitado.Text == "Deshabilitado")
+                {
+                    rolTableAdapter1.DeleteQuery(txtNombre.Text);
+                }
                 roL_FUNCIONALIDADTableAdapter1.DeleteQuery(txtNombre.Text);
                 DataRow idRol = rolTableAdapter1.GetData().Select("Nombre like '" + txtNombre.Text + "'").First();
                 foreach (Object item in lbLocales.Items)
@@ -90,6 +90,8 @@ namespace FrbaOfertas.AbmRol
                     roL_FUNCIONALIDADTableAdapter1.InsertQuery(Convert.ToInt32(idFuncionalidad["ID_funcionalidad"]), Convert.ToInt32(idRol["ID_rol"]));
                 }
                 MessageBox.Show("Se ha guardado correctamente!", "FELICIDADES", MessageBoxButtons.OK);
+                anterior.borrarTabla();
+                this.Close();
             }
         }
     }

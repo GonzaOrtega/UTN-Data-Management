@@ -98,12 +98,44 @@ namespace FrbaOfertas.AbmRol
             }
             return "";
         }
+        private String validarFiltroRol()
+        {
+            if(txtNombre.ForeColor == Color.Black)
+            {
+                return "Nombre like "+"'" + txtNombre.Text+"'";
+            }
+            return "";
+        }
+        private String validarFiltroFuncion()
+        {
+            if (txtDescripcion.ForeColor == Color.Black)
+            {
+                return "Descripcion like " + "'"+txtDescripcion.Text+"'";
+            }
+            return "";
+        }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             String expresion = this.validarFiltroHabilitar();
-
-
+            String expresion2 = this.validarFiltroRol();
+            String expresion3 = this.validarFiltroFuncion();
+            if (expresion != "" && (expresion2 != "" || expresion3 != ""))
+            {
+                expresion += " AND "+expresion2;
+            }
+            else { expresion += expresion2; }
+            if (expresion2 != "" && expresion3 != "")
+            {
+                expresion += " AND " + expresion3;
+            }
+            else { expresion += expresion3; }
+            foreach (DataRow row in roL_FUNCIONALIDADTableAdapter1.dameAbmRol().Select(expresion))
+            {
+                txtNombre.Text = "hola";
+               // dataGridView1.DataSource = roL_FUNCIONALIDADTableAdapter1;
+            }
         }
 
+      
     }
 }

@@ -39,6 +39,10 @@
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
+            this.roL_FUNCIONALIDADTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.ROL_FUNCIONALIDADTableAdapter();
+            this.Nombre_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion_funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Habilitado_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -48,6 +52,10 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nombre_rol,
+            this.Descripcion_funcionalidad,
+            this.Habilitado_rol});
             this.dataGridView1.Location = new System.Drawing.Point(60, 283);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -168,6 +176,34 @@
             this.btnAtras.UseVisualStyleBackColor = true;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
+            // roL_FUNCIONALIDADTableAdapter1
+            // 
+            this.roL_FUNCIONALIDADTableAdapter1.ClearBeforeFill = true;
+            // 
+            // Nombre_rol
+            // 
+            this.Nombre_rol.HeaderText = "Nombre_rol";
+            this.Nombre_rol.MinimumWidth = 6;
+            this.Nombre_rol.Name = "Nombre_rol";
+            this.Nombre_rol.ReadOnly = true;
+            this.Nombre_rol.Width = 125;
+            // 
+            // Descripcion_funcionalidad
+            // 
+            this.Descripcion_funcionalidad.HeaderText = "Descripcion_funcionalidad";
+            this.Descripcion_funcionalidad.MinimumWidth = 6;
+            this.Descripcion_funcionalidad.Name = "Descripcion_funcionalidad";
+            this.Descripcion_funcionalidad.ReadOnly = true;
+            this.Descripcion_funcionalidad.Width = 125;
+            // 
+            // Habilitado_rol
+            // 
+            this.Habilitado_rol.HeaderText = "Habilitado_rol";
+            this.Habilitado_rol.MinimumWidth = 6;
+            this.Habilitado_rol.Name = "Habilitado_rol";
+            this.Habilitado_rol.ReadOnly = true;
+            this.Habilitado_rol.Width = 125;
+            // 
             // AbmRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -204,5 +240,9 @@
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAtras;
+        private GD2C2019DataSetTableAdapters.ROL_FUNCIONALIDADTableAdapter roL_FUNCIONALIDADTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_rol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion_funcionalidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Habilitado_rol;
     }
 }

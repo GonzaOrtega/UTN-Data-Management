@@ -26,6 +26,7 @@ namespace FrbaOfertas.ComprarOferta
 
         // Estas son de esta forma
         int cantCompraDeseada;
+        Double precioTotal;
 
         public double DniClienteOrigen { get => dniClienteOrigen; set => dniClienteOrigen = value; }
         public string CodOferta { get => codOferta; set => codOferta = value; }
@@ -112,6 +113,7 @@ namespace FrbaOfertas.ComprarOferta
 
             Queries.insertarCompra(compra);
 
+            Queries.disminuirCreditoCliente(dniClienteOrigen, precioTotal);
         }
 
         private DateTime obtenerFechaConfigFile()
@@ -147,7 +149,8 @@ namespace FrbaOfertas.ComprarOferta
         {
             string query = "SELECT * FROM OFERTAS WHERE Codigo_oferta = '" + codOferta + "'";
             Double preciOferta = Convert.ToDouble(Queries.obtenerDatoTabla(query, 1));
-            return credito >= preciOferta * cantDeseada;
+            precioTotal = preciOferta * cantDeseada;
+            return credito >= precioTotal;
         }
 
         private bool cantPedidaEsMenorACantidadMaxima(int cantDeseada)

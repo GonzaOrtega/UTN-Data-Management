@@ -210,15 +210,6 @@ namespace FrbaOfertas.Commons
 
             conexion.Open();
             SqlDataReader data = SDA.ExecuteReader();
-
-            //while (data.Read())
-            //{
-            //    //nroCuponesObtenidos.Add(Convert.ToInt32(data.GetValue(0).ToString()));
-            //    //data.NextResult();
-            //    data.GetString(0).
-            //}
-
-            //SqlDataReader Reader2 = SDA.ExecuteReader();
             
             if (data.HasRows)
             {
@@ -228,6 +219,22 @@ namespace FrbaOfertas.Commons
                 }
             }
             return nroCuponesObtenidos;
+        }
+
+        public static void disminuirCreditoCliente(Double dniCliente, Double precioCompra)
+        {
+            string query = "dbo.cobrarCompra";
+
+            var conexion = DBConnection.getConnection();
+            SqlCommand comando = new SqlCommand(query, conexion);
+
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@DNI_cliente", dniCliente);
+            comando.Parameters.AddWithValue("@Credito", precioCompra);
+
+            conexion.Open();
+            comando.ExecuteReader();
         }
     }
 }

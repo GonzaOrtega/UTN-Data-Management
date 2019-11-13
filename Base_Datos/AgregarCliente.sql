@@ -64,3 +64,10 @@ as begin
 		where Codigo_cupon = @Codigo_cupon
 end
 go
+
+create procedure cobrarCompra(@DNI_cliente numeric(18,0), @Credito numeric(18,2))
+as begin
+	update CLIENTES set Credito = Credito - @Credito
+		where DNI_cliente = @DNI_cliente;
+end
+go

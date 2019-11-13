@@ -107,8 +107,6 @@ namespace FrbaOfertas.ComprarOferta
             cupon.CodOferta = codOferta;
             cupon.DniClienteOrigen = dniClienteOrigen;
             cupon.DniClienteDestino = dniClienteDestino;
-            // Como no tengo informacion de la fecha la entrega le pongo siempre una fecha aleatoria
-            cupon.FechaEntrega = this.diaAleatorio();
 
             // Insertar cupon funciona, falta probar lo de los N cupones (loop)
             for (int i = 0; i < cantCompraDeseada; i ++) { 

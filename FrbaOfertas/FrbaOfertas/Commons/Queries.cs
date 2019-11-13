@@ -169,7 +169,6 @@ namespace FrbaOfertas.Commons
             comando.CommandType = CommandType.StoredProcedure;
 
 
-            comando.Parameters.AddWithValue("@Entregado_fecha", cupon.FechaEntrega);
             comando.Parameters.AddWithValue("@DNI_cliente_origen", Validacion.validarDouble(cupon.DniClienteOrigen));
             comando.Parameters.AddWithValue("@DNI_cliente_destino", Validacion.validarDouble(cupon.DniClienteDestino));
             comando.Parameters.AddWithValue("@Codigo_oferta", Validacion.validarString(cupon.CodOferta));

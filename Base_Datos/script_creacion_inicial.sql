@@ -234,7 +234,6 @@ BEGIN
 END
 ----------------------------------------------------------------------------------------------------------Creo Trigger para manejar los deletes en proveedor,cliente y rol
 GO
-
 Create trigger borrarRol
 ON ROL
 INSTEAD OF DELETE

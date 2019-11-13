@@ -62,7 +62,7 @@ namespace FrbaOfertas.AbmRol
         }
         private bool validarNombre()
         {
-            if (rolTableAdapter1.GetData().Select("Nombre like '" + txtNombre.Text + "'") != null && txtNombre.Text != nombreRol)
+            if (rolTableAdapter1.GetData().Select("Nombre like '" + txtNombre.Text + "'").Count() !=0 && txtNombre.Text != nombreRol)
             {
                 MessageBox.Show("Ese nombre de rol ya se encuentre", "ERROR", MessageBoxButtons.OK);
                 return false;
@@ -89,6 +89,7 @@ namespace FrbaOfertas.AbmRol
                     DataRow idFuncionalidad = funcionalidadTableAdapter1.GetData().Select("Descripcion like '" + item.ToString() + "'").First();
                     roL_FUNCIONALIDADTableAdapter1.InsertQuery(Convert.ToInt32(idFuncionalidad["ID_funcionalidad"]), Convert.ToInt32(idRol["ID_rol"]));
                 }
+                MessageBox.Show("Se ha guardado correctamente!", "FELICIDADES", MessageBoxButtons.OK);
             }
         }
     }

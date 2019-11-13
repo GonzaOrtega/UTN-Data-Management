@@ -22,6 +22,7 @@ namespace FrbaOfertas.AbmRol
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.DataSource!=null)
             ((DataTable)dataGridView1.DataSource).Clear();
         }
 
@@ -51,7 +52,7 @@ namespace FrbaOfertas.AbmRol
 
         private void txtNombre_Click(object sender, EventArgs e)
         {
-            if (txtNombre.Text == "Nombre")
+            if (txtNombre.Text == "Nombre del rol")
             {
                 txtNombre.Text = "";
                 txtNombre.ForeColor = Color.Black;
@@ -62,7 +63,7 @@ namespace FrbaOfertas.AbmRol
         {
             if (txtNombre.Text == "")
             {
-                txtNombre.Text = "Nombre";
+                txtNombre.Text = "Nombre del rol";
                 txtNombre.ForeColor = Color.Gainsboro;
             }
         }

@@ -15687,12 +15687,13 @@ SELECT ID_rol, Nombre, habilitado FROM ROL WHERE (ID_rol = @ID_rol)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT ID_rol, Nombre, habilitado FROM ROL WHERE (Nombre NOT LIKE \'AdministradorG" +
-                "eneral\')";
+            this._commandCollection[1].CommandText = "SELECT ID_rol, Nombre, habilitado\r\nFROM     ROL\r\nWHERE  (Nombre NOT LIKE \'Adminis" +
+                "tradorGeneral\') AND (habilitado LIKE \'True\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT ID_rol, Nombre, habilitado FROM ROL WHERE (Nombre = @nombre)";
+            this._commandCollection[2].CommandText = "SELECT ID_rol, Nombre, habilitado\r\nFROM     ROL\r\nWHERE  (Nombre = @nombre) AND (h" +
+                "abilitado LIKE \'True\')";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

@@ -153,13 +153,18 @@ namespace FrbaOfertas.AbmRol
             var senderGrid = (DataGridView)sender;
 
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0)
+                e.RowIndex >= 0 && e.ColumnIndex == 3)
             {
                 if (MessageBox.Show("¿Esta seguro que desea borrar ese rol?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     rolTableAdapter1.DeleteQuery(Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[0].Value));
                     dataGridView1.Rows.Clear();
                 }
+            }
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0 && e.ColumnIndex == 4)
+            {
+                new ABM_editar(Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[0].Value)).Show();
             }
         }
     }

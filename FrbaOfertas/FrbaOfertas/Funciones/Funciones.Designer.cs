@@ -34,6 +34,7 @@
             this.lblElegir = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.tipO_USUARIOTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.TIPO_USUARIOTableAdapter();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cbFunciones
@@ -41,9 +42,9 @@
             this.cbFunciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFunciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFunciones.FormattingEnabled = true;
-            this.cbFunciones.Location = new System.Drawing.Point(96, 125);
+            this.cbFunciones.Location = new System.Drawing.Point(53, 125);
             this.cbFunciones.Name = "cbFunciones";
-            this.cbFunciones.Size = new System.Drawing.Size(419, 37);
+            this.cbFunciones.Size = new System.Drawing.Size(462, 37);
             this.cbFunciones.TabIndex = 0;
             // 
             // usuariO_ROLTableAdapter1
@@ -58,7 +59,7 @@
             // 
             this.lblElegir.AutoSize = true;
             this.lblElegir.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblElegir.Location = new System.Drawing.Point(109, 51);
+            this.lblElegir.Location = new System.Drawing.Point(46, 50);
             this.lblElegir.Name = "lblElegir";
             this.lblElegir.Size = new System.Drawing.Size(378, 38);
             this.lblElegir.TabIndex = 1;
@@ -79,12 +80,24 @@
             // 
             this.tipO_USUARIOTableAdapter1.ClearBeforeFill = true;
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Location = new System.Drawing.Point(53, 189);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(266, 55);
+            this.btnCerrar.TabIndex = 3;
+            this.btnCerrar.Text = "CERRAR SESIÓN";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // Funciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
             this.ClientSize = new System.Drawing.Size(602, 301);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblElegir);
             this.Controls.Add(this.cbFunciones);
@@ -104,5 +117,6 @@
         private System.Windows.Forms.Label lblElegir;
         private System.Windows.Forms.Button button1;
         private GD2C2019DataSetTableAdapters.TIPO_USUARIOTableAdapter tipO_USUARIOTableAdapter1;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

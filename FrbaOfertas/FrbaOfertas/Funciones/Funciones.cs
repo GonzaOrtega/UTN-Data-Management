@@ -13,13 +13,15 @@ namespace FrbaOfertas.Funciones
     public partial class Funciones : Form
     {
         int usuario;
-        public Funciones(int ID_Usuario)
+        LoginYSeguridad.Login login;
+        bool cerrado = false;
+        public Funciones(int ID_Usuario,LoginYSeguridad.Login principal)
         {
             InitializeComponent();
             usuario = ID_Usuario;
             cbFunciones.DataSource = this.funcionalidadTableAdapter1.dameFunciones(ID_Usuario);
             cbFunciones.ValueMember = "Descripcion";
-            
+            login = principal;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -64,7 +66,7 @@ namespace FrbaOfertas.Funciones
 
         private void Funciones_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing && cerrado ==false)
             {
                 if (MessageBox.Show("¿Está seguro que desea salir del sistema?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.No)
                 {
@@ -74,6 +76,16 @@ namespace FrbaOfertas.Funciones
                 {
                     Application.Exit();
                 }
+            }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Realmente desea salir de la sesion?", "WARNING!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                login.Show();
+                cerrado = true;
+                Close();
             }
         }
     }

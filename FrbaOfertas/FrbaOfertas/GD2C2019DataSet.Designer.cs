@@ -80,17 +80,17 @@ namespace FrbaOfertas {
         
         private global::System.Data.DataRelation relationFK__ROL_FUNCI__ID_fu__1411F17C;
         
-        private global::System.Data.DataRelation relationFK__ROL_FUNCI__ID_ro__150615B5;
-        
         private global::System.Data.DataRelation relationFK__TIPO_USUA__DNI_c__05C3D225;
         
         private global::System.Data.DataRelation relationFK__TIPO_USUARIO__06B7F65E;
         
         private global::System.Data.DataRelation relationFK__USUARIO__ID_usua__09946309;
         
+        private global::System.Data.DataRelation relationFK__USUARIO_R__ID_us__0E591826;
+        
         private global::System.Data.DataRelation relationFK__USUARIO_R__ID_ro__0F4D3C5F;
         
-        private global::System.Data.DataRelation relationFK__USUARIO_R__ID_us__0E591826;
+        private global::System.Data.DataRelation relationFK__ROL_FUNCI__ID_ro__150615B5;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -602,12 +602,12 @@ namespace FrbaOfertas {
             this.relationFK__OFERTAS__17E28260 = this.Relations["FK__OFERTAS__17E28260"];
             this.relationFK__PROVEEDOR__ID_ru__7869D707 = this.Relations["FK__PROVEEDOR__ID_ru__7869D707"];
             this.relationFK__ROL_FUNCI__ID_fu__1411F17C = this.Relations["FK__ROL_FUNCI__ID_fu__1411F17C"];
-            this.relationFK__ROL_FUNCI__ID_ro__150615B5 = this.Relations["FK__ROL_FUNCI__ID_ro__150615B5"];
             this.relationFK__TIPO_USUA__DNI_c__05C3D225 = this.Relations["FK__TIPO_USUA__DNI_c__05C3D225"];
             this.relationFK__TIPO_USUARIO__06B7F65E = this.Relations["FK__TIPO_USUARIO__06B7F65E"];
             this.relationFK__USUARIO__ID_usua__09946309 = this.Relations["FK__USUARIO__ID_usua__09946309"];
-            this.relationFK__USUARIO_R__ID_ro__0F4D3C5F = this.Relations["FK__USUARIO_R__ID_ro__0F4D3C5F"];
             this.relationFK__USUARIO_R__ID_us__0E591826 = this.Relations["FK__USUARIO_R__ID_us__0E591826"];
+            this.relationFK__USUARIO_R__ID_ro__0F4D3C5F = this.Relations["FK__USUARIO_R__ID_ro__0F4D3C5F"];
+            this.relationFK__ROL_FUNCI__ID_ro__150615B5 = this.Relations["FK__ROL_FUNCI__ID_ro__150615B5"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -702,10 +702,6 @@ namespace FrbaOfertas {
                         this.tableFUNCIONALIDAD.ID_funcionalidadColumn}, new global::System.Data.DataColumn[] {
                         this.tableROL_FUNCIONALIDAD.ID_funcionalidadColumn}, false);
             this.Relations.Add(this.relationFK__ROL_FUNCI__ID_fu__1411F17C);
-            this.relationFK__ROL_FUNCI__ID_ro__150615B5 = new global::System.Data.DataRelation("FK__ROL_FUNCI__ID_ro__150615B5", new global::System.Data.DataColumn[] {
-                        this.tableROL.ID_rolColumn}, new global::System.Data.DataColumn[] {
-                        this.tableROL_FUNCIONALIDAD.ID_rolColumn}, false);
-            this.Relations.Add(this.relationFK__ROL_FUNCI__ID_ro__150615B5);
             this.relationFK__TIPO_USUA__DNI_c__05C3D225 = new global::System.Data.DataRelation("FK__TIPO_USUA__DNI_c__05C3D225", new global::System.Data.DataColumn[] {
                         this.tableCLIENTES.DNI_clienteColumn}, new global::System.Data.DataColumn[] {
                         this.tableTIPO_USUARIO.DNI_clienteColumn}, false);
@@ -720,14 +716,18 @@ namespace FrbaOfertas {
                         this.tableTIPO_USUARIO.ID_usuarioColumn}, new global::System.Data.DataColumn[] {
                         this.tableUSUARIO.ID_usuarioColumn}, false);
             this.Relations.Add(this.relationFK__USUARIO__ID_usua__09946309);
-            this.relationFK__USUARIO_R__ID_ro__0F4D3C5F = new global::System.Data.DataRelation("FK__USUARIO_R__ID_ro__0F4D3C5F", new global::System.Data.DataColumn[] {
-                        this.tableROL.ID_rolColumn}, new global::System.Data.DataColumn[] {
-                        this.tableUSUARIO_ROL.ID_rolColumn}, false);
-            this.Relations.Add(this.relationFK__USUARIO_R__ID_ro__0F4D3C5F);
             this.relationFK__USUARIO_R__ID_us__0E591826 = new global::System.Data.DataRelation("FK__USUARIO_R__ID_us__0E591826", new global::System.Data.DataColumn[] {
                         this.tableUSUARIO.ID_usuarioColumn}, new global::System.Data.DataColumn[] {
                         this.tableUSUARIO_ROL.ID_usuarioColumn}, false);
             this.Relations.Add(this.relationFK__USUARIO_R__ID_us__0E591826);
+            this.relationFK__USUARIO_R__ID_ro__0F4D3C5F = new global::System.Data.DataRelation("FK__USUARIO_R__ID_ro__0F4D3C5F", new global::System.Data.DataColumn[] {
+                        this.tableROL.ID_rolColumn}, new global::System.Data.DataColumn[] {
+                        this.tableUSUARIO_ROL.ID_rolColumn}, false);
+            this.Relations.Add(this.relationFK__USUARIO_R__ID_ro__0F4D3C5F);
+            this.relationFK__ROL_FUNCI__ID_ro__150615B5 = new global::System.Data.DataRelation("FK__ROL_FUNCI__ID_ro__150615B5", new global::System.Data.DataColumn[] {
+                        this.tableROL.ID_rolColumn}, new global::System.Data.DataColumn[] {
+                        this.tableROL_FUNCIONALIDAD.ID_rolColumn}, false);
+            this.Relations.Add(this.relationFK__ROL_FUNCI__ID_ro__150615B5);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9328,23 +9328,23 @@ namespace FrbaOfertas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ROL_FUNCIONALIDADRow[] GetROL_FUNCIONALIDADRows() {
-                if ((this.Table.ChildRelations["FK__ROL_FUNCI__ID_ro__150615B5"] == null)) {
-                    return new ROL_FUNCIONALIDADRow[0];
-                }
-                else {
-                    return ((ROL_FUNCIONALIDADRow[])(base.GetChildRows(this.Table.ChildRelations["FK__ROL_FUNCI__ID_ro__150615B5"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USUARIO_ROLRow[] GetUSUARIO_ROLRows() {
                 if ((this.Table.ChildRelations["FK__USUARIO_R__ID_ro__0F4D3C5F"] == null)) {
                     return new USUARIO_ROLRow[0];
                 }
                 else {
                     return ((USUARIO_ROLRow[])(base.GetChildRows(this.Table.ChildRelations["FK__USUARIO_R__ID_ro__0F4D3C5F"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ROL_FUNCIONALIDADRow[] GetROL_FUNCIONALIDADRows() {
+                if ((this.Table.ChildRelations["FK__ROL_FUNCI__ID_ro__150615B5"] == null)) {
+                    return new ROL_FUNCIONALIDADRow[0];
+                }
+                else {
+                    return ((ROL_FUNCIONALIDADRow[])(base.GetChildRows(this.Table.ChildRelations["FK__ROL_FUNCI__ID_ro__150615B5"])));
                 }
             }
         }
@@ -9879,23 +9879,23 @@ namespace FrbaOfertas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ROLRow ROLRow {
-                get {
-                    return ((ROLRow)(this.GetParentRow(this.Table.ParentRelations["FK__USUARIO_R__ID_ro__0F4D3C5F"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__USUARIO_R__ID_ro__0F4D3C5F"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USUARIORow USUARIORow {
                 get {
                     return ((USUARIORow)(this.GetParentRow(this.Table.ParentRelations["FK__USUARIO_R__ID_us__0E591826"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__USUARIO_R__ID_us__0E591826"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ROLRow ROLRow {
+                get {
+                    return ((ROLRow)(this.GetParentRow(this.Table.ParentRelations["FK__USUARIO_R__ID_ro__0F4D3C5F"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__USUARIO_R__ID_ro__0F4D3C5F"]);
                 }
             }
         }
@@ -15680,22 +15680,27 @@ SELECT ID_rol, Nombre, habilitado FROM ROL WHERE (ID_rol = @ID_rol)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID_rol, Nombre, habilitado FROM ROL WHERE (habilitado LIKE \'True\')";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT ID_rol, Nombre, habilitado\r\nFROM     ROL\r\nWHERE  (Nombre NOT LIKE \'Adminis" +
-                "tradorGeneral\') AND (habilitado LIKE \'True\')";
+            this._commandCollection[1].CommandText = "DELETE FROM ROL\r\nWHERE  (Nombre = @Nombre)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT ID_rol, Nombre, habilitado\r\nFROM     ROL\r\nWHERE  (Nombre = @nombre) AND (h" +
-                "abilitado LIKE \'True\')";
+            this._commandCollection[2].CommandText = "SELECT ID_rol, Nombre, habilitado\r\nFROM     ROL\r\nWHERE  (Nombre NOT LIKE \'Adminis" +
+                "tradorGeneral\') AND (habilitado LIKE \'True\')";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT ID_rol, Nombre, habilitado\r\nFROM     ROL\r\nWHERE  (Nombre = @nombre) AND (h" +
+                "abilitado LIKE \'True\')";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15727,7 +15732,7 @@ SELECT ID_rol, Nombre, habilitado FROM ROL WHERE (ID_rol = @ID_rol)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy(GD2C2019DataSet.ROLDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -15740,7 +15745,7 @@ SELECT ID_rol, Nombre, habilitado FROM ROL WHERE (ID_rol = @ID_rol)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual GD2C2019DataSet.ROLDataTable GetDataSinAdministrador() {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             GD2C2019DataSet.ROLDataTable dataTable = new GD2C2019DataSet.ROLDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -15751,7 +15756,7 @@ SELECT ID_rol, Nombre, habilitado FROM ROL WHERE (ID_rol = @ID_rol)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillBy1(GD2C2019DataSet.ROLDataTable dataTable, string nombre) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((nombre == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -15770,7 +15775,7 @@ SELECT ID_rol, Nombre, habilitado FROM ROL WHERE (ID_rol = @ID_rol)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual GD2C2019DataSet.ROLDataTable GetDataById(string nombre) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((nombre == null)) {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -15939,6 +15944,35 @@ SELECT ID_rol, Nombre, habilitado FROM ROL WHERE (ID_rol = @ID_rol)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string Nombre, string habilitado, int Original_ID_rol, string Original_Nombre, string Original_habilitado) {
             return this.Update(Nombre, habilitado, Original_ID_rol, Original_Nombre, Original_habilitado, Original_ID_rol);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteQuery(string Nombre) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((Nombre == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Nombre));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -19077,15 +19111,6 @@ WHERE  (u.Nombre_usuario = @Nombre_usuario) AND (r.Nombre = @Nombre)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._rOLTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ROL.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._rOLTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._tARJETATableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.TARJETA.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -19101,6 +19126,15 @@ WHERE  (u.Nombre_usuario = @Nombre_usuario) AND (r.Nombre = @Nombre)";
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._uSUARIOTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._rOLTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ROL.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._rOLTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -19224,14 +19258,6 @@ WHERE  (u.Nombre_usuario = @Nombre_usuario) AND (r.Nombre = @Nombre)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._rOLTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ROL.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._rOLTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._tARJETATableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.TARJETA.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -19245,6 +19271,14 @@ WHERE  (u.Nombre_usuario = @Nombre_usuario) AND (r.Nombre = @Nombre)";
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._uSUARIOTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._rOLTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ROL.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._rOLTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -19354,6 +19388,14 @@ WHERE  (u.Nombre_usuario = @Nombre_usuario) AND (r.Nombre = @Nombre)";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._rOLTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ROL.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._rOLTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._uSUARIOTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.USUARIO.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -19367,14 +19409,6 @@ WHERE  (u.Nombre_usuario = @Nombre_usuario) AND (r.Nombre = @Nombre)";
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._tARJETATableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._rOLTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ROL.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._rOLTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

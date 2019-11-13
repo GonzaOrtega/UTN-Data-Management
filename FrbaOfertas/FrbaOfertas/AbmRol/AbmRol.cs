@@ -140,5 +140,27 @@ namespace FrbaOfertas.AbmRol
             }
         }
 
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+           /*if (MessageBox.Show("Se eliminara el rol perteneciente a la fila de la celda seleccionada ¿Desea continuar?", "WARNING!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+           {
+                rolTableAdapter1.DeleteQuery();
+           }*/
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                if (MessageBox.Show("¿Esta seguro que desea borrar ese rol?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    rolTableAdapter1.DeleteQuery(Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[0].Value));
+                    dataGridView1.Rows.Clear();
+                }
+            }
+        }
     }
 }

@@ -113,32 +113,56 @@ namespace FrbaOfertas.CrearOferta
 
         private void txtDescripcion_Click(object sender, EventArgs e)
         {
-            if (txtDescripcion.Text == "Descripción") txtDescripcion.Text = "";
+            if (txtDescripcion.Text == "Descripción")
+            {
+                txtDescripcion.Text = "";
+                txtDescripcion.ForeColor = Color.Black;
+            }
         }
 
         private void txtDescripcion_Leave(object sender, EventArgs e)
         {
-            if (txtDescripcion.Text == "") txtDescripcion.Text = "Descripción";
+            if (txtDescripcion.Text == "")
+            {
+                txtDescripcion.Text = "Descripción";
+                txtDescripcion.ForeColor = Color.Gainsboro;
+            }
         }
 
         private void tbPrecioOferta_Click(object sender, EventArgs e)
         {
-            if (txtPrecioOferta.Text == "Precio de oferta") txtPrecioOferta.Text = "";
+            if (txtPrecioOferta.Text == "Precio de oferta")
+            {
+                txtPrecioOferta.Text = "";
+                txtPrecioOferta.ForeColor = Color.Black;
+            }
         }
 
         private void txtPrecioOferta_Leave(object sender, EventArgs e)
         {
-            if (txtPrecioOferta.Text == "") txtPrecioOferta.Text = "Precio de oferta";
+            if (txtPrecioOferta.Text == "")
+            {
+                txtPrecioOferta.Text = "Precio de oferta";
+                txtPrecioOferta.ForeColor = Color.Gainsboro;
+            }
         }
 
         private void txtPrecioLista_Leave(object sender, EventArgs e)
         {
-            if (txtPrecioLista.Text == "") txtPrecioLista.Text = "Precio de lista";
+            if (txtPrecioLista.Text == "")
+            {
+                txtPrecioLista.Text = "Precio de lista";
+                txtPrecioOferta.ForeColor = Color.Gainsboro;
+            }
         }
 
         private void txtPrecioLista_Click(object sender, EventArgs e)
         {
-            if (txtPrecioLista.Text == "Precio de lista") txtPrecioLista.Text = "";
+            if (txtPrecioLista.Text == "Precio de lista")
+            {
+                txtPrecioLista.Text = "";
+                txtPrecioLista.ForeColor = Color.Black;
+            }
         }
 
         private void CrearOferta_FormClosing(object sender, FormClosingEventArgs e)

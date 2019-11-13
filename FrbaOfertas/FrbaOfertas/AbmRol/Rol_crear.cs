@@ -82,5 +82,23 @@ namespace FrbaOfertas.AbmRol
                 this.Close();
             }
         }
+
+        private void txtNombre_Click(object sender, EventArgs e)
+        {
+            if(txtNombre.Text == "Nombre de rol")
+            {
+                txtNombre.Text = "";
+                txtNombre.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtNombre_Leave(object sender, EventArgs e)
+        {
+            if (txtNombre.Text == "")
+            {
+                txtNombre.Text = "Nombre de rol";
+                txtNombre.ForeColor = Color.Gainsboro;
+            }
+        }
     }
 }

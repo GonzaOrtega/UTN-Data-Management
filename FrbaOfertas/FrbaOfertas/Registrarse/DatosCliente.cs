@@ -37,12 +37,20 @@ namespace FrbaOfertas.Registrarse
 
         private void txtDni_Click(object sender, EventArgs e)
         {
-            if (txtDni.Text == "DNI") txtDni.Text = "";
+            if (txtDni.Text == "DNI")
+            {
+                txtDni.Text = "";
+                txtDni.ForeColor = Color.Black;
+            }
         }
 
         private void txtDni_Leave(object sender, EventArgs e)
         {
-            if (txtDni.Text == "") txtDni.Text = "DNI";
+            if (txtDni.Text == "")
+            {
+                txtDni.Text = "DNI";
+                txtDni.ForeColor = Color.Gainsboro;
+            }
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)

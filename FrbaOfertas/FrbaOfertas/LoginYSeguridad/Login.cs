@@ -14,11 +14,9 @@ namespace FrbaOfertas.LoginYSeguridad
     
     public partial class Login : Form
     {
-        Color colorTexto;
         public Login()
         {
             InitializeComponent();
-            colorTexto = txtUsuario.ForeColor;
         }
 
 
@@ -84,7 +82,7 @@ namespace FrbaOfertas.LoginYSeguridad
             if (txtUsuario.Text == "")
             {
                 txtUsuario.Text = "Usuario";
-                txtUsuario.ForeColor = colorTexto;
+                txtUsuario.ForeColor = Color.Gainsboro;
             }
         }
 
@@ -93,7 +91,7 @@ namespace FrbaOfertas.LoginYSeguridad
             if (txtContrasenia.Text == "")
             {
                 txtContrasenia.Text = "Contraseña";
-                txtContrasenia.ForeColor = colorTexto;
+                txtContrasenia.ForeColor = Color.Gainsboro;
             }
         }
 

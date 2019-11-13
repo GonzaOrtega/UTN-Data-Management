@@ -189,7 +189,6 @@
             this.Name = "ListadoEstadistico";
             this.Text = "Listado estadístico";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ListadoEstadistico_FormClosing);
-            this.Load += new System.EventHandler(this.ListadoEstadistico_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

@@ -31,22 +31,38 @@ namespace FrbaOfertas.Facturar
 
         private void txtCuit_Click(object sender, EventArgs e)
         {
-            if (txtCuit.Text == "CUIT") txtCuit.Text="";
+            if (txtCuit.Text == "CUIT")
+            {
+                txtCuit.Text = "";
+                txtCuit.ForeColor = Color.Black;
+            }
         }
 
         private void txtRazonSocial_Click(object sender, EventArgs e)
         {
-            if (txtRazonSocial.Text == "Razón social") txtRazonSocial.Text = "";
+            if (txtRazonSocial.Text == "Razón social")
+            {
+                txtRazonSocial.Text = "";
+                txtRazonSocial.ForeColor = Color.Black;
+            }
         }
 
         private void txtCuit_Leave(object sender, EventArgs e)
         {
-            if (txtCuit.Text == "") txtCuit.Text = "CUIT";
+            if (txtCuit.Text == "")
+            {
+                txtCuit.Text = "CUIT";
+                txtCuit.ForeColor = Color.Gainsboro;
+            }
         }
 
         private void txtRazonSocial_Leave(object sender, EventArgs e)
         {
-            if (txtRazonSocial.Text == "") txtRazonSocial.Text = "Razón social";
+            if (txtRazonSocial.Text == "")
+            {
+                txtRazonSocial.Text = "Razón social";
+                txtRazonSocial.ForeColor = Color.Gainsboro;
+            }
         }
         private bool fechasValidas()
         {

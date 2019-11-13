@@ -87,22 +87,38 @@ namespace FrbaOfertas.Registrarse
         }
         private void txtUsuario_Click(object sender, EventArgs e)
         {
-            if (txtUsuario.Text == "Usuario") txtUsuario.Text = "";
+            if (txtUsuario.Text == "Usuario")
+            {
+                txtUsuario.Text = "";
+                txtUsuario.ForeColor = Color.Black;
+            }
         }
 
         private void txtUsuario_Leave(object sender, EventArgs e)
         {
-            if (txtUsuario.Text == "") txtUsuario.Text = "Usuario";
+            if (txtUsuario.Text == "")
+            {
+                txtUsuario.Text = "Usuario";
+                txtUsuario.ForeColor = Color.Gainsboro;
+            }
         }
 
         private void txtContrasenia_Click(object sender, EventArgs e)
         {
-            if (txtContrasenia.Text == "Contraseña") txtContrasenia.Text = "";
+            if (txtContrasenia.Text == "Contraseña")
+            {
+                txtContrasenia.Text = "";
+                txtContrasenia.ForeColor = Color.Black;
+            }
         }
 
         private void txtContrasenia_Leave(object sender, EventArgs e)
         {
-            if (txtContrasenia.Text == "") txtContrasenia.Text = "Contraseña";
+            if (txtContrasenia.Text == "")
+            {
+                txtContrasenia.Text = "Contraseña";
+                txtContrasenia.ForeColor = Color.Gainsboro;
+            }
         }
 
        

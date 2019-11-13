@@ -16,17 +16,11 @@ namespace FrbaOfertas.ListadoEstadistico
     {
         int tipoListado = 0;
         Funciones.Funciones funciones;
-        Color colorLetra;
         bool cerrado = false;
         public ListadoEstadistico(Funciones.Funciones fun)
         {
             InitializeComponent();
             funciones = fun;
-        }
-
-        private void ListadoEstadistico_Load(object sender, EventArgs e)
-        {
-            colorLetra = txtAnio.ForeColor;
         }
 
         private void txtAnio_Click(object sender, EventArgs e)
@@ -43,7 +37,7 @@ namespace FrbaOfertas.ListadoEstadistico
             if (txtAnio.Text == "")
             {
                 txtAnio.Text = "Año";
-                txtAnio.ForeColor = colorLetra;
+                txtAnio.ForeColor = Color.Gainsboro;
             }
         }
 
@@ -164,5 +158,7 @@ namespace FrbaOfertas.ListadoEstadistico
         {
             dataGridView1.Rows.Clear();
         }
+
+       
     }
 }

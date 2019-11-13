@@ -40,12 +40,21 @@ namespace FrbaOfertas.Registrarse
             if (cbROL.Text == "Cliente")
             {
                 new DatosCliente(log, this,usuarioExistente,txtUsuario.Text,txtContrasenia.Text).Show();
+                Hide();
             }
             else
             {
-                new DatosProveedor(log, this, usuarioExistente, txtUsuario.Text, txtContrasenia.Text).Show();
+                if (cbROL.Text == "Proveedor")
+                {
+                    new DatosProveedor(log, this, usuarioExistente, txtUsuario.Text, txtContrasenia.Text).Show();
+                    Hide();
+                }
+               else
+                {
+                    MessageBox.Show("Todavia no esta habilitado para loguearse con ese rol", "Error", MessageBoxButtons.OK);
+                }
             }
-            Hide();
+           
         }
 
         private bool yaPoseeEseROL()
@@ -56,26 +65,37 @@ namespace FrbaOfertas.Registrarse
                 return true;
             return false;
         }
+        private bool validarEntradas()
+        {
+            if(txtContrasenia.ForeColor == Color.Gainsboro && txtUsuario.ForeColor == Color.Gainsboro)
+            {
+                MessageBox.Show("Falta ingresar usuario y/o contraseña", "WARNING", MessageBoxButtons.OK);
+                return true;
+            }
+            return true;
+        }
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
             //Dependiendo el rol va a in a distintos form
             //Y cuando el form me devuelva el cliente lo agregoel usuario y cliente
-            if ((int)this.usuarioTableAdapter1.ExisteNombreUsuario(txtUsuario.Text) != 0)
-            {
-                if (this.usuarioTableAdapter1.GetDataByUsuario(txtContrasenia.Text, txtUsuario.Text).Count() == 0)
+            if (this.validarEntradas()) {
+                if ((int)this.usuarioTableAdapter1.ExisteNombreUsuario(txtUsuario.Text) != 0)
                 {
-                    MessageBox.Show("Ya existe un usuario con ese nombre");
-                }
-                else
-                {
-                    if (this.yaPoseeEseROL())
+                    if (this.usuarioTableAdapter1.GetDataByUsuario(txtContrasenia.Text, txtUsuario.Text).Count() == 0)
                     {
-                        MessageBox.Show("El usuario ya se le ha asignado ese ROL", "ERROR", MessageBoxButtons.OK);
+                        MessageBox.Show("Ya existe un usuario con ese nombre");
                     }
                     else
                     {
-                        usuarioExistente = true;
-                        this.enviarAlProximoFormulario();
+                        if (this.yaPoseeEseROL())
+                        {
+                            MessageBox.Show("El usuario ya se le ha asignado ese ROL", "ERROR", MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            usuarioExistente = true;
+                            this.enviarAlProximoFormulario();
+                        }
                     }
                 }
             }

@@ -182,16 +182,8 @@ namespace FrbaOfertas.Commons
         {
             string query = "SELECT * FROM CUPON WHERE Codigo_cupon = " + nroCupon;
             Cupon cupon = new Cupon();
-
-            try
-            {
-                codOferta = Convert.ToString(obtenerDatoTabla(query, 4));
-                return true;
-
-            }catch(Exception ex)
-            {
-                return false;
-            }
+            codOferta = Convert.ToString(obtenerDatoTabla(query, 4));
+            return !String.IsNullOrWhiteSpace(codOferta);
         }
     }
 }

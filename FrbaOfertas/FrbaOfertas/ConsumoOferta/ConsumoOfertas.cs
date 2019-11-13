@@ -38,11 +38,11 @@ namespace FrbaOfertas.ConsumoOferta
                 }
                 else
                 {
-                    MessageBox.Show("No existe el cupon");
+                    MessageBox.Show("No existe el cupon", "Error");
                 }
             }catch(Exception ex)
             {
-                MessageBox.Show("Error: Verificar que los datos ingresados sean correctos");
+                MessageBox.Show("Verificar que los datos ingresados sean correctos", "Error");
             }
         }
 
@@ -61,7 +61,7 @@ namespace FrbaOfertas.ConsumoOferta
             }
             else
             {
-                MessageBox.Show("El cupon no es de este proveedor");
+                MessageBox.Show("El cupon no es de este proveedor", "Error");
             }
         }
 

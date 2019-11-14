@@ -41,6 +41,8 @@ namespace FrbaOfertas.AbmCliente
 
         private void CrearCliente_Load(object sender, EventArgs e)
         {
+            agregarTextboxes();
+
             txtApellido.Text = cliente.Apellido;
             txtCiudad.Text = cliente.Ciudad;
             txtCP.Text = Convert.ToString(cliente.CodigoPostal);
@@ -49,7 +51,6 @@ namespace FrbaOfertas.AbmCliente
             txtMail.Text = cliente.Email;
             txtNombre.Text = cliente.Nombre;
             txtTelefono.Text = Convert.ToString(cliente.Telefono);
-            agregarTextboxes();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -94,6 +95,7 @@ namespace FrbaOfertas.AbmCliente
             cliente.Email = txtMail.Text;
             cliente.FechaVencimiento = txtFechaNacimiento.Value;
             cliente.Ciudad = txtCiudad.Text;
+            cliente.Direccion = txtDireccion.Text;
             cliente.Credito = 200; // Lo indicado por la consigna
         }
 

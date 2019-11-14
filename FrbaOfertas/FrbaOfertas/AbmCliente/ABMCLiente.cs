@@ -31,14 +31,14 @@ namespace FrbaOfertas.AbmCliente
 
             }else if (rbModificarClientes.Checked)
             {
-                ModificarYEliminarCliente cliente = new ModificarYEliminarCliente();
+                BuscarCliente cliente = new BuscarCliente();
                 cliente.EsModificar = true;
                 cliente.Show();
             }
             else if (rbEliminarClientes.Checked)
             {
                 //MessageBox.Show("Eliminar clientes esta en construccion... :)");
-                new ModificarYEliminarCliente().Show();
+                new BuscarCliente().Show();
             }
         }
 

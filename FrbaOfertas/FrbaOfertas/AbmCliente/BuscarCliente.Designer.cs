@@ -1,6 +1,6 @@
 ﻿namespace FrbaOfertas.AbmCliente
 {
-    partial class ModificarYEliminarCliente
+    partial class BuscarCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -185,7 +185,7 @@
             // 
             this.cLIENTESTableAdapter.ClearBeforeFill = true;
             // 
-            // ModificarYEliminarCliente
+            // BuscarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -194,8 +194,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.planillaModificarCliente);
             this.Controls.Add(this.groupBox1);
-            this.Name = "ModificarYEliminarCliente";
-            this.Text = "Seleccione cliente";
+            this.Name = "BuscarCliente";
+            this.Text = "Buscar cliente";
             this.Load += new System.EventHandler(this.ModificarUsuario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

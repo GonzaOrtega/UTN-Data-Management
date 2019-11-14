@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace FrbaOfertas.AbmCliente
 {
-    public partial class ModificarYEliminarCliente : Form
+    public partial class BuscarCliente : Form
     {
         // En un rato arreglo este quilombo de variables globales
         Queries queries = new Queries();
@@ -26,7 +26,7 @@ namespace FrbaOfertas.AbmCliente
 
         public bool EsModificar { get => esModificar; set => esModificar = value; }
 
-        public ModificarYEliminarCliente()
+        public BuscarCliente()
         {
             InitializeComponent();
         }

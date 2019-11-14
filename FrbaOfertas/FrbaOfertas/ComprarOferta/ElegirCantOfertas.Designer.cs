@@ -38,40 +38,45 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(19, 13);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(294, 20);
+            this.label1.Size = new System.Drawing.Size(442, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Indique la cantidad de ofertas a comprar";
             // 
             // txtCantOfertas
             // 
-            this.txtCantOfertas.Location = new System.Drawing.Point(364, 9);
+            this.txtCantOfertas.Location = new System.Drawing.Point(566, 13);
+            this.txtCantOfertas.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtCantOfertas.Name = "txtCantOfertas";
-            this.txtCantOfertas.Size = new System.Drawing.Size(172, 26);
+            this.txtCantOfertas.Size = new System.Drawing.Size(265, 35);
             this.txtCantOfertas.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 50);
+            this.label2.Location = new System.Drawing.Point(19, 73);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(307, 20);
+            this.label2.Size = new System.Drawing.Size(464, 29);
             this.label2.TabIndex = 2;
             this.label2.Text = "Ingrese el DNI del destinatario de la oferta";
             // 
             // txtClienteDestino
             // 
-            this.txtClienteDestino.Location = new System.Drawing.Point(364, 50);
+            this.txtClienteDestino.Location = new System.Drawing.Point(566, 73);
+            this.txtClienteDestino.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtClienteDestino.Name = "txtClienteDestino";
-            this.txtClienteDestino.Size = new System.Drawing.Size(172, 26);
+            this.txtClienteDestino.Size = new System.Drawing.Size(265, 35);
             this.txtClienteDestino.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(424, 94);
+            this.button1.Location = new System.Drawing.Point(660, 136);
+            this.button1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 36);
+            this.button1.Size = new System.Drawing.Size(174, 52);
             this.button1.TabIndex = 4;
             this.button1.Text = "Siguiente";
             this.button1.UseVisualStyleBackColor = true;
@@ -79,14 +84,17 @@
             // 
             // ElegirCantOfertas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 140);
+            this.BackColor = System.Drawing.Color.YellowGreen;
+            this.ClientSize = new System.Drawing.Size(854, 215);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtClienteDestino);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCantOfertas);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "ElegirCantOfertas";
             this.Text = "Comprar ofertas";
             this.Load += new System.EventHandler(this.ElegirCantOfertas_Load);

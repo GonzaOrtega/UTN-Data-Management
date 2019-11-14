@@ -18,9 +18,15 @@ namespace FrbaOfertas.ComprarOferta
 
         // Lo hardcodeo hasta que hagamos el merge
         Double clienteId = 3;
+
         public ComprarOfertas()
         {
             InitializeComponent();
+        }
+
+        public ComprarOfertas(Double DNICliente)
+        {
+            DNICliente = Convert.ToDouble(DNICliente);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -133,6 +139,11 @@ namespace FrbaOfertas.ComprarOferta
         private void ComprarOfertas_Load(object sender, EventArgs e)
         {
             btnSiguiente.Enabled = false;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

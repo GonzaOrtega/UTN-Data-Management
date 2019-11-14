@@ -45,24 +45,24 @@ namespace FrbaOfertas.Commons
             MessageBox.Show("Cliente creado satisfactoriamente", "Alta cliente");
         }
 
-        public void modificarTablaDeUna(String query, DataTable dataTable)
-        {
-            SqlConnection connection = DBConnection.getConnection();
-            SqlCommand command = new SqlCommand();
+        //public static void modificarTablaDeUna(String query, DataTable dataTable)
+        //{
+        //    SqlConnection connection = DBConnection.getConnection();
+        //    SqlCommand command = new SqlCommand();
 
-            adapter.SelectCommand.CommandText = query;
-            adapter.SelectCommand.CommandType = CommandType.Text;
-            SqlCommandBuilder DbCommandBuilder = new SqlCommandBuilder(adapter);
+        //    adapter.SelectCommand.CommandText = query;
+        //    adapter.SelectCommand.CommandType = CommandType.Text;
+        //    SqlCommandBuilder DbCommandBuilder = new SqlCommandBuilder(adapter);
 
-            string insert = DbCommandBuilder.GetInsertCommand().CommandText.ToString();
-            string update = DbCommandBuilder.GetUpdateCommand().CommandText.ToString();
-            string delete = DbCommandBuilder.GetDeleteCommand().CommandText.ToString();
+        //    string insert = DbCommandBuilder.GetInsertCommand().CommandText.ToString();
+        //    string update = DbCommandBuilder.GetUpdateCommand().CommandText.ToString();
+        //    string delete = DbCommandBuilder.GetDeleteCommand().CommandText.ToString();
 
-            connection.Open();
-            int modificaciones = adapter.Update(dataTable);
+        //    connection.Open();
+        //    int modificaciones = adapter.Update(dataTable);
 
-            MessageBox.Show("Cambios realizados correctamente.\nClientes modificados: " + modificaciones);
-        }
+        //    MessageBox.Show("Cambios realizados correctamente.\nClientes modificados: " + modificaciones);
+        //}
 
         public void obtenerTabla(String query, DataTable dataTable)
         {
@@ -274,6 +274,21 @@ namespace FrbaOfertas.Commons
             comando.ExecuteReader();
 
             MessageBox.Show("Cliente modificado satisfactoriamente", "Modificar cliente");
+        }
+
+        public static void eliminarCliente(Double dniCliente)
+        {
+            string query = "dbo.eliminarCliente";
+
+            var conexion = DBConnection.getConnection();
+            SqlCommand comando = new SqlCommand(query, conexion);
+
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.AddWithValue("@DNI_cliente", dniCliente);
+
+            conexion.Open();
+            comando.ExecuteReader();
         }
     }
 }

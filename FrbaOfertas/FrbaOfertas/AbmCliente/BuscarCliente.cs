@@ -15,7 +15,6 @@ namespace FrbaOfertas.AbmCliente
     public partial class BuscarCliente : Form
     {
         // En un rato arreglo este quilombo de variables globales
-        Queries queries = new Queries();
         string query = "select * from CLIENTES";
         DataTable dataTable = new DataTable();
         Dictionary<String, String> dictionary = new Dictionary<String, String>();
@@ -53,9 +52,10 @@ namespace FrbaOfertas.AbmCliente
             if (e.ColumnIndex == planillaModificarCliente.Columns["Seleccione"].Index)
             {
                 int rowIndex = e.RowIndex;
+                DataGridViewRow row = planillaModificarCliente.Rows[rowIndex];
+                Cliente cliente = cargarClienteParaModificar(row);
                 if (esModificar)
                 {
-                    Cliente cliente = cargarClienteParaModificar(rowIndex);
                     CrearYModificarCliente modificarCliente = new CrearYModificarCliente();
                     modificarCliente.Cliente = cliente;
                     modificarCliente.EsModificado = true;
@@ -63,15 +63,18 @@ namespace FrbaOfertas.AbmCliente
                 }
                 else
                 {
-                    
+                    MessageBox.Show("Esta seguro que desea eliminar el Cliente: " + 
+                        row.Cells[0].Value + "?", "Eliminar cliente", MessageBoxButtons.YesNo);
+
+                    // Nos olvidamos que al eliminar un cliente hay que eliminarlo de todos lados!!!
+                    Queries.eliminarCliente(dniglobal);
                 }
             }
         }
 
-        private Cliente cargarClienteParaModificar(int rowIndex)
+        private Cliente cargarClienteParaModificar(DataGridViewRow row)
         {
             Cliente cliente = new Cliente();
-            DataGridViewRow row = planillaModificarCliente.Rows[rowIndex];
 
             cliente.DNI = Convert.ToDouble(row.Cells[0].Value);
             validarCP(row, cliente);
@@ -141,11 +144,6 @@ namespace FrbaOfertas.AbmCliente
             {
                 planillaModificarCliente.Columns.Insert(columnIndex, seleccionar);
             }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            queries.modificarTablaDeUna(query, dataTable);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -223,6 +221,7 @@ namespace FrbaOfertas.AbmCliente
                 }
                 this.cargarCondiciones();
             }
+            Queries queries = new Queries();
             queries.obtenerTabla(query, dataTable);
             planillaModificarCliente.DataSource = dataTable;
             this.setRowNumber(planillaModificarCliente);

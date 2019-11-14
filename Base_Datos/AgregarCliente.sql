@@ -101,3 +101,9 @@ as begin
 	where DNI_cliente = @dni
 end
 go
+
+create procedure eliminarCliente(@DNI_cliente numeric(18,0))
+as begin
+	delete from CLIENTES where DNI_cliente = @DNI_cliente
+end
+go

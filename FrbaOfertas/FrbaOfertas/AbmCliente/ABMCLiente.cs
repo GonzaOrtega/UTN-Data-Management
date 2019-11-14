@@ -27,7 +27,7 @@ namespace FrbaOfertas.AbmCliente
         {
             if (rbCrearCliente.Checked)
             {
-                new CrearCliente().Show();
+                new CrearYModificarCliente().Show();
 
             }else if (rbModificarClientes.Checked)
             {

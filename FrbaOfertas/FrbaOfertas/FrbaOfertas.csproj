@@ -67,11 +67,11 @@
       <DependentUpon>ABMCLiente.cs</DependentUpon>
     </Compile>
     <Compile Include="AbmCliente\Cliente.cs" />
-    <Compile Include="AbmCliente\CrearCliente.cs">
+    <Compile Include="AbmCliente\CrearYModificarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmCliente\CrearCliente.Designer.cs">
-      <DependentUpon>CrearCliente.cs</DependentUpon>
+    <Compile Include="AbmCliente\CrearYModificarCliente.Designer.cs">
+      <DependentUpon>CrearYModificarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="AbmCliente\EliminarCliente.cs">
       <SubType>Form</SubType>
@@ -84,12 +84,6 @@
     </Compile>
     <Compile Include="AbmCliente\MenuCliente.Designer.cs">
       <DependentUpon>MenuCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AbmCliente\ModificarCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AbmCliente\ModificarCliente.Designer.cs">
-      <DependentUpon>ModificarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="AbmCliente\ModificarYEliminarCliente.cs">
       <SubType>Form</SubType>
@@ -196,17 +190,14 @@
     <EmbeddedResource Include="AbmCliente\ABMCLiente.resx">
       <DependentUpon>ABMCLiente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AbmCliente\CrearCliente.resx">
-      <DependentUpon>CrearCliente.cs</DependentUpon>
+    <EmbeddedResource Include="AbmCliente\CrearYModificarCliente.resx">
+      <DependentUpon>CrearYModificarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AbmCliente\EliminarCliente.resx">
       <DependentUpon>EliminarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AbmCliente\MenuCliente.resx">
       <DependentUpon>MenuCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AbmCliente\ModificarCliente.resx">
-      <DependentUpon>ModificarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AbmCliente\ModificarYEliminarCliente.resx">
       <DependentUpon>ModificarYEliminarCliente.cs</DependentUpon>

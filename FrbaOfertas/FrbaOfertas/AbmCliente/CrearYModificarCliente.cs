@@ -5,13 +5,15 @@ using System.Collections.Generic;
 
 namespace FrbaOfertas.AbmCliente
 {
-    public partial class CrearCliente : Form
+    public partial class CrearYModificarCliente : Form
     {
         Cliente cliente = new Cliente();
         List<TextBox> textboxes = new List<TextBox>();
         CommonsForms commons = new CommonsForms();
 
-        public CrearCliente()
+        public Cliente Cliente { get => cliente; set => cliente = value; }
+
+        public CrearYModificarCliente()
         {
             InitializeComponent();
         }
@@ -36,19 +38,17 @@ namespace FrbaOfertas.AbmCliente
             this.Close();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string casaODepartamento = cbCasaODepartamento.Text;
-
-            if (casaODepartamento.Equals("Departamento"))
-            {
-                txtNroDepartamentoAltaCliente.Enabled = true;
-            }
-        }   
 
         private void CrearCliente_Load(object sender, EventArgs e)
         {
-            txtNroDepartamentoAltaCliente.Enabled = false;
+            txtApellido.Text = cliente.Apellido;
+            txtCiudad.Text = cliente.Ciudad;
+            txtCP.Text = Convert.ToString(cliente.CodigoPostal);
+            txtDireccion.Text = cliente.Direccion;
+            txtDNI.Text = Convert.ToString(cliente.DNI);
+            txtMail.Text = cliente.Email;
+            txtNombre.Text = cliente.Nombre;
+            txtTelefono.Text = Convert.ToString(cliente.Telefono);
             agregarTextboxes();
         }
 
@@ -86,50 +86,39 @@ namespace FrbaOfertas.AbmCliente
         // Metodos auxiliares
         public void inicializoCliente()
         {
-            cliente.DNI = Convert.ToDouble(txtDNIAltaCliente.Text);
-            cliente.CodigoPostal = Convert.ToDouble(txtCPAltaCliente.Text);
-            cliente.Nombre = txtNombreAltaCliente.Text;
-            cliente.Apellido = txtApellidoAltaCliente.Text;
-
-            if (cbCasaODepartamento.Equals("Departamento"))
-            {
-                cliente.Direccion = txtDireccionAltaCliente.Text + ", Nro dpto:"
-                    + txtNroDepartamentoAltaCliente.Text;
-            }
-            else
-            {
-                cliente.Direccion = txtDireccionAltaCliente.Text;
-            }
-            cliente.Telefono = Convert.ToDouble(txtTelefonoAltaCliente.Text);
-            cliente.Email = txtMailAltaCliente.Text;
-            cliente.FechaVencimiento = dtpFechaNacimientoAltaCliente.Value;
-            cliente.Ciudad = txtCiudadAltaCliente.Text;
+            cliente.DNI = Convert.ToDouble(txtDNI.Text);
+            cliente.CodigoPostal = Convert.ToDouble(txtCP.Text);
+            cliente.Nombre = txtNombre.Text;
+            cliente.Apellido = txtApellido.Text;
+            cliente.Telefono = Convert.ToDouble(txtTelefono.Text);
+            cliente.Email = txtMail.Text;
+            cliente.FechaVencimiento = txtFechaNacimiento.Value;
+            cliente.Ciudad = txtCiudad.Text;
             cliente.Credito = 200; // Lo indicado por la consigna
         }
 
         public void validarCliente()
         {
-            Validacion.validarDoubleTxt(ref txtDNIAltaCliente);
-            Validacion.validarDoubleTxt(ref txtCPAltaCliente);
-            Validacion.validarDoubleTxt(ref txtTelefonoAltaCliente);
+            Validacion.validarDoubleTxt(ref txtDNI);
+            Validacion.validarDoubleTxt(ref txtCP);
+            Validacion.validarDoubleTxt(ref txtTelefono);
         }
         
         public bool seCargaronPKs()
         {
-            return !String.IsNullOrEmpty(txtDNIAltaCliente.Text);
+            return !String.IsNullOrEmpty(txtDNI.Text);
         }
 
         public void agregarTextboxes()
         {
-            textboxes.Add(txtApellidoAltaCliente);
-            textboxes.Add(txtCiudadAltaCliente);
-            textboxes.Add(txtCPAltaCliente);
-            textboxes.Add(txtDireccionAltaCliente);
-            textboxes.Add(txtDNIAltaCliente);
-            textboxes.Add(txtMailAltaCliente);
-            textboxes.Add(txtNombreAltaCliente);
-            textboxes.Add(txtNroDepartamentoAltaCliente);
-            textboxes.Add(txtTelefonoAltaCliente);
+            textboxes.Add(txtApellido);
+            textboxes.Add(txtCiudad);
+            textboxes.Add(txtCP);
+            textboxes.Add(txtDireccion);
+            textboxes.Add(txtDNI);
+            textboxes.Add(txtMail);
+            textboxes.Add(txtNombre);
+            textboxes.Add(txtTelefono);
         }
 
         private void button1_Click_1(object sender, EventArgs e)

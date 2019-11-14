@@ -34,18 +34,13 @@ namespace FrbaOfertas.AbmCliente
         private void ModificarUsuario_Load(object sender, EventArgs e)
         {
             this.cargarTextboxes();
-            btnEliminar.Enabled = false;
-            btnModificar.Enabled = false;
             if (esModificar)
             {
-                labelOpcionEliminar.Visible = false;
-                txtNroClienteAEliminar.Visible = false;
             }
             else
             {
                 // Sino, el usuario eligio "Eliminar cliente"
                 planillaModificarCliente.ReadOnly = true;
-                txtNroClienteAEliminar.Enabled = false;
             }
         }
 
@@ -62,7 +57,7 @@ namespace FrbaOfertas.AbmCliente
                 if (esModificar)
                 {
                     Cliente cliente = cargarClienteParaModificar(rowIndex);
-                    ModificarCliente modificarCliente = new ModificarCliente();
+                    CrearYModificarCliente modificarCliente = new CrearYModificarCliente();
                     modificarCliente.Cliente = cliente;
                     modificarCliente.Show();
                 }
@@ -144,15 +139,6 @@ namespace FrbaOfertas.AbmCliente
         private void button2_Click(object sender, EventArgs e)
         {
             buscarClientes();
-            if (!esModificar)
-            {
-                txtNroClienteAEliminar.Enabled = true;
-                btnEliminar.Enabled = true;
-            }
-            else
-            {
-                btnModificar.Enabled = true;
-            }
         }
        
         private void txtEmailTLibre_TextChanged(object sender, EventArgs e)
@@ -296,35 +282,9 @@ namespace FrbaOfertas.AbmCliente
                 || !String.IsNullOrWhiteSpace(txtNombreTLibre.Text);
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!String.IsNullOrWhiteSpace(txtNroClienteAEliminar.Text))
-                {
-                    Double nroCliente = Convert.ToDouble(txtNroClienteAEliminar.Text);
-                    EliminarCliente cliente = new EliminarCliente();
-                    cliente.NroCliente = nroCliente;
-                    cliente.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Por favor ingrese el numero de fila del cliente a eliminar");
-                }
-            }catch(Exception ex)
-            {
-                MessageBox.Show("Error al eliminar cliente\nPor favor verificar datos ingresados");
-            }
-        }
-
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
-        }
-
-        private void eliminarCliente()
-        {
-            // Para poder hacer esto falta la columna de Eliminado logico para la tabla cliente
         }
     }
 }

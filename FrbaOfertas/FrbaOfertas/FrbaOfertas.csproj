@@ -91,6 +91,12 @@
     <Compile Include="AbmCliente\ModificarCliente.Designer.cs">
       <DependentUpon>ModificarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="AbmCliente\ModificarYEliminarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmCliente\ModificarYEliminarCliente.Designer.cs">
+      <DependentUpon>ModificarYEliminarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="AbmProveedor\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,8 +205,8 @@
     <EmbeddedResource Include="AbmCliente\MenuCliente.resx">
       <DependentUpon>MenuCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AbmCliente\ModificarCliente.resx">
-      <DependentUpon>ModificarCliente.cs</DependentUpon>
+    <EmbeddedResource Include="AbmCliente\ModificarYEliminarCliente.resx">
+      <DependentUpon>ModificarYEliminarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CargaCredito\CargarCredito.resx">
       <DependentUpon>CargarCredito.cs</DependentUpon>

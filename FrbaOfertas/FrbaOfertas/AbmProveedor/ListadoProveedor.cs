@@ -56,7 +56,7 @@ namespace FrbaOfertas.AbmProveedor
             String expresion = this.validarRazonSocial();
             String expresion2 = this.validarCUIT();
             String expresion3 = this.validarMail();
-            dataGridView1.DataSource = null;
+            dataGridView1.Rows.Clear();
             if (expresion != "" && (expresion2 != "" || expresion3 != ""))
             {
                 expresion += " AND " + expresion2;
@@ -67,8 +67,19 @@ namespace FrbaOfertas.AbmProveedor
                 expresion += " AND " + expresion3;
             }
             else { expresion += expresion3; }
-            dataGridView1.DataSource = proveedorTableAdapter1.abmListar().Select(expresion);
-
+            foreach(DataRow row in proveedorTableAdapter1.abmListar().Select(expresion))
+            {
+                dataGridView1.Rows.Add(
+                    row["CUIT_proveedor"],
+                    row["Razon_social"],
+                    row["Domicilio"],
+                    row["Ciudad"],
+                    row["Telefono"],
+                    row["Descripcion"],
+                    row["Mail"],
+                    row["Codigo_postal"],
+                    row["Nombre_contacto"]);
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -78,7 +89,7 @@ namespace FrbaOfertas.AbmProveedor
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource=null;
+            dataGridView1.Rows.Clear();
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
@@ -89,9 +100,31 @@ namespace FrbaOfertas.AbmProveedor
         private void button1_Click(object sender, EventArgs e)
         {
            int fila=  dataGridView1.CurrentCell.RowIndex;
+           String cuit = Convert.ToString(dataGridView1.Rows[fila].Cells[0].Value);
+           String razonSocial = Convert.ToString(dataGridView1.Rows[fila].Cells[1].Value);
+           proveedorTableAdapter1.DeleteQuery(cuit, razonSocial);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int fila = dataGridView1.CurrentCell.RowIndex;
             String cuit = Convert.ToString(dataGridView1.Rows[fila].Cells[0].Value);
             String razonSocial = Convert.ToString(dataGridView1.Rows[fila].Cells[1].Value);
-            proveedorTableAdapter1.DeleteQuery(cuit, razonSocial);
+            String direccion = Convert.ToString(dataGridView1.Rows[fila].Cells[2].Value);
+            String ciudad = Convert.ToString(dataGridView1.Rows[fila].Cells[3].Value);
+            Double telefono = Convert.ToDouble(dataGridView1.Rows[fila].Cells[4].Value);
+            String rubro = Convert.ToString(dataGridView1.Rows[fila].Cells[5].Value);
+            String mail = Convert.ToString(dataGridView1.Rows[fila].Cells[6].Value);
+            Double codPostal = Convert.ToDouble(dataGridView1.Rows[fila].Cells[7].Value);
+            String nombreContacto = Convert.ToString(dataGridView1.Rows[fila].Cells[8].Value);
+
+
+            new CrearProveedor(cuit, 
+                razonSocial, direccion, ciudad,
+                telefono, rubro, mail, codPostal,
+                nombreContacto).Show();
         }
+
+
     }
 }

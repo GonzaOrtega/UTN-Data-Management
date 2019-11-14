@@ -12,9 +12,33 @@ namespace FrbaOfertas.AbmProveedor
 {
     public partial class CrearProveedor : Form
     {
+
+        bool esUpdate = false;
         public CrearProveedor()
         {
             InitializeComponent();
+        }
+
+        public CrearProveedor(String cuitObtenido, String razonSocialObtennido, 
+            string direccion, string ciudad, double telefono, string rubro, 
+            string mail, double codPostal, string nombreContacto)
+        {
+            InitializeComponent();
+
+            txtCUIT.Text = cuitObtenido;
+            txtRazonSocial.Text = razonSocialObtennido;
+            txtDireccion.Text = direccion;
+            txtCiudad.Text = ciudad;
+            txtTelefono.Text = Convert.ToString(telefono);
+            txtRubro.Text = rubro;
+            txtMail.Text = mail;
+            txtCP.Text = Convert.ToString(codPostal);
+            txtNC.Text = nombreContacto;
+
+            esUpdate = true;
+
+            btnAceptar.Text = "Modificar";
+
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -54,10 +78,20 @@ namespace FrbaOfertas.AbmProveedor
         }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (this.validarPk() && this.validarRubro()) {
+            if (esUpdate && this.validarRubro())
+            {
                 DataRow id_rubro = rubroTableAdapter1.GetData().Select("Descripcion like '" + txtRubro.Text + "'").First();
-                proveedorTableAdapter1.InsertQuery(txtCUIT.Text, txtRazonSocial.Text, txtDireccion.Text, txtCiudad.Text, Convert.ToDecimal(txtTelefono.Text),Convert.ToInt32(id_rubro["ID_rubro"].ToString()), txtMail.Text, Convert.ToDecimal(txtCP.Text), txtNC.Text);
-           
+                proveedorTableAdapter1.UpdateQuery(txtDireccion.Text,
+                    txtCiudad.Text, Convert.ToDecimal(txtTelefono.Text),
+                    Convert.ToInt32(id_rubro["ID_rubro"]), txtMail.Text, Convert.ToDecimal(txtCP.Text),
+                    txtNC.Text, txtCUIT.Text, txtRazonSocial.Text);
+            }
+            else
+            {
+                if (this.validarPk() && this.validarRubro()) {
+                    DataRow id_rubro = rubroTableAdapter1.GetData().Select("Descripcion like '" + txtRubro.Text + "'").First();
+                    proveedorTableAdapter1.InsertQuery(txtCUIT.Text, txtRazonSocial.Text, txtDireccion.Text, txtCiudad.Text, Convert.ToDecimal(txtTelefono.Text),Convert.ToInt32(id_rubro["ID_rubro"].ToString()), txtMail.Text, Convert.ToDecimal(txtCP.Text), txtNC.Text);
+                }
             }
         }
 
@@ -77,6 +111,11 @@ namespace FrbaOfertas.AbmProveedor
             {
                 e.Handled = true;
             }
+        }
+
+        private void CrearProveedor_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -12,9 +12,11 @@ namespace FrbaOfertas.AbmProveedor
 {
     public partial class ListadoProveedor : Form
     {
-        public ListadoProveedor()
+        Funciones.Funciones funciones;
+        public ListadoProveedor(Funciones.Funciones fun)
         {
             InitializeComponent();
+            funciones = fun;
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -24,7 +26,7 @@ namespace FrbaOfertas.AbmProveedor
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-
+            funciones.Show();
         }
 
         private String validarRazonSocial()
@@ -54,7 +56,7 @@ namespace FrbaOfertas.AbmProveedor
             String expresion = this.validarRazonSocial();
             String expresion2 = this.validarCUIT();
             String expresion3 = this.validarMail();
-           
+            dataGridView1.DataSource = null;
             if (expresion != "" && (expresion2 != "" || expresion3 != ""))
             {
                 expresion += " AND " + expresion2;
@@ -76,7 +78,7 @@ namespace FrbaOfertas.AbmProveedor
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
+            dataGridView1.DataSource=null;
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
@@ -86,7 +88,10 @@ namespace FrbaOfertas.AbmProveedor
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+           int fila=  dataGridView1.CurrentCell.RowIndex;
+            String cuit = Convert.ToString(dataGridView1.Rows[fila].Cells[0].Value);
+            String razonSocial = Convert.ToString(dataGridView1.Rows[fila].Cells[1].Value);
+            proveedorTableAdapter1.DeleteQuery(cuit, razonSocial);
         }
     }
 }

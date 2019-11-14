@@ -56,8 +56,8 @@ namespace FrbaOfertas.Funciones
                     Close();
                     break;
                 case "ABM_PROVEEDOR":
-                    new AbmProveedor.ListadoProveedor().Show();
-                    Close();
+                    new AbmProveedor.ListadoProveedor(this).Show();
+                    Hide();
                     break;
                 case "BajarOferta":
                     new ConsumoOferta.ConsumoOfertas().Show();

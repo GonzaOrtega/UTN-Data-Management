@@ -16,8 +16,7 @@ namespace FrbaOfertas.ComprarOferta
     {
         DataTable dataTable = new DataTable();
 
-        // Lo hardcodeo hasta que hagamos el merge
-        Double clienteId = 3;
+        Double clienteId = 15015312;
 
         public ComprarOfertas()
         {
@@ -26,7 +25,7 @@ namespace FrbaOfertas.ComprarOferta
 
         public ComprarOfertas(Double DNICliente)
         {
-            DNICliente = Convert.ToDouble(DNICliente);
+            clienteId = Convert.ToDouble(DNICliente);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -37,7 +36,6 @@ namespace FrbaOfertas.ComprarOferta
         private void buscarOfertas()
         {
             string query = "SELECT * FROM OFERTAS";
-            //Dictionary<String, String> dictionary = new Dictionary<String, String>();
             this.limpiarEstructuras();
             DateTime fechaConfigFile = this.obtenerFechaConfigFile();
 

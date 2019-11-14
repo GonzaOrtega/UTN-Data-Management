@@ -73,23 +73,23 @@
     <Compile Include="AbmCliente\CrearYModificarCliente.Designer.cs">
       <DependentUpon>CrearYModificarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="AbmCliente\MenuCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AbmCliente\MenuCliente.Designer.cs">
-      <DependentUpon>MenuCliente.cs</DependentUpon>
-    </Compile>
     <Compile Include="AbmCliente\BuscarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AbmCliente\BuscarCliente.Designer.cs">
       <DependentUpon>BuscarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="AbmProveedor\Form1.cs">
+    <Compile Include="AbmProveedor\CrearProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmProveedor\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AbmProveedor\CrearProveedor.Designer.cs">
+      <DependentUpon>CrearProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmProveedor\ListadoProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmProveedor\ListadoProveedor.Designer.cs">
+      <DependentUpon>ListadoProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="AbmRol\AbmRol.cs">
       <SubType>Form</SubType>
@@ -216,9 +216,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AbmCliente\CrearYModificarCliente.resx">
       <DependentUpon>CrearYModificarCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AbmCliente\MenuCliente.resx">
-      <DependentUpon>MenuCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AbmCliente\BuscarCliente.resx">
       <DependentUpon>BuscarCliente.cs</DependentUpon>

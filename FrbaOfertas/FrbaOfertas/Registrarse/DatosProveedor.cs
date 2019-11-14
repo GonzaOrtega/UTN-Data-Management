@@ -95,7 +95,7 @@ namespace FrbaOfertas.Registrarse
             {
                 if (MessageBox.Show("No existe ningun cliente con ese DNI ¿Desea crear uno?", "ERROR", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    //UNIR CON LO DE GONZA
+                    new AbmProveedor.CrearProveedor().Show();
                 }
             }
         }

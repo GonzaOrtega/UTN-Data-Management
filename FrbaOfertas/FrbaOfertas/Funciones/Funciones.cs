@@ -52,14 +52,24 @@ namespace FrbaOfertas.Funciones
                     Hide();
                     break;
                 case "ABM_CLIENTES":
+                    new AbmCliente.ABMCLiente().Show();
+                    Close();
                     break;
                 case "ABM_PROVEEDOR":
+                    new AbmProveedor.ListadoProveedor().Show();
+                    Close();
                     break;
                 case "BajarOferta":
+                    new ConsumoOferta.ConsumoOfertas().Show();
+                    Close();
                     break;
                 case "ComprarOferta":
+                    new ComprarOferta.ComprarOfertas().Show();
+                    Close();
                     break;
                 case "CargarCredito":
+                    new CargaCredito.CargarCredito().Show();
+                    Close();
                     break;
             }
         }

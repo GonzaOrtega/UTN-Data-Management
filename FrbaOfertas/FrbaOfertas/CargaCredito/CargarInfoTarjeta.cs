@@ -119,5 +119,10 @@ namespace FrbaOfertas.CargaCredito
         {
             this.Close();
         }
+
+        private void txtNroTarjeta_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -139,7 +139,7 @@ namespace FrbaOfertas.AbmCliente
                 seleccionar.Text = "Eliminar";
             }
             seleccionar.UseColumnTextForButtonValue = true;
-            int columnIndex = 10;
+            int columnIndex = 11;
             if (planillaModificarCliente.Columns["DNI_cliente"] != null)
             {
                 planillaModificarCliente.Columns.Insert(columnIndex, seleccionar);

@@ -73,12 +73,6 @@
     <Compile Include="AbmCliente\CrearYModificarCliente.Designer.cs">
       <DependentUpon>CrearYModificarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="AbmCliente\EliminarCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AbmCliente\EliminarCliente.Designer.cs">
-      <DependentUpon>EliminarCliente.cs</DependentUpon>
-    </Compile>
     <Compile Include="AbmCliente\MenuCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,9 +216,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AbmCliente\CrearYModificarCliente.resx">
       <DependentUpon>CrearYModificarCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AbmCliente\EliminarCliente.resx">
-      <DependentUpon>EliminarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AbmCliente\MenuCliente.resx">
       <DependentUpon>MenuCliente.cs</DependentUpon>

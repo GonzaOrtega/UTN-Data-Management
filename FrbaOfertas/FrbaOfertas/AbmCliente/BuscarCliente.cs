@@ -40,7 +40,6 @@ namespace FrbaOfertas.AbmCliente
             else
             {
                 // Sino, el usuario eligio "Eliminar cliente"
-                planillaModificarCliente.ReadOnly = true;
             }
         }
 
@@ -64,7 +63,7 @@ namespace FrbaOfertas.AbmCliente
                 }
                 else
                 {
-
+                    
                 }
             }
         }

@@ -26,5 +26,67 @@ namespace FrbaOfertas.AbmProveedor
         {
 
         }
+
+        private String validarRazonSocial()
+        {
+            if (txtRazon.Text != "")
+                return "Razon_social like '" + txtRazon.Text + "'";
+                return "";
+        }
+        private String validarCUIT()
+        {
+            if (txtCuit.Text != "")
+
+                return "CUIT_proveedor like '" + txtCuit.Text + "'";
+
+            return "";
+        }
+        private String validarMail()
+        {
+            if (txtMail.Text != "")
+
+                return "Mail like '" + txtMail.Text + "'";
+
+            return "";
+        }
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            String expresion = this.validarRazonSocial();
+            String expresion2 = this.validarCUIT();
+            String expresion3 = this.validarMail();
+           
+            if (expresion != "" && (expresion2 != "" || expresion3 != ""))
+            {
+                expresion += " AND " + expresion2;
+            }
+            else { expresion += expresion2; }
+            if (expresion2 != "" && expresion3 != "")
+            {
+                expresion += " AND " + expresion3;
+            }
+            else { expresion += expresion3; }
+            dataGridView1.DataSource = proveedorTableAdapter1.abmListar().Select(expresion);
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+        }
+
+        private void btnCrear_Click(object sender, EventArgs e)
+        {
+            new CrearProveedor().Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

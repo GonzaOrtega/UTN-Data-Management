@@ -54,7 +54,7 @@ namespace FrbaOfertas.AbmProveedor
         }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (this.validarPk() &&this.validarRubro) {
+            if (this.validarPk() && this.validarRubro()) {
                 DataRow id_rubro = rubroTableAdapter1.GetData().Select("Descripcion like '" + txtRubro.Text + "'").First();
                 proveedorTableAdapter1.InsertQuery(txtCUIT.Text, txtRazonSocial.Text, txtDireccion.Text, txtCiudad.Text, Convert.ToDecimal(txtTelefono.Text),Convert.ToInt32(id_rubro["ID_rubro"].ToString()), txtMail.Text, Convert.ToDecimal(txtCP.Text), txtNC.Text);
            
@@ -69,7 +69,9 @@ namespace FrbaOfertas.AbmProveedor
             }
         }
 
-        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
             {

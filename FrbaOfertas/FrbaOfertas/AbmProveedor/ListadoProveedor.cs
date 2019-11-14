@@ -16,5 +16,15 @@ namespace FrbaOfertas.AbmProveedor
         {
             InitializeComponent();
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

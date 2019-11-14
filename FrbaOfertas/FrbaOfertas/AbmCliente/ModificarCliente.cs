@@ -58,9 +58,12 @@ namespace FrbaOfertas.AbmCliente
         {
             if (e.ColumnIndex == planillaModificarCliente.Columns["Seleccione"].Index)
             {
-                //Do something with your button.
+                MessageBox.Show("El indice de la columna ingresada es:" + e.ColumnIndex + " y la row es: " + e.RowIndex);
 
-                MessageBox.Show("El indice de la columna ingresada es:" + e.ColumnIndex);
+                int rowIndex = e.RowIndex;
+                DataGridViewRow row = planillaModificarCliente.Rows[rowIndex];
+                string ejemplo = Convert.ToString(row.Cells[1].Value);
+                MessageBox.Show("Lo que me muestra es:" + ejemplo);
             }
         }
 

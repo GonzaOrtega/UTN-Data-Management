@@ -51,6 +51,30 @@ namespace FrbaOfertas.AbmCliente
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            planillaModificarCliente.CellClick += planillaModificarCliente_CellClick;
+        }
+
+        private void planillaModificarCliente_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == planillaModificarCliente.Columns["Seleccione"].Index)
+            {
+                //Do something with your button.
+
+                MessageBox.Show("El indice de la columna ingresada es:" + e.ColumnIndex);
+            }
+        }
+
+        private void mostrarColumnaExtra()
+        {
+            DataGridViewButtonColumn seleccionar = new DataGridViewButtonColumn();
+            seleccionar.Name = "Seleccione";
+            seleccionar.Text = "Modificar";
+            seleccionar.UseColumnTextForButtonValue = true;
+            int columnIndex = 10;
+            if (planillaModificarCliente.Columns["DNI_cliente"] != null)
+            {
+                planillaModificarCliente.Columns.Insert(columnIndex, seleccionar);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -145,8 +169,11 @@ namespace FrbaOfertas.AbmCliente
             queries.obtenerTabla(query, dataTable);
             planillaModificarCliente.DataSource = dataTable;
             this.setRowNumber(planillaModificarCliente);
+
+            mostrarColumnaExtra();
+
         }
-       
+
         public void cargarCondiciones()
         {
             int longDiccionario = dictionary.Count;

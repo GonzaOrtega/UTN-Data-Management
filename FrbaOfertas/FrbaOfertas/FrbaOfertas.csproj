@@ -220,6 +220,9 @@
     <EmbeddedResource Include="AbmCliente\BuscarCliente.resx">
       <DependentUpon>BuscarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AbmProveedor\CrearProveedor.resx">
+      <DependentUpon>CrearProveedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CargaCredito\CargarCredito.resx">
       <DependentUpon>CargarCredito.cs</DependentUpon>
     </EmbeddedResource>

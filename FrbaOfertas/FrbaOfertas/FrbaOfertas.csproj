@@ -205,6 +205,9 @@
     <EmbeddedResource Include="AbmCliente\MenuCliente.resx">
       <DependentUpon>MenuCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AbmCliente\ModificarCliente.resx">
+      <DependentUpon>ModificarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AbmCliente\ModificarYEliminarCliente.resx">
       <DependentUpon>ModificarYEliminarCliente.cs</DependentUpon>
     </EmbeddedResource>

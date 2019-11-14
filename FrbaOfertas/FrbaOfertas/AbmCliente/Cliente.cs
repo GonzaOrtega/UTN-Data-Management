@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FrbaOfertas.AbmCliente
 {
-    class Cliente
+    public class Cliente
     {
         private Double dni;
 

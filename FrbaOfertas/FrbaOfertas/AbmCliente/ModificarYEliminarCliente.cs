@@ -24,8 +24,6 @@ namespace FrbaOfertas.AbmCliente
         CommonsForms commons = new CommonsForms();
         bool esModificar = false;
 
-        Cliente cliente = new Cliente();
-
         public bool EsModificar { get => esModificar; set => esModificar = value; }
 
         public ModificarYEliminarCliente()
@@ -60,20 +58,24 @@ namespace FrbaOfertas.AbmCliente
         {
             if (e.ColumnIndex == planillaModificarCliente.Columns["Seleccione"].Index)
             {
-                //MessageBox.Show("El indice de la columna ingresada es:" + e.ColumnIndex + " y la row es: " + e.RowIndex);
-
                 int rowIndex = e.RowIndex;
+                if (esModificar)
+                {
+                    Cliente cliente = cargarClienteParaModificar(rowIndex);
+                    ModificarCliente modificarCliente = new ModificarCliente();
+                    modificarCliente.Cliente = cliente;
+                    modificarCliente.Show();
+                }
+                else
+                {
 
-                cargarClienteParaModificar(rowIndex);
-
-
-                //string ejemplo = Convert.ToString(row.Cells[1].Value);
-                //MessageBox.Show("Lo que me muestra es:" + ejemplo);
+                }
             }
         }
 
-        private void cargarClienteParaModificar(int rowIndex)
+        private Cliente cargarClienteParaModificar(int rowIndex)
         {
+            Cliente cliente = new Cliente();
             DataGridViewRow row = planillaModificarCliente.Rows[rowIndex];
 
             cliente.DNI = Convert.ToDouble(row.Cells[0].Value);
@@ -81,19 +83,51 @@ namespace FrbaOfertas.AbmCliente
             cliente.Nombre = Convert.ToString(row.Cells[2].Value);
             cliente.Apellido = Convert.ToString(row.Cells[3].Value);
             cliente.Direccion = Convert.ToString(row.Cells[4].Value);
-            cliente.Telefono = Convert.ToDouble(row.Cells[5].Value);
+            validarTelefono(row, cliente);
             cliente.Email = Convert.ToString(row.Cells[6].Value);
-            cliente.FechaVencimiento = Convert.ToDateTime(row.Cells[7].Value);
+            validarFecha(row, cliente);
             cliente.Ciudad = Convert.ToString(row.Cells[8].Value);
             cliente.Credito = Convert.ToDouble(row.Cells[9].Value);
 
+            return cliente;
+        }
+
+        private void validarFecha(DataGridViewRow row, Cliente cliente)
+        {
+            if (row.Cells[7].Value.Equals(DBNull.Value))
+            {
+                cliente.FechaVencimiento = DateTime.Now;
+            }
+            else
+            {
+                cliente.FechaVencimiento = Convert.ToDateTime(row.Cells[7].Value);
+            }
+        }
+
+        private void validarTelefono(DataGridViewRow row, Cliente cliente)
+        {
+            if (row.Cells[5].Value.Equals(DBNull.Value))
+            {
+                cliente.Telefono = 0;
+            }
+            else
+            {
+                cliente.Telefono = Convert.ToDouble(row.Cells[5].Value);
+            }
         }
 
         private void mostrarColumnaExtra()
         {
             DataGridViewButtonColumn seleccionar = new DataGridViewButtonColumn();
             seleccionar.Name = "Seleccione";
-            seleccionar.Text = "Modificar";
+            if (esModificar)
+            {
+                seleccionar.Text = "Modificar";
+            }
+            else
+            {
+                seleccionar.Text = "Eliminar";
+            }
             seleccionar.UseColumnTextForButtonValue = true;
             int columnIndex = 10;
             if (planillaModificarCliente.Columns["DNI_cliente"] != null)

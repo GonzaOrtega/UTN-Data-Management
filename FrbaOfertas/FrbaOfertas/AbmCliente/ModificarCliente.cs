@@ -12,9 +12,17 @@ namespace FrbaOfertas.AbmCliente
 {
     public partial class ModificarCliente : Form
     {
+        Cliente cliente;
         public ModificarCliente()
         {
             InitializeComponent();
+        }
+
+        public Cliente Cliente { get => cliente; set => cliente = value; }
+
+        private void ModificarCliente_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

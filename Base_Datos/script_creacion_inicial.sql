@@ -13,7 +13,8 @@ CREATE TABLE PROVEEDOR(
 	ID_rubro int,
 	Mail nvarchar(255),
 	Codigo_postal numeric(18,0),
-	Nombre_contacto nvarchar(100)
+	Nombre_contacto nvarchar(100),
+	habilitado nvarchar(10) check (habilitado IN ('True','False')) default 'True',
 	PRIMARY KEY(CUIT_proveedor,Razon_Social),
 	FOREIGN KEY (ID_Rubro) REFERENCES rubro
 );
@@ -28,13 +29,14 @@ CREATE TABLE CLIENTES(
 	Fecha_nacimiento datetime,
 	Ciudad nvarchar (255),
 	Credito numeric(18,2) NULL DEFAULT 0,
+	habilitado nvarchar(10) check (habilitado IN ('True','False')) default 'True',
 	Primary Key (DNI_Cliente)
 );
 CREATE TABLE TARJETA (
 	ID_tarjeta smallint identity(1,1),
 	Fecha_Vencimiento datetime,
 	Nombre_tutorial nvarchar(1255),
-	Tipo_pago_desc char(2) check (Tipo_pago_desc IN ('Crédito','Débito')),
+	Tipo_pago_desc nvarchar(20) check (Tipo_pago_desc IN ('Crédito','Débito')),
 	Primary Key (ID_tarjeta)
 );
 
@@ -65,7 +67,8 @@ CREATE TABLE USUARIO(
 );
 CREATE TABLE ROL(
 	ID_rol int identity Primary Key,
-	Nombre varchar(20)
+	Nombre varchar(20),
+	habilitado nvarchar(10) check (habilitado IN ('True','False')) default 'True',
 );
 CREATE TABLE USUARIO_ROL(
 	ID_usuario int,
@@ -229,7 +232,47 @@ BEGIN
 	INSERT INTO USUARIO(ID_usuario,Nombre_usuario,contrasenia)
 	(SELECT ID_usuario,Nombre_usuario, HASHBYTES('SHA2_256', contrasenia) FROM inserted)
 END
-
+----------------------------------------------------------------------------------------------------------Creo Trigger para manejar los deletes en proveedor,cliente y rol
+GO
+Create trigger borrarRol
+ON ROL
+INSTEAD OF DELETE
+AS
+BEGIN
+	UPDATE ROL
+	SET habilitado = 'False'
+	where ID_rol in (select ID_rol from deleted)
+	DELETE USUARIO_ROL
+	where ID_rol in (select ID_rol from deleted)
+END
+GO
+Create trigger borrarClientes
+ON CLIENTES
+INSTEAD OF DELETE
+AS
+BEGIN
+	UPDATE CLIENTES
+	SET habilitado = 'False'
+	where DNI_cliente in (select DNI_cliente from deleted)
+	UPDATE TIPO_USUARIO
+	SET DNI_cliente=NULL
+	where DNI_cliente in (select DNI_cliente from deleted)
+END
+GO
+Create trigger borrarProveedor
+ON PROVEEDOR
+INSTEAD OF DELETE
+AS
+BEGIN
+	UPDATE PROVEEDOR
+	SET habilitado = 'False'
+	where CUIT_proveedor in (select CUIT_proveedor from deleted)
+	and Razon_social in (select Razon_social from deleted)
+	UPDATE TIPO_USUARIO
+	SET CUIT_proveedor=NULL,Razon_social=NULL
+	where CUIT_proveedor in (select CUIT_proveedor from deleted)
+	and Razon_social in (select Razon_social from deleted)
+END
 ----------------------------------------------------------------------------------------------------------Creado Usuario
 GO
 CREATE PROCEDURE crearUsuario
@@ -276,4 +319,28 @@ insert into FUNCIONALIDAD(Descripcion)
 values('ABM_CLIENTES')
 insert into FUNCIONALIDAD(Descripcion)
 values('ABM_PROVEEDOR')
+
+ insert into ROL_FUNCIONALIDAD(ID_rol,ID_funcionalidad)
+ (select ID_rol ,ID_funcionalidad
+ FROM FUNCIONALIDAD f,ROL
+ where Nombre like 'AdministradorGeneral'
+ AND (Descripcion  like 'ListadoEstadistico'
+ OR Descripcion  like 'ABM_ROL'
+ OR Descripcion like 'ABM_CLIENTES'
+ OR Descripcion like 'ABM_PROVEEDOR'
+ OR  Descripcion like 'FacturarProveedor'
+ OR Descripcion like 'ConfeccionarOferta'))
  
+insert into ROL_FUNCIONALIDAD(ID_rol,ID_funcionalidad)
+ (select ID_rol,ID_funcionalidad
+ FROM ROL r,FUNCIONALIDAD f
+ where r.Nombre like 'Proveedor'
+ AND(f.Descripcion  like 'BajarOferta'
+ OR f.Descripcion  like 'ConfeccionarOferta'))
+ 
+ insert into ROL_FUNCIONALIDAD(ID_rol,ID_funcionalidad)
+ (select ID_rol,ID_funcionalidad
+ FROM ROL r,FUNCIONALIDAD f
+ where r.Nombre like 'Cliente'
+ AND (f.Descripcion  like 'CargarCredito'
+ OR f.Descripcion  like 'ComprarOferta'))

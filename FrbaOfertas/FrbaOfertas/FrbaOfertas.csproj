@@ -97,11 +97,23 @@
     <Compile Include="AbmProveedor\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="AbmRol\Form1.cs">
+    <Compile Include="AbmRol\AbmRol.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmRol\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AbmRol\AbmRol.Designer.cs">
+      <DependentUpon>AbmRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmRol\Rol_crear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmRol\Rol_crear.Designer.cs">
+      <DependentUpon>Rol_crear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbmRol\Rol_editar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmRol\Rol_editar.Designer.cs">
+      <DependentUpon>Rol_editar.cs</DependentUpon>
     </Compile>
     <Compile Include="CargaCredito\CargarInfoTarjeta.cs">
       <SubType>Form</SubType>
@@ -140,24 +152,30 @@
     <Compile Include="ConsumoOferta\ConsumoOfertas.Designer.cs">
       <DependentUpon>ConsumoOfertas.cs</DependentUpon>
     </Compile>
-    <Compile Include="CrearOferta\Form1.cs">
+    <Compile Include="CrearOferta\CrearOferta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrearOferta\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="CrearOferta\CrearOferta.Designer.cs">
+      <DependentUpon>CrearOferta.cs</DependentUpon>
     </Compile>
     <Compile Include="Commons\DBConnection.cs" />
-    <Compile Include="Facturar\Form1.cs">
+    <Compile Include="CrearOferta\IngresaProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Facturar\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="CrearOferta\IngresaProveedor.Designer.cs">
+      <DependentUpon>IngresaProveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Facturar\Facturar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Facturar\Facturar.Designer.cs">
+      <DependentUpon>Facturar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones\Funciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\Funciones.Designer.cs">
+      <DependentUpon>Funciones.cs</DependentUpon>
     </Compile>
     <Compile Include="GD2C2019DataSet.cs">
       <DependentUpon>GD2C2019DataSet.xsd</DependentUpon>
@@ -167,11 +185,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GD2C2019DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ListadoEstadistico\Form1.cs">
+    <Compile Include="ListadoEstadistico\ListadoEstadistico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ListadoEstadistico\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ListadoEstadistico\ListadoEstadistico.Designer.cs">
+      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginYSeguridad\Login.cs">
       <SubType>Form</SubType>
@@ -181,6 +199,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registrarse\DatosCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrarse\DatosCliente.Designer.cs">
+      <DependentUpon>DatosCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registrarse\DatosProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrarse\DatosProveedor.Designer.cs">
+      <DependentUpon>DatosProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registrarse\Registrarse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,8 +247,29 @@
     <EmbeddedResource Include="ConsumoOferta\ConsumoOfertas.resx">
       <DependentUpon>ConsumoOfertas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="AbmRol\AbmRol.resx">
+      <DependentUpon>AbmRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmRol\Rol_crear.resx">
+      <DependentUpon>Rol_crear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmRol\Rol_editar.resx">
+      <DependentUpon>Rol_editar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearOferta\CrearOferta.resx">
+      <DependentUpon>CrearOferta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearOferta\IngresaProveedor.resx">
+      <DependentUpon>IngresaProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturar\Facturar.resx">
+      <DependentUpon>Facturar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\Funciones.resx">
+      <DependentUpon>Funciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListadoEstadistico\ListadoEstadistico.resx">
+      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginYSeguridad\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -232,6 +283,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Registrarse\DatosCliente.resx">
+      <DependentUpon>DatosCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrarse\DatosProveedor.resx">
+      <DependentUpon>DatosProveedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registrarse\Registrarse.resx">
       <DependentUpon>Registrarse.cs</DependentUpon>
     </EmbeddedResource>

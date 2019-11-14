@@ -64,7 +64,7 @@ namespace FrbaOfertas.Funciones
                     Close();
                     break;
                 case "ComprarOferta":
-                    new ComprarOferta.ComprarOfertas().Show();
+                    new ComprarOferta.ComprarOfertas(usuario).Show();
                     Close();
                     break;
                 case "CargarCredito":

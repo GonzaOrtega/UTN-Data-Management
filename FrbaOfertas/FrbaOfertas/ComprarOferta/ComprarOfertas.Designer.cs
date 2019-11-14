@@ -46,25 +46,28 @@
             // 
             // txtNroOfertaDefinitiva
             // 
-            this.txtNroOfertaDefinitiva.Location = new System.Drawing.Point(483, 481);
+            this.txtNroOfertaDefinitiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNroOfertaDefinitiva.Location = new System.Drawing.Point(482, 623);
             this.txtNroOfertaDefinitiva.Name = "txtNroOfertaDefinitiva";
-            this.txtNroOfertaDefinitiva.Size = new System.Drawing.Size(153, 26);
+            this.txtNroOfertaDefinitiva.Size = new System.Drawing.Size(334, 35);
             this.txtNroOfertaDefinitiva.TabIndex = 17;
             // 
             // labelOpcionEliminar
             // 
             this.labelOpcionEliminar.AutoSize = true;
-            this.labelOpcionEliminar.Location = new System.Drawing.Point(21, 484);
+            this.labelOpcionEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOpcionEliminar.Location = new System.Drawing.Point(20, 626);
             this.labelOpcionEliminar.Name = "labelOpcionEliminar";
-            this.labelOpcionEliminar.Size = new System.Drawing.Size(280, 20);
+            this.labelOpcionEliminar.Size = new System.Drawing.Size(423, 29);
             this.labelOpcionEliminar.TabIndex = 16;
             this.labelOpcionEliminar.Text = "Ingrese el numero de oferta a comprar";
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(25, 535);
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Location = new System.Drawing.Point(25, 688);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(87, 35);
+            this.btnSalir.Size = new System.Drawing.Size(118, 53);
             this.btnSalir.TabIndex = 15;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -72,9 +75,10 @@
             // 
             // btnSiguiente
             // 
-            this.btnSiguiente.Location = new System.Drawing.Point(549, 535);
+            this.btnSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSiguiente.Location = new System.Drawing.Point(669, 688);
             this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(87, 35);
+            this.btnSiguiente.Size = new System.Drawing.Size(147, 53);
             this.btnSiguiente.TabIndex = 14;
             this.btnSiguiente.Text = "Siguiente";
             this.btnSiguiente.UseVisualStyleBackColor = true;
@@ -82,9 +86,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(549, 177);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(669, 216);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(87, 35);
+            this.button2.Size = new System.Drawing.Size(147, 55);
             this.button2.TabIndex = 13;
             this.button2.Text = "Buscar";
             this.button2.UseVisualStyleBackColor = true;
@@ -92,9 +97,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(25, 177);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(25, 216);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 35);
+            this.button1.Size = new System.Drawing.Size(118, 55);
             this.button1.TabIndex = 12;
             this.button1.Text = "Limpiar";
             this.button1.UseVisualStyleBackColor = true;
@@ -104,12 +110,12 @@
             this.planillaComprarOfertas.AllowUserToAddRows = false;
             this.planillaComprarOfertas.AllowUserToDeleteRows = false;
             this.planillaComprarOfertas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.planillaComprarOfertas.Location = new System.Drawing.Point(25, 230);
+            this.planillaComprarOfertas.Location = new System.Drawing.Point(25, 291);
             this.planillaComprarOfertas.Name = "planillaComprarOfertas";
             this.planillaComprarOfertas.ReadOnly = true;
             this.planillaComprarOfertas.RowHeadersWidth = 62;
             this.planillaComprarOfertas.RowTemplate.Height = 28;
-            this.planillaComprarOfertas.Size = new System.Drawing.Size(611, 230);
+            this.planillaComprarOfertas.Size = new System.Drawing.Size(791, 298);
             this.planillaComprarOfertas.TabIndex = 11;
             // 
             // groupBox1
@@ -118,42 +124,44 @@
             this.groupBox1.Controls.Add(this.txtCodOferta);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(25, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(611, 158);
+            this.groupBox1.Size = new System.Drawing.Size(791, 178);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de busqueda";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(180, 97);
+            this.txtDescripcion.Location = new System.Drawing.Point(328, 103);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(216, 26);
+            this.txtDescripcion.Size = new System.Drawing.Size(296, 35);
             this.txtDescripcion.TabIndex = 4;
             // 
             // txtCodOferta
             // 
-            this.txtCodOferta.Location = new System.Drawing.Point(180, 39);
+            this.txtCodOferta.Location = new System.Drawing.Point(328, 45);
             this.txtCodOferta.Name = "txtCodOferta";
-            this.txtCodOferta.Size = new System.Drawing.Size(216, 26);
+            this.txtCodOferta.Size = new System.Drawing.Size(296, 35);
             this.txtCodOferta.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 97);
+            this.label2.Location = new System.Drawing.Point(25, 103);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 20);
+            this.label2.Size = new System.Drawing.Size(141, 29);
             this.label2.TabIndex = 2;
             this.label2.Text = "Descripcion";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 39);
+            this.label1.Location = new System.Drawing.Point(25, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 20);
+            this.label1.Size = new System.Drawing.Size(193, 29);
             this.label1.TabIndex = 1;
             this.label1.Text = "Codigo de oferta";
             // 
@@ -161,7 +169,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 584);
+            this.BackColor = System.Drawing.Color.YellowGreen;
+            this.ClientSize = new System.Drawing.Size(846, 775);
             this.Controls.Add(this.txtNroOfertaDefinitiva);
             this.Controls.Add(this.labelOpcionEliminar);
             this.Controls.Add(this.btnSalir);

@@ -15,7 +15,7 @@ namespace FrbaOfertas.ComprarOferta
     public partial class ElegirCantOfertas : Form
     {
         // Variable harcodeada para poder insertar los datos, se obtiene de las otras formas
-        Double credito = 250;
+        Double credito;
         // Aclaracion, como tenemos como PK al codOferta y DNICliente => Un cliente solo puede comprar una oferta
         // (Independientemente de sus cantidades) solo una vez, porque sino no se cumple unicidad.
         // Lo cual me parece que tiene sentido ya que cuando una compra una oferta, por mas que compre muchas unidades, solo la compra una vez
@@ -150,6 +150,11 @@ namespace FrbaOfertas.ComprarOferta
             string query = "SELECT * FROM OFERTAS WHERE Codigo_oferta = '" + codOferta + "'";
             Double preciOferta = Convert.ToDouble(Queries.obtenerDatoTabla(query, 1));
             precioTotal = preciOferta * cantDeseada;
+
+            string queryCliente = "SELECT * FROM CLIENTES WHERE DNI_Cliente = " + dniClienteOrigen;
+
+            credito = Convert.ToDouble(Queries.obtenerDatoTabla(queryCliente, 9));
+
             return credito >= precioTotal;
         }
 

@@ -107,7 +107,7 @@ namespace FrbaOfertas.ComprarOferta
             compra.CantCompra = cantCompraDeseada;
             compra.CodOferta = codOferta;
             compra.DniCliente = dniClienteOrigen;
-            compra.FechaCompra = this.obtenerFechaConfigFile();
+            compra.FechaCompra = obtenerFechaConfigFile();
             compra.NumFactura = 0; // Esto indica que siempre va a ser nulo, se va a actualizar cuando se haga la facturacion
             // Descontar credito al usuario por la compra
 
@@ -116,7 +116,7 @@ namespace FrbaOfertas.ComprarOferta
             Queries.disminuirCreditoCliente(dniClienteOrigen, precioTotal);
         }
 
-        private DateTime obtenerFechaConfigFile()
+        public static DateTime obtenerFechaConfigFile()
         {
             String fechaConfigFile = ConfigurationManager.AppSettings["fecha"].ToString();
             DateTime fecha = DateTime.ParseExact(fechaConfigFile, "yyyy-MM-dd HH:mm tt", System.Globalization.CultureInfo.InvariantCulture);
@@ -140,7 +140,7 @@ namespace FrbaOfertas.ComprarOferta
         private DateTime diaAleatorio()
         {
             Random gen = new Random();
-            DateTime start = this.obtenerFechaConfigFile();
+            DateTime start = obtenerFechaConfigFile();
             int range = (DateTime.Today - start).Days;
             return start.AddDays(gen.Next(range));
         }

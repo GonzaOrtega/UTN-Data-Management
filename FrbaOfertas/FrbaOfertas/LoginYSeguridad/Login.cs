@@ -39,7 +39,7 @@ namespace FrbaOfertas.LoginYSeguridad
         private void Login_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'gD2C2019DataSet.USUARIO' Puede moverla o quitarla según sea necesario.
-            this.uSUARIOTableAdapter.Fill(this.gD2C2019DataSet.USUARIO);
+            //this.uSUARIOTableAdapter.Fill(this.gD2C2019DataSet.USUARIO);
 
         }
 

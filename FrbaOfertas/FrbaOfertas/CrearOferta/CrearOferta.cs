@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FrbaOfertas.ComprarOferta;
 using FrbaOfertas.CrearOferta;
 
 namespace FrbaOfertas.CrearOferta
@@ -42,7 +43,7 @@ namespace FrbaOfertas.CrearOferta
         }
         private bool fechasValidas()
         {
-            if (DateTime.Now.Date > dtpPublicacion.Value.Date)
+            if (ElegirCantOfertas.obtenerFechaConfigFile() > dtpPublicacion.Value.Date)
             {
                 MessageBox.Show("La fecha de publicacion no puede ser anterior a la fecha actual", "ERROR", MessageBoxButtons.OK);
                 return false;

@@ -41,14 +41,14 @@
             this.txtMail = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtFechaNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.btnDarAltaCliente = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.txtCiudad = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtCP = new System.Windows.Forms.TextBox();
-            this.cancelarAltaCliente = new System.Windows.Forms.Button();
-            this.btnLimpiarAltaCliente = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -162,15 +162,15 @@
             this.txtFechaNacimiento.TabIndex = 16;
             this.txtFechaNacimiento.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // btnDarAltaCliente
+            // btnAceptar
             // 
-            this.btnDarAltaCliente.Location = new System.Drawing.Point(35, 480);
-            this.btnDarAltaCliente.Name = "btnDarAltaCliente";
-            this.btnDarAltaCliente.Size = new System.Drawing.Size(163, 39);
-            this.btnDarAltaCliente.TabIndex = 17;
-            this.btnDarAltaCliente.Text = "Aceptar";
-            this.btnDarAltaCliente.UseVisualStyleBackColor = true;
-            this.btnDarAltaCliente.Click += new System.EventHandler(this.btnDarAltaCliente_Click);
+            this.btnAceptar.Location = new System.Drawing.Point(35, 480);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(163, 39);
+            this.btnAceptar.TabIndex = 17;
+            this.btnAceptar.Text = "Crear";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnDarAltaCliente_Click);
             // 
             // txtCiudad
             // 
@@ -209,39 +209,39 @@
             this.txtCP.Size = new System.Drawing.Size(277, 26);
             this.txtCP.TabIndex = 29;
             // 
-            // cancelarAltaCliente
+            // btnCancelar
             // 
-            this.cancelarAltaCliente.Location = new System.Drawing.Point(386, 480);
-            this.cancelarAltaCliente.Name = "cancelarAltaCliente";
-            this.cancelarAltaCliente.Size = new System.Drawing.Size(152, 39);
-            this.cancelarAltaCliente.TabIndex = 30;
-            this.cancelarAltaCliente.Text = "Cancelar";
-            this.cancelarAltaCliente.UseVisualStyleBackColor = true;
-            this.cancelarAltaCliente.Click += new System.EventHandler(this.button1_Click);
+            this.btnCancelar.Location = new System.Drawing.Point(386, 480);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(152, 39);
+            this.btnCancelar.TabIndex = 30;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnLimpiarAltaCliente
+            // btnLimpiar
             // 
-            this.btnLimpiarAltaCliente.Location = new System.Drawing.Point(214, 480);
-            this.btnLimpiarAltaCliente.Name = "btnLimpiarAltaCliente";
-            this.btnLimpiarAltaCliente.Size = new System.Drawing.Size(163, 39);
-            this.btnLimpiarAltaCliente.TabIndex = 31;
-            this.btnLimpiarAltaCliente.Text = "Limpiar";
-            this.btnLimpiarAltaCliente.UseVisualStyleBackColor = true;
-            this.btnLimpiarAltaCliente.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnLimpiar.Location = new System.Drawing.Point(214, 480);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(163, 39);
+            this.btnLimpiar.TabIndex = 31;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // CrearYModificarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(571, 531);
-            this.Controls.Add(this.btnLimpiarAltaCliente);
-            this.Controls.Add(this.cancelarAltaCliente);
+            this.Controls.Add(this.btnLimpiar);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.txtCP);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtDNI);
             this.Controls.Add(this.txtCiudad);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.btnDarAltaCliente);
+            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtFechaNacimiento);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.txtMail);
@@ -282,8 +282,8 @@
         private System.Windows.Forms.DateTimePicker txtFechaNacimiento;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.TextBox txtCiudad;
-        private System.Windows.Forms.Button btnDarAltaCliente;
-        private System.Windows.Forms.Button cancelarAltaCliente;
-        private System.Windows.Forms.Button btnLimpiarAltaCliente;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

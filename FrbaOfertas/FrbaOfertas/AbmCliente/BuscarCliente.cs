@@ -59,6 +59,7 @@ namespace FrbaOfertas.AbmCliente
                     Cliente cliente = cargarClienteParaModificar(rowIndex);
                     CrearYModificarCliente modificarCliente = new CrearYModificarCliente();
                     modificarCliente.Cliente = cliente;
+                    modificarCliente.EsModificado = true;
                     modificarCliente.Show();
                 }
                 else
@@ -74,7 +75,7 @@ namespace FrbaOfertas.AbmCliente
             DataGridViewRow row = planillaModificarCliente.Rows[rowIndex];
 
             cliente.DNI = Convert.ToDouble(row.Cells[0].Value);
-            cliente.CodigoPostal = Convert.ToDouble(row.Cells[1].Value);
+            validarCP(row, cliente);
             cliente.Nombre = Convert.ToString(row.Cells[2].Value);
             cliente.Apellido = Convert.ToString(row.Cells[3].Value);
             cliente.Direccion = Convert.ToString(row.Cells[4].Value);
@@ -85,6 +86,18 @@ namespace FrbaOfertas.AbmCliente
             cliente.Credito = Convert.ToDouble(row.Cells[9].Value);
 
             return cliente;
+        }
+
+        private void validarCP(DataGridViewRow row, Cliente cliente)
+        {
+            if (row.Cells[1].Value.Equals(DBNull.Value))
+            {
+                cliente.CodigoPostal = 0;
+            }
+            else
+            {
+                cliente.CodigoPostal = Convert.ToDouble(row.Cells[1].Value);
+            }
         }
 
         private void validarFecha(DataGridViewRow row, Cliente cliente)

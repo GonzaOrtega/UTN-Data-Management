@@ -17,7 +17,6 @@ go
 
 
 
-
 create procedure insertarCarga(@Credito numeric(18,2),
 	@Fecha_carga datetime, @Tipo_pago_desc nvarchar(100), 
 	@ID_tarjeta smallint, @DNI_Cliente numeric(18,0))
@@ -79,3 +78,26 @@ as begin
 end
 go
 
+create procedure actualizarCliente(
+	@dni numeric(18,0), 
+	@cp numeric(18,0), 
+	@nombre nvarchar(255), 
+	@apellido nvarchar(255), 
+	@direccion nvarchar(255), 
+	@telefono numeric(18,0), 
+	@mail nvarchar(255), 
+	@fechanacimiento datetime, 
+	@ciudad nvarchar(255))
+as begin
+	update CLIENTES set
+		Codigo_postal = @cp,
+		Nombre = @nombre,
+		Apellido = @apellido,
+		Direccion = @direccion,
+		Telefono = @telefono,
+		Mail = @mail,
+		Fecha_nacimiento = @fechanacimiento,
+		Ciudad = @ciudad
+	where DNI_cliente = @dni
+end
+go

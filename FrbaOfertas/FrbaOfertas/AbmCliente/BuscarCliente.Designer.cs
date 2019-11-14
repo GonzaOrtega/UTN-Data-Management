@@ -137,9 +137,12 @@
             // 
             // planillaModificarCliente
             // 
+            this.planillaModificarCliente.AllowUserToAddRows = false;
+            this.planillaModificarCliente.AllowUserToDeleteRows = false;
             this.planillaModificarCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.planillaModificarCliente.Location = new System.Drawing.Point(23, 244);
             this.planillaModificarCliente.Name = "planillaModificarCliente";
+            this.planillaModificarCliente.ReadOnly = true;
             this.planillaModificarCliente.RowHeadersWidth = 62;
             this.planillaModificarCliente.RowTemplate.Height = 28;
             this.planillaModificarCliente.Size = new System.Drawing.Size(611, 230);

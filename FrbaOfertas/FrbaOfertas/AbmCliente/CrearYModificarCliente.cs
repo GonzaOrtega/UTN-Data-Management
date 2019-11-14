@@ -10,8 +10,10 @@ namespace FrbaOfertas.AbmCliente
         Cliente cliente = new Cliente();
         List<TextBox> textboxes = new List<TextBox>();
         CommonsForms commons = new CommonsForms();
+        bool esModificado = false;
 
         public Cliente Cliente { get => cliente; set => cliente = value; }
+        public bool EsModificado { get => esModificado; set => esModificado = value; }
 
         public CrearYModificarCliente()
         {
@@ -43,14 +45,20 @@ namespace FrbaOfertas.AbmCliente
         {
             agregarTextboxes();
 
-            txtApellido.Text = cliente.Apellido;
-            txtCiudad.Text = cliente.Ciudad;
-            txtCP.Text = Convert.ToString(cliente.CodigoPostal);
-            txtDireccion.Text = cliente.Direccion;
-            txtDNI.Text = Convert.ToString(cliente.DNI);
-            txtMail.Text = cliente.Email;
-            txtNombre.Text = cliente.Nombre;
-            txtTelefono.Text = Convert.ToString(cliente.Telefono);
+            if (esModificado)
+            {
+                txtApellido.Text = cliente.Apellido;
+                txtCiudad.Text = cliente.Ciudad;
+                txtCP.Text = Convert.ToString(cliente.CodigoPostal);
+                txtDireccion.Text = cliente.Direccion;
+                txtDNI.Text = Convert.ToString(cliente.DNI);
+                txtMail.Text = cliente.Email;
+                txtNombre.Text = cliente.Nombre;
+                txtTelefono.Text = Convert.ToString(cliente.Telefono);
+
+                txtDNI.Enabled = false;
+                btnAceptar.Text = "Modificar";
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -58,6 +66,27 @@ namespace FrbaOfertas.AbmCliente
         }
 
         private void btnDarAltaCliente_Click(object sender, EventArgs e)
+        {
+            if (esModificado)
+            {
+                modificarCliente();
+            }
+            else
+            {
+                crearCliente();
+            }
+
+        }
+
+        private void modificarCliente()
+        {
+            validarCliente();
+            inicializoCliente();
+            Queries.updateCliente(cliente);
+            this.Close();
+        }
+
+        private void crearCliente()
         {
             if (seCargaronPKs())
             {
@@ -67,7 +96,8 @@ namespace FrbaOfertas.AbmCliente
                     inicializoCliente();
                     Queries.insertarCliente(cliente);
                     commons.limpiarTextboxes(textboxes);
-                }catch(Exception ex)
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show("No se pudo ingresar el usuario. Por favor verificar datos ingresados", "Alta cliente");
                     //throw ex;
@@ -77,7 +107,6 @@ namespace FrbaOfertas.AbmCliente
             {
                 MessageBox.Show("Por favor ingrese los campos obligatorios", "Alta cliente");
             }
-
         }
 
 

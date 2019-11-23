@@ -8,8 +8,6 @@ namespace FrbaOfertas.AbmCliente
     public partial class CrearYModificarCliente : Form
     {
         Cliente cliente = new Cliente();
-        List<TextBox> textboxes = new List<TextBox>();
-        CommonsForms commons = new CommonsForms();
         bool esModificado = false;
 
         public Cliente Cliente { get => cliente; set => cliente = value; }
@@ -43,7 +41,7 @@ namespace FrbaOfertas.AbmCliente
 
         private void CrearCliente_Load(object sender, EventArgs e)
         {
-            agregarTextboxes();
+            limpiarTextboxes();
 
             if (esModificado)
             {
@@ -95,7 +93,7 @@ namespace FrbaOfertas.AbmCliente
                     validarCliente();
                     inicializoCliente();
                     Queries.insertarCliente(cliente);
-                    commons.limpiarTextboxes(textboxes);
+                    limpiarTextboxes();
                 }
                 catch (Exception ex)
                 {
@@ -140,21 +138,21 @@ namespace FrbaOfertas.AbmCliente
             return !String.IsNullOrEmpty(txtDNI.Text);
         }
 
-        public void agregarTextboxes()
+        public void limpiarTextboxes()
         {
-            textboxes.Add(txtApellido);
-            textboxes.Add(txtCiudad);
-            textboxes.Add(txtCP);
-            textboxes.Add(txtDireccion);
-            textboxes.Add(txtDNI);
-            textboxes.Add(txtMail);
-            textboxes.Add(txtNombre);
-            textboxes.Add(txtTelefono);
+            txtApellido.Clear();
+            txtCiudad.Clear();
+            txtCP.Clear();
+            txtDireccion.Clear();
+            txtDNI.Clear();
+            txtMail.Clear();
+            txtNombre.Clear();
+            txtTelefono.Clear();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            commons.limpiarTextboxes(textboxes);
+            limpiarTextboxes();
         }
 
         private void label8_Click(object sender, EventArgs e)

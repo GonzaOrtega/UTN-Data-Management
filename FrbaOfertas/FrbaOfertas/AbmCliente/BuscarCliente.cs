@@ -19,8 +19,8 @@ namespace FrbaOfertas.AbmCliente
         DataTable dataTable = new DataTable();
         Dictionary<String, String> dictionary = new Dictionary<String, String>();
         Double dniglobal;
-        List<TextBox> textboxes = new List<TextBox>();
-        CommonsForms commons = new CommonsForms();
+        //List<TextBox> textboxes = new List<TextBox>();
+        //CommonsForms commons = new CommonsForms();
         bool esModificar = false;
 
         public bool EsModificar { get => esModificar; set => esModificar = value; }
@@ -32,7 +32,6 @@ namespace FrbaOfertas.AbmCliente
 
         private void ModificarUsuario_Load(object sender, EventArgs e)
         {
-            this.cargarTextboxes();
             if (esModificar)
             {
             }
@@ -163,7 +162,10 @@ namespace FrbaOfertas.AbmCliente
 
         private void button1_Click(object sender, EventArgs e)
         {
-            commons.limpiarTextboxes(textboxes);
+            txtApellidoTLibre.Clear();
+            txtDNIPExacta.Clear();
+            txtEmailTLibre.Clear();
+            txtNombreTLibre.Clear();
         }
 
         private void buscarClientes()
@@ -255,14 +257,6 @@ namespace FrbaOfertas.AbmCliente
             {
                 dictionary.Add(key, value);
             }
-        }
-
-        private void cargarTextboxes()
-        {
-            textboxes.Add(txtApellidoTLibre);
-            textboxes.Add(txtDNIPExacta);
-            textboxes.Add(txtEmailTLibre);
-            textboxes.Add(txtNombreTLibre);
         }
 
         public void limpiarEstructuras()

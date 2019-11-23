@@ -180,7 +180,7 @@
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptar.Location = new System.Drawing.Point(157, 498);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(163, 39);
+            this.btnAceptar.Size = new System.Drawing.Size(163, 43);
             this.btnAceptar.TabIndex = 17;
             this.btnAceptar.Text = "Crear";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -233,7 +233,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(508, 498);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(152, 39);
+            this.btnCancelar.Size = new System.Drawing.Size(152, 43);
             this.btnCancelar.TabIndex = 30;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -244,7 +244,7 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.Location = new System.Drawing.Point(336, 498);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(163, 39);
+            this.btnLimpiar.Size = new System.Drawing.Size(163, 43);
             this.btnLimpiar.TabIndex = 31;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;

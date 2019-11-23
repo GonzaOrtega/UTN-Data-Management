@@ -64,6 +64,7 @@ namespace FrbaOfertas.AbmCliente
                 {
                     MessageBox.Show("Esta seguro que desea eliminar el Cliente: " + 
                         row.Cells[0].Value + "?", "Eliminar cliente", MessageBoxButtons.YesNo);
+                    dniglobal = Convert.ToDouble(row.Cells[0].Value);
 
                     // Nos olvidamos que al eliminar un cliente hay que eliminarlo de todos lados!!!
                     Queries.eliminarCliente(dniglobal);

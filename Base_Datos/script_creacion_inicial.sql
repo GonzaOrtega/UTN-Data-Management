@@ -361,7 +361,8 @@ insert into ROL_FUNCIONALIDAD(ID_rol,ID_funcionalidad)
 	@ciudad nvarchar(255), 
 	@credito numeric(18,0))
 as begin
-	INSERT INTO CLIENTES VALUES (@dni, @cp, @nombre, @apellido, @direccion, 
+	INSERT INTO CLIENTES (DNI_cliente, Codigo_postal, Nombre, Apellido, Direccion, Telefono, Mail, Fecha_nacimiento, Ciudad, Credito)
+		VALUES (@dni, @cp, @nombre, @apellido, @direccion, 
 		@telefono, @mail, @fechanacimiento, @ciudad, @credito)
 end
 go

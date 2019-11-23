@@ -9,9 +9,11 @@ namespace FrbaOfertas.AbmCliente
     {
         Cliente cliente = new Cliente();
         bool esModificado = false;
+        BuscarCliente buscarCliente = new BuscarCliente();
 
         public Cliente Cliente { get => cliente; set => cliente = value; }
         public bool EsModificado { get => esModificado; set => esModificado = value; }
+        public BuscarCliente BuscarCliente { get => buscarCliente; set => buscarCliente = value; }
 
         public CrearYModificarCliente()
         {
@@ -73,7 +75,7 @@ namespace FrbaOfertas.AbmCliente
             {
                 crearCliente();
             }
-
+            buscarCliente.limpiarTodo();
         }
 
         private void modificarCliente()
@@ -93,7 +95,7 @@ namespace FrbaOfertas.AbmCliente
                     validarCliente();
                     inicializoCliente();
                     Queries.insertarCliente(cliente);
-                    limpiarTextboxes();
+                    //limpiarTextboxes();
                 }
                 catch (Exception ex)
                 {

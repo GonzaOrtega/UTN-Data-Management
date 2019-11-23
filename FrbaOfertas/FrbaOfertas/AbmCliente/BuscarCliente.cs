@@ -32,13 +32,6 @@ namespace FrbaOfertas.AbmCliente
 
         private void ModificarUsuario_Load(object sender, EventArgs e)
         {
-            if (esModificar)
-            {
-            }
-            else
-            {
-                // Sino, el usuario eligio "Eliminar cliente"
-            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -58,6 +51,7 @@ namespace FrbaOfertas.AbmCliente
                     CrearYModificarCliente modificarCliente = new CrearYModificarCliente();
                     modificarCliente.Cliente = cliente;
                     modificarCliente.EsModificado = true;
+                    modificarCliente.BuscarCliente = this;
                     modificarCliente.Show();
                 }
                 else
@@ -68,6 +62,8 @@ namespace FrbaOfertas.AbmCliente
 
                     // Nos olvidamos que al eliminar un cliente hay que eliminarlo de todos lados!!!
                     Queries.eliminarCliente(dniglobal);
+                    MessageBox.Show("El cliente se ha borrado correctamente", "Eliminar cliente");
+                    limpiarTodo();
                 }
             }
         }
@@ -163,10 +159,16 @@ namespace FrbaOfertas.AbmCliente
 
         private void button1_Click(object sender, EventArgs e)
         {
+            limpiarTodo();
+        }
+
+        public void limpiarTodo()
+        {
             txtApellidoTLibre.Clear();
             txtDNIPExacta.Clear();
             txtEmailTLibre.Clear();
             txtNombreTLibre.Clear();
+            limpiarEstructuras();
         }
 
         private void buscarClientes()
@@ -265,6 +267,7 @@ namespace FrbaOfertas.AbmCliente
             dictionary.Clear();
             query = "select * from CLIENTES";
             planillaModificarCliente.DataSource = null;
+            planillaModificarCliente.Columns.Clear();
             dataTable.Clear();
         }
 

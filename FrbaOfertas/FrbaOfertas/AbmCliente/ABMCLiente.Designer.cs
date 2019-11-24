@@ -37,30 +37,36 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(188, 255);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(227, 220);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 38);
+            this.button1.Size = new System.Drawing.Size(154, 44);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Siguiente";
+            this.button1.Text = "SIGUIENTE";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 255);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(34, 220);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 38);
+            this.button2.Size = new System.Drawing.Size(154, 44);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Cancelar";
+            this.button2.Text = "CANCELAR";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // rbCrearCliente
             // 
             this.rbCrearCliente.AutoSize = true;
-            this.rbCrearCliente.Location = new System.Drawing.Point(38, 41);
+            this.rbCrearCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbCrearCliente.Location = new System.Drawing.Point(34, 37);
+            this.rbCrearCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbCrearCliente.Name = "rbCrearCliente";
-            this.rbCrearCliente.Size = new System.Drawing.Size(123, 24);
+            this.rbCrearCliente.Size = new System.Drawing.Size(171, 33);
             this.rbCrearCliente.TabIndex = 5;
             this.rbCrearCliente.TabStop = true;
             this.rbCrearCliente.Text = "Crear cliente";
@@ -70,9 +76,11 @@
             // rbModificarClientes
             // 
             this.rbModificarClientes.AutoSize = true;
-            this.rbModificarClientes.Location = new System.Drawing.Point(38, 111);
+            this.rbModificarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbModificarClientes.Location = new System.Drawing.Point(34, 89);
+            this.rbModificarClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbModificarClientes.Name = "rbModificarClientes";
-            this.rbModificarClientes.Size = new System.Drawing.Size(156, 24);
+            this.rbModificarClientes.Size = new System.Drawing.Size(222, 33);
             this.rbModificarClientes.TabIndex = 6;
             this.rbModificarClientes.TabStop = true;
             this.rbModificarClientes.Text = "Modificar clientes";
@@ -82,9 +90,11 @@
             // rbEliminarClientes
             // 
             this.rbEliminarClientes.AutoSize = true;
-            this.rbEliminarClientes.Location = new System.Drawing.Point(38, 182);
+            this.rbEliminarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbEliminarClientes.Location = new System.Drawing.Point(34, 146);
+            this.rbEliminarClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbEliminarClientes.Name = "rbEliminarClientes";
-            this.rbEliminarClientes.Size = new System.Drawing.Size(148, 24);
+            this.rbEliminarClientes.Size = new System.Drawing.Size(211, 33);
             this.rbEliminarClientes.TabIndex = 7;
             this.rbEliminarClientes.TabStop = true;
             this.rbEliminarClientes.Text = "Eliminar clientes";
@@ -92,14 +102,16 @@
             // 
             // ABMCLiente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(319, 305);
+            this.BackColor = System.Drawing.Color.YellowGreen;
+            this.ClientSize = new System.Drawing.Size(412, 300);
             this.Controls.Add(this.rbEliminarClientes);
             this.Controls.Add(this.rbModificarClientes);
             this.Controls.Add(this.rbCrearCliente);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ABMCLiente";
             this.Text = "ABMCLiente";
             this.Load += new System.EventHandler(this.ABMCLiente_Load);

@@ -26,6 +26,7 @@ namespace FrbaOfertas.ComprarOferta
         public ComprarOfertas(Double DNICliente)
         {
             clienteId = Convert.ToDouble(DNICliente);
+            InitializeComponent();
         }
 
         private void button2_Click(object sender, EventArgs e)

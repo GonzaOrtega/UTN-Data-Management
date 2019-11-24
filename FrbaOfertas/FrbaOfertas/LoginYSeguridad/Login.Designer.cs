@@ -58,7 +58,7 @@
             this.txtContrasenia.Size = new System.Drawing.Size(399, 34);
             this.txtContrasenia.TabIndex = 1;
             this.txtContrasenia.Text = "Contraseña";
-            this.txtContrasenia.Click += new System.EventHandler(this.txtContrasenia_Click);
+            this.txtContrasenia.Enter += new System.EventHandler(this.txtContrasenia_Enter);
             this.txtContrasenia.Leave += new System.EventHandler(this.txtContrasenia_Leave);
             // 
             // txtUsuario
@@ -71,7 +71,7 @@
             this.txtUsuario.Size = new System.Drawing.Size(399, 34);
             this.txtUsuario.TabIndex = 2;
             this.txtUsuario.Text = "Usuario";
-            this.txtUsuario.Click += new System.EventHandler(this.txtUsuario_Click);
+            this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
             this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
             // 
             // lblIniciarSesion

@@ -67,7 +67,7 @@
             this.txtDescripcion.Size = new System.Drawing.Size(477, 34);
             this.txtDescripcion.TabIndex = 1;
             this.txtDescripcion.Text = "Descripción";
-            this.txtDescripcion.Click += new System.EventHandler(this.txtDescripcion_Click);
+            this.txtDescripcion.Enter += new System.EventHandler(this.txtDescripcion_Enter);
             this.txtDescripcion.Leave += new System.EventHandler(this.txtDescripcion_Leave);
             // 
             // txtPrecioLista
@@ -79,7 +79,7 @@
             this.txtPrecioLista.Size = new System.Drawing.Size(477, 34);
             this.txtPrecioLista.TabIndex = 2;
             this.txtPrecioLista.Text = "Precio de lista";
-            this.txtPrecioLista.Click += new System.EventHandler(this.txtPrecioLista_Click);
+            this.txtPrecioLista.Enter += new System.EventHandler(this.txtPrecioLista_Enter);
             this.txtPrecioLista.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrecioLista_KeyPress);
             this.txtPrecioLista.Leave += new System.EventHandler(this.txtPrecioLista_Leave);
             // 
@@ -92,7 +92,7 @@
             this.txtPrecioOferta.Size = new System.Drawing.Size(477, 34);
             this.txtPrecioOferta.TabIndex = 3;
             this.txtPrecioOferta.Text = "Precio de oferta";
-            this.txtPrecioOferta.Click += new System.EventHandler(this.tbPrecioOferta_Click);
+            this.txtPrecioOferta.Enter += new System.EventHandler(this.txtPrecioOferta_Enter);
             this.txtPrecioOferta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrecioOferta_KeyPress);
             this.txtPrecioOferta.Leave += new System.EventHandler(this.txtPrecioOferta_Leave);
             // 

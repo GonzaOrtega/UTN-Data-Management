@@ -52,30 +52,12 @@ namespace FrbaOfertas.AbmRol
             }
         }
 
-        private void txtNombre_Click(object sender, EventArgs e)
-        {
-            if (txtNombre.Text == "Nombre del rol")
-            {
-                txtNombre.Text = "";
-                txtNombre.ForeColor = Color.Black;
-            }
-        }
-
         private void txtNombre_Leave(object sender, EventArgs e)
         {
             if (txtNombre.Text == "")
             {
                 txtNombre.Text = "Nombre del rol";
                 txtNombre.ForeColor = Color.Gainsboro;
-            }
-        }
-
-        private void txtDescripcion_Click(object sender, EventArgs e)
-        {
-            if (txtDescripcion.Text == "Descripción de la funcionalidad")
-            {
-                txtDescripcion.Text = "";
-                txtDescripcion.ForeColor = Color.Black;
             }
         }
 
@@ -143,14 +125,6 @@ namespace FrbaOfertas.AbmRol
             }
         }
 
-        private void btnBorrar_Click(object sender, EventArgs e)
-        {
-           /*if (MessageBox.Show("Se eliminara el rol perteneciente a la fila de la celda seleccionada ¿Desea continuar?", "WARNING!", MessageBoxButtons.YesNo) == DialogResult.Yes)
-           {
-                rolTableAdapter1.DeleteQuery();
-           }*/
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
@@ -174,6 +148,24 @@ namespace FrbaOfertas.AbmRol
         private void btnCrear_Click(object sender, EventArgs e)
         {
             new Rol_crear(this).Show();
+        }
+
+        private void txtDescripcion_Enter(object sender, EventArgs e)
+        {
+            if (txtDescripcion.Text == "Descripción de la funcionalidad")
+            {
+                txtDescripcion.Text = "";
+                txtDescripcion.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtNombre_Enter(object sender, EventArgs e)
+        {
+            if (txtNombre.Text == "Nombre del rol")
+            {
+                txtNombre.Text = "";
+                txtNombre.ForeColor = Color.Black;
+            }
         }
     }
 }

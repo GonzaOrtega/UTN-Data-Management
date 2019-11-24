@@ -96,25 +96,6 @@ namespace FrbaOfertas.Registrarse
             }
         }
 
-        private void txtCuit_Click(object sender, EventArgs e)
-        {
-            if (txtCuit.Text == "CUIT")
-            {
-                txtCuit.Text = "";
-                txtCuit.ForeColor = Color.Black;
-            }
-        }
-
-        private void txtRazonSocial_Click(object sender, EventArgs e)
-        {
-            if (txtRazonSocial.Text == "Razón social")
-            {
-                txtRazonSocial.Text = "";
-                txtRazonSocial.ForeColor = Color.Black;
-            }
-        }
-
-
         private void DatosProveedor_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing &&cerrado==false)
@@ -130,5 +111,22 @@ namespace FrbaOfertas.Registrarse
             }
         }
 
+        private void txtCuit_Enter(object sender, EventArgs e)
+        {
+            if (txtCuit.Text == "CUIT")
+            {
+                txtCuit.Text = "";
+                txtCuit.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtRazonSocial_Enter(object sender, EventArgs e)
+        {
+            if (txtRazonSocial.Text == "Razón social")
+            {
+                txtRazonSocial.Text = "";
+                txtRazonSocial.ForeColor = Color.Black;
+            }
+        }
     }
 }

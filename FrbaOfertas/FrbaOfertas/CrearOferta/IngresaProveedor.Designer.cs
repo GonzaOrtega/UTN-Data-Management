@@ -55,7 +55,7 @@
             this.txtCuit.Size = new System.Drawing.Size(540, 34);
             this.txtCuit.TabIndex = 1;
             this.txtCuit.Text = "CUIT";
-            this.txtCuit.Click += new System.EventHandler(this.txtCuit_Click);
+            this.txtCuit.Enter += new System.EventHandler(this.txtCuit_Enter);
             this.txtCuit.Leave += new System.EventHandler(this.txtCuit_Leave);
             // 
             // txtRazonSocial
@@ -67,7 +67,7 @@
             this.txtRazonSocial.Size = new System.Drawing.Size(540, 34);
             this.txtRazonSocial.TabIndex = 2;
             this.txtRazonSocial.Text = "Razón social";
-            this.txtRazonSocial.Click += new System.EventHandler(this.txtRazonSocial_Click);
+            this.txtRazonSocial.Enter += new System.EventHandler(this.txtRazonSocial_Enter);
             this.txtRazonSocial.Leave += new System.EventHandler(this.txtRazonSocial_Leave);
             // 
             // btnSiguiente

@@ -29,15 +29,6 @@ namespace FrbaOfertas.Registrarse
             Close();
         }
 
-        private void txtDni_Click(object sender, EventArgs e)
-        {
-            if (txtDni.Text == "DNI")
-            {
-                txtDni.Text = "";
-                txtDni.ForeColor = Color.Black;
-            }
-        }
-
         private void txtDni_Leave(object sender, EventArgs e)
         {
             if (txtDni.Text == "")
@@ -109,5 +100,13 @@ namespace FrbaOfertas.Registrarse
             }
         }
 
+        private void txtDni_Enter(object sender, EventArgs e)
+        {
+            if (txtDni.Text == "DNI")
+            {
+                txtDni.Text = "";
+                txtDni.ForeColor = Color.Black;
+            }
+        }
     }
 }

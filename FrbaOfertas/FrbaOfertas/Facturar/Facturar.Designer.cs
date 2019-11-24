@@ -150,8 +150,8 @@
             this.txtRazonSocial.Size = new System.Drawing.Size(282, 34);
             this.txtRazonSocial.TabIndex = 1;
             this.txtRazonSocial.Text = "Razón social";
-            this.txtRazonSocial.Click += new System.EventHandler(this.txtRazonSocial_Click);
             this.txtRazonSocial.TextChanged += new System.EventHandler(this.txtRazonSocial_TextChanged);
+            this.txtRazonSocial.Enter += new System.EventHandler(this.txtRazonSocial_Enter);
             this.txtRazonSocial.Leave += new System.EventHandler(this.txtRazonSocial_Leave);
             // 
             // txtCuit
@@ -162,8 +162,8 @@
             this.txtCuit.Size = new System.Drawing.Size(282, 34);
             this.txtCuit.TabIndex = 0;
             this.txtCuit.Text = "CUIT";
-            this.txtCuit.Click += new System.EventHandler(this.txtCuit_Click);
             this.txtCuit.TextChanged += new System.EventHandler(this.txtCuit_TextChanged);
+            this.txtCuit.Enter += new System.EventHandler(this.txtCuit_Enter);
             this.txtCuit.Leave += new System.EventHandler(this.txtCuit_Leave);
             // 
             // cOMPRABindingNavigator

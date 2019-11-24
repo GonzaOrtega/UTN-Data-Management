@@ -58,7 +58,7 @@
             this.txtDni.Size = new System.Drawing.Size(379, 34);
             this.txtDni.TabIndex = 2;
             this.txtDni.Text = "DNI";
-            this.txtDni.Click += new System.EventHandler(this.txtDni_Click);
+            this.txtDni.Enter += new System.EventHandler(this.txtDni_Enter);
             this.txtDni.Leave += new System.EventHandler(this.txtDni_Leave);
             // 
             // btnAtras

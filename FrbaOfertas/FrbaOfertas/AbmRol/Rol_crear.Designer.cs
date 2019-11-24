@@ -77,7 +77,7 @@
             this.txtNombre.Size = new System.Drawing.Size(585, 34);
             this.txtNombre.TabIndex = 1;
             this.txtNombre.Text = "Nombre del rol";
-            this.txtNombre.Click += new System.EventHandler(this.txtNombre_Click);
+            this.txtNombre.Enter += new System.EventHandler(this.txtNombre_Enter);
             this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
             // 
             // groupBox2

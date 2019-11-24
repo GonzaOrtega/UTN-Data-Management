@@ -23,15 +23,6 @@ namespace FrbaOfertas.ListadoEstadistico
             funciones = fun;
         }
 
-        private void txtAnio_Click(object sender, EventArgs e)
-        {
-            if (txtAnio.Text == "Año")
-            {
-                txtAnio.Text = "";
-                txtAnio.ForeColor = Color.Black;
-            }
-        }
-
         private void txtAnio_Leave(object sender, EventArgs e)
         {
             if (txtAnio.Text == "")
@@ -40,8 +31,6 @@ namespace FrbaOfertas.ListadoEstadistico
                 txtAnio.ForeColor = Color.Gainsboro;
             }
         }
-
-
 
         private void txtAnio_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -159,6 +148,13 @@ namespace FrbaOfertas.ListadoEstadistico
             dataGridView1.Rows.Clear();
         }
 
-       
+        private void txtAnio_Enter(object sender, EventArgs e)
+        {
+            if (txtAnio.Text == "Año")
+            {
+                txtAnio.Text = "";
+                txtAnio.ForeColor = Color.Black;
+            }
+        }
     }
 }

@@ -78,7 +78,7 @@
             this.txtAnio.Size = new System.Drawing.Size(290, 34);
             this.txtAnio.TabIndex = 4;
             this.txtAnio.Text = "Año";
-            this.txtAnio.Click += new System.EventHandler(this.txtAnio_Click);
+            this.txtAnio.Enter += new System.EventHandler(this.txtAnio_Enter);
             this.txtAnio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAnio_KeyPress);
             this.txtAnio.Leave += new System.EventHandler(this.txtAnio_Leave);
             // 

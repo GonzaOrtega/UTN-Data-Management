@@ -45,25 +45,6 @@ namespace FrbaOfertas.LoginYSeguridad
  
         }
 
-        
-        private void txtUsuario_Click(object sender, EventArgs e)
-        {
-            if (txtUsuario.Text == "Usuario")
-            {
-                txtUsuario.Text = "";
-                txtUsuario.ForeColor = Color.Black;
-            }
-        }
-
-        private void txtContrasenia_Click(object sender, EventArgs e)
-        {
-            if (txtContrasenia.Text == "Contraseña")
-            {
-                txtContrasenia.Text = "";
-                txtContrasenia.ForeColor = Color.Black;
-            }
-        }
-
         private void txtUsuario_Leave(object sender, EventArgs e)
         {
             if (txtUsuario.Text == "")
@@ -91,6 +72,24 @@ namespace FrbaOfertas.LoginYSeguridad
                 {
                     e.Cancel = true;
                 }
+            }
+        }
+
+        private void txtUsuario_Enter(object sender, EventArgs e)
+        {
+            if (txtUsuario.Text == "Usuario")
+            {
+                txtUsuario.Text = "";
+                txtUsuario.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtContrasenia_Enter(object sender, EventArgs e)
+        {
+            if (txtContrasenia.Text == "Contraseña")
+            {
+                txtContrasenia.Text = "";
+                txtContrasenia.ForeColor = Color.Black;
             }
         }
     }

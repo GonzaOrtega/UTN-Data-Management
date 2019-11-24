@@ -108,14 +108,6 @@ namespace FrbaOfertas.Registrarse
             }
             
         }
-        private void txtUsuario_Click(object sender, EventArgs e)
-        {
-            if (txtUsuario.Text == "Usuario")
-            {
-                txtUsuario.Text = "";
-                txtUsuario.ForeColor = Color.Black;
-            }
-        }
 
         private void txtUsuario_Leave(object sender, EventArgs e)
         {
@@ -123,15 +115,6 @@ namespace FrbaOfertas.Registrarse
             {
                 txtUsuario.Text = "Usuario";
                 txtUsuario.ForeColor = Color.Gainsboro;
-            }
-        }
-
-        private void txtContrasenia_Click(object sender, EventArgs e)
-        {
-            if (txtContrasenia.Text == "Contraseña")
-            {
-                txtContrasenia.Text = "";
-                txtContrasenia.ForeColor = Color.Black;
             }
         }
 
@@ -161,6 +144,22 @@ namespace FrbaOfertas.Registrarse
             }
         }
 
-       
+        private void txtUsuario_Enter(object sender, EventArgs e)
+        {
+            if (txtUsuario.Text == "Usuario")
+            {
+                txtUsuario.Text = "";
+                txtUsuario.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtContrasenia_Enter(object sender, EventArgs e)
+        {
+            if (txtContrasenia.Text == "Contraseña")
+            {
+                txtContrasenia.Text = "";
+                txtContrasenia.ForeColor = Color.Black;
+            }
+        }
     }
 }

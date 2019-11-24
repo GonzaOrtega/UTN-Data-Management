@@ -112,30 +112,12 @@ namespace FrbaOfertas.CrearOferta
             }
         }
 
-        private void txtDescripcion_Click(object sender, EventArgs e)
-        {
-            if (txtDescripcion.Text == "Descripción")
-            {
-                txtDescripcion.Text = "";
-                txtDescripcion.ForeColor = Color.Black;
-            }
-        }
-
         private void txtDescripcion_Leave(object sender, EventArgs e)
         {
             if (txtDescripcion.Text == "")
             {
                 txtDescripcion.Text = "Descripción";
                 txtDescripcion.ForeColor = Color.Gainsboro;
-            }
-        }
-
-        private void tbPrecioOferta_Click(object sender, EventArgs e)
-        {
-            if (txtPrecioOferta.Text == "Precio de oferta")
-            {
-                txtPrecioOferta.Text = "";
-                txtPrecioOferta.ForeColor = Color.Black;
             }
         }
 
@@ -157,15 +139,6 @@ namespace FrbaOfertas.CrearOferta
             }
         }
 
-        private void txtPrecioLista_Click(object sender, EventArgs e)
-        {
-            if (txtPrecioLista.Text == "Precio de lista")
-            {
-                txtPrecioLista.Text = "";
-                txtPrecioLista.ForeColor = Color.Black;
-            }
-        }
-
         private void CrearOferta_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing && cerrar == false)
@@ -178,6 +151,33 @@ namespace FrbaOfertas.CrearOferta
                 {
                     Application.Exit();
                 }
+            }
+        }
+
+        private void txtDescripcion_Enter(object sender, EventArgs e)
+        {
+            if (txtDescripcion.Text == "Descripción")
+            {
+                txtDescripcion.Text = "";
+                txtDescripcion.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtPrecioOferta_Enter(object sender, EventArgs e)
+        {
+            if (txtPrecioOferta.Text == "Precio de oferta")
+            {
+                txtPrecioOferta.Text = "";
+                txtPrecioOferta.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtPrecioLista_Enter(object sender, EventArgs e)
+        {
+            if (txtPrecioLista.Text == "Precio de lista")
+            {
+                txtPrecioLista.Text = "";
+                txtPrecioLista.ForeColor = Color.Black;
             }
         }
     }

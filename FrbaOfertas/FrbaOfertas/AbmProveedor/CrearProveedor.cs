@@ -85,12 +85,16 @@ namespace FrbaOfertas.AbmProveedor
                     txtCiudad.Text, Convert.ToDecimal(txtTelefono.Text),
                     Convert.ToInt32(id_rubro["ID_rubro"]), txtMail.Text, Convert.ToDecimal(txtCP.Text),
                     txtNC.Text, txtCUIT.Text, txtRazonSocial.Text);
+                MessageBox.Show("Se ha modificado el proveedor", "FELICIDADES", MessageBoxButtons.OK);
+                Close();
             }
             else
             {
                 if (this.validarPk() && this.validarRubro()) {
                     DataRow id_rubro = rubroTableAdapter1.GetData().Select("Descripcion like '" + txtRubro.Text + "'").First();
                     proveedorTableAdapter1.InsertQuery(txtCUIT.Text, txtRazonSocial.Text, txtDireccion.Text, txtCiudad.Text, Convert.ToDecimal(txtTelefono.Text),Convert.ToInt32(id_rubro["ID_rubro"].ToString()), txtMail.Text, Convert.ToDecimal(txtCP.Text), txtNC.Text);
+                    MessageBox.Show("Se ha creado el proveedor", "FELICIDADES", MessageBoxButtons.OK);
+                    Close();
                 }
             }
         }

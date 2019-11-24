@@ -50,48 +50,59 @@ namespace FrbaOfertas.Registrarse
                 txtRazonSocial.ForeColor = Color.Gainsboro;
             }
         }
-
+        private bool validarEntradas()
+        {
+            if(txtCuit.ForeColor==Color.Gainsboro || txtRazonSocial.ForeColor == Color.Gainsboro)
+            {
+                MessageBox.Show("Falta ingresar Cuit y/o Razon Social", "ERROR", MessageBoxButtons.OK);
+                return false;
+            }
+            return true;
+        }
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            if (proveedorTableAdapter1.GetDataByPk(txtCuit.Text,txtRazonSocial.Text).Count() != 0)
+            if (validarEntradas())
             {
-                if (tipO_USUARIOTableAdapter1.GetDataByCuitRazonsocial(txtCuit.Text, txtRazonSocial.Text).Count() != 0)
+                if (proveedorTableAdapter1.GetDataByPk(txtCuit.Text, txtRazonSocial.Text).Count() != 0)
                 {
-                    MessageBox.Show("El DNI ingresado ya posee un usuario", "ERROR", MessageBoxButtons.OK);
-                }
-                else
-                {
-                    if (existencia)
+                    if (tipO_USUARIOTableAdapter1.GetDataByCuitRazonsocial(txtCuit.Text, txtRazonSocial.Text).Count() != 0)
                     {
-                        DataRow usuario = this.usuarioTableAdapter1.GetDataByUsuario(contrasenia, nombre).First();
-                        int id = Convert.ToInt32(usuario["ID_usuario"].ToString());
-                        tipO_USUARIOTableAdapter1.UpdateQueryProveedor(txtCuit.Text,txtRazonSocial.Text, id);
-                        DataRow rol = rolTableAdapter1.GetDataById("Proveedor").First();
-                        usuariO_ROLTableAdapter1.InsertQuery(id, Convert.ToInt32(rol["ID_rol"]));
-                        MessageBox.Show("Se ha agregado exitosamente", "Felicidades!", MessageBoxButtons.OK);
-                        login.Show();
-                        Close();
+                        MessageBox.Show("El Cuit y/o Razon social ingresado ya posee un usuario", "ERROR", MessageBoxButtons.OK);
                     }
                     else
                     {
-                        tipO_USUARIOTableAdapter1.InsertarTipoUsuario(txtCuit.Text, txtRazonSocial.Text,null);
-                        DataRow usuario = tipO_USUARIOTableAdapter1.GetDataByCuitRazonsocial(txtCuit.Text,txtRazonSocial.Text).First();
-                        int id = Convert.ToInt32(usuario["ID_usuario"].ToString());
-                        this.usuarioTableAdapter1.InsertarUsuario(id, contrasenia, nombre);
-                        DataRow rol = rolTableAdapter1.GetDataById("Proveedor").First();
-                        usuariO_ROLTableAdapter1.InsertQuery(id, Convert.ToInt32(rol["ID_rol"]));
-                        MessageBox.Show("Se ha agregado exitosamente", "Felicidades!", MessageBoxButtons.OK);
-                        login.Show();
-                        cerrado = true;
-                        Close();
+                        if (existencia)
+                        {
+                            DataRow usuario = this.usuarioTableAdapter1.GetDataByUsuario(contrasenia, nombre).First();
+                            int id = Convert.ToInt32(usuario["ID_usuario"].ToString());
+                            tipO_USUARIOTableAdapter1.UpdateQueryProveedor(txtCuit.Text, txtRazonSocial.Text, id);
+                            DataRow rol = rolTableAdapter1.GetDataById("Proveedor").First();
+                            usuariO_ROLTableAdapter1.InsertQuery(id, Convert.ToInt32(rol["ID_rol"]));
+                            MessageBox.Show("Se ha agregado exitosamente", "Felicidades!", MessageBoxButtons.OK);
+                            login.Show();
+                            Close();
+                        }
+                        else
+                        {
+                            tipO_USUARIOTableAdapter1.InsertarTipoUsuario(txtCuit.Text, txtRazonSocial.Text, null);
+                            DataRow usuario = tipO_USUARIOTableAdapter1.GetDataByCuitRazonsocial(txtCuit.Text, txtRazonSocial.Text).First();
+                            int id = Convert.ToInt32(usuario["ID_usuario"].ToString());
+                            this.usuarioTableAdapter1.InsertarUsuario(id, contrasenia, nombre);
+                            DataRow rol = rolTableAdapter1.GetDataById("Proveedor").First();
+                            usuariO_ROLTableAdapter1.InsertQuery(id, Convert.ToInt32(rol["ID_rol"]));
+                            MessageBox.Show("Se ha agregado exitosamente", "Felicidades!", MessageBoxButtons.OK);
+                            login.Show();
+                            cerrado = true;
+                            Close();
+                        }
                     }
                 }
-            }
-            else
-            {
-                if (MessageBox.Show("No existe ningun cliente con ese DNI ¿Desea crear uno?", "ERROR", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                else
                 {
-                    new AbmProveedor.CrearProveedor().Show();
+                    if (MessageBox.Show("No existe ningun cliente con ese cuit y razon social ¿Desea crear uno?", "ERROR", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        new AbmProveedor.CrearProveedor().Show();
+                    }
                 }
             }
         }

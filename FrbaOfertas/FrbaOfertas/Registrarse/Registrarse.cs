@@ -69,10 +69,10 @@ namespace FrbaOfertas.Registrarse
         }
         private bool validarEntradas()
         {
-            if(txtContrasenia.ForeColor == Color.Gainsboro && txtUsuario.ForeColor == Color.Gainsboro)
+            if(txtContrasenia.ForeColor == Color.Gainsboro || txtUsuario.ForeColor == Color.Gainsboro)
             {
                 MessageBox.Show("Falta ingresar usuario y/o contraseña", "WARNING", MessageBoxButtons.OK);
-                return true;
+                return false;
             }
             return true;
         }

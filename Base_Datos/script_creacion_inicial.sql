@@ -131,6 +131,14 @@ CREATE TABLE CUPON(
 	FOREIGN KEY (DNI_cliente_destino) REFERENCES clientes (DNI_cliente),
 	FOREIGN KEY (Codigo_oferta) REFERENCES ofertas(Codigo_oferta)
 );
+CREATE TABLE ITEM_FACTURA(
+	ID_Item int identity Primary Key,
+	DNI_Cliente numeric(18,0),
+	Num_factura numeric(18,0),
+	Codigo_oferta nvarchar(50),
+	Importe numeric (18,2),
+	FOREIGN KEY (Num_factura) REFERENCES factura (Num_factura)
+);
 GO
 ----------------------------------------------------------------------------------------------------------		CREACION_DE_STORED_PROCEDURES
 CREATE PROCEDURE migrarRubro

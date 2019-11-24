@@ -38,10 +38,10 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(227, 220);
+            this.button1.Location = new System.Drawing.Point(213, 220);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 44);
+            this.button1.Size = new System.Drawing.Size(173, 44);
             this.button1.TabIndex = 3;
             this.button1.Text = "SIGUIENTE";
             this.button1.UseVisualStyleBackColor = true;
@@ -53,7 +53,7 @@
             this.button2.Location = new System.Drawing.Point(34, 220);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(154, 44);
+            this.button2.Size = new System.Drawing.Size(173, 44);
             this.button2.TabIndex = 4;
             this.button2.Text = "CANCELAR";
             this.button2.UseVisualStyleBackColor = true;
@@ -71,7 +71,6 @@
             this.rbCrearCliente.TabStop = true;
             this.rbCrearCliente.Text = "Crear cliente";
             this.rbCrearCliente.UseVisualStyleBackColor = true;
-            this.rbCrearCliente.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // rbModificarClientes
             // 
@@ -85,7 +84,6 @@
             this.rbModificarClientes.TabStop = true;
             this.rbModificarClientes.Text = "Modificar clientes";
             this.rbModificarClientes.UseVisualStyleBackColor = true;
-            this.rbModificarClientes.CheckedChanged += new System.EventHandler(this.rbModificarClientes_CheckedChanged);
             // 
             // rbEliminarClientes
             // 
@@ -114,7 +112,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ABMCLiente";
             this.Text = "ABMCLiente";
-            this.Load += new System.EventHandler(this.ABMCLiente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

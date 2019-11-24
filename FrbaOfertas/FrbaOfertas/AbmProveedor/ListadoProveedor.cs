@@ -27,6 +27,7 @@ namespace FrbaOfertas.AbmProveedor
         private void btnAtras_Click(object sender, EventArgs e)
         {
             funciones.Show();
+            Close();
         }
 
         private String validarRazonSocial()

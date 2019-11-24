@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FrbaOfertas.Funciones
@@ -13,15 +8,13 @@ namespace FrbaOfertas.Funciones
     public partial class Funciones : Form
     {
         int usuario;
-        LoginYSeguridad.Login login;
         bool cerrado = false;
-        public Funciones(int ID_Usuario,LoginYSeguridad.Login principal)
+        public Funciones(int ID_Usuario)
         {
             InitializeComponent();
             usuario = ID_Usuario;
             cbFunciones.DataSource = this.funcionalidadTableAdapter1.dameFunciones(ID_Usuario);
             cbFunciones.ValueMember = "Descripcion";
-            login = principal;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,7 +45,7 @@ namespace FrbaOfertas.Funciones
                     Hide();
                     break;
                 case "ABM_CLIENTES":
-                    new AbmCliente.ABMCLiente().Show();
+                    new AbmCliente.ABMCLiente(usuario).Show();
                     cerrado = true;
                     Close();
                     break;
@@ -97,7 +90,7 @@ namespace FrbaOfertas.Funciones
         {
             if (MessageBox.Show("¿Realmente desea salir de la sesion?", "WARNING!", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                login.Show();
+                new LoginYSeguridad.Login().Show();
                 cerrado = true;
                 Close();
             }

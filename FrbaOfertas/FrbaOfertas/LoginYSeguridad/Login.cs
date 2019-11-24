@@ -25,7 +25,7 @@ namespace FrbaOfertas.LoginYSeguridad
             if (this.uSUARIOTableAdapter.GetDataByUsuario(txtContrasenia.Text, txtUsuario.Text).Count() != 0)
             {
                 DataRow usuario= this.uSUARIOTableAdapter.GetDataByUsuario(txtContrasenia.Text, txtUsuario.Text).First();
-                new Funciones.Funciones(Convert.ToInt32(usuario["ID_Usuario"].ToString()), this).Show();
+                new Funciones.Funciones(Convert.ToInt32(usuario["ID_Usuario"].ToString())).Show();
                 Hide();
             }
             else

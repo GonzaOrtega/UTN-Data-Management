@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FrbaOfertas.AbmCliente
 {
     public partial class ABMCLiente : Form
     {
-        public ABMCLiente()
+        int usuario;
+        public ABMCLiente(int usu)
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+            usuario = usu;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,28 +31,13 @@ namespace FrbaOfertas.AbmCliente
                 new BuscarCliente().Show();
             }
         }
-
-        private void ABMCLiente_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 this.Close();
+                new Funciones.Funciones(usuario).Show();
             }
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbModificarClientes_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

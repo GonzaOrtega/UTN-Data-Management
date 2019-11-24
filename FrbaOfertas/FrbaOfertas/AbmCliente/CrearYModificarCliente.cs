@@ -95,12 +95,10 @@ namespace FrbaOfertas.AbmCliente
                     validarCliente();
                     inicializoCliente();
                     Queries.insertarCliente(cliente);
-                    //limpiarTextboxes();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("No se pudo ingresar el usuario. Por favor verificar datos ingresados", "Alta cliente");
-                    //throw ex;
                 }
             }
             else

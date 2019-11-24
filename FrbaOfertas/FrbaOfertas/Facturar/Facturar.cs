@@ -159,6 +159,7 @@ namespace FrbaOfertas.Facturar
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(cOMPRADataGridView.Rows.Count!=0)
             cOMPRADataGridView.Rows.Clear();
             btnFacturar.Visible = false;
         }

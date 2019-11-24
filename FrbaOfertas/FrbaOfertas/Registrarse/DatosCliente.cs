@@ -37,50 +37,61 @@ namespace FrbaOfertas.Registrarse
                 txtDni.ForeColor = Color.Gainsboro;
             }
         }
-
+        private bool validarEntrada()
+        {
+            if(txtDni.ForeColor == Color.Gainsboro)
+            {
+                MessageBox.Show("Asegurese de ingresar el DNI", "ERROR", MessageBoxButtons.OK);
+                return false;
+            }
+            return true;
+        }
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            decimal dni = Convert.ToDecimal(txtDni.Text);
-            if (this.clientesTableAdapter1.GetDataByDni(dni).Count() != 0)
+            if (validarEntrada())
             {
-                if (this.tipO_USUARIOTableAdapter1.GetDataByDni(dni).Count() != 0)
+                decimal dni = Convert.ToDecimal(txtDni.Text);
+                if (this.clientesTableAdapter1.GetDataByDni(dni).Count() != 0)
                 {
-                    MessageBox.Show("El DNI ingresado ya posee un usuario", "ERROR", MessageBoxButtons.OK);
-                }
-                else
-                {
-                    if (usuarioExistente)
+                    if (this.tipO_USUARIOTableAdapter1.GetDataByDni(dni).Count() != 0)
                     {
-                        DataRow usuario =this.usuarioTableAdapter1.GetDataByUsuario( contrasenia,nombre).First();
-                        int id = Convert.ToInt32(usuario["ID_usuario"].ToString());
-                        tipO_USUARIOTableAdapter1.UpdateUsuarioCliente(Convert.ToDecimal(txtDni.Text),id) ;
-                        DataRow rol = rolTableAdapter1.GetDataById("Cliente").First();
-                        usuariO_ROLTableAdapter1.InsertQuery(id, Convert.ToInt32(rol["ID_rol"]));
-                        MessageBox.Show("Se ha agregado exitosamente", "Felicidades", MessageBoxButtons.OK);
-                        login.Show();
-                        cerrado = true;
-                        Close();
+                        MessageBox.Show("El DNI ingresado ya posee un usuario", "ERROR", MessageBoxButtons.OK);
                     }
                     else
                     {
-                        tipO_USUARIOTableAdapter1.InsertarTipoUsuario(null, null, Convert.ToDecimal(txtDni.Text));
-                        DataRow usuario= tipO_USUARIOTableAdapter1.GetDataByDni(Convert.ToDecimal(txtDni.Text)).First();
-                        int id = Convert.ToInt32(usuario["ID_usuario"].ToString());
-                        this.usuarioTableAdapter1.InsertarUsuario(id, contrasenia, nombre);                    
-                        DataRow rol = rolTableAdapter1.GetDataById("Cliente").First();
-                        usuariO_ROLTableAdapter1.InsertQuery(id, Convert.ToInt32(rol["ID_rol"]));
-                        MessageBox.Show("Se ha agregado exitosamente", "Felicidades", MessageBoxButtons.OK);
-                        login.Show();
-                        cerrado = true;
-                        Close();
+                        if (usuarioExistente)
+                        {
+                            DataRow usuario = this.usuarioTableAdapter1.GetDataByUsuario(contrasenia, nombre).First();
+                            int id = Convert.ToInt32(usuario["ID_usuario"].ToString());
+                            tipO_USUARIOTableAdapter1.UpdateUsuarioCliente(Convert.ToDecimal(txtDni.Text), id);
+                            DataRow rol = rolTableAdapter1.GetDataById("Cliente").First();
+                            usuariO_ROLTableAdapter1.InsertQuery(id, Convert.ToInt32(rol["ID_rol"]));
+                            MessageBox.Show("Se ha agregado exitosamente", "Felicidades", MessageBoxButtons.OK);
+                            login.Show();
+                            cerrado = true;
+                            Close();
+                        }
+                        else
+                        {
+                            tipO_USUARIOTableAdapter1.InsertarTipoUsuario(null, null, Convert.ToDecimal(txtDni.Text));
+                            DataRow usuario = tipO_USUARIOTableAdapter1.GetDataByDni(Convert.ToDecimal(txtDni.Text)).First();
+                            int id = Convert.ToInt32(usuario["ID_usuario"].ToString());
+                            this.usuarioTableAdapter1.InsertarUsuario(id, contrasenia, nombre);
+                            DataRow rol = rolTableAdapter1.GetDataById("Cliente").First();
+                            usuariO_ROLTableAdapter1.InsertQuery(id, Convert.ToInt32(rol["ID_rol"]));
+                            MessageBox.Show("Se ha agregado exitosamente", "Felicidades", MessageBoxButtons.OK);
+                            login.Show();
+                            cerrado = true;
+                            Close();
+                        }
                     }
                 }
-            }
-            else
-            {
-                if(MessageBox.Show("No existe ningun cliente con ese DNI ¿Desea crear uno?", "ERROR", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                else
                 {
-                    new AbmCliente.CrearYModificarCliente().Show();
+                    if (MessageBox.Show("No existe ningun cliente con ese DNI ¿Desea crear uno?", "ERROR", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        new AbmCliente.CrearYModificarCliente().Show();
+                    }
                 }
             }
         }

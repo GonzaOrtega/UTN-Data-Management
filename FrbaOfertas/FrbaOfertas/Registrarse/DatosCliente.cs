@@ -1,28 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FrbaOfertas.Registrarse
 {
     public partial class DatosCliente : Form
     {
-        Registrarse registro;
         LoginYSeguridad.Login login;
         bool usuarioExistente;
         string nombre;
         string contrasenia;
         bool cerrado=false;
-        public DatosCliente(LoginYSeguridad.Login log, Registrarse reg, bool existencia,String nom,string cont)
+        public DatosCliente(LoginYSeguridad.Login log, bool existencia,String nom,string cont)
         {
             InitializeComponent();
             login = log;
-            registro = reg;
             usuarioExistente = existencia;
             contrasenia = cont;
             nombre = nom;
@@ -30,7 +24,7 @@ namespace FrbaOfertas.Registrarse
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            registro.Show();
+           new Registrarse(login).Show();
             cerrado = true;
             Close();
         }
@@ -72,8 +66,8 @@ namespace FrbaOfertas.Registrarse
                         DataRow rol = rolTableAdapter1.GetDataById("Cliente").First();
                         usuariO_ROLTableAdapter1.InsertQuery(id, Convert.ToInt32(rol["ID_rol"]));
                         MessageBox.Show("Se ha agregado exitosamente", "Felicidades", MessageBoxButtons.OK);
-                        registro.Close();
                         login.Show();
+                        cerrado = true;
                         Close();
                     }
                     else
@@ -85,7 +79,6 @@ namespace FrbaOfertas.Registrarse
                         DataRow rol = rolTableAdapter1.GetDataById("Cliente").First();
                         usuariO_ROLTableAdapter1.InsertQuery(id, Convert.ToInt32(rol["ID_rol"]));
                         MessageBox.Show("Se ha agregado exitosamente", "Felicidades", MessageBoxButtons.OK);
-                        registro.Close();
                         login.Show();
                         cerrado = true;
                         Close();

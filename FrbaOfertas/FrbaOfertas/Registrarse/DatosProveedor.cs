@@ -13,16 +13,14 @@ namespace FrbaOfertas.Registrarse
     public partial class DatosProveedor : Form
     {
         LoginYSeguridad.Login login;
-        Registrarse registro;
         bool existencia;
         String nombre;
         string contrasenia;
         bool cerrado=false;
-        public DatosProveedor(LoginYSeguridad.Login log, Registrarse reg, bool exis, String nom, string cont)
+        public DatosProveedor(LoginYSeguridad.Login log, bool exis, String nom, string cont)
         {
             InitializeComponent();
             login= log;
-            registro=reg;
             existencia=exis;
             nombre=nom;
             contrasenia=cont;
@@ -30,7 +28,7 @@ namespace FrbaOfertas.Registrarse
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            registro.Show();
+            new Registrarse(login).Show();
             cerrado = true;
             Close();
         }
@@ -71,7 +69,6 @@ namespace FrbaOfertas.Registrarse
                         DataRow rol = rolTableAdapter1.GetDataById("Proveedor").First();
                         usuariO_ROLTableAdapter1.InsertQuery(id, Convert.ToInt32(rol["ID_rol"]));
                         MessageBox.Show("Se ha agregado exitosamente", "Felicidades!", MessageBoxButtons.OK);
-                        registro.Close();
                         login.Show();
                         Close();
                     }
@@ -84,7 +81,6 @@ namespace FrbaOfertas.Registrarse
                         DataRow rol = rolTableAdapter1.GetDataById("Proveedor").First();
                         usuariO_ROLTableAdapter1.InsertQuery(id, Convert.ToInt32(rol["ID_rol"]));
                         MessageBox.Show("Se ha agregado exitosamente", "Felicidades!", MessageBoxButtons.OK);
-                        registro.Close();
                         login.Show();
                         cerrado = true;
                         Close();

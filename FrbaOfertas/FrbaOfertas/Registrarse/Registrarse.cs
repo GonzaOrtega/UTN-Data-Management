@@ -39,15 +39,17 @@ namespace FrbaOfertas.Registrarse
         {
             if (cbROL.Text == "Cliente")
             {
-                new DatosCliente(log, this,usuarioExistente,txtUsuario.Text,txtContrasenia.Text).Show();
-                Hide();
+                new DatosCliente(log,usuarioExistente,txtUsuario.Text,txtContrasenia.Text).Show();
+                cerrado = true;
+                Close();
             }
             else
             {
                 if (cbROL.Text == "Proveedor")
                 {
-                    new DatosProveedor(log, this, usuarioExistente, txtUsuario.Text, txtContrasenia.Text).Show();
-                    Hide();
+                    new DatosProveedor(log, usuarioExistente, txtUsuario.Text, txtContrasenia.Text).Show();
+                    cerrado = true;
+                    Close();
                 }
                else
                 {
@@ -98,12 +100,13 @@ namespace FrbaOfertas.Registrarse
                         }
                     }
                 }
+                else
+                {
+                    usuarioExistente = false;
+                    this.enviarAlProximoFormulario();
+                }
             }
-            else
-            {
-                usuarioExistente = false;
-                this.enviarAlProximoFormulario();
-            }
+            
         }
         private void txtUsuario_Click(object sender, EventArgs e)
         {

@@ -60,7 +60,7 @@ namespace FrbaOfertas.AbmProveedor
         }
         private bool validarPk()
         {
-            if(proveedorTableAdapter1.GetData().Select("CUIT_proveedor like '"+txtCUIT.Text +"' and"+"Razon_social like '"+txtRazonSocial.Text+"'").Count() != 0)
+            if(proveedorTableAdapter1.GetData().Select("CUIT_proveedor like '"+txtCUIT.Text +"' and "+"Razon_social like '"+txtRazonSocial.Text +"'").Count() != 0)
             {
                 MessageBox.Show("Lo sentimos el CUIT y la razon social ya pertenecen a otro proveedor", "ERROR!", MessageBoxButtons.OK);
                 return false;

@@ -21,14 +21,6 @@ namespace FrbaOfertas.Facturar
             btnFacturar.Visible = false;
         }
 
-        private void cOMPRABindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.cOMPRABindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.gD2C2019DataSet);
-
-        }
-
         private void txtCuit_Leave(object sender, EventArgs e)
         {
             if (txtCuit.Text == "")
@@ -95,6 +87,7 @@ namespace FrbaOfertas.Facturar
         {
             decimal total = 0;
             int nroFactura = this.crearNroFactura();
+            facturaTableAdapter1.Insert(Convert.ToDecimal(nroFactura), DateTime.Now, total, txtCuit.Text, txtRazonSocial.Text);
             foreach (DataGridViewRow row in cOMPRADataGridView.Rows)
             {
                 String oferta = Convert.ToString(row.Cells["Codigo_oferta"].Value);
@@ -102,19 +95,11 @@ namespace FrbaOfertas.Facturar
                 {
                     DataRow dataRow = ofertasTableAdapter1.GetData().FindByCodigo_oferta(oferta);
                     total += Convert.ToInt32(row.Cells["Cantidad_compra"].Value) * Convert.ToDecimal(dataRow["Precio_oferta"].ToString());
+                    cOMPRATableAdapter.UpdateNroFactura(nroFactura, oferta, Convert.ToDecimal(row.Cells["DNI_cliente"].Value), Convert.ToDateTime(row.Cells["Fecha_compra"].Value));
+                    iteM_FACTURATableAdapter1.InsertQuery(Convert.ToDecimal(row.Cells["DNI_cliente"].Value), nroFactura, Convert.ToString(row.Cells["Codigo_oferta"].Value), Convert.ToInt32(row.Cells["Cantidad_compra"].Value) * Convert.ToDecimal(dataRow["Precio_oferta"].ToString()));
                 }       
             }
-            
-            facturaTableAdapter1.Insert(Convert.ToDecimal(nroFactura),DateTime.Now,total, txtCuit.Text,txtRazonSocial.Text);
-            foreach (DataGridViewRow row in cOMPRADataGridView.Rows)
-            {
-                String oferta = Convert.ToString(row.Cells["Codigo_oferta"].Value);
-                if (oferta != "")
-                {
-                    cOMPRATableAdapter.UpdateNroFactura(nroFactura, oferta, Convert.ToDecimal(row.Cells["DNI_cliente"].Value), Convert.ToDateTime(row.Cells["Fecha_compra"].Value));
-            
-                }
-             }
+            facturaTableAdapter1.UpdateQuery(total, nroFactura);
             if(MessageBox.Show("Compras facturadas ¿Desea continuar facturanto?","FELICIDADES!",MessageBoxButtons.YesNo) ==DialogResult.No)
             {
                 funciones.Show();
@@ -159,7 +144,7 @@ namespace FrbaOfertas.Facturar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(cOMPRADataGridView.Rows.Count!=0)
+            if(cOMPRADataGridView.Rows.Count > 1)
             cOMPRADataGridView.Rows.Clear();
             btnFacturar.Visible = false;
         }

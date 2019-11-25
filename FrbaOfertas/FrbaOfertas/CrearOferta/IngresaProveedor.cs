@@ -14,8 +14,17 @@ namespace FrbaOfertas.CrearOferta
     {
         Funciones.Funciones funcion;
         bool cerrar = false;
+        string tipo = null;
+
         public IngresaProveedor(Funciones.Funciones funciones)
         {
+            InitializeComponent();
+            funcion = funciones;
+        }
+
+        public IngresaProveedor(Funciones.Funciones funciones, string tipo)
+        {
+            this.tipo = tipo;
             InitializeComponent();
             funcion = funciones;
         }
@@ -31,7 +40,14 @@ namespace FrbaOfertas.CrearOferta
         {
             if (this.proveedorTableAdapter1.GetDataByPk(txtCuit.Text, txtRazonSocial.Text).Count() != 0)
             {
-                new CrearOferta(txtCuit.Text, txtRazonSocial.Text, funcion,this).Show();
+                if (tipo == "consumirOferta")
+                {
+                    new ConsumoOferta.ConsumoOfertas(txtCuit.Text, txtRazonSocial.Text,funcion.Usuario).Show();
+                }
+                else
+                {
+                    new CrearOferta(txtCuit.Text, txtRazonSocial.Text, funcion,this).Show();
+                }
                 cerrar = true;
                 Close();
             }

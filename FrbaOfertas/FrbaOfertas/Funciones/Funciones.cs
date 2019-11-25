@@ -9,6 +9,9 @@ namespace FrbaOfertas.Funciones
     {
         int usuario;
         bool cerrado = false;
+
+        public int Usuario { get => usuario; set => usuario = value; }
+
         public Funciones(int ID_Usuario)
         {
             InitializeComponent();
@@ -56,15 +59,7 @@ namespace FrbaOfertas.Funciones
                     break;
                 case "BajarOferta":
 
-                    DataRow tipo3 = tipO_USUARIOTableAdapter1.GetDataByUsuario(usuario).First();
-                    if (tipo3["CUIT_proveedor"].ToString() == "")
-                    {
-                        new CrearOferta.IngresaProveedor(this).Show();
-                    }
-                    else
-                    {
-                        new ConsumoOferta.ConsumoOfertas(tipo3["CUIT_proveedor"].ToString(), tipo3["Razon_social"].ToString(), usuario).Show();
-                    }
+                    ingresarProveedorONo();
 
                     //new ConsumoOferta.ConsumoOfertas(usuario).Show();
                     cerrado = true;
@@ -72,16 +67,8 @@ namespace FrbaOfertas.Funciones
                     break;
                 case "ComprarOferta":
 
-                    DataRow tipo2 = tipO_USUARIOTableAdapter1.GetDataByUsuario(usuario).First();
-                    if (tipo2["DNI_cliente"].ToString() == "")
-                    {
-                        new AbmCliente.IngresarCliente(usuario).Show();
-                        // Patente pendiente
-                    }
-                    else
-                    {
-                        new ComprarOferta.ComprarOfertas(Convert.ToDouble(tipo2["DNI_cliente"].ToString()), usuario).Show();
-                    }
+                    ingresarClienteONo();
+
                     cerrado = true;
                     Close();
                     break;
@@ -90,6 +77,33 @@ namespace FrbaOfertas.Funciones
                     cerrado = true;
                     Close();
                     break;
+            }
+        }
+
+        private void ingresarClienteONo()
+        {
+            DataRow tipo2 = tipO_USUARIOTableAdapter1.GetDataByUsuario(usuario).First();
+            if (tipo2["DNI_cliente"].ToString() == "")
+            {
+                new AbmCliente.IngresarCliente(usuario).Show();
+                // Patente pendiente
+            }
+            else
+            {
+                new ComprarOferta.ComprarOfertas(Convert.ToDouble(tipo2["DNI_cliente"].ToString()), usuario).Show();
+            }
+        }
+
+        private void ingresarProveedorONo()
+        {
+            DataRow tipo3 = tipO_USUARIOTableAdapter1.GetDataByUsuario(usuario).First();
+            if (tipo3["CUIT_proveedor"].ToString() == "")
+            {
+                new CrearOferta.IngresaProveedor(this, "consumirOferta").Show();
+            }
+            else
+            {
+                new ConsumoOferta.ConsumoOfertas(tipo3["CUIT_proveedor"].ToString(), tipo3["Razon_social"].ToString(), usuario).Show();
             }
         }
 

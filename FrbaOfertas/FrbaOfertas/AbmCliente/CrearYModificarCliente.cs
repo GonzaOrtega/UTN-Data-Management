@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using FrbaOfertas.Commons;
 using System.Collections.Generic;
+using System.Configuration;
 
 namespace FrbaOfertas.AbmCliente
 {
@@ -44,6 +45,8 @@ namespace FrbaOfertas.AbmCliente
         private void CrearCliente_Load(object sender, EventArgs e)
         {
             limpiarTextboxes();
+            txtFechaNacimiento.Value = obtenerFechaConfigFile();
+
 
             if (esModificado)
             {
@@ -59,6 +62,13 @@ namespace FrbaOfertas.AbmCliente
                 txtDNI.Enabled = false;
                 btnAceptar.Text = "Modificar";
             }
+        }
+
+        private DateTime obtenerFechaConfigFile()
+        {
+            String fechaConfigFile = ConfigurationManager.AppSettings["fecha"].ToString();
+            DateTime fecha = DateTime.ParseExact(fechaConfigFile, "yyyy-MM-dd HH:mm tt", System.Globalization.CultureInfo.InvariantCulture);
+            return fecha;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

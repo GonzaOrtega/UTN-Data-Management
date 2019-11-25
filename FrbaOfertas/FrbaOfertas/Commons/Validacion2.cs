@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -30,11 +31,19 @@ namespace FrbaOfertas.Commons
 
         public static object validarDateTime(DateTime parametro)
         {
-            if (DateTime.Compare(parametro, DateTime.Today) != 0)
+            DateTime fecha = obtenerFechaConfigFile();
+            if (DateTime.Compare(parametro, fecha) == 0)
             {
                 return DBNull.Value;
             }
             return parametro;
+        }
+
+        public static DateTime obtenerFechaConfigFile()
+        {
+            String fechaConfigFile = ConfigurationManager.AppSettings["fecha"].ToString();
+            DateTime fecha = DateTime.ParseExact(fechaConfigFile, "yyyy-MM-dd HH:mm tt", System.Globalization.CultureInfo.InvariantCulture);
+            return fecha;
         }
 
         public static void validarDoubleTxt(ref TextBox textBox)

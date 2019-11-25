@@ -29,6 +29,7 @@ namespace FrbaOfertas.AbmCliente
             StartPosition = FormStartPosition.CenterScreen;
             planillaModificarCliente.CellClick += planillaModificarCliente_CellClick;
         }
+
         int usuario;
         public ABMCliente(int usu)
         {

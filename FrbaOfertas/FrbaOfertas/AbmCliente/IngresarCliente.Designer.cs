@@ -30,7 +30,7 @@
         {
             this.btnAtras = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
-            this.txtCuit = new System.Windows.Forms.TextBox();
+            this.txtDNI = new System.Windows.Forms.TextBox();
             this.lblIngrese = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -44,6 +44,7 @@
             this.btnAtras.TabIndex = 9;
             this.btnAtras.Text = "ATRÁS";
             this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // btnSiguiente
             // 
@@ -55,17 +56,18 @@
             this.btnSiguiente.TabIndex = 8;
             this.btnSiguiente.Text = "SIGUIENTE";
             this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
             // 
-            // txtCuit
+            // txtDNI
             // 
-            this.txtCuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCuit.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtCuit.Location = new System.Drawing.Point(71, 164);
-            this.txtCuit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtCuit.Name = "txtCuit";
-            this.txtCuit.Size = new System.Drawing.Size(607, 39);
-            this.txtCuit.TabIndex = 6;
-            this.txtCuit.Text = "DNI";
+            this.txtDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDNI.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtDNI.Location = new System.Drawing.Point(71, 164);
+            this.txtDNI.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDNI.Name = "txtDNI";
+            this.txtDNI.Size = new System.Drawing.Size(607, 39);
+            this.txtDNI.TabIndex = 6;
+            this.txtDNI.Text = "DNI";
             // 
             // lblIngrese
             // 
@@ -81,10 +83,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 412);
+            this.BackColor = System.Drawing.Color.YellowGreen;
+            this.ClientSize = new System.Drawing.Size(773, 397);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnSiguiente);
-            this.Controls.Add(this.txtCuit);
+            this.Controls.Add(this.txtDNI);
             this.Controls.Add(this.lblIngrese);
             this.Name = "IngresarCliente";
             this.Text = "IngresarCliente";
@@ -97,7 +100,7 @@
 
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.Button btnSiguiente;
-        private System.Windows.Forms.TextBox txtCuit;
+        private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.Label lblIngrese;
     }
 }

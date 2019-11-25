@@ -23,11 +23,13 @@ namespace FrbaOfertas.ComprarOferta
             InitializeComponent();
         }
 
-        public ComprarOfertas(Double DNICliente)
+        int usuario;
+        public ComprarOfertas(Double DNICliente, int usu)
         {
             clienteId = Convert.ToDouble(DNICliente);
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
+            usuario = usu;
         }
 
         private void button2_Click(object sender, EventArgs e)

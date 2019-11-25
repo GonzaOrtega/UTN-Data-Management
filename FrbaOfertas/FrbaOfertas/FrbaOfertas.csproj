@@ -60,12 +60,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbmCliente\ABMCLienteVieja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AbmCliente\ABMCLienteVieja.Designer.cs">
-      <DependentUpon>ABMCLienteVieja.cs</DependentUpon>
-    </Compile>
     <Compile Include="AbmCliente\Cliente.cs" />
     <Compile Include="AbmCliente\CrearYModificarCliente.cs">
       <SubType>Form</SubType>
@@ -216,9 +210,6 @@
     <Compile Include="Registrarse\Registrarse.Designer.cs">
       <DependentUpon>Registrarse.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AbmCliente\ABMCLienteVieja.resx">
-      <DependentUpon>ABMCLienteVieja.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AbmCliente\CrearYModificarCliente.resx">
       <DependentUpon>CrearYModificarCliente.cs</DependentUpon>
     </EmbeddedResource>

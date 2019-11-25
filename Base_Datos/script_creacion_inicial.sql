@@ -127,6 +127,7 @@ CREATE TABLE CUPON(
 	DNI_cliente_origen numeric(18,0),
 	DNI_cliente_destino numeric(18,0), 
 	Codigo_oferta nvarchar(50),
+	cantidad int,
 	FOREIGN KEY (DNI_cliente_origen) REFERENCES clientes (DNI_cliente),
 	FOREIGN KEY (DNI_cliente_destino) REFERENCES clientes (DNI_cliente),
 	FOREIGN KEY (Codigo_oferta) REFERENCES ofertas(Codigo_oferta)

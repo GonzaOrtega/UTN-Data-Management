@@ -35,6 +35,7 @@
             this.cbTipoPago = new System.Windows.Forms.ComboBox();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.btSiguiente = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -101,7 +102,7 @@
             // btSiguiente
             // 
             this.btSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSiguiente.Location = new System.Drawing.Point(443, 276);
+            this.btSiguiente.Location = new System.Drawing.Point(410, 264);
             this.btSiguiente.Name = "btSiguiente";
             this.btSiguiente.Size = new System.Drawing.Size(146, 51);
             this.btSiguiente.TabIndex = 8;
@@ -109,12 +110,24 @@
             this.btSiguiente.UseVisualStyleBackColor = true;
             this.btSiguiente.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(45, 264);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(146, 51);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Atras";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // CargarCredito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
             this.ClientSize = new System.Drawing.Size(601, 339);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btSiguiente);
             this.Controls.Add(this.txtMonto);
             this.Controls.Add(this.cbTipoPago);
@@ -138,5 +151,6 @@
         private System.Windows.Forms.ComboBox cbTipoPago;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.Button btSiguiente;
+        private System.Windows.Forms.Button button1;
     }
 }

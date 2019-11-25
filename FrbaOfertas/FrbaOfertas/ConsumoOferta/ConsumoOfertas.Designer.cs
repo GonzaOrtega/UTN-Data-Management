@@ -89,6 +89,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "ConsumoOfertas";
             this.Text = "Canjear ofertas";
+            this.Load += new System.EventHandler(this.ConsumoOfertas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

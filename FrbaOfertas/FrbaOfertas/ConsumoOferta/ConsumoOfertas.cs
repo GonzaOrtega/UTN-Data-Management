@@ -24,6 +24,7 @@ namespace FrbaOfertas.ConsumoOferta
         public ConsumoOfertas()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         int usuario;
@@ -142,6 +143,11 @@ namespace FrbaOfertas.ConsumoOferta
                 this.Close();
                 new Funciones.Funciones(usuario).Show();
             }
+        }
+
+        private void ConsumoOfertas_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

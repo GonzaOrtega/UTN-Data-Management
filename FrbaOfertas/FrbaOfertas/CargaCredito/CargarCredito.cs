@@ -16,9 +16,19 @@ namespace FrbaOfertas.CargaCredito
     {
         Credito credito = new Credito();
         CargarInfoTarjeta infoTarjeta = new CargarInfoTarjeta();
+
         public CargarCredito()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
+        }
+
+        int usuario;
+        public CargarCredito(int usu)
+        {
+            InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
+            usuario = usu;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -101,6 +111,15 @@ namespace FrbaOfertas.CargaCredito
         private void dtpFecha_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+                new Funciones.Funciones(usuario).Show();
+            }
         }
     }
 }

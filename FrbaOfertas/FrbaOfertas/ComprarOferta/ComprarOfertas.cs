@@ -27,6 +27,7 @@ namespace FrbaOfertas.ComprarOferta
         {
             clienteId = Convert.ToDouble(DNICliente);
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -96,7 +97,6 @@ namespace FrbaOfertas.ComprarOferta
             this.setRowNumber(planillaComprarOfertas);
         }
 
-        // Para que quede mas lindo
         private void setRowNumber(DataGridView dgv)
         {
             foreach (DataGridViewRow row in dgv.Rows)
@@ -143,6 +143,15 @@ namespace FrbaOfertas.ComprarOferta
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+                new Funciones.Funciones(Convert.ToInt32(clienteId)).Show();
+            }
         }
     }
 }

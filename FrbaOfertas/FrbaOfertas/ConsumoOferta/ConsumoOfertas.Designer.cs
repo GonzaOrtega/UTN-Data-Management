@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNroCuponIngresado = new System.Windows.Forms.TextBox();
             this.btnCanjear = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -63,12 +64,24 @@
             this.btnCanjear.UseVisualStyleBackColor = true;
             this.btnCanjear.Click += new System.EventHandler(this.btnCanjear_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(47, 119);
+            this.button1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(152, 51);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Atras";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ConsumoOfertas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
             this.ClientSize = new System.Drawing.Size(714, 210);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCanjear);
             this.Controls.Add(this.txtNroCuponIngresado);
             this.Controls.Add(this.label1);
@@ -86,5 +99,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNroCuponIngresado;
         private System.Windows.Forms.Button btnCanjear;
+        private System.Windows.Forms.Button button1;
     }
 }

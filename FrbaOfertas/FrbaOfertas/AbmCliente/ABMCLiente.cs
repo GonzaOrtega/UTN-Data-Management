@@ -39,5 +39,10 @@ namespace FrbaOfertas.AbmCliente
                 new Funciones.Funciones(usuario).Show();
             }
         }
+
+        private void ABMCLiente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

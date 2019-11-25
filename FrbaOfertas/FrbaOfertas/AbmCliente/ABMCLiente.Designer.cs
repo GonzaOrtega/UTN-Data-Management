@@ -112,6 +112,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ABMCLiente";
             this.Text = "ABMCLiente";
+            this.Load += new System.EventHandler(this.ABMCLiente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

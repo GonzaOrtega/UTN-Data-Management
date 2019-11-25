@@ -26,6 +26,14 @@ namespace FrbaOfertas.ConsumoOferta
             InitializeComponent();
         }
 
+        int usuario;
+        public ConsumoOfertas(int usu)
+        {
+            InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
+            usuario = usu;
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -125,6 +133,15 @@ namespace FrbaOfertas.ConsumoOferta
             bool existe =  Queries.existeCupon(cupon.CodCupon, ref codOfertaObtenido);
             cupon.CodOferta = codOfertaObtenido;
             return existe;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+                new Funciones.Funciones(usuario).Show();
+            }
         }
     }
 }

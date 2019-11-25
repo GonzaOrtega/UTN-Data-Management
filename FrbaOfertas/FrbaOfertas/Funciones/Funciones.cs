@@ -22,7 +22,7 @@ namespace FrbaOfertas.Funciones
             switch (cbFunciones.Text) {
                 case "ConfeccionarOferta":
                     DataRow tipo = tipO_USUARIOTableAdapter1.GetDataByUsuario(usuario).First();
-                    if (tipo["CUIT_proveedor"] == null)
+                    if (tipo["CUIT_proveedor"].ToString() == "")
                     {
                         new CrearOferta.IngresaProveedor(this).Show();
                     }

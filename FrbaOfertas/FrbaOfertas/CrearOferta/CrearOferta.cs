@@ -32,7 +32,7 @@ namespace FrbaOfertas.CrearOferta
         {
             if (anterior != null)
             {
-                anterior.Show();
+                new IngresaProveedor(funciones).Show();
             }
             else
             {
@@ -88,7 +88,7 @@ namespace FrbaOfertas.CrearOferta
                 if (MessageBox.Show("Se ha creado una oferta ¿Desea crear otra?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.No)
                 {
                     funciones.Show();
-                    if(anterior!=null) anterior.Close();
+                    cerrar = true;
                     this.Close();
                 }
             }

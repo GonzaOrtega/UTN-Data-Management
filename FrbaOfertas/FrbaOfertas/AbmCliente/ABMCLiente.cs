@@ -19,15 +19,23 @@ namespace FrbaOfertas.AbmCliente
         DataTable dataTable = new DataTable();
         Dictionary<String, String> dictionary = new Dictionary<String, String>();
         Double dniglobal;
-        //List<TextBox> textboxes = new List<TextBox>();
-        //CommonsForms commons = new CommonsForms();
-        bool esModificar = false;
+        bool esModificar = true;
 
         public bool EsModificar { get => esModificar; set => esModificar = value; }
 
         public ABMCliente()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
+            planillaModificarCliente.CellClick += planillaModificarCliente_CellClick;
+        }
+        int usuario;
+        public ABMCliente(int usu)
+        {
+            InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
+            usuario = usu;
+            planillaModificarCliente.CellClick += planillaModificarCliente_CellClick; // Para que se cargue el evento de hacer click
         }
 
         private void ModificarUsuario_Load(object sender, EventArgs e)
@@ -36,6 +44,7 @@ namespace FrbaOfertas.AbmCliente
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            planillaModificarCliente.CellClick -= planillaModificarCliente_CellClick;
             planillaModificarCliente.CellClick += planillaModificarCliente_CellClick;
         }
 
@@ -301,6 +310,13 @@ namespace FrbaOfertas.AbmCliente
             new CrearYModificarCliente().Show();
         }
 
-        
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.Close();
+                new Funciones.Funciones(usuario).Show();
+            }
+        }
     }
 }

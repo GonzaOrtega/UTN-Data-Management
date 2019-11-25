@@ -76,6 +76,7 @@ namespace FrbaOfertas.ListadoEstadistico
         }
         private void btnListar_Click(object sender, EventArgs e)
         {
+            dataGridView1.Columns.Clear();
             if (this.validarListado()&&this.validarAnio())
             {
                 DateTime fechaInicio;

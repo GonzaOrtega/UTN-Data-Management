@@ -10,11 +10,11 @@ namespace FrbaOfertas.AbmCliente
     {
         Cliente cliente = new Cliente();
         bool esModificado = false;
-        BuscarCliente buscarCliente = new BuscarCliente();
+        ABMCliente buscarCliente = new ABMCliente();
 
         public Cliente Cliente { get => cliente; set => cliente = value; }
         public bool EsModificado { get => esModificado; set => esModificado = value; }
-        public BuscarCliente BuscarCliente { get => buscarCliente; set => buscarCliente = value; }
+        public ABMCliente BuscarCliente { get => buscarCliente; set => buscarCliente = value; }
 
         public CrearYModificarCliente()
         {

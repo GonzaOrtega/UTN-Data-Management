@@ -45,7 +45,8 @@ namespace FrbaOfertas.Funciones
                     Hide();
                     break;
                 case "ABM_CLIENTES":
-                    new AbmCliente.ABMCLiente(usuario).Show();
+                    //new AbmCliente.ABMCLiente(usuario).Show();
+                    new AbmCliente.ABMCliente().Show();
                     cerrado = true;
                     Close();
                     break;
@@ -94,6 +95,16 @@ namespace FrbaOfertas.Funciones
                 cerrado = true;
                 Close();
             }
+        }
+
+        private void cbFunciones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Funciones_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

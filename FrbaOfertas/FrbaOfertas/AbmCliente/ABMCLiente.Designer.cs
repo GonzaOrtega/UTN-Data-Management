@@ -1,6 +1,6 @@
 ﻿namespace FrbaOfertas.AbmCliente
 {
-    partial class ABMCLiente
+    partial class ABMCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,101 +28,223 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtEmailTLibre = new System.Windows.Forms.TextBox();
+            this.txtDNIPExacta = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtApellidoTLibre = new System.Windows.Forms.TextBox();
+            this.txtNombreTLibre = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.planillaModificarCliente = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.rbCrearCliente = new System.Windows.Forms.RadioButton();
-            this.rbModificarClientes = new System.Windows.Forms.RadioButton();
-            this.rbEliminarClientes = new System.Windows.Forms.RadioButton();
+            this.cLIENTESBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD2C2019DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gD2C2019DataSet = new FrbaOfertas.GD2C2019DataSet();
+            this.cLIENTESTableAdapter = new FrbaOfertas.GD2C2019DataSetTableAdapters.CLIENTESTableAdapter();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.planillaModificarCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet)).BeginInit();
             this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtEmailTLibre);
+            this.groupBox1.Controls.Add(this.txtDNIPExacta);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtApellidoTLibre);
+            this.groupBox1.Controls.Add(this.txtNombreTLibre);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(23, 27);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(884, 205);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Filtros de busqueda";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // txtEmailTLibre
+            // 
+            this.txtEmailTLibre.Location = new System.Drawing.Point(631, 128);
+            this.txtEmailTLibre.Name = "txtEmailTLibre";
+            this.txtEmailTLibre.Size = new System.Drawing.Size(202, 35);
+            this.txtEmailTLibre.TabIndex = 8;
+            this.txtEmailTLibre.TextChanged += new System.EventHandler(this.txtEmailTLibre_TextChanged);
+            // 
+            // txtDNIPExacta
+            // 
+            this.txtDNIPExacta.Location = new System.Drawing.Point(631, 67);
+            this.txtDNIPExacta.Name = "txtDNIPExacta";
+            this.txtDNIPExacta.Size = new System.Drawing.Size(202, 35);
+            this.txtDNIPExacta.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(543, 131);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 29);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Email";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(543, 70);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 29);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "DNI";
+            // 
+            // txtApellidoTLibre
+            // 
+            this.txtApellidoTLibre.Location = new System.Drawing.Point(160, 128);
+            this.txtApellidoTLibre.Name = "txtApellidoTLibre";
+            this.txtApellidoTLibre.Size = new System.Drawing.Size(202, 35);
+            this.txtApellidoTLibre.TabIndex = 4;
+            // 
+            // txtNombreTLibre
+            // 
+            this.txtNombreTLibre.Location = new System.Drawing.Point(160, 67);
+            this.txtNombreTLibre.Name = "txtNombreTLibre";
+            this.txtNombreTLibre.Size = new System.Drawing.Size(202, 35);
+            this.txtNombreTLibre.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(39, 131);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 29);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Apellido";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(39, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 29);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Nombre";
+            // 
+            // planillaModificarCliente
+            // 
+            this.planillaModificarCliente.AllowUserToAddRows = false;
+            this.planillaModificarCliente.AllowUserToDeleteRows = false;
+            this.planillaModificarCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.planillaModificarCliente.Location = new System.Drawing.Point(23, 300);
+            this.planillaModificarCliente.Name = "planillaModificarCliente";
+            this.planillaModificarCliente.ReadOnly = true;
+            this.planillaModificarCliente.RowHeadersWidth = 62;
+            this.planillaModificarCliente.RowTemplate.Height = 28;
+            this.planillaModificarCliente.Size = new System.Drawing.Size(884, 291);
+            this.planillaModificarCliente.TabIndex = 1;
+            this.planillaModificarCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(240, 275);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(596, 238);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(195, 55);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Siguiente";
+            this.button1.Size = new System.Drawing.Size(141, 47);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Limpiar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(38, 275);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(774, 238);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(195, 55);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Atras";
+            this.button2.Size = new System.Drawing.Size(133, 47);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Buscar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // rbCrearCliente
+            // cLIENTESBindingSource
             // 
-            this.rbCrearCliente.AutoSize = true;
-            this.rbCrearCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCrearCliente.Location = new System.Drawing.Point(38, 46);
-            this.rbCrearCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rbCrearCliente.Name = "rbCrearCliente";
-            this.rbCrearCliente.Size = new System.Drawing.Size(201, 36);
-            this.rbCrearCliente.TabIndex = 5;
-            this.rbCrearCliente.TabStop = true;
-            this.rbCrearCliente.Text = "Crear cliente";
-            this.rbCrearCliente.UseVisualStyleBackColor = true;
+            this.cLIENTESBindingSource.DataMember = "CLIENTES";
+            this.cLIENTESBindingSource.DataSource = this.gD2C2019DataSetBindingSource;
             // 
-            // rbModificarClientes
+            // gD2C2019DataSetBindingSource
             // 
-            this.rbModificarClientes.AutoSize = true;
-            this.rbModificarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbModificarClientes.Location = new System.Drawing.Point(38, 111);
-            this.rbModificarClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rbModificarClientes.Name = "rbModificarClientes";
-            this.rbModificarClientes.Size = new System.Drawing.Size(261, 36);
-            this.rbModificarClientes.TabIndex = 6;
-            this.rbModificarClientes.TabStop = true;
-            this.rbModificarClientes.Text = "Modificar clientes";
-            this.rbModificarClientes.UseVisualStyleBackColor = true;
+            this.gD2C2019DataSetBindingSource.DataSource = this.gD2C2019DataSet;
+            this.gD2C2019DataSetBindingSource.Position = 0;
             // 
-            // rbEliminarClientes
+            // gD2C2019DataSet
             // 
-            this.rbEliminarClientes.AutoSize = true;
-            this.rbEliminarClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbEliminarClientes.Location = new System.Drawing.Point(38, 182);
-            this.rbEliminarClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rbEliminarClientes.Name = "rbEliminarClientes";
-            this.rbEliminarClientes.Size = new System.Drawing.Size(249, 36);
-            this.rbEliminarClientes.TabIndex = 7;
-            this.rbEliminarClientes.TabStop = true;
-            this.rbEliminarClientes.Text = "Eliminar clientes";
-            this.rbEliminarClientes.UseVisualStyleBackColor = true;
+            this.gD2C2019DataSet.DataSetName = "GD2C2019DataSet";
+            this.gD2C2019DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // ABMCLiente
+            // cLIENTESTableAdapter
+            // 
+            this.cLIENTESTableAdapter.ClearBeforeFill = true;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(424, 238);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(141, 47);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Crear";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // BuscarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(464, 375);
-            this.Controls.Add(this.rbEliminarClientes);
-            this.Controls.Add(this.rbModificarClientes);
-            this.Controls.Add(this.rbCrearCliente);
+            this.ClientSize = new System.Drawing.Size(936, 603);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "ABMCLiente";
-            this.Text = "ABMCLiente";
-            this.Load += new System.EventHandler(this.ABMCLiente_Load);
+            this.Controls.Add(this.planillaModificarCliente);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "BuscarCliente";
+            this.Text = "Buscar cliente";
+            this.Load += new System.EventHandler(this.ModificarUsuario_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.planillaModificarCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLIENTESBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtApellidoTLibre;
+        private System.Windows.Forms.TextBox txtNombreTLibre;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView planillaModificarCliente;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RadioButton rbCrearCliente;
-        private System.Windows.Forms.RadioButton rbModificarClientes;
-        private System.Windows.Forms.RadioButton rbEliminarClientes;
+        private System.Windows.Forms.BindingSource gD2C2019DataSetBindingSource;
+        private GD2C2019DataSet gD2C2019DataSet;
+        private System.Windows.Forms.BindingSource cLIENTESBindingSource;
+        private GD2C2019DataSetTableAdapters.CLIENTESTableAdapter cLIENTESTableAdapter;
+        private System.Windows.Forms.TextBox txtEmailTLibre;
+        private System.Windows.Forms.TextBox txtDNIPExacta;
+        private System.Windows.Forms.Button button3;
     }
 }

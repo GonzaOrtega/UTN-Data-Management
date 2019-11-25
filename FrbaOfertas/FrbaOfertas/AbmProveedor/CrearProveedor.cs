@@ -37,7 +37,8 @@ namespace FrbaOfertas.AbmProveedor
             txtMail.Text = mail;
             txtCP.Text = Convert.ToString(codPostal);
             txtNC.Text = nombreContacto;
-
+            txtCUIT.Enabled = false;
+            txtRazonSocial.Enabled = false;
             esUpdate = true;
 
             btnAceptar.Text = "Modificar";

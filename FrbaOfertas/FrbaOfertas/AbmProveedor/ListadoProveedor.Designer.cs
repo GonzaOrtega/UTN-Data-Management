@@ -65,10 +65,9 @@
             // btnAtras
             // 
             this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.Location = new System.Drawing.Point(917, 522);
-            this.btnAtras.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAtras.Location = new System.Drawing.Point(815, 418);
             this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(181, 51);
+            this.btnAtras.Size = new System.Drawing.Size(161, 41);
             this.btnAtras.TabIndex = 14;
             this.btnAtras.Text = "ATRÁS";
             this.btnAtras.UseVisualStyleBackColor = true;
@@ -77,10 +76,9 @@
             // btnCrear
             // 
             this.btnCrear.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrear.Location = new System.Drawing.Point(917, 464);
-            this.btnCrear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCrear.Location = new System.Drawing.Point(815, 371);
             this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(181, 51);
+            this.btnCrear.Size = new System.Drawing.Size(161, 41);
             this.btnCrear.TabIndex = 13;
             this.btnCrear.Text = "CREAR";
             this.btnCrear.UseVisualStyleBackColor = true;
@@ -89,10 +87,9 @@
             // btnLimpiar
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(917, 405);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLimpiar.Location = new System.Drawing.Point(815, 324);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(181, 51);
+            this.btnLimpiar.Size = new System.Drawing.Size(161, 41);
             this.btnLimpiar.TabIndex = 12;
             this.btnLimpiar.Text = "LIMPIAR";
             this.btnLimpiar.UseVisualStyleBackColor = true;
@@ -101,10 +98,9 @@
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(917, 346);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnBuscar.Location = new System.Drawing.Point(815, 277);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(181, 51);
+            this.btnBuscar.Size = new System.Drawing.Size(161, 41);
             this.btnBuscar.TabIndex = 11;
             this.btnBuscar.Text = "BUSCAR";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -119,11 +115,9 @@
             this.groupBox2.Controls.Add(this.txtRazon);
             this.groupBox2.Controls.Add(this.txtCuit);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(33, 40);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Location = new System.Drawing.Point(29, 32);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(865, 248);
+            this.groupBox2.Size = new System.Drawing.Size(769, 198);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filtros de busqueda";
@@ -132,55 +126,52 @@
             // txtMail
             // 
             this.txtMail.ForeColor = System.Drawing.Color.Black;
-            this.txtMail.Location = new System.Drawing.Point(253, 185);
-            this.txtMail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtMail.Location = new System.Drawing.Point(225, 148);
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(245, 39);
+            this.txtMail.Size = new System.Drawing.Size(218, 34);
             this.txtMail.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 185);
+            this.label3.Location = new System.Drawing.Point(35, 148);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 32);
+            this.label3.Size = new System.Drawing.Size(58, 29);
             this.label3.TabIndex = 4;
             this.label3.Text = "Mail";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 125);
+            this.label2.Location = new System.Drawing.Point(35, 100);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 32);
+            this.label2.Size = new System.Drawing.Size(69, 29);
             this.label2.TabIndex = 3;
             this.label2.Text = "CUIT";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 62);
+            this.label1.Location = new System.Drawing.Point(35, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 32);
+            this.label1.Size = new System.Drawing.Size(157, 29);
             this.label1.TabIndex = 2;
             this.label1.Text = "Razon_social";
             // 
             // txtRazon
             // 
             this.txtRazon.ForeColor = System.Drawing.Color.Black;
-            this.txtRazon.Location = new System.Drawing.Point(253, 62);
-            this.txtRazon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtRazon.Location = new System.Drawing.Point(225, 50);
             this.txtRazon.Name = "txtRazon";
-            this.txtRazon.Size = new System.Drawing.Size(245, 39);
+            this.txtRazon.Size = new System.Drawing.Size(218, 34);
             this.txtRazon.TabIndex = 1;
             // 
             // txtCuit
             // 
             this.txtCuit.ForeColor = System.Drawing.Color.Black;
-            this.txtCuit.Location = new System.Drawing.Point(253, 125);
-            this.txtCuit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCuit.Location = new System.Drawing.Point(225, 100);
             this.txtCuit.Name = "txtCuit";
-            this.txtCuit.Size = new System.Drawing.Size(245, 39);
+            this.txtCuit.Size = new System.Drawing.Size(218, 34);
             this.txtCuit.TabIndex = 0;
             // 
             // proveedorTableAdapter1
@@ -206,6 +197,7 @@
             this.tableAdapterManager.CUPONTableAdapter = null;
             this.tableAdapterManager.FACTURATableAdapter = null;
             this.tableAdapterManager.FUNCIONALIDADTableAdapter = null;
+            this.tableAdapterManager.ITEM_FACTURATableAdapter = null;
             this.tableAdapterManager.MaestraTableAdapter = null;
             this.tableAdapterManager.OFERTASTableAdapter = null;
             this.tableAdapterManager.PROVEEDORTableAdapter = this.proveedorTableAdapter1;
@@ -221,10 +213,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(917, 288);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Location = new System.Drawing.Point(815, 230);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(181, 51);
+            this.button1.Size = new System.Drawing.Size(161, 41);
             this.button1.TabIndex = 16;
             this.button1.Text = "BORRAR";
             this.button1.UseVisualStyleBackColor = true;
@@ -233,10 +224,9 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(917, 225);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button2.Location = new System.Drawing.Point(815, 180);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(181, 51);
+            this.button2.Size = new System.Drawing.Size(161, 41);
             this.button2.TabIndex = 17;
             this.button2.Text = "MODIFICAR";
             this.button2.UseVisualStyleBackColor = true;
@@ -256,11 +246,14 @@
             this.Mail,
             this.Codigo_postal,
             this.Nombre_contacto});
-            this.dataGridView1.Location = new System.Drawing.Point(33, 306);
+            this.dataGridView1.Location = new System.Drawing.Point(29, 245);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(865, 297);
+            this.dataGridView1.Size = new System.Drawing.Size(769, 238);
             this.dataGridView1.TabIndex = 18;
             // 
             // CUIT
@@ -268,6 +261,7 @@
             this.CUIT.HeaderText = "CUIT";
             this.CUIT.MinimumWidth = 8;
             this.CUIT.Name = "CUIT";
+            this.CUIT.ReadOnly = true;
             this.CUIT.Width = 150;
             // 
             // Razon_social
@@ -275,6 +269,7 @@
             this.Razon_social.HeaderText = "Razon_social";
             this.Razon_social.MinimumWidth = 8;
             this.Razon_social.Name = "Razon_social";
+            this.Razon_social.ReadOnly = true;
             this.Razon_social.Width = 150;
             // 
             // Direccion
@@ -282,6 +277,7 @@
             this.Direccion.HeaderText = "Direccion";
             this.Direccion.MinimumWidth = 8;
             this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
             this.Direccion.Width = 150;
             // 
             // Ciudad
@@ -289,6 +285,7 @@
             this.Ciudad.HeaderText = "Ciudad";
             this.Ciudad.MinimumWidth = 8;
             this.Ciudad.Name = "Ciudad";
+            this.Ciudad.ReadOnly = true;
             this.Ciudad.Width = 150;
             // 
             // Telefono
@@ -296,6 +293,7 @@
             this.Telefono.HeaderText = "Telefono";
             this.Telefono.MinimumWidth = 8;
             this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
             this.Telefono.Width = 150;
             // 
             // Rubro
@@ -303,6 +301,7 @@
             this.Rubro.HeaderText = "Rubro";
             this.Rubro.MinimumWidth = 8;
             this.Rubro.Name = "Rubro";
+            this.Rubro.ReadOnly = true;
             this.Rubro.Width = 150;
             // 
             // Mail
@@ -310,6 +309,7 @@
             this.Mail.HeaderText = "Mail";
             this.Mail.MinimumWidth = 8;
             this.Mail.Name = "Mail";
+            this.Mail.ReadOnly = true;
             this.Mail.Width = 150;
             // 
             // Codigo_postal
@@ -317,6 +317,7 @@
             this.Codigo_postal.HeaderText = "Codigo_postal";
             this.Codigo_postal.MinimumWidth = 8;
             this.Codigo_postal.Name = "Codigo_postal";
+            this.Codigo_postal.ReadOnly = true;
             this.Codigo_postal.Width = 150;
             // 
             // Nombre_contacto
@@ -324,14 +325,15 @@
             this.Nombre_contacto.HeaderText = "Nombre_contacto";
             this.Nombre_contacto.MinimumWidth = 8;
             this.Nombre_contacto.Name = "Nombre_contacto";
+            this.Nombre_contacto.ReadOnly = true;
             this.Nombre_contacto.Width = 150;
             // 
             // ListadoProveedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(1136, 629);
+            this.ClientSize = new System.Drawing.Size(1010, 503);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -340,7 +342,6 @@
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.groupBox2);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ListadoProveedor";
             this.Text = "Listar";
             this.groupBox2.ResumeLayout(false);

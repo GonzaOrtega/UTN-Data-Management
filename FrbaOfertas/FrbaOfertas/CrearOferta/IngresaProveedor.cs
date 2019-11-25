@@ -32,7 +32,8 @@ namespace FrbaOfertas.CrearOferta
             if (this.proveedorTableAdapter1.GetDataByPk(txtCuit.Text, txtRazonSocial.Text).Count() != 0)
             {
                 new CrearOferta(txtCuit.Text, txtRazonSocial.Text, funcion,this).Show();
-                Hide();
+                cerrar = true;
+                Close();
             }
             else
             {

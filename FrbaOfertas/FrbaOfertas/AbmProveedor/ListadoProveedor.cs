@@ -108,22 +108,29 @@ namespace FrbaOfertas.AbmProveedor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int fila = dataGridView1.CurrentCell.RowIndex;
-            String cuit = Convert.ToString(dataGridView1.Rows[fila].Cells[0].Value);
-            String razonSocial = Convert.ToString(dataGridView1.Rows[fila].Cells[1].Value);
-            String direccion = Convert.ToString(dataGridView1.Rows[fila].Cells[2].Value);
-            String ciudad = Convert.ToString(dataGridView1.Rows[fila].Cells[3].Value);
-            Double telefono = Convert.ToDouble(dataGridView1.Rows[fila].Cells[4].Value);
-            String rubro = Convert.ToString(dataGridView1.Rows[fila].Cells[5].Value);
-            String mail = Convert.ToString(dataGridView1.Rows[fila].Cells[6].Value);
-            Double codPostal = Convert.ToDouble(dataGridView1.Rows[fila].Cells[7].Value);
-            String nombreContacto = Convert.ToString(dataGridView1.Rows[fila].Cells[8].Value);
+            if (dataGridView1.Rows.Count > 0)
+            {
+                int fila = dataGridView1.CurrentCell.RowIndex;
+                String cuit = Convert.ToString(dataGridView1.Rows[fila].Cells[0].Value);
+                String razonSocial = Convert.ToString(dataGridView1.Rows[fila].Cells[1].Value);
+                String direccion = Convert.ToString(dataGridView1.Rows[fila].Cells[2].Value);
+                String ciudad = Convert.ToString(dataGridView1.Rows[fila].Cells[3].Value);
+                Double telefono = Convert.ToDouble(dataGridView1.Rows[fila].Cells[4].Value);
+                String rubro = Convert.ToString(dataGridView1.Rows[fila].Cells[5].Value);
+                String mail = Convert.ToString(dataGridView1.Rows[fila].Cells[6].Value);
+                Double codPostal = Convert.ToDouble(dataGridView1.Rows[fila].Cells[7].Value);
+                String nombreContacto = Convert.ToString(dataGridView1.Rows[fila].Cells[8].Value);
 
 
-            new CrearProveedor(cuit, 
-                razonSocial, direccion, ciudad,
-                telefono, rubro, mail, codPostal,
-                nombreContacto).Show();
+                new CrearProveedor(cuit,
+                    razonSocial, direccion, ciudad,
+                    telefono, rubro, mail, codPostal,
+                    nombreContacto).Show();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione la fila que desea modificar", "ERROR", MessageBoxButtons.OK);
+            }
         }
 
 

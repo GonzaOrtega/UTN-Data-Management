@@ -17,6 +17,8 @@ namespace FrbaOfertas.AbmProveedor
         public CrearProveedor()
         {
             InitializeComponent();
+            cbRubro.DataSource = rubroTableAdapter1.GetData();
+            cbRubro.ValueMember = "Descripcion";
         }
 
         public CrearProveedor(String cuitObtenido, String razonSocialObtennido, 
@@ -30,7 +32,8 @@ namespace FrbaOfertas.AbmProveedor
             txtDireccion.Text = direccion;
             txtCiudad.Text = ciudad;
             txtTelefono.Text = Convert.ToString(telefono);
-            txtRubro.Text = rubro;
+            cbRubro.DataSource = rubroTableAdapter1.GetData();
+            cbRubro.ValueMember = "Descripcion";
             txtMail.Text = mail;
             txtCP.Text = Convert.ToString(codPostal);
             txtNC.Text = nombreContacto;
@@ -49,7 +52,6 @@ namespace FrbaOfertas.AbmProveedor
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             txtCiudad.Clear();
-            txtRubro.Clear();
             txtTelefono.Clear();
             txtRazonSocial.Clear();
             txtNC.Clear();
@@ -69,7 +71,7 @@ namespace FrbaOfertas.AbmProveedor
         }
         private bool validarRubro()
         {
-            if(rubroTableAdapter1.GetData().Select("Descripcion like '" + txtRubro.Text + "'").Count() == 0)
+            if(rubroTableAdapter1.GetData().Select("Descripcion like '" + cbRubro.Text + "'").Count() == 0)
             {
                 MessageBox.Show("Lo sentimos el rubro no existe", "ERROR!", MessageBoxButtons.OK);
                 return false;
@@ -80,7 +82,7 @@ namespace FrbaOfertas.AbmProveedor
         {
             if (esUpdate && this.validarRubro())
             {
-                DataRow id_rubro = rubroTableAdapter1.GetData().Select("Descripcion like '" + txtRubro.Text + "'").First();
+                DataRow id_rubro = rubroTableAdapter1.GetData().Select("Descripcion like '" + cbRubro.Text + "'").First();
                 proveedorTableAdapter1.UpdateQuery(txtDireccion.Text,
                     txtCiudad.Text, Convert.ToDecimal(txtTelefono.Text),
                     Convert.ToInt32(id_rubro["ID_rubro"]), txtMail.Text, Convert.ToDecimal(txtCP.Text),
@@ -91,7 +93,7 @@ namespace FrbaOfertas.AbmProveedor
             else
             {
                 if (this.validarPk() && this.validarRubro()) {
-                    DataRow id_rubro = rubroTableAdapter1.GetData().Select("Descripcion like '" + txtRubro.Text + "'").First();
+                    DataRow id_rubro = rubroTableAdapter1.GetData().Select("Descripcion like '" + cbRubro.Text + "'").First();
                     proveedorTableAdapter1.InsertQuery(txtCUIT.Text, txtRazonSocial.Text, txtDireccion.Text, txtCiudad.Text, Convert.ToDecimal(txtTelefono.Text),Convert.ToInt32(id_rubro["ID_rubro"].ToString()), txtMail.Text, Convert.ToDecimal(txtCP.Text), txtNC.Text);
                     MessageBox.Show("Se ha creado el proveedor", "FELICIDADES", MessageBoxButtons.OK);
                     Close();
@@ -115,11 +117,6 @@ namespace FrbaOfertas.AbmProveedor
             {
                 e.Handled = true;
             }
-        }
-
-        private void CrearProveedor_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -56,6 +56,7 @@
             this.Mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo_postal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre_contacto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.habilitado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pROVEEDORBindingSource)).BeginInit();
@@ -245,7 +246,8 @@
             this.Rubro,
             this.Mail,
             this.Codigo_postal,
-            this.Nombre_contacto});
+            this.Nombre_contacto,
+            this.habilitado});
             this.dataGridView1.Location = new System.Drawing.Point(29, 245);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.MultiSelect = false;
@@ -328,6 +330,14 @@
             this.Nombre_contacto.ReadOnly = true;
             this.Nombre_contacto.Width = 150;
             // 
+            // habilitado
+            // 
+            this.habilitado.HeaderText = "habilitado";
+            this.habilitado.MinimumWidth = 6;
+            this.habilitado.Name = "habilitado";
+            this.habilitado.ReadOnly = true;
+            this.habilitado.Width = 125;
+            // 
             // ListadoProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -344,6 +354,7 @@
             this.Controls.Add(this.groupBox2);
             this.Name = "ListadoProveedor";
             this.Text = "Listar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ListadoProveedor_FormClosing);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gD2C2019DataSet)).EndInit();
@@ -382,5 +393,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Mail;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo_postal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre_contacto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn habilitado;
     }
 }

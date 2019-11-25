@@ -12,6 +12,7 @@ namespace FrbaOfertas.AbmProveedor
 {
     public partial class ListadoProveedor : Form
     {
+        bool cerrado = false;
         Funciones.Funciones funciones;
         public ListadoProveedor(Funciones.Funciones fun)
         {
@@ -27,6 +28,7 @@ namespace FrbaOfertas.AbmProveedor
         private void btnAtras_Click(object sender, EventArgs e)
         {
             funciones.Show();
+            cerrado = true;
             Close();
         }
 
@@ -79,13 +81,9 @@ namespace FrbaOfertas.AbmProveedor
                     row["Descripcion"],
                     row["Mail"],
                     row["Codigo_postal"],
-                    row["Nombre_contacto"]);
+                    row["Nombre_contacto"],
+                    row["habilitado"]);
             }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -133,6 +131,19 @@ namespace FrbaOfertas.AbmProveedor
             }
         }
 
-
+        private void ListadoProveedor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing && cerrado == false && cerrado == false)
+            {
+                if (MessageBox.Show("¿Está seguro que desea salir del sistema?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
+        }
     }
 }

@@ -12,7 +12,6 @@ namespace FrbaOfertas.AbmCliente
 {
     public partial class IngresarCliente : Form
     {
-        string tipo;
         public IngresarCliente()
         {
             InitializeComponent();
@@ -20,9 +19,8 @@ namespace FrbaOfertas.AbmCliente
         }
 
         int usuario;
-        public IngresarCliente(int usu, string tipo)
+        public IngresarCliente(int usu)
         {
-            this.tipo = tipo;
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
             usuario = usu;
@@ -41,14 +39,7 @@ namespace FrbaOfertas.AbmCliente
         {
             try
             {
-                if (tipo.Equals("comprar"))
-                {
-                    new ComprarOferta.ComprarOfertas(Convert.ToDouble(txtDNI.Text) ,usuario).Show();
-                }
-                else
-                {
-                    new ConsumoOferta.ConsumoOfertas().Show();
-                }
+                new ComprarOferta.ComprarOfertas(Convert.ToDouble(txtDNI.Text) ,usuario).Show();
 
             }catch(Exception ex)
             {

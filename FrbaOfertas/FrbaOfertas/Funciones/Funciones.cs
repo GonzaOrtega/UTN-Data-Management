@@ -55,7 +55,18 @@ namespace FrbaOfertas.Funciones
                     Hide();
                     break;
                 case "BajarOferta":
-                    new ConsumoOferta.ConsumoOfertas(usuario).Show();
+
+                    DataRow tipo3 = tipO_USUARIOTableAdapter1.GetDataByUsuario(usuario).First();
+                    if (tipo3["CUIT_proveedor"].ToString() == "")
+                    {
+                        new CrearOferta.IngresaProveedor(this).Show();
+                    }
+                    else
+                    {
+                        new ConsumoOferta.ConsumoOfertas(tipo3["CUIT_proveedor"].ToString(), tipo3["Razon_social"].ToString(), usuario).Show();
+                    }
+
+                    //new ConsumoOferta.ConsumoOfertas(usuario).Show();
                     cerrado = true;
                     Close();
                     break;
@@ -64,7 +75,7 @@ namespace FrbaOfertas.Funciones
                     DataRow tipo2 = tipO_USUARIOTableAdapter1.GetDataByUsuario(usuario).First();
                     if (tipo2["DNI_cliente"].ToString() == "")
                     {
-                        new AbmCliente.IngresarCliente(usuario, "comprar").Show();
+                        new AbmCliente.IngresarCliente(usuario).Show();
                         // Patente pendiente
                     }
                     else

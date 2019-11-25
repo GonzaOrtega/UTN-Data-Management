@@ -28,11 +28,13 @@ namespace FrbaOfertas.ConsumoOferta
         }
 
         int usuario;
-        public ConsumoOfertas(int usu)
+        public ConsumoOfertas(string cuit, string razonSocial,int usu)
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
             usuario = usu;
+            this.cuit = cuit;
+            this.razonSocial = razonSocial;
         }
 
         private void label1_Click(object sender, EventArgs e)

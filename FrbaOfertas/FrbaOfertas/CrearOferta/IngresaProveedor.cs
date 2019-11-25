@@ -88,5 +88,10 @@ namespace FrbaOfertas.CrearOferta
                 txtRazonSocial.ForeColor = Color.Black;
             }
         }
+
+        private void IngresaProveedor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -79,6 +79,12 @@
     <Compile Include="AbmCliente\ABMCliente.Designer.cs">
       <DependentUpon>ABMCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="AbmCliente\IngresarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbmCliente\IngresarCliente.Designer.cs">
+      <DependentUpon>IngresarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="AbmProveedor\CrearProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AbmCliente\ABMCliente.resx">
       <DependentUpon>ABMCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbmCliente\IngresarCliente.resx">
+      <DependentUpon>IngresarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AbmProveedor\CrearProveedor.resx">
       <DependentUpon>CrearProveedor.cs</DependentUpon>

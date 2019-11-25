@@ -60,7 +60,20 @@ namespace FrbaOfertas.Funciones
                     Close();
                     break;
                 case "ComprarOferta":
-                    new ComprarOferta.ComprarOfertas(usuario).Show();
+
+                    DataRow tipo2 = tipO_USUARIOTableAdapter1.GetDataByUsuario(usuario).First();
+                    if (tipo2["DNI_cliente"].ToString() == "")
+                    {
+                        //new CrearOferta.IngresaProveedor(this).Show();
+                        // Patente pendiente
+                    }
+                    else
+                    {
+                        //new CrearOferta.CrearOferta(tipo2["CUIT_proveedor"].ToString(), tipo["Razon_social"].ToString(), this, null).Show();
+                        new ComprarOferta.ComprarOfertas(Convert.ToDouble(tipo2["DNI_cliente"].ToString())).Show();
+                    }
+
+                    //new ComprarOferta.ComprarOfertas(usuario).Show();
                     cerrado = true;
                     Close();
                     break;

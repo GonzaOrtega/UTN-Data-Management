@@ -191,13 +191,8 @@ namespace FrbaOfertas.AbmCliente
                     this.guardarStringEnDiccionario("Apellido", txtApellidoTLibre.Text);
                     this.guardarStringEnDiccionario("Mail", txtEmailTLibre.Text);
                     this.DNIEsCorrecto();
-
-                    this.buscar();
                 }
-                else
-                {
-                    MessageBox.Show("No se ingresaron condiciones de filtro");
-                }
+                this.buscar();
 
             }
             catch (System.FormatException ex)
@@ -222,7 +217,10 @@ namespace FrbaOfertas.AbmCliente
 
         public void buscar()
         {
-            query = query + " WHERE ";
+            if (hayCondicionesDeFiltro())
+            {
+                query = query + " WHERE ";
+            }
             if (this.hayDNI())
             {
                 query = query + "DNI_cliente = " + dniglobal;

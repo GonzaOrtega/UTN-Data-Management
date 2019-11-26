@@ -54,6 +54,7 @@ namespace FrbaOfertas.CargaCredito
                         Queries.insertarTarjeta(tarjeta);
                         Queries.insertarCarga(credito);
                         Queries.aumentarCredito(credito.DniCliente, credito.Monto);
+                        MessageBox.Show("Carga realizada satisfactoriamente", "Carga de credito");
                     }
                     else
                     {

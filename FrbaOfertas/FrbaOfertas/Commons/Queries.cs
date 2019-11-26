@@ -91,7 +91,9 @@ namespace FrbaOfertas.Commons
 
             if (credito.HayTarjeta)
             {
-                comando.Parameters.AddWithValue("@ID_tarjeta", Validacion.validarDouble(credito.NroTarjeta));
+                string queryPosta = "select max(ID_tarjeta) from TARJETA";
+                int idTarjeta = Convert.ToInt32(obtenerDatoTabla(queryPosta, 0));
+                comando.Parameters.AddWithValue("@ID_tarjeta", idTarjeta);
             }
             else
             {
@@ -116,7 +118,8 @@ namespace FrbaOfertas.Commons
             
             comando.Parameters.AddWithValue("@Fecha_Vencimiento", tarjeta.FechaVencimiento);
             comando.Parameters.AddWithValue("@Nombre_tutorial", Validacion.validarString(tarjeta.Titular));
-            comando.Parameters.AddWithValue("@Tipo_pago_desc", Validacion.validarString(tarjeta.TipoTarjeta));
+            comando.Parameters.AddWithValue("@Tipo_pago_desc", tarjeta.TipoTarjeta);
+            //MessageBox.Show(Convert.ToString(Validacion.validarString(tarjeta.TipoTarjeta)));
 
             conexion.Open();
             comando.ExecuteReader();

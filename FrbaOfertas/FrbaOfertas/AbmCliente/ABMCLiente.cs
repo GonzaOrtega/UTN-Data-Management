@@ -51,31 +51,39 @@ namespace FrbaOfertas.AbmCliente
 
         private void planillaModificarCliente_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == planillaModificarCliente.Columns["Seleccione"].Index)
-            {
-                int rowIndex = e.RowIndex;
-                DataGridViewRow row = planillaModificarCliente.Rows[rowIndex];
-                Cliente cliente = cargarClienteParaModificar(row);
-                if (esModificar)
-                {
-                    CrearYModificarCliente modificarCliente = new CrearYModificarCliente();
-                    modificarCliente.Cliente = cliente;
-                    modificarCliente.EsModificado = true;
-                    modificarCliente.BuscarCliente = this;
-                    modificarCliente.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Esta seguro que desea eliminar el Cliente: " + 
-                        row.Cells[0].Value + "?", "Eliminar cliente", MessageBoxButtons.YesNo);
-                    dniglobal = Convert.ToDouble(row.Cells[0].Value);
+            int rowIndex = e.RowIndex;
+            DataGridViewRow row = planillaModificarCliente.Rows[rowIndex];
+            Cliente cliente = cargarClienteParaModificar(row);
 
-                    // Nos olvidamos que al eliminar un cliente hay que eliminarlo de todos lados!!!
-                    Queries.eliminarCliente(dniglobal);
-                    MessageBox.Show("El cliente se ha borrado correctamente", "Eliminar cliente");
-                    limpiarTodo();
-                }
+            if (e.ColumnIndex == planillaModificarCliente.Columns["Modificar"].Index)
+            {
+                modificarCliente(cliente);
             }
+            if (e.ColumnIndex == planillaModificarCliente.Columns["Eliminar"].Index)
+            {
+                eliminarCliente(row);
+            }
+        }
+
+        private void eliminarCliente(DataGridViewRow row)
+        {
+            MessageBox.Show("Esta seguro que desea eliminar el Cliente: " +
+                                   row.Cells[0].Value + "?", "Eliminar cliente", MessageBoxButtons.YesNo);
+            dniglobal = Convert.ToDouble(row.Cells[0].Value);
+
+            // Nos olvidamos que al eliminar un cliente hay que eliminarlo de todos lados!!!
+            Queries.eliminarCliente(dniglobal);
+            MessageBox.Show("El cliente se ha borrado correctamente", "Eliminar cliente");
+            limpiarTodo();
+        }
+
+        private void modificarCliente(Cliente cliente)
+        {
+            CrearYModificarCliente modificarCliente = new CrearYModificarCliente();
+            modificarCliente.Cliente = cliente;
+            modificarCliente.EsModificado = true;
+            modificarCliente.BuscarCliente = this;
+            modificarCliente.Show();
         }
 
         private Cliente cargarClienteParaModificar(DataGridViewRow row)
@@ -138,12 +146,11 @@ namespace FrbaOfertas.AbmCliente
             agregarColumnaModificar(12, "Eliminar");
         }
 
-        private void agregarColumnaModificar(int columnIndex, string textoDeBoton)
+        private void agregarColumnaModificar(int columnIndex, string textoDeColumna)
         {
             DataGridViewButtonColumn seleccionar = new DataGridViewButtonColumn();
-            seleccionar.Name = "Seleccione";
-            seleccionar.Text = textoDeBoton;
-            seleccionar.UseColumnTextForButtonValue = true;
+            seleccionar.Name = textoDeColumna;
+            //seleccionar.UseColumnTextForButtonValue = true;
             if (planillaModificarCliente.Columns["DNI_cliente"] != null)
             {
                 planillaModificarCliente.Columns.Insert(columnIndex, seleccionar);

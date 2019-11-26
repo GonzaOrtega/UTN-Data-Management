@@ -132,20 +132,18 @@ namespace FrbaOfertas.AbmCliente
             }
         }
 
-        private void mostrarColumnaExtra()
+        private void mostrarColumnasModificarYModificar()
+        {
+            agregarColumnaModificar(11, "Modificar");
+            agregarColumnaModificar(12, "Eliminar");
+        }
+
+        private void agregarColumnaModificar(int columnIndex, string textoDeBoton)
         {
             DataGridViewButtonColumn seleccionar = new DataGridViewButtonColumn();
             seleccionar.Name = "Seleccione";
-            if (esModificar)
-            {
-                seleccionar.Text = "Modificar";
-            }
-            else
-            {
-                seleccionar.Text = "Eliminar";
-            }
+            seleccionar.Text = textoDeBoton;
             seleccionar.UseColumnTextForButtonValue = true;
-            int columnIndex = 11;
             if (planillaModificarCliente.Columns["DNI_cliente"] != null)
             {
                 planillaModificarCliente.Columns.Insert(columnIndex, seleccionar);
@@ -239,7 +237,7 @@ namespace FrbaOfertas.AbmCliente
             planillaModificarCliente.DataSource = dataTable;
             this.setRowNumber(planillaModificarCliente);
 
-            mostrarColumnaExtra();
+            mostrarColumnasModificarYModificar();
 
         }
 

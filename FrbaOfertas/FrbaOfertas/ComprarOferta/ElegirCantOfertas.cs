@@ -58,7 +58,6 @@ namespace FrbaOfertas.ComprarOferta
                         this.comprar();
                         this.otorgarCupon(cantCompraDeseada);
                         this.mostrarCupones();
-                        //MessageBox.Show("Compra realizada correctamente");
                         this.Close();
                     }
                     else

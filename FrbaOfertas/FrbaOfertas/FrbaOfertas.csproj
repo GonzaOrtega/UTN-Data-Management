@@ -139,6 +139,12 @@
     <Compile Include="ComprarOferta\ElegirCantOfertas.Designer.cs">
       <DependentUpon>ElegirCantOfertas.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComprarOferta\ElegirUsuariosDestino.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComprarOferta\ElegirUsuariosDestino.Designer.cs">
+      <DependentUpon>ElegirUsuariosDestino.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConsumoOferta\ConsumoOfertas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ComprarOferta\ElegirCantOfertas.resx">
       <DependentUpon>ElegirCantOfertas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComprarOferta\ElegirUsuariosDestino.resx">
+      <DependentUpon>ElegirUsuariosDestino.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsumoOferta\ConsumoOfertas.resx">
       <DependentUpon>ConsumoOfertas.cs</DependentUpon>

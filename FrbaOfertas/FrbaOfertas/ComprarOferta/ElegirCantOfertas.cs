@@ -72,10 +72,6 @@ namespace FrbaOfertas.ComprarOferta
                 }
 
             }
-            catch(System.Data.SqlClient.SqlException ex)
-            {
-                MessageBox.Show("No se puede comprar esta oferta porque el usuario ya la ha comprado");
-            }
             catch(Exception ex)
             {
                 MessageBox.Show("Error: verificar datos ingresados");

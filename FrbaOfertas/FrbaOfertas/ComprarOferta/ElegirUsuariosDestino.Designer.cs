@@ -83,7 +83,7 @@
             this.btnCanjear.Name = "btnCanjear";
             this.btnCanjear.Size = new System.Drawing.Size(152, 51);
             this.btnCanjear.TabIndex = 7;
-            this.btnCanjear.Text = "Canjear";
+            this.btnCanjear.Text = "Comprar";
             this.btnCanjear.UseVisualStyleBackColor = true;
             this.btnCanjear.Click += new System.EventHandler(this.btnCanjear_Click);
             // 
@@ -91,10 +91,19 @@
             // 
             this.txtCantCupones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantCupones.Location = new System.Drawing.Point(306, 147);
+            this.txtCantCupones.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.txtCantCupones.Name = "txtCantCupones";
             this.txtCantCupones.Size = new System.Drawing.Size(225, 35);
             this.txtCantCupones.TabIndex = 8;
-            this.txtCantCupones.Minimum = 1;
+            this.txtCantCupones.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // ElegirUsuariosDestino
             // 

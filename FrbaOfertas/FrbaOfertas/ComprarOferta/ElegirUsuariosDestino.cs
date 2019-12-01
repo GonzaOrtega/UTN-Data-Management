@@ -33,22 +33,22 @@ namespace FrbaOfertas.ComprarOferta
 
         private void btnCanjear_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    this.obtenerClientesDestino();
-            //}
-            //catch (Exception ex){
-            //    MessageBox.Show("Error al ingresar los datos, por favor revisar");
-            //}
+            try
+            {
+                if (esDNI(txtDNIDestino.Text))
+                {
+                    this.obtenerClientesDestino();
+                }
+                else
+                {
+                    MessageBox.Show("Error al ingresar los datos, por favor revisar");
+                }
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                MessageBox.Show("No se puede comprar esta oferta porque el usuario ya la ha comprado");
+            }
 
-            if (esDNI(txtDNIDestino.Text))
-            {
-                this.obtenerClientesDestino();
-            }
-            else
-            {
-                MessageBox.Show("Error al ingresar los datos, por favor revisar");
-            }
         }
 
         private bool esDNI(String dniPotencial)
@@ -85,6 +85,7 @@ namespace FrbaOfertas.ComprarOferta
             this.comprar();
             this.otorgarCupon(compra.CantCompra);
             this.mostrarCupones();
+            this.Close();
         }
 
         private void limpiarTextboxes()
@@ -116,7 +117,6 @@ namespace FrbaOfertas.ComprarOferta
         public void comprar()
         {
             compra.NumFactura = 0; // Esto indica que siempre va a ser nulo, se va a actualizar cuando se haga la facturacion
-            // Descontar credito al usuario por la compra
 
             Queries.insertarCompra(compra);
 
@@ -137,24 +137,28 @@ namespace FrbaOfertas.ComprarOferta
 
         public void otorgarCupon(int cantCompraDeseada)
         {
-            Cupon cupon = new Cupon();
-
-            cupon.CodOferta = compra.CodOferta;
-            cupon.DniClienteOrigen = compra.DniCliente;
-
-
-
-            cupon.DniClienteDestino = Convert.ToDouble(txtDNIDestino.Text);
-
-            // Insertar cupon funciona, falta probar lo de los N cupones (loop)
-            for (int i = 0; i < cantCompraDeseada; i++)
+            foreach(KeyValuePair<String, int> entry in dnisMasCant)
             {
-                Queries.insertarCupon(cupon);
+                for(int i = 0; i < Convert.ToInt32(entry.Value); i ++)
+                {
+                    Cupon cupon = new Cupon();
+
+                    cupon.CodOferta = compra.CodOferta;
+                    cupon.DniClienteOrigen = compra.DniCliente;
+                    cupon.DniClienteDestino = Convert.ToDouble(entry.Key);
+                    Queries.insertarCupon(cupon);
+
+                }
             }
 
-            this.mostrarCupones();
-            this.Close();
-        }
+
+            // Insertar cupon funciona, falta probar lo de los N cupones (loop)
+            //for (int i = 0; i < cantCompraDeseada; i++)
+            //{
+            //    Queries.insertarCupon(cupon);
+            //}
+
+            }
 
     }
 }

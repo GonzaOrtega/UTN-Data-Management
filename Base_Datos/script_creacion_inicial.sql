@@ -1,6 +1,9 @@
 use GD2C2019;
 GO
-   CREATE SCHEMA GEDEDE;
+   IF NOT EXISTS (SELECT * FROM sys.schemas WHERE name = 'GEDEDE')
+	BEGIN
+		EXEC ('CREATE SCHEMA GEDEDE')
+	END
 GO
 ----------------------------------------------------------------------------------------------------------		CREACION_DE_TABLAS
 CREATE TABLE GEDEDE.RUBRO(

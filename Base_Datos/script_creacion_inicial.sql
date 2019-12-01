@@ -338,13 +338,7 @@ values('ABM_PROVEEDOR')
  insert into GEDEDE.ROL_FUNCIONALIDAD(ID_rol,ID_funcionalidad)
  (select ID_rol ,ID_funcionalidad
  FROM GEDEDE.FUNCIONALIDAD f,GEDEDE.ROL
- where Nombre like 'AdministradorGeneral'
- AND (Descripcion  like 'ListadoEstadistico'
- OR Descripcion  like 'ABM_ROL'
- OR Descripcion like 'ABM_CLIENTES'
- OR Descripcion like 'ABM_PROVEEDOR'
- OR  Descripcion like 'FacturarProveedor'
- OR Descripcion like 'ConfeccionarOferta'))
+ where Nombre like 'AdministradorGeneral')
  
 insert into GEDEDE.ROL_FUNCIONALIDAD(ID_rol,ID_funcionalidad)
  (select ID_rol,ID_funcionalidad

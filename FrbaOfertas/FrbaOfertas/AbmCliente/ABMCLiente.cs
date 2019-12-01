@@ -15,7 +15,7 @@ namespace FrbaOfertas.AbmCliente
     public partial class ABMCliente : Form
     {
         // En un rato arreglo este quilombo de variables globales
-        string query = "select * from CLIENTES";
+        string query = "select * from GEDEDE.CLIENTES";
         DataTable dataTable = new DataTable();
         Dictionary<String, String> dictionary = new Dictionary<String, String>();
         Double dniglobal;
@@ -282,7 +282,7 @@ namespace FrbaOfertas.AbmCliente
         public void limpiarEstructuras()
         {
             dictionary.Clear();
-            query = "select * from CLIENTES";
+            query = "select * from GEDEDE.CLIENTES";
             planillaModificarCliente.DataSource = null;
             planillaModificarCliente.Columns.Clear();
             dataTable.Clear();

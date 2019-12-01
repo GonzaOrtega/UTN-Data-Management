@@ -17,7 +17,7 @@ namespace FrbaOfertas.Commons
         SqlDataAdapter adapter = new SqlDataAdapter();
         public static void insertarCliente(Cliente cliente)
         {
-            string query = "dbo.insertarCliente";
+            string query = "GEDEDE.insertarCliente";
 
             //    string query = "INSERT INTO CLIENTES VALUES (@dni, @cp, @nombre, @apellido, @direccion, "
             //+ "@telefono, @mail, @fechanacimiento, @ciudad, @credito)";
@@ -78,7 +78,7 @@ namespace FrbaOfertas.Commons
 
         public static void insertarCarga(Credito credito)
         {
-            string query = "dbo.insertarCarga";
+            string query = "GEDEDE.insertarCarga";
 
             var conexion = DBConnection.getConnection();
             SqlCommand comando = new SqlCommand(query, conexion);
@@ -91,7 +91,7 @@ namespace FrbaOfertas.Commons
 
             if (credito.HayTarjeta)
             {
-                string queryPosta = "select max(ID_tarjeta) from TARJETA";
+                string queryPosta = "select max(ID_tarjeta) from GEDEDE.TARJETA";
                 int idTarjeta = Convert.ToInt32(obtenerDatoTabla(queryPosta, 0));
                 comando.Parameters.AddWithValue("@ID_tarjeta", idTarjeta);
             }
@@ -108,7 +108,7 @@ namespace FrbaOfertas.Commons
 
         public static void insertarTarjeta(Tarjeta tarjeta)
         {
-            string query = "dbo.insertarTarjeta";
+            string query = "GEDEDE.insertarTarjeta";
 
             var conexion = DBConnection.getConnection();
             SqlCommand comando = new SqlCommand(query, conexion);
@@ -141,7 +141,7 @@ namespace FrbaOfertas.Commons
         }
         public static void insertarCompra(Compra compra)
         {
-            string query = "dbo.insertarCompra";
+            string query = "GEDEDE.insertarCompra";
 
             var conexion = DBConnection.getConnection();
             SqlCommand comando = new SqlCommand(query, conexion);
@@ -161,7 +161,7 @@ namespace FrbaOfertas.Commons
 
         public static void insertarCupon(Cupon cupon)
         {
-            string query = "dbo.insertarCupon";
+            string query = "GEDEDE.insertarCupon";
 
             var conexion = DBConnection.getConnection();
             SqlCommand comando = new SqlCommand(query, conexion);
@@ -179,7 +179,7 @@ namespace FrbaOfertas.Commons
 
         public static bool existeCupon(int nroCupon, ref string codOferta)
         {
-            string query = "SELECT * FROM CUPON WHERE Codigo_cupon = " + nroCupon;
+            string query = "SELECT * FROM GEDEDE.CUPON WHERE Codigo_cupon = " + nroCupon;
             Cupon cupon = new Cupon();
             codOferta = obtenerDatoTabla(query, 4);
             return !String.IsNullOrWhiteSpace(codOferta);
@@ -187,7 +187,7 @@ namespace FrbaOfertas.Commons
 
         public static void canjearCupon(Cupon cupon)
         {
-            string query = "dbo.canjearCupon";
+            string query = "GEDEDE.canjearCupon";
 
             var conexion = DBConnection.getConnection();
             SqlCommand comando = new SqlCommand(query, conexion);
@@ -224,7 +224,7 @@ namespace FrbaOfertas.Commons
 
         public static void disminuirCreditoCliente(Double dniCliente, Double precioCompra)
         {
-            string query = "dbo.cobrarCompra";
+            string query = "GEDEDE.cobrarCompra";
 
             var conexion = DBConnection.getConnection();
             SqlCommand comando = new SqlCommand(query, conexion);
@@ -240,7 +240,7 @@ namespace FrbaOfertas.Commons
 
         public static void aumentarCredito(Double dniCliente, Double precioCompra)
         {
-            string query = "dbo.aumentarCredito";
+            string query = "GEDEDE.aumentarCredito";
 
             var conexion = DBConnection.getConnection();
             SqlCommand comando = new SqlCommand(query, conexion);
@@ -256,7 +256,7 @@ namespace FrbaOfertas.Commons
 
         public static void updateCliente(Cliente cliente)
         {
-            string query = "dbo.actualizarCliente";
+            string query = "GEDEDE.actualizarCliente";
 
             var conexion = DBConnection.getConnection();
             SqlCommand comando = new SqlCommand(query, conexion);
@@ -281,7 +281,7 @@ namespace FrbaOfertas.Commons
 
         public static void eliminarCliente(Double dniCliente)
         {
-            string query = "dbo.eliminarCliente";
+            string query = "GEDEDE.eliminarCliente";
 
             var conexion = DBConnection.getConnection();
             SqlCommand comando = new SqlCommand(query, conexion);

@@ -109,7 +109,9 @@ namespace FrbaOfertas.ComprarOferta
             string respuesta = "Compra realizada exitosamente\n\nLos cupones para canjear su compra son:\n";
             foreach (String nroCupon in nroCupones)
             {
-                respuesta = respuesta + nroCupon + "\n";
+                string query = "SELECT * FROM CUPON WHERE Codigo_cupon = " + nroCupon;
+                string dniClienteDestino = Convert.ToString(Queries.obtenerDatoTabla(query, 3));
+                respuesta = respuesta + "DNI: " + dniClienteDestino + "\tCodigo de cupon: " + nroCupon + "\n";
             }
             MessageBox.Show(respuesta);
         }

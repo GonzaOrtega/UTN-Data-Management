@@ -93,6 +93,7 @@
             this.btnCanjear.TabIndex = 7;
             this.btnCanjear.Text = "Canjear";
             this.btnCanjear.UseVisualStyleBackColor = true;
+            this.btnCanjear.Click += new System.EventHandler(this.btnCanjear_Click);
             // 
             // ElegirUsuariosDestino
             // 

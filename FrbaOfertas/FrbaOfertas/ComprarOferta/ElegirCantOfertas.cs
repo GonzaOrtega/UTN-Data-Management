@@ -54,10 +54,11 @@ namespace FrbaOfertas.ComprarOferta
                         // Insertar Compra y Cupones correspondientes
                         // Por ahora voy a considerar que los cupones que se generan son mandados a la misma persona,
                         //      que la elije el usuario
-                        
-                        this.comprar();
-                        this.otorgarCupon(cantCompraDeseada);
-                        this.mostrarCupones();
+
+                        //this.comprar();
+                        //this.otorgarCupon(cantCompraDeseada);
+                        //this.mostrarCupones();
+                        new ElegirUsuariosDestino(armarCompra());
                         this.Close();
                     }
                     else
@@ -81,39 +82,50 @@ namespace FrbaOfertas.ComprarOferta
             }
         }
 
-        private void mostrarCupones()
-        {
-            List<String> nroCupones;
-            string query = "SELECT * FROM CUPON WHERE Codigo_oferta = '" + codOferta +
-                "' AND DNI_cliente_origen = " + dniClienteOrigen;
-            nroCupones = Queries.obtenerNroCuponesDeCliente(query);
-            mostrarCuponesEnPantalla(nroCupones);
-        }
-
-        private void mostrarCuponesEnPantalla(List<String> nroCupones)
-        {
-            string respuesta = "Compra realizada exitosamente\n\nLos cupones para canjear su compra son:\n";
-            foreach(String nroCupon in nroCupones)
-            {
-                respuesta = respuesta + nroCupon + "\n";
-            }
-            MessageBox.Show(respuesta);
-        }
-
-        public void comprar()
+        private Compra armarCompra()
         {
             Compra compra = new Compra();
             compra.CantCompra = cantCompraDeseada;
             compra.CodOferta = codOferta;
             compra.DniCliente = dniClienteOrigen;
             compra.FechaCompra = obtenerFechaConfigFile();
-            compra.NumFactura = 0; // Esto indica que siempre va a ser nulo, se va a actualizar cuando se haga la facturacion
-            // Descontar credito al usuario por la compra
-
-            Queries.insertarCompra(compra);
-
-            Queries.disminuirCreditoCliente(dniClienteOrigen, precioTotal);
+            compra.PrecioTotal = precioTotal;
+            return compra;
         }
+
+        //private void mostrarCupones()
+        //{
+        //    List<String> nroCupones;
+        //    string query = "SELECT * FROM CUPON WHERE Codigo_oferta = '" + codOferta +
+        //        "' AND DNI_cliente_origen = " + dniClienteOrigen;
+        //    nroCupones = Queries.obtenerNroCuponesDeCliente(query);
+        //    mostrarCuponesEnPantalla(nroCupones);
+        //}
+
+        //private void mostrarCuponesEnPantalla(List<String> nroCupones)
+        //{
+        //    string respuesta = "Compra realizada exitosamente\n\nLos cupones para canjear su compra son:\n";
+        //    foreach(String nroCupon in nroCupones)
+        //    {
+        //        respuesta = respuesta + nroCupon + "\n";
+        //    }
+        //    MessageBox.Show(respuesta);
+        //}
+
+        //public void comprar()
+        //{
+        //    Compra compra = new Compra();
+        //    compra.CantCompra = cantCompraDeseada;
+        //    compra.CodOferta = codOferta;
+        //    compra.DniCliente = dniClienteOrigen;
+        //    compra.FechaCompra = obtenerFechaConfigFile();
+        //    compra.NumFactura = 0; // Esto indica que siempre va a ser nulo, se va a actualizar cuando se haga la facturacion
+        //    // Descontar credito al usuario por la compra
+
+        //    Queries.insertarCompra(compra);
+
+        //    Queries.disminuirCreditoCliente(dniClienteOrigen, precioTotal);
+        //}
 
         public static DateTime obtenerFechaConfigFile()
         {
@@ -122,27 +134,27 @@ namespace FrbaOfertas.ComprarOferta
             return fecha;
         }
 
-        public void otorgarCupon(int cantCompraDeseada)
-        {
-            Cupon cupon = new Cupon();
+        //public void otorgarCupon(int cantCompraDeseada)
+        //{
+        //    Cupon cupon = new Cupon();
 
-            cupon.CodOferta = codOferta;
-            cupon.DniClienteOrigen = dniClienteOrigen;
-            cupon.DniClienteDestino = Convert.ToDouble(txtClienteDestino.Text);
+        //    cupon.CodOferta = codOferta;
+        //    cupon.DniClienteOrigen = dniClienteOrigen;
+        //    cupon.DniClienteDestino = Convert.ToDouble(txtClienteDestino.Text);
 
-            // Insertar cupon funciona, falta probar lo de los N cupones (loop)
-            for (int i = 0; i < cantCompraDeseada; i ++) { 
-                Queries.insertarCupon(cupon);
-            }
-        }
+        //    // Insertar cupon funciona, falta probar lo de los N cupones (loop)
+        //    for (int i = 0; i < cantCompraDeseada; i ++) { 
+        //        Queries.insertarCupon(cupon);
+        //    }
+        //}
 
-        private DateTime diaAleatorio()
-        {
-            Random gen = new Random();
-            DateTime start = obtenerFechaConfigFile();
-            int range = (DateTime.Today - start).Days;
-            return start.AddDays(gen.Next(range));
-        }
+        //private DateTime diaAleatorio()
+        //{
+        //    Random gen = new Random();
+        //    DateTime start = obtenerFechaConfigFile();
+        //    int range = (DateTime.Today - start).Days;
+        //    return start.AddDays(gen.Next(range));
+        //}
 
         private bool creditoSeaSuficiente(int cantDeseada)
         {

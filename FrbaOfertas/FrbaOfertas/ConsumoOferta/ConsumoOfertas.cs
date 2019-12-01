@@ -44,7 +44,7 @@ namespace FrbaOfertas.ConsumoOferta
 
         private void btnCanjear_Click(object sender, EventArgs e)
         {
-            try
+            if(datosIngresadosCorrectamente())
             {
                 cupon.CodCupon = Convert.ToInt32(txtNroCuponIngresado.Text);
                 if (existeCupon())
@@ -55,22 +55,46 @@ namespace FrbaOfertas.ConsumoOferta
                 {
                     MessageBox.Show("No existe el cupon", "Error");
                 }
-            }catch(Exception ex)
-            {
-                MessageBox.Show("Verificar que los datos ingresados sean correctos", "Error");
             }
+            else
+            {
+                MessageBox.Show("Error al ingresar datos");
+            }
+        }
+
+        private bool datosIngresadosCorrectamente()
+        {
+            Int32 a;
+            return !String.IsNullOrWhiteSpace(txtNroCuponIngresado.Text) &&
+                !String.IsNullOrWhiteSpace(txtDNICliente.Text) && 
+                Int32.TryParse(txtDNICliente.Text, out a) &&
+                Int32.TryParse(txtNroCuponIngresado.Text, out a);
         }
 
         private void cuponEsDeProveedorYNoEstaVencido()
         {
             if (cuponEsDeProveedor())
             {
-                cuponEstaVencidoYEstaCanjeado();
+                if (cuponEsDelCliente())
+                {
+                    cuponEstaVencidoYEstaCanjeado();
+                }
+                else
+                {
+                    MessageBox.Show("El cliente no puede canjear el cupon porque no le pertenece");
+                }
             }
             else
             {
                 MessageBox.Show("El cupon no es de este proveedor", "Error");
             }
+        }
+
+        private bool cuponEsDelCliente()
+        {
+            string query = "SELECT * FROM CUPON WHERE Codigo_cupon = " + cupon.CodCupon;
+            string DNICliente = Convert.ToString(Queries.obtenerDatoTabla(query, 3));
+            return txtDNICliente.Text.Equals(DNICliente);
         }
 
         private void cuponEstaVencidoYEstaCanjeado()

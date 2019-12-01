@@ -32,6 +32,8 @@
             this.txtNroCuponIngresado = new System.Windows.Forms.TextBox();
             this.btnCanjear = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtDNICliente = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -55,7 +57,7 @@
             // 
             // btnCanjear
             // 
-            this.btnCanjear.Location = new System.Drawing.Point(479, 119);
+            this.btnCanjear.Location = new System.Drawing.Point(477, 160);
             this.btnCanjear.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnCanjear.Name = "btnCanjear";
             this.btnCanjear.Size = new System.Drawing.Size(152, 51);
@@ -66,7 +68,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(47, 119);
+            this.button1.Location = new System.Drawing.Point(45, 160);
             this.button1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(152, 51);
@@ -75,12 +77,32 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txtDNICliente
+            // 
+            this.txtDNICliente.Location = new System.Drawing.Point(404, 100);
+            this.txtDNICliente.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txtDNICliente.Name = "txtDNICliente";
+            this.txtDNICliente.Size = new System.Drawing.Size(225, 35);
+            this.txtDNICliente.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(53, 100);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(223, 29);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Ingrese DNI Cliente";
+            // 
             // ConsumoOfertas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(714, 210);
+            this.ClientSize = new System.Drawing.Size(714, 268);
+            this.Controls.Add(this.txtDNICliente);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCanjear);
             this.Controls.Add(this.txtNroCuponIngresado);
@@ -101,5 +123,7 @@
         private System.Windows.Forms.TextBox txtNroCuponIngresado;
         private System.Windows.Forms.Button btnCanjear;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtDNICliente;
+        private System.Windows.Forms.Label label2;
     }
 }

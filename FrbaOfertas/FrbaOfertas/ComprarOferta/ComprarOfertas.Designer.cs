@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtNroOfertaDefinitiva = new System.Windows.Forms.TextBox();
-            this.labelOpcionEliminar = new System.Windows.Forms.Label();
-            this.btnSiguiente = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.planillaComprarOfertas = new System.Windows.Forms.DataGridView();
@@ -43,35 +40,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.planillaComprarOfertas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtNroOfertaDefinitiva
-            // 
-            this.txtNroOfertaDefinitiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNroOfertaDefinitiva.Location = new System.Drawing.Point(482, 623);
-            this.txtNroOfertaDefinitiva.Name = "txtNroOfertaDefinitiva";
-            this.txtNroOfertaDefinitiva.Size = new System.Drawing.Size(334, 35);
-            this.txtNroOfertaDefinitiva.TabIndex = 17;
-            // 
-            // labelOpcionEliminar
-            // 
-            this.labelOpcionEliminar.AutoSize = true;
-            this.labelOpcionEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOpcionEliminar.Location = new System.Drawing.Point(20, 626);
-            this.labelOpcionEliminar.Name = "labelOpcionEliminar";
-            this.labelOpcionEliminar.Size = new System.Drawing.Size(423, 29);
-            this.labelOpcionEliminar.TabIndex = 16;
-            this.labelOpcionEliminar.Text = "Ingrese el numero de oferta a comprar";
-            // 
-            // btnSiguiente
-            // 
-            this.btnSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSiguiente.Location = new System.Drawing.Point(669, 688);
-            this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(147, 53);
-            this.btnSiguiente.TabIndex = 14;
-            this.btnSiguiente.Text = "Siguiente";
-            this.btnSiguiente.UseVisualStyleBackColor = true;
-            this.btnSiguiente.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // button2
             // 
@@ -170,12 +138,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(846, 775);
+            this.ClientSize = new System.Drawing.Size(846, 617);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.txtNroOfertaDefinitiva);
-            this.Controls.Add(this.labelOpcionEliminar);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.planillaComprarOfertas);
             this.Controls.Add(this.groupBox1);
@@ -186,15 +151,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtNroOfertaDefinitiva;
-        private System.Windows.Forms.Label labelOpcionEliminar;
-        private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView planillaComprarOfertas;

@@ -146,11 +146,11 @@ namespace FrbaOfertas.AbmCliente
 
         private void mostrarColumnasModificarYModificar()
         {
-            agregarColumnaModificar(11, "Modificar");
-            agregarColumnaModificar(12, "Eliminar");
+            agregarColumna(11, "Modificar");
+            agregarColumna(12, "Eliminar");
         }
 
-        private void agregarColumnaModificar(int columnIndex, string textoDeColumna)
+        private void agregarColumna(int columnIndex, string textoDeColumna)
         {
             DataGridViewButtonColumn seleccionar = new DataGridViewButtonColumn();
             seleccionar.Name = textoDeColumna;

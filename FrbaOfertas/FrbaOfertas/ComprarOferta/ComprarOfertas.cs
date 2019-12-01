@@ -21,7 +21,10 @@ namespace FrbaOfertas.ComprarOferta
         public ComprarOfertas()
         {
             InitializeComponent();
+            planillaComprarOfertas.CellClick += planillaComprarOfertas_CellClick;
         }
+
+
 
         int usuario;
         public ComprarOfertas(Double DNICliente, int usu)
@@ -30,11 +33,24 @@ namespace FrbaOfertas.ComprarOferta
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
             usuario = usu;
+            planillaComprarOfertas.CellClick += planillaComprarOfertas_CellClick;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             buscarOfertas();
+            mostrarColumnaComprar(10, "Comprar");
+        }
+
+        private void mostrarColumnaComprar(int columnIndex, string textoDeColumna)
+        {
+            DataGridViewButtonColumn seleccionar = new DataGridViewButtonColumn();
+            seleccionar.Name = textoDeColumna;
+            //seleccionar.UseColumnTextForButtonValue = true;
+            if (planillaComprarOfertas.Columns["Codigo_oferta"] != null)
+            {
+                planillaComprarOfertas.Columns.Insert(columnIndex, seleccionar);
+            }
         }
 
         private void buscarOfertas()
@@ -61,7 +77,7 @@ namespace FrbaOfertas.ComprarOferta
                     this.buscar(query);
 
                     // Si todo esta ok, le permite al usuario avanzar
-                    btnSiguiente.Enabled = true;
+                    //btnSiguiente.Enabled = true;
                 }
                 else
                 {
@@ -82,6 +98,20 @@ namespace FrbaOfertas.ComprarOferta
             return fecha;
         }
 
+        private void planillaComprarOfertas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            planillaComprarOfertas.CellClick -= planillaComprarOfertas_CellClick;
+            planillaComprarOfertas.CellClick += planillaComprarOfertas_CellClick;
+        }
+
+        private void planillaComprarOfertas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string nroOferta = txtNroOfertaDefinitiva.Text;
+            ElegirCantOfertas ofertas = new ElegirCantOfertas();
+            ofertas.CodOferta = txtNroOfertaDefinitiva.Text;
+            ofertas.DniClienteOrigen = clienteId;
+            ofertas.Show();
+        }
         private bool hayDescripcion()
         {
             return !String.IsNullOrWhiteSpace(txtDescripcion.Text);
@@ -118,15 +148,6 @@ namespace FrbaOfertas.ComprarOferta
             return hayCodOferta() || hayDescripcion();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            string nroOferta = txtNroOfertaDefinitiva.Text;
-            ElegirCantOfertas ofertas = new ElegirCantOfertas();
-            ofertas.CodOferta = txtNroOfertaDefinitiva.Text;
-            ofertas.DniClienteOrigen = clienteId;
-            ofertas.Show();
-        }
-
         private bool eligioOferta()
         {
             return !String.IsNullOrEmpty(txtNroOfertaDefinitiva.Text);
@@ -139,7 +160,7 @@ namespace FrbaOfertas.ComprarOferta
 
         private void ComprarOfertas_Load(object sender, EventArgs e)
         {
-            btnSiguiente.Enabled = false;
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

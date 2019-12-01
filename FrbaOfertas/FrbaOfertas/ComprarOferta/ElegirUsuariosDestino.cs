@@ -15,6 +15,8 @@ namespace FrbaOfertas.ComprarOferta
     public partial class ElegirUsuariosDestino : Form
     {
         Compra compra;
+        Dictionary<String, int> dnisMasCant = new Dictionary<String, int>();
+        int contadorDeCantOfertasElegidas = 0;
 
         public ElegirUsuariosDestino()
         {
@@ -31,23 +33,65 @@ namespace FrbaOfertas.ComprarOferta
 
         private void btnCanjear_Click(object sender, EventArgs e)
         {
-            try
+            //try
+            //{
+            //    this.obtenerClientesDestino();
+            //}
+            //catch (Exception ex){
+            //    MessageBox.Show("Error al ingresar los datos, por favor revisar");
+            //}
+
+            if (esDNI(txtDNIDestino.Text))
             {
-                if(txtCantCupones.Value <= compra.CantCompra)
-                {
-                    this.comprar();
-                    //this.otorgarCupon(compra.CantCompra);
-                    this.mostrarCupones();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Error: Cant ingresada mayor a la cant de ordenes\nPor favor ingrese hasta " + compra.CantCompra + " productos");
-                }
+                this.obtenerClientesDestino();
             }
-            catch (Exception ex){
+            else
+            {
                 MessageBox.Show("Error al ingresar los datos, por favor revisar");
             }
+        }
+
+        private bool esDNI(String dniPotencial)
+        {
+            double a;
+            return !String.IsNullOrWhiteSpace(dniPotencial) && Double.TryParse(dniPotencial, out a);
+        }
+
+        public void obtenerClientesDestino()
+        {
+            if(txtCantCupones.Value <= compra.CantCompra)
+            {
+                contadorDeCantOfertasElegidas += Convert.ToInt32(txtCantCupones.Value);
+                if (dnisMasCant.ContainsKey(txtDNIDestino.Text))
+                    dnisMasCant[txtDNIDestino.Text] += Convert.ToInt32(txtCantCupones.Value);
+                else
+                    dnisMasCant.Add(txtDNIDestino.Text, Convert.ToInt32(txtCantCupones.Value));
+
+                if(contadorDeCantOfertasElegidas < compra.CantCompra)
+                {
+                    MessageBox.Show("Por favor ingrese mas personas para que se entreguen los " + (compra.CantCompra - contadorDeCantOfertasElegidas) + " cupones restantes");
+                    this.limpiarTextboxes();
+                }
+            }
+            if(contadorDeCantOfertasElegidas == compra.CantCompra)
+            {
+                this.iniciarOperacionDeCompra();
+            }
+            
+        }
+
+        private void iniciarOperacionDeCompra()
+        {
+            this.comprar();
+            this.otorgarCupon(compra.CantCompra);
+            this.mostrarCupones();
+        }
+
+        private void limpiarTextboxes()
+        {
+            txtDNIDestino.Clear();
+            txtCantCupones.Value = 1;
+            txtCantCupones.Maximum = compra.CantCompra - contadorDeCantOfertasElegidas;
         }
 
         private void mostrarCupones()
@@ -91,23 +135,26 @@ namespace FrbaOfertas.ComprarOferta
 
         }
 
-        //public void otorgarCupon(int cantCompraDeseada)
-        //{
-        //    Cupon cupon = new Cupon();
+        public void otorgarCupon(int cantCompraDeseada)
+        {
+            Cupon cupon = new Cupon();
 
-        //    cupon.CodOferta = compra.CodOferta;
-        //    cupon.DniClienteOrigen = compra.DniCliente;
+            cupon.CodOferta = compra.CodOferta;
+            cupon.DniClienteOrigen = compra.DniCliente;
 
 
 
-        //    cupon.DniClienteDestino = Convert.ToDouble(txtClienteDestino.Text);
+            cupon.DniClienteDestino = Convert.ToDouble(txtDNIDestino.Text);
 
-        //    // Insertar cupon funciona, falta probar lo de los N cupones (loop)
-        //    for (int i = 0; i < cantCompraDeseada; i++)
-        //    {
-        //        Queries.insertarCupon(cupon);
-        //    }
-        //}
+            // Insertar cupon funciona, falta probar lo de los N cupones (loop)
+            for (int i = 0; i < cantCompraDeseada; i++)
+            {
+                Queries.insertarCupon(cupon);
+            }
+
+            this.mostrarCupones();
+            this.Close();
+        }
 
     }
 }

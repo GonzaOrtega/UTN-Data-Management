@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtDNI = new System.Windows.Forms.TextBox();
+            this.txtDNIDestino = new System.Windows.Forms.TextBox();
             this.btnCanjear = new System.Windows.Forms.Button();
             this.txtCantCupones = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantCupones)).BeginInit();
@@ -67,14 +67,14 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Cant cupones";
             // 
-            // txtDNI
+            // txtDNIDestino
             // 
-            this.txtDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDNI.Location = new System.Drawing.Point(306, 77);
-            this.txtDNI.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.txtDNI.Name = "txtDNI";
-            this.txtDNI.Size = new System.Drawing.Size(225, 35);
-            this.txtDNI.TabIndex = 5;
+            this.txtDNIDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDNIDestino.Location = new System.Drawing.Point(306, 77);
+            this.txtDNIDestino.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txtDNIDestino.Name = "txtDNIDestino";
+            this.txtDNIDestino.Size = new System.Drawing.Size(225, 35);
+            this.txtDNIDestino.TabIndex = 5;
             // 
             // btnCanjear
             // 
@@ -94,6 +94,7 @@
             this.txtCantCupones.Name = "txtCantCupones";
             this.txtCantCupones.Size = new System.Drawing.Size(225, 35);
             this.txtCantCupones.TabIndex = 8;
+            this.txtCantCupones.Minimum = 1;
             // 
             // ElegirUsuariosDestino
             // 
@@ -103,7 +104,7 @@
             this.ClientSize = new System.Drawing.Size(649, 290);
             this.Controls.Add(this.txtCantCupones);
             this.Controls.Add(this.btnCanjear);
-            this.Controls.Add(this.txtDNI);
+            this.Controls.Add(this.txtDNIDestino);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -121,7 +122,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtDNI;
+        private System.Windows.Forms.TextBox txtDNIDestino;
         private System.Windows.Forms.Button btnCanjear;
         public System.Windows.Forms.NumericUpDown txtCantCupones;
     }

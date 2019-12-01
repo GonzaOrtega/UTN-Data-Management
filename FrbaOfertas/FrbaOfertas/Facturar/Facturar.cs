@@ -87,7 +87,7 @@ namespace FrbaOfertas.Facturar
         {
             decimal total = 0;
             int nroFactura = this.crearNroFactura();
-            facturaTableAdapter1.Insert(Convert.ToDecimal(nroFactura), DateTime.Now, total, txtCuit.Text, txtRazonSocial.Text);
+            facturaTableAdapter1.InsertQuery(Convert.ToDecimal(nroFactura), DateTime.Now, total, txtCuit.Text, txtRazonSocial.Text);
             foreach (DataGridViewRow row in cOMPRADataGridView.Rows)
             {
                 String oferta = Convert.ToString(row.Cells["Codigo_oferta"].Value);

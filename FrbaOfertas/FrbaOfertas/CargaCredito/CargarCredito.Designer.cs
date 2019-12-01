@@ -42,9 +42,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(40, 33);
+            this.label2.Location = new System.Drawing.Point(36, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 29);
+            this.label2.Size = new System.Drawing.Size(137, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "DNI del cliente";
             // 
@@ -52,9 +52,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(40, 119);
+            this.label3.Location = new System.Drawing.Point(36, 95);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 29);
+            this.label3.Size = new System.Drawing.Size(127, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Tipo de pago";
             // 
@@ -62,19 +62,21 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(40, 207);
+            this.label4.Location = new System.Drawing.Point(36, 166);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 29);
+            this.label4.Size = new System.Drawing.Size(67, 25);
             this.label4.TabIndex = 3;
             this.label4.Text = "Monto";
             // 
             // txtDNICliente
             // 
             this.txtDNICliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDNICliente.Location = new System.Drawing.Point(333, 30);
+            this.txtDNICliente.Location = new System.Drawing.Point(296, 24);
+            this.txtDNICliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDNICliente.Name = "txtDNICliente";
-            this.txtDNICliente.Size = new System.Drawing.Size(223, 35);
+            this.txtDNICliente.Size = new System.Drawing.Size(199, 30);
             this.txtDNICliente.TabIndex = 5;
+            this.txtDNICliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNICliente_KeyPress);
             // 
             // cbTipoPago
             // 
@@ -84,27 +86,29 @@
             "Crédito",
             "Débito",
             "Efectivo"});
-            this.cbTipoPago.Location = new System.Drawing.Point(333, 116);
+            this.cbTipoPago.Location = new System.Drawing.Point(296, 93);
+            this.cbTipoPago.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbTipoPago.Name = "cbTipoPago";
-            this.cbTipoPago.Size = new System.Drawing.Size(223, 37);
+            this.cbTipoPago.Size = new System.Drawing.Size(199, 33);
             this.cbTipoPago.TabIndex = 6;
-            this.cbTipoPago.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // txtMonto
             // 
             this.txtMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMonto.Location = new System.Drawing.Point(333, 204);
+            this.txtMonto.Location = new System.Drawing.Point(296, 163);
+            this.txtMonto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(223, 35);
+            this.txtMonto.Size = new System.Drawing.Size(199, 30);
             this.txtMonto.TabIndex = 7;
-            this.txtMonto.TextChanged += new System.EventHandler(this.txtMonto_TextChanged);
+            this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             // 
             // btSiguiente
             // 
             this.btSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSiguiente.Location = new System.Drawing.Point(410, 264);
+            this.btSiguiente.Location = new System.Drawing.Point(364, 211);
+            this.btSiguiente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btSiguiente.Name = "btSiguiente";
-            this.btSiguiente.Size = new System.Drawing.Size(146, 51);
+            this.btSiguiente.Size = new System.Drawing.Size(130, 41);
             this.btSiguiente.TabIndex = 8;
             this.btSiguiente.Text = "Siguiente";
             this.btSiguiente.UseVisualStyleBackColor = true;
@@ -113,9 +117,10 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(45, 264);
+            this.button1.Location = new System.Drawing.Point(40, 211);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 51);
+            this.button1.Size = new System.Drawing.Size(130, 41);
             this.button1.TabIndex = 9;
             this.button1.Text = "Atras";
             this.button1.UseVisualStyleBackColor = true;
@@ -123,10 +128,10 @@
             // 
             // CargarCredito
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(601, 339);
+            this.ClientSize = new System.Drawing.Size(534, 271);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btSiguiente);
             this.Controls.Add(this.txtMonto);
@@ -135,9 +140,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CargarCredito";
             this.Text = "Cargar credito";
-            this.Load += new System.EventHandler(this.CargarCredito_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CargarCredito_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

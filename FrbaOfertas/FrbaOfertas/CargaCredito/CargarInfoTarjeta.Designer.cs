@@ -77,7 +77,6 @@
             this.txtTitular.Name = "txtTitular";
             this.txtTitular.Size = new System.Drawing.Size(402, 35);
             this.txtTitular.TabIndex = 4;
-            this.txtTitular.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // dtpFechaVencimiento
             // 
@@ -86,7 +85,6 @@
             this.dtpFechaVencimiento.Name = "dtpFechaVencimiento";
             this.dtpFechaVencimiento.Size = new System.Drawing.Size(402, 35);
             this.dtpFechaVencimiento.TabIndex = 5;
-            this.dtpFechaVencimiento.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // button1
             // 
@@ -110,7 +108,6 @@
             this.cbTipoTarjeta.Name = "cbTipoTarjeta";
             this.cbTipoTarjeta.Size = new System.Drawing.Size(402, 37);
             this.cbTipoTarjeta.TabIndex = 7;
-            this.cbTipoTarjeta.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // txtNroTarjeta
             // 
@@ -119,7 +116,6 @@
             this.txtNroTarjeta.Name = "txtNroTarjeta";
             this.txtNroTarjeta.Size = new System.Drawing.Size(402, 35);
             this.txtNroTarjeta.TabIndex = 9;
-            this.txtNroTarjeta.TextChanged += new System.EventHandler(this.txtNroTarjeta_TextChanged);
             // 
             // label4
             // 
@@ -160,7 +156,6 @@
             this.Controls.Add(this.label1);
             this.Name = "CargarInfoTarjeta";
             this.Text = "Cargar datos de tarjeta";
-            this.Load += new System.EventHandler(this.CargarInfoTarjeta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

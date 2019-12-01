@@ -85,26 +85,6 @@ namespace FrbaOfertas.CargaCredito
             DateTime fecha = DateTime.ParseExact(fechaConfigFile, "yyyy-MM-dd HH:mm tt", System.Globalization.CultureInfo.InvariantCulture);
             return fecha;
         }
-
-        private void CargarInfoTarjeta_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         public void obtenerCredito(Credito creditoRecibido)
         {
             credito = creditoRecibido;
@@ -119,11 +99,6 @@ namespace FrbaOfertas.CargaCredito
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void txtNroTarjeta_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

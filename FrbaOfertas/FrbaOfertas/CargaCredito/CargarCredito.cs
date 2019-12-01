@@ -16,7 +16,7 @@ namespace FrbaOfertas.CargaCredito
     {
         Credito credito = new Credito();
         CargarInfoTarjeta infoTarjeta;
-
+        bool cerrado = false;
         public CargarCredito()
         {
             InitializeComponent();
@@ -29,24 +29,6 @@ namespace FrbaOfertas.CargaCredito
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
             usuario = usu;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CargarCredito_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void txtMonto_TextChanged(object sender, EventArgs e)
-        {
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -122,10 +104,39 @@ namespace FrbaOfertas.CargaCredito
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
+                cerrado = true;
                 this.Close();
                 new Funciones.Funciones(usuario).Show();
+        }
+
+        private void CargarCredito_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing && cerrado == false)
+            {
+                if (MessageBox.Show("¿Está seguro que desea salir del sistema?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
+        }
+
+        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDNICliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

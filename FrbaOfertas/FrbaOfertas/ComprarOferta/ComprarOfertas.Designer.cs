@@ -30,7 +30,6 @@
         {
             this.txtNroOfertaDefinitiva = new System.Windows.Forms.TextBox();
             this.labelOpcionEliminar = new System.Windows.Forms.Label();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -62,17 +61,6 @@
             this.labelOpcionEliminar.Size = new System.Drawing.Size(423, 29);
             this.labelOpcionEliminar.TabIndex = 16;
             this.labelOpcionEliminar.Text = "Ingrese el numero de oferta a comprar";
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(25, 688);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(118, 53);
-            this.btnSalir.TabIndex = 15;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnSiguiente
             // 
@@ -186,7 +174,6 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.txtNroOfertaDefinitiva);
             this.Controls.Add(this.labelOpcionEliminar);
-            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.button2);
@@ -207,7 +194,6 @@
 
         private System.Windows.Forms.TextBox txtNroOfertaDefinitiva;
         private System.Windows.Forms.Label labelOpcionEliminar;
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;

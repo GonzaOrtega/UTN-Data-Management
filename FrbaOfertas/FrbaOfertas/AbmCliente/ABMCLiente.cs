@@ -67,14 +67,18 @@ namespace FrbaOfertas.AbmCliente
 
         private void eliminarCliente(DataGridViewRow row)
         {
-            MessageBox.Show("Esta seguro que desea eliminar el Cliente: " +
-                                   row.Cells[0].Value + "?", "Eliminar cliente", MessageBoxButtons.YesNo);
-            dniglobal = Convert.ToDouble(row.Cells[0].Value);
+            DialogResult dialogResult = MessageBox.Show("Esta seguro que desea eliminar el Cliente: " +
+                row.Cells[0].Value + "?", "Eliminar cliente", MessageBoxButtons.YesNo);
 
-            // Nos olvidamos que al eliminar un cliente hay que eliminarlo de todos lados!!!
-            Queries.eliminarCliente(dniglobal);
-            MessageBox.Show("El cliente se ha borrado correctamente", "Eliminar cliente");
-            limpiarTodo();
+            if(dialogResult == DialogResult.Yes)
+            {
+                dniglobal = Convert.ToDouble(row.Cells[0].Value);
+
+                // Nos olvidamos que al eliminar un cliente hay que eliminarlo de todos lados!!!
+                Queries.eliminarCliente(dniglobal);
+                MessageBox.Show("El cliente se ha borrado correctamente", "Eliminar cliente");
+                limpiarTodo();
+            }
         }
 
         private void modificarCliente(Cliente cliente)

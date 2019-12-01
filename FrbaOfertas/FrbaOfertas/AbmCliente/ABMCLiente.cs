@@ -20,7 +20,7 @@ namespace FrbaOfertas.AbmCliente
         Dictionary<String, String> dictionary = new Dictionary<String, String>();
         Double dniglobal;
         bool esModificar = true;
-
+        bool cerrar = false;
         public bool EsModificar { get => esModificar; set => esModificar = value; }
 
         public ABMCliente()
@@ -171,11 +171,6 @@ namespace FrbaOfertas.AbmCliente
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             limpiarTodo();
@@ -320,10 +315,23 @@ namespace FrbaOfertas.AbmCliente
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            cerrar = true;
+            this.Close();
+            new Funciones.Funciones(usuario).Show();
+        }
+
+        private void ABMCliente_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing && cerrar == false)
             {
-                this.Close();
-                new Funciones.Funciones(usuario).Show();
+                if (MessageBox.Show("¿Está seguro que desea salir del sistema?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Application.Exit();
+                }
             }
         }
     }

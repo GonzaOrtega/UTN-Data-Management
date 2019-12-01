@@ -56,10 +56,6 @@ namespace FrbaOfertas.AbmCliente
             return fecha;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         private void btnDarAltaCliente_Click(object sender, EventArgs e)
         {
             if (esModificado)

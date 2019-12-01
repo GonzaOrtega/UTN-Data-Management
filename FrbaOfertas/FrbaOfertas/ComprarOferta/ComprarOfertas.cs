@@ -106,9 +106,10 @@ namespace FrbaOfertas.ComprarOferta
 
         private void planillaComprarOfertas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string nroOferta = txtNroOfertaDefinitiva.Text;
+            int rowIndex = e.RowIndex;
+            DataGridViewRow row = planillaComprarOfertas.Rows[rowIndex];
             ElegirCantOfertas ofertas = new ElegirCantOfertas();
-            ofertas.CodOferta = txtNroOfertaDefinitiva.Text;
+            ofertas.CodOferta = Convert.ToString(row.Cells[0].Value);
             ofertas.DniClienteOrigen = clienteId;
             ofertas.Show();
         }
@@ -146,11 +147,6 @@ namespace FrbaOfertas.ComprarOferta
         private bool hayCondicionesDeFiltro()
         {
             return hayCodOferta() || hayDescripcion();
-        }
-
-        private bool eligioOferta()
-        {
-            return !String.IsNullOrEmpty(txtNroOfertaDefinitiva.Text);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

@@ -152,7 +152,7 @@ namespace FrbaOfertas.ComprarOferta
             if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 this.Close();
-                new Funciones.Funciones(Convert.ToInt32(clienteId)).Show();
+                new Funciones.Funciones(usuario).Show();
             }
         }
     }

@@ -40,6 +40,7 @@ namespace FrbaOfertas.AbmCliente
             try
             {
                 new ComprarOferta.ComprarOfertas(Convert.ToDouble(txtDNI.Text) ,usuario).Show();
+                this.Close();
 
             }catch(Exception ex)
             {

@@ -21,21 +21,6 @@ namespace FrbaOfertas.AbmCliente
             InitializeComponent();
         }
 
-        // Metodos de formas
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNombreAltaCliente_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -86,7 +71,7 @@ namespace FrbaOfertas.AbmCliente
                 crearCliente();
             }
             buscarCliente.limpiarTodo();
-            limpiarTextboxes();
+           
         }
 
         private void modificarCliente()
@@ -106,6 +91,7 @@ namespace FrbaOfertas.AbmCliente
                     validarCliente();
                     inicializoCliente();
                     Queries.insertarCliente(cliente);
+                    limpiarTextboxes();
                 }
                 catch (System.Data.SqlClient.SqlException ex)
                 {
@@ -171,9 +157,28 @@ namespace FrbaOfertas.AbmCliente
             limpiarTextboxes();
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void txtCP_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
 
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -77,15 +77,9 @@ namespace FrbaOfertas.AbmCliente
 
         private void btnDarAltaCliente_Click(object sender, EventArgs e)
         {
-            if (esModificado)
-            {
-                modificarCliente();
-            }
-            else
-            {
-                crearCliente();
-            }
+            crearCliente();
             buscarCliente.limpiarTodo();
+            limpiarTextboxes();
         }
 
         private void modificarCliente()
@@ -105,6 +99,10 @@ namespace FrbaOfertas.AbmCliente
                     validarCliente();
                     inicializoCliente();
                     Queries.insertarCliente(cliente);
+                }
+                catch (System.Data.SqlClient.SqlException ex)
+                {
+                    MessageBox.Show("Error: Ya existe un cliente con ese DNI. Por favor ingrese otro");
                 }
                 catch (Exception ex)
                 {
@@ -145,7 +143,8 @@ namespace FrbaOfertas.AbmCliente
         
         public bool seCargaronPKs()
         {
-            return !String.IsNullOrEmpty(txtDNI.Text);
+            double a;
+            return !String.IsNullOrEmpty(txtDNI.Text) && Double.TryParse(txtDNI.Text, out a);
         }
 
         public void limpiarTextboxes()

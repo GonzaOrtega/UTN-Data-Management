@@ -155,6 +155,22 @@ namespace FrbaOfertas.AbmCliente
         private void button1_Click_1(object sender, EventArgs e)
         {
             limpiarTextboxes();
+            if (esModificado)
+            {
+                txtApellido.Text = cliente.Apellido;
+                txtCiudad.Text = cliente.Ciudad;
+                txtCP.Text = Convert.ToString(cliente.CodigoPostal);
+                txtDireccion.Text = cliente.Direccion;
+                txtDNI.Text = Convert.ToString(cliente.DNI);
+                txtMail.Text = cliente.Email;
+                txtNombre.Text = cliente.Nombre;
+                txtTelefono.Text = Convert.ToString(cliente.Telefono);
+
+                txtDNI.Enabled = false;
+                btnAceptar.Text = "Modificar";
+
+            }
+          
         }
 
         private void txtCP_KeyPress(object sender, KeyPressEventArgs e)

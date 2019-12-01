@@ -74,6 +74,7 @@
             this.planillaComprarOfertas.RowTemplate.Height = 28;
             this.planillaComprarOfertas.Size = new System.Drawing.Size(791, 298);
             this.planillaComprarOfertas.TabIndex = 11;
+            this.planillaComprarOfertas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.planillaComprarOfertas_CellContentClick_1);
             // 
             // groupBox1
             // 

@@ -61,28 +61,18 @@ namespace FrbaOfertas.ComprarOferta
 
             try
             {
-                if (this.hayCondicionesDeFiltro())
+                // Agrego restriccion de la fecha de vencimiento
+                query = query + " WHERE Fecha_vencimiento > '" + fechaConfigFile + "' ";
+                if (hayCodOferta())
                 {
-                    // Agrego restriccion de la fecha de vencimiento
-                    query = query + " WHERE Fecha_vencimiento > '" + fechaConfigFile + "' ";
-                    if (hayCodOferta())
-                    {
-                        query = query + "AND Codigo_oferta = '" + txtCodOferta.Text + "'";
-                    }
-                    if (hayDescripcion())
-                    {
-                        query = query + "AND Description LIKE '%" + txtDescripcion.Text + "%'";
-                    }
-
-                    this.buscar(query);
-
-                    // Si todo esta ok, le permite al usuario avanzar
-                    //btnSiguiente.Enabled = true;
+                    query = query + "AND Codigo_oferta = '" + txtCodOferta.Text + "'";
                 }
-                else
+                if (hayDescripcion())
                 {
-                    MessageBox.Show("No se ingresaron condiciones de filtro");
+                    query = query + "AND Description LIKE '%" + txtDescripcion.Text + "%'";
                 }
+
+                this.buscar(query);
 
             }
             catch (System.FormatException ex)
@@ -106,12 +96,15 @@ namespace FrbaOfertas.ComprarOferta
 
         private void planillaComprarOfertas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int rowIndex = e.RowIndex;
-            DataGridViewRow row = planillaComprarOfertas.Rows[rowIndex];
-            ElegirCantOfertas ofertas = new ElegirCantOfertas();
-            ofertas.CodOferta = Convert.ToString(row.Cells[0].Value);
-            ofertas.DniClienteOrigen = clienteId;
-            ofertas.Show();
+            if (e.ColumnIndex == planillaComprarOfertas.Columns["Comprar"].Index)
+            {
+                int rowIndex = e.RowIndex;
+                DataGridViewRow row = planillaComprarOfertas.Rows[rowIndex];
+                ElegirCantOfertas ofertas = new ElegirCantOfertas();
+                ofertas.CodOferta = Convert.ToString(row.Cells[0].Value);
+                ofertas.DniClienteOrigen = clienteId;
+                ofertas.Show();
+            }
         }
         private bool hayDescripcion()
         {
@@ -171,6 +164,11 @@ namespace FrbaOfertas.ComprarOferta
                 this.Close();
                 new Funciones.Funciones(usuario).Show();
             }
+        }
+
+        private void planillaComprarOfertas_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

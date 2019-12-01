@@ -14474,7 +14474,7 @@ FROM   GEDEDE.PROVEEDOR AS P INNER JOIN
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"INSERT INTO PROVEEDOR
+            this._commandCollection[4].CommandText = @"INSERT INTO GEDEDE.PROVEEDOR
                   (CUIT_proveedor, Razon_social, Domicilio, Ciudad, Telefono, ID_rubro, Mail, Codigo_postal, Nombre_contacto, habilitado)
 VALUES (@CUIT_proveedor,@Razon_social,@Domicilio,@Ciudad,@Telefono,@ID_rubro,@Mail,@Codigo_postal,@Nombre_contacto,'True'); 
 ";
@@ -17263,8 +17263,8 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "INSERT INTO USUARIO\r\n                  (ID_usuario, contrasenia, Nombre_usuario)\r" +
-                "\nVALUES (@ID_usuario,@contrasenia,@Nombre_usuario); ";
+            this._commandCollection[3].CommandText = "INSERT INTO GEDEDE.USUARIO\r\n                  (ID_usuario, contrasenia, Nombre_us" +
+                "uario)\r\nVALUES (@ID_usuario,@contrasenia,@Nombre_usuario); ";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_usuario", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contrasenia", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "contrasenia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

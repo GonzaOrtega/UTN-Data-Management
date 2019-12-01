@@ -77,7 +77,14 @@ namespace FrbaOfertas.AbmCliente
 
         private void btnDarAltaCliente_Click(object sender, EventArgs e)
         {
-            crearCliente();
+            if (esModificado)
+            {
+                modificarCliente();
+            }
+            else
+            {
+                crearCliente();
+            }
             buscarCliente.limpiarTodo();
             limpiarTextboxes();
         }

@@ -15,7 +15,7 @@ namespace FrbaOfertas.CargaCredito
     public partial class CargarInfoTarjeta : Form
     {
 
-        Credito credito = new Credito();
+        Credito credito;
         Tarjeta tarjeta = new Tarjeta();
 
         public CargarInfoTarjeta()

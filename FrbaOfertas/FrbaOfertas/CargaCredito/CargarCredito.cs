@@ -15,7 +15,7 @@ namespace FrbaOfertas.CargaCredito
     public partial class CargarCredito : Form
     {
         Credito credito = new Credito();
-        CargarInfoTarjeta infoTarjeta = new CargarInfoTarjeta();
+        CargarInfoTarjeta infoTarjeta;
 
         public CargarCredito()
         {
@@ -63,6 +63,7 @@ namespace FrbaOfertas.CargaCredito
 
                     if (eligieronTarjeta())
                     {
+                        infoTarjeta = new CargarInfoTarjeta();
                         credito.HayTarjeta = true;
                         infoTarjeta.obtenerCredito(credito);
                         infoTarjeta.Show();
@@ -79,7 +80,13 @@ namespace FrbaOfertas.CargaCredito
                 {
                     MessageBox.Show("Error en los datos ingresados\n\nPor favor, revisar");
                 }
-            }catch(Exception ex)
+
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                MessageBox.Show("Error: Ya existe un cliente con ese DNI. Por favor ingrese otro");
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar credito, revisar datos ingresados");
             }

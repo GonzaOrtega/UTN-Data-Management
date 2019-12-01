@@ -153,7 +153,7 @@
             // txtMail
             // 
             this.txtMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMail.Location = new System.Drawing.Point(424, 179);
+            this.txtMail.Location = new System.Drawing.Point(424, 172);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(380, 35);
             this.txtMail.TabIndex = 12;
@@ -207,7 +207,7 @@
             // txtDNI
             // 
             this.txtDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDNI.Location = new System.Drawing.Point(424, 126);
+            this.txtDNI.Location = new System.Drawing.Point(424, 122);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(380, 35);
             this.txtDNI.TabIndex = 27;

@@ -30,8 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.txtCantOfertas = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtClienteDestino = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -53,27 +51,9 @@
             this.txtCantOfertas.Size = new System.Drawing.Size(265, 35);
             this.txtCantOfertas.TabIndex = 1;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 73);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(464, 29);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Ingrese el DNI del destinatario de la oferta";
-            // 
-            // txtClienteDestino
-            // 
-            this.txtClienteDestino.Location = new System.Drawing.Point(566, 73);
-            this.txtClienteDestino.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.txtClienteDestino.Name = "txtClienteDestino";
-            this.txtClienteDestino.Size = new System.Drawing.Size(265, 35);
-            this.txtClienteDestino.TabIndex = 3;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(660, 136);
+            this.button1.Location = new System.Drawing.Point(657, 79);
             this.button1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(174, 52);
@@ -87,10 +67,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(854, 215);
+            this.ClientSize = new System.Drawing.Size(854, 165);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtClienteDestino);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCantOfertas);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -107,8 +85,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCantOfertas;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtClienteDestino;
         private System.Windows.Forms.Button button1;
     }
 }

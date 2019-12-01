@@ -32,8 +32,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDNI = new System.Windows.Forms.TextBox();
-            this.txtCantCupones = new System.Windows.Forms.TextBox();
             this.btnCanjear = new System.Windows.Forms.Button();
+            this.txtCantCupones = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantCupones)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -75,15 +76,6 @@
             this.txtDNI.Size = new System.Drawing.Size(225, 35);
             this.txtDNI.TabIndex = 5;
             // 
-            // txtCantCupones
-            // 
-            this.txtCantCupones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantCupones.Location = new System.Drawing.Point(306, 149);
-            this.txtCantCupones.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.txtCantCupones.Name = "txtCantCupones";
-            this.txtCantCupones.Size = new System.Drawing.Size(225, 35);
-            this.txtCantCupones.TabIndex = 6;
-            // 
             // btnCanjear
             // 
             this.btnCanjear.Location = new System.Drawing.Point(379, 217);
@@ -95,20 +87,30 @@
             this.btnCanjear.UseVisualStyleBackColor = true;
             this.btnCanjear.Click += new System.EventHandler(this.btnCanjear_Click);
             // 
+            // txtCantCupones
+            // 
+            this.txtCantCupones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantCupones.Location = new System.Drawing.Point(306, 147);
+            this.txtCantCupones.Name = "txtCantCupones";
+            this.txtCantCupones.Size = new System.Drawing.Size(225, 35);
+            this.txtCantCupones.TabIndex = 8;
+            // 
             // ElegirUsuariosDestino
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(666, 298);
-            this.Controls.Add(this.btnCanjear);
+            this.ClientSize = new System.Drawing.Size(649, 290);
             this.Controls.Add(this.txtCantCupones);
+            this.Controls.Add(this.btnCanjear);
             this.Controls.Add(this.txtDNI);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ElegirUsuariosDestino";
             this.Text = "Elegir usuarios";
+            this.Load += new System.EventHandler(this.ElegirUsuariosDestino_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.txtCantCupones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,7 +122,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDNI;
-        private System.Windows.Forms.TextBox txtCantCupones;
         private System.Windows.Forms.Button btnCanjear;
+        public System.Windows.Forms.NumericUpDown txtCantCupones;
     }
 }

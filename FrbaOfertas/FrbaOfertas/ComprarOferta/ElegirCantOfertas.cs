@@ -58,7 +58,7 @@ namespace FrbaOfertas.ComprarOferta
                         //this.comprar();
                         //this.otorgarCupon(cantCompraDeseada);
                         //this.mostrarCupones();
-                        new ElegirUsuariosDestino(armarCompra());
+                        new ElegirUsuariosDestino(armarCompra()).Show();
                         this.Close();
                     }
                     else

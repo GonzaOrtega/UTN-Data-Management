@@ -19,20 +19,35 @@ namespace FrbaOfertas.ComprarOferta
         public ElegirUsuariosDestino()
         {
             InitializeComponent();
+            this.txtCantCupones.Maximum = 5;
         }
 
         public ElegirUsuariosDestino(Compra compra)
         {
             this.compra = compra;
             InitializeComponent();
+            this.txtCantCupones.Maximum = compra.CantCompra;
         }
 
         private void btnCanjear_Click(object sender, EventArgs e)
         {
-            this.comprar();
-            //this.otorgarCupon(compra.CantCompra);
-            this.mostrarCupones();
-            this.Close();
+            try
+            {
+                if(txtCantCupones.Value <= compra.CantCompra)
+                {
+                    this.comprar();
+                    //this.otorgarCupon(compra.CantCompra);
+                    this.mostrarCupones();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Error: Cant ingresada mayor a la cant de ordenes\nPor favor ingrese hasta " + compra.CantCompra + " productos");
+                }
+            }
+            catch (Exception ex){
+                MessageBox.Show("Error al ingresar los datos, por favor revisar");
+            }
         }
 
         private void mostrarCupones()
@@ -56,7 +71,6 @@ namespace FrbaOfertas.ComprarOferta
 
         public void comprar()
         {
-            
             compra.NumFactura = 0; // Esto indica que siempre va a ser nulo, se va a actualizar cuando se haga la facturacion
             // Descontar credito al usuario por la compra
 
@@ -72,12 +86,20 @@ namespace FrbaOfertas.ComprarOferta
             return fecha;
         }
 
+        private void ElegirUsuariosDestino_Load(object sender, EventArgs e)
+        {
+
+        }
+
         //public void otorgarCupon(int cantCompraDeseada)
         //{
         //    Cupon cupon = new Cupon();
 
         //    cupon.CodOferta = compra.CodOferta;
         //    cupon.DniClienteOrigen = compra.DniCliente;
+
+
+
         //    cupon.DniClienteDestino = Convert.ToDouble(txtClienteDestino.Text);
 
         //    // Insertar cupon funciona, falta probar lo de los N cupones (loop)

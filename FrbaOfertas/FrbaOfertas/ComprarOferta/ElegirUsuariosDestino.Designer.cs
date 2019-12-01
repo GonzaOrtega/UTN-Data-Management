@@ -31,8 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtNroCuponIngresado = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDNI = new System.Windows.Forms.TextBox();
+            this.txtCantCupones = new System.Windows.Forms.TextBox();
             this.btnCanjear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -66,23 +66,23 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Cant cupones";
             // 
-            // txtNroCuponIngresado
+            // txtDNI
             // 
-            this.txtNroCuponIngresado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNroCuponIngresado.Location = new System.Drawing.Point(306, 77);
-            this.txtNroCuponIngresado.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.txtNroCuponIngresado.Name = "txtNroCuponIngresado";
-            this.txtNroCuponIngresado.Size = new System.Drawing.Size(225, 35);
-            this.txtNroCuponIngresado.TabIndex = 5;
+            this.txtDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDNI.Location = new System.Drawing.Point(306, 77);
+            this.txtDNI.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txtDNI.Name = "txtDNI";
+            this.txtDNI.Size = new System.Drawing.Size(225, 35);
+            this.txtDNI.TabIndex = 5;
             // 
-            // textBox1
+            // txtCantCupones
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(306, 149);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(225, 35);
-            this.textBox1.TabIndex = 6;
+            this.txtCantCupones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantCupones.Location = new System.Drawing.Point(306, 149);
+            this.txtCantCupones.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.txtCantCupones.Name = "txtCantCupones";
+            this.txtCantCupones.Size = new System.Drawing.Size(225, 35);
+            this.txtCantCupones.TabIndex = 6;
             // 
             // btnCanjear
             // 
@@ -101,13 +101,13 @@
             this.BackColor = System.Drawing.Color.YellowGreen;
             this.ClientSize = new System.Drawing.Size(666, 298);
             this.Controls.Add(this.btnCanjear);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.txtNroCuponIngresado);
+            this.Controls.Add(this.txtCantCupones);
+            this.Controls.Add(this.txtDNI);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ElegirUsuariosDestino";
-            this.Text = "ElegirUsuariosDestino";
+            this.Text = "Elegir usuarios";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,8 +118,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNroCuponIngresado;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDNI;
+        private System.Windows.Forms.TextBox txtCantCupones;
         private System.Windows.Forms.Button btnCanjear;
     }
 }

@@ -14094,7 +14094,7 @@ SELECT Codigo_oferta, Precio_oferta, Fecha_publicacion, Fecha_vencimiento, Stock
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT TOP (5) MAX(Codigo_oferta) AS Codigo_oferta, MAX(100 * (Precio_oferta / Precio_lista - 1)) AS porcentaje, CUIT_proveedor, Razon_social
+            this._commandCollection[1].CommandText = @"SELECT TOP (5) MAX(Codigo_oferta) AS codigo_oferta, SUM(100 * ((Precio_lista-Precio_oferta) / Precio_lista )) / COUNT(DISTINCT Codigo_oferta) AS porcentaje, CUIT_proveedor, Razon_social
 FROM     GEDEDE.OFERTAS
 WHERE  (Fecha_publicacion BETWEEN @fechaInicio AND @fechaFin)
 GROUP BY CUIT_proveedor, Razon_social

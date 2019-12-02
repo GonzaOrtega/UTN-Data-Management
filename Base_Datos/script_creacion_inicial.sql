@@ -219,8 +219,8 @@ GO
 CREATE PROCEDURE GEDEDE.migrarCupon
 AS
 BEGIN
-	insert into GEDEDE.Cupon (Entregado_fecha,	DNI_cliente_origen, Codigo_oferta)
-	(select Oferta_Entregado_Fecha,Cli_Dni,Oferta_Codigo  FROM gd_esquema.Maestra
+	insert into GEDEDE.Cupon (Entregado_fecha,	DNI_cliente_origen, Codigo_oferta,cantidad,DNI_cliente_destino)
+	(select Oferta_Entregado_Fecha,Cli_Dni,Oferta_Codigo,Oferta_Cantidad,coalesce(Cli_Dest_Dni,Cli_Dni)  FROM gd_esquema.Maestra
 	where Oferta_Fecha_Compra IS NOT NULL)
 END
 GO

@@ -70,7 +70,7 @@ CREATE TABLE GEDEDE.USUARIO(
 	contrasenia nvarchar(50),
 	Nombre_usuario nvarchar(50),
 	habilitado nvarchar(10) check (habilitado IN ('True','False')) default 'True',
-	intentosIngreso smallint,
+	intentosIngreso smallint default 0,
 	Foreign Key (ID_usuario) REFERENCES GEDEDE.tipo_usuario
 );
 CREATE TABLE GEDEDE.ROL(
@@ -154,7 +154,7 @@ CREATE PROCEDURE GEDEDE.migrarRubro
 AS
 BEGIN
 	insert into GEDEDE.RUBRO (Descripcion)
-	(select Provee_Rubro from gd_esquema.Maestra group by Provee_Rubro)
+	(select Provee_Rubro from gd_esquema.Maestra where Provee_Rubro is not null group by Provee_Rubro)
 END
 GO
 CREATE PROCEDURE GEDEDE.migrarClientes--ProblemasConCredito probar ir cargandolo a medida que migra credito
@@ -162,8 +162,16 @@ AS
 BEGIN
 	insert into GEDEDE.CLIENTES(DNI_cliente,Nombre,Apellido,Direccion,Telefono,Mail,Fecha_nacimiento,Ciudad)
 	(select Cli_Dni,Cli_Nombre,Cli_Apellido,Cli_Direccion,Cli_Telefono,Cli_Mail,Cli_Fecha_Nac,Cli_Ciudad
-		from gd_esquema.Maestra
-		GROUP BY Cli_Dni,Cli_Nombre,Cli_Apellido,Cli_Direccion,Cli_Telefono,Cli_Mail,Cli_Fecha_Nac,Cli_Ciudad)
+	from gd_esquema.Maestra
+	where Cli_Dni is not null
+	GROUP BY Cli_Dni,Cli_Nombre,Cli_Apellido,Cli_Direccion,Cli_Telefono,Cli_Mail,Cli_Fecha_Nac,Cli_Ciudad)
+	
+	insert into GEDEDE.TIPO_USUARIO(DNI_cliente)
+	(select DNI_cliente FROM GEDEDE.CLIENTES)
+	
+	insert into GEDEDE.USUARIO(ID_usuario, Nombre_usuario,contrasenia)
+	(select ID_usuario,DNI_cliente,DNI_cliente FROM GEDEDE.TIPO_USUARIO where DNI_cliente is not null)
+	
 END
 GO
 CREATE PROCEDURE GEDEDE.migrarCarga
@@ -181,9 +189,15 @@ BEGIN
 	insert into GEDEDE.PROVEEDOR (CUIT_proveedor,Razon_social,Domicilio, Ciudad,Telefono, ID_rubro)
 	(Select Provee_CUIT,Provee_RS,Provee_Dom,Provee_Ciudad,Provee_Telefono, ID_Rubro
 		FROM gd_esquema.Maestra m
-		JOIN RUBRO r ON m.Provee_Rubro= r.Descripcion
+		JOIN GEDEDE.RUBRO r ON m.Provee_Rubro= r.Descripcion
 		where Provee_CUIT IS NOT NULL
 		GROUP BY  Provee_CUIT,Provee_RS,Provee_Dom,Provee_Ciudad,Provee_Telefono,ID_Rubro)
+
+		insert into GEDEDE.TIPO_USUARIO(CUIT_proveedor,Razon_social)
+		(select CUIT_proveedor,Razon_social FROM GEDEDE.PROVEEDOR)
+
+		insert into GEDEDE.USUARIO(ID_usuario,Nombre_usuario,contrasenia)
+		(select ID_usuario,CUIT_proveedor + Razon_social,CUIT_proveedor + Razon_social from GEDEDE.TIPO_USUARIO where CUIT_proveedor is not null)
 END
 GO
 CREATE PROCEDURE GEDEDE.migrarOfertas
@@ -342,19 +356,30 @@ values('ABM_PROVEEDOR')
  FROM GEDEDE.FUNCIONALIDAD f,GEDEDE.ROL
  where Nombre like 'AdministradorGeneral')
  
-insert into GEDEDE.ROL_FUNCIONALIDAD(ID_rol,ID_funcionalidad)
+ insert into GEDEDE.ROL_FUNCIONALIDAD(ID_rol,ID_funcionalidad)
  (select ID_rol,ID_funcionalidad
  FROM GEDEDE.ROL r,GEDEDE.FUNCIONALIDAD f
  where r.Nombre like 'Proveedor'
  AND(f.Descripcion  like 'Consumo_de_oferta'
  OR f.Descripcion  like 'ConfeccionarOferta'))
  
+ insert into GEDEDE.USUARIO_ROL(ID_usuario,ID_rol)
+ (select ID_usuario,(select ID_rol from GEDEDE.ROL where Nombre like'Proveedor')
+ FROM GEDEDE.TIPO_USUARIO
+ where CUIT_proveedor is not null
+ and Razon_social is not null)
+
  insert into GEDEDE.ROL_FUNCIONALIDAD(ID_rol,ID_funcionalidad)
  (select ID_rol,ID_funcionalidad
  FROM GEDEDE.ROL r,GEDEDE.FUNCIONALIDAD f
  where r.Nombre like 'Cliente'
  AND (f.Descripcion  like 'CargarCredito'
  OR f.Descripcion  like 'ComprarOferta'))
+
+  insert into GEDEDE.USUARIO_ROL(ID_usuario,ID_rol)
+ (select ID_usuario,(select ID_rol from GEDEDE.ROL where Nombre like'Cliente')
+ FROM GEDEDE.TIPO_USUARIO
+ where DNI_cliente is not null)
  go
 
 

@@ -200,6 +200,16 @@ BEGIN
 	and Razon_social in (select Razon_social from deleted)
 END
 GO
+Create trigger GEDEDE.borrarUsuario
+ON GEDEDE.USUARIO
+INSTEAD OF DELETE
+AS
+BEGIN
+	UPDATE GEDEDE.USUARIO
+	SET habilitado = 'False'
+	where  ID_usuario in (select ID_usuario from deleted)
+END
+GO
 ----------------------------------------------------------------------------------------------------------		CREACION_DE_STORED_PROCEDURES
 CREATE PROCEDURE GEDEDE.migrarRubro
 AS
@@ -351,6 +361,8 @@ insert into GEDEDE.FUNCIONALIDAD(Descripcion)
 values('ABM_CLIENTES')
 insert into GEDEDE.FUNCIONALIDAD(Descripcion)
 values('ABM_PROVEEDOR')
+insert into GEDEDE.FUNCIONALIDAD(Descripcion)
+values('Modificar usuarios')
 
  insert into GEDEDE.ROL_FUNCIONALIDAD(ID_rol,ID_funcionalidad)
  (select ID_rol ,ID_funcionalidad

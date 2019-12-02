@@ -77,6 +77,9 @@ namespace FrbaOfertas.Funciones
                     cerrado = true;
                     Close();
                     break;
+                case "Modificar usuarios":
+                    new ModificarUsuarios.ModificarUsuarios().Show();
+                    break;
             }
         }
 

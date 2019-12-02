@@ -13,10 +13,17 @@ namespace FrbaOfertas.Funciones
     public partial class CambiarContraseña : Form
     {
         int usuario;
+        ModificarUsuarios.ModificarUsuarios anterior = null;
         public CambiarContraseña(int ID_usuario)
         {
             InitializeComponent();
             usuario = ID_usuario;
+        }
+        public CambiarContraseña(int ID_usuario,ModificarUsuarios.ModificarUsuarios modificar)
+        {
+            InitializeComponent();
+            usuario = ID_usuario;
+            anterior = modificar;
         }
         bool validarContrasenias()
         {
@@ -38,6 +45,10 @@ namespace FrbaOfertas.Funciones
             {
                 usuarioTableAdapter1.UpdateContrasenia(txtContrasenia.Text,usuario);
                 MessageBox.Show("Se ha modificado correctamente", "FELICIDADES", MessageBoxButtons.OK);
+                if(anterior!= null)
+                {
+                    anterior.Refresh();
+                }
                 Close();
             }
         }

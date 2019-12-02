@@ -43,9 +43,9 @@
             this.cbFunciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFunciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFunciones.FormattingEnabled = true;
-            this.cbFunciones.Location = new System.Drawing.Point(53, 125);
+            this.cbFunciones.Location = new System.Drawing.Point(53, 127);
             this.cbFunciones.Name = "cbFunciones";
-            this.cbFunciones.Size = new System.Drawing.Size(643, 37);
+            this.cbFunciones.Size = new System.Drawing.Size(753, 37);
             this.cbFunciones.TabIndex = 0;
             this.cbFunciones.SelectedIndexChanged += new System.EventHandler(this.cbFunciones_SelectedIndexChanged);
             // 
@@ -70,9 +70,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(509, 219);
+            this.button1.Location = new System.Drawing.Point(559, 219);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(222, 51);
+            this.button1.Size = new System.Drawing.Size(247, 51);
             this.button1.TabIndex = 2;
             this.button1.Text = "EJECUTAR";
             this.button1.UseVisualStyleBackColor = true;
@@ -87,7 +87,7 @@
             this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.Location = new System.Drawing.Point(53, 219);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(222, 51);
+            this.btnCerrar.Size = new System.Drawing.Size(247, 51);
             this.btnCerrar.TabIndex = 3;
             this.btnCerrar.Text = "CERRAR SESIÓN";
             this.btnCerrar.UseVisualStyleBackColor = true;
@@ -96,9 +96,9 @@
             // btnContrasenia
             // 
             this.btnContrasenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContrasenia.Location = new System.Drawing.Point(281, 219);
+            this.btnContrasenia.Location = new System.Drawing.Point(306, 219);
             this.btnContrasenia.Name = "btnContrasenia";
-            this.btnContrasenia.Size = new System.Drawing.Size(222, 51);
+            this.btnContrasenia.Size = new System.Drawing.Size(247, 51);
             this.btnContrasenia.TabIndex = 4;
             this.btnContrasenia.Text = "AJUSTES";
             this.btnContrasenia.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(766, 310);
+            this.ClientSize = new System.Drawing.Size(859, 310);
             this.Controls.Add(this.btnContrasenia);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.button1);

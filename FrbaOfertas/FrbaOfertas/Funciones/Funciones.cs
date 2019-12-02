@@ -57,7 +57,7 @@ namespace FrbaOfertas.Funciones
                     new AbmProveedor.ListadoProveedor(this).Show();
                     Hide();
                     break;
-                case "Concumo_de_oferta":
+                case "Consumo_de_oferta":
 
                     ingresarProveedorONo();
 

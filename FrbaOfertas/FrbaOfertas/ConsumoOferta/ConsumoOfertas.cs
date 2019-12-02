@@ -44,7 +44,7 @@ namespace FrbaOfertas.ConsumoOferta
 
         private void btnCanjear_Click(object sender, EventArgs e)
         {
-            if(datosIngresadosCorrectamente())
+            if(datosIngresadosCorrectamente() && validarDNICliente())
             {
                 cupon.CodCupon = Convert.ToInt32(txtNroCuponIngresado.Text);
                 if (existeCupon())
@@ -66,9 +66,16 @@ namespace FrbaOfertas.ConsumoOferta
         {
             Int32 a;
             return !String.IsNullOrWhiteSpace(txtNroCuponIngresado.Text) &&
-                !String.IsNullOrWhiteSpace(txtDNICliente.Text) && 
+                !String.IsNullOrWhiteSpace(txtDNICliente.Text) &&
                 Int32.TryParse(txtDNICliente.Text, out a) &&
                 Int32.TryParse(txtNroCuponIngresado.Text, out a);
+        }
+
+        private bool validarDNICliente()
+        {
+            string query = "select * from GEDEDE.CLIENTES where DNI_cliente = " + txtDNICliente.Text;
+            Double dniClienteObtenido = Convert.ToDouble(Queries.obtenerDatoTabla(query, 0));
+            return Convert.ToDouble(txtDNICliente.Text) == dniClienteObtenido;
         }
 
         private void cuponEsDeProveedorYNoEstaVencido()
@@ -92,7 +99,7 @@ namespace FrbaOfertas.ConsumoOferta
 
         private bool cuponEsDelCliente()
         {
-            string query = "SELECT * FROM CUPON WHERE Codigo_cupon = " + cupon.CodCupon;
+            string query = "SELECT * FROM GEDEDE.CUPON WHERE Codigo_cupon = " + cupon.CodCupon;
             string DNICliente = Convert.ToString(Queries.obtenerDatoTabla(query, 3));
             return txtDNICliente.Text.Equals(DNICliente);
         }
@@ -119,7 +126,7 @@ namespace FrbaOfertas.ConsumoOferta
 
         private bool cuponEstaCanjeado()
         {
-            string query = "SELECT * FROM CUPON WHERE Codigo_cupon = " + cupon.CodCupon;
+            string query = "SELECT * FROM GEDEDE.CUPON WHERE Codigo_cupon = " + cupon.CodCupon;
             return !String.IsNullOrWhiteSpace(Queries.obtenerDatoTabla(query, 1));
         }
 
@@ -130,7 +137,7 @@ namespace FrbaOfertas.ConsumoOferta
 
         private bool cuponEstaVencido()
         {
-            string query = "SELECT * FROM OFERTAS WHERE Codigo_oferta = '" +
+            string query = "SELECT * FROM GEDEDE.OFERTAS WHERE Codigo_oferta = '" +
                 cupon.CodOferta + "'";
             DateTime fechaVencimiento = Convert.ToDateTime(Queries.obtenerDatoTabla(query, 3));
             cupon.FechaEntrega = this.obtenerFechaConfigFile();
@@ -146,7 +153,7 @@ namespace FrbaOfertas.ConsumoOferta
 
         private bool cuponEsDeProveedor()
         {
-            string query = "SELECT * FROM OFERTAS WHERE Codigo_oferta = '" +
+            string query = "SELECT * FROM GEDEDE.OFERTAS WHERE Codigo_oferta = '" +
                 cupon.CodOferta + "'";
             //DateTime fechaVencimientoOferta = Convert.ToDateTime(Queries.obtenerDatoTabla(query, 3));
             string cuitObtenido = Queries.obtenerDatoTabla(query, 8);

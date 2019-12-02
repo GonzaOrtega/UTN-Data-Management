@@ -26,20 +26,21 @@ namespace FrbaOfertas.ModificarUsuarios
         {
             DataGridViewButtonColumn seleccionar = new DataGridViewButtonColumn();
             seleccionar.Name = textoDeColumna;
-            //if (dataGridView1.Columns["DNI_cliente"] != null)
-            //{
-                dataGridView1.Columns.Insert(columnIndex, seleccionar);
-            //}
+            dataGridView1.Columns.Insert(columnIndex, seleccionar);
+            
         }
         private void ModificarUsuarios_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void ModificarUsuarios_Activated(object sender, EventArgs e)
-        {
             dataGridView1.DataSource = usuarioTableAdapter1.GetData();
             mostrarColumnasModificarYModificar();
+        }
+
+        public void actualizar()
+        {
+            dataGridView1.Columns.Clear();
+            dataGridView1.DataSource = usuarioTableAdapter1.GetData();
+            mostrarColumnasModificarYModificar();
+
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -55,7 +56,7 @@ namespace FrbaOfertas.ModificarUsuarios
                 {
                     usuarioTableAdapter1.eliminarUsuario(Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value));
                     dataGridView1.Columns.Clear();
-                    this.ModificarUsuarios_Activated(sender, e);
+                    this.ModificarUsuarios_Load(sender, e);
                 }
             }
         }

@@ -47,7 +47,7 @@ namespace FrbaOfertas.Funciones
                 MessageBox.Show("Se ha modificado correctamente", "FELICIDADES", MessageBoxButtons.OK);
                 if(anterior!= null)
                 {
-                    anterior.Refresh();
+                    anterior.actualizar();
                 }
                 Close();
             }

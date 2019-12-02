@@ -141,16 +141,17 @@ namespace FrbaOfertas.ComprarOferta
         {
             foreach(KeyValuePair<String, int> entry in dnisMasCant)
             {
-                for(int i = 0; i < Convert.ToInt32(entry.Value); i ++)
-                {
+                //for(int i = 0; i < Convert.ToInt32(entry.Value); i ++)
+                //{
                     Cupon cupon = new Cupon();
 
                     cupon.CodOferta = compra.CodOferta;
                     cupon.DniClienteOrigen = compra.DniCliente;
-                    cupon.DniClienteDestino = Convert.ToDouble(entry.Key);
+                    cupon.Cantidad = Convert.ToInt32(entry.Value);
+                    cupon.FechaVencimiento = compra.FechaCompra.AddDays(30);
+                    cupon.DniClienteDestino = Convert.ToDouble(entry.Value);
                     Queries.insertarCupon(cupon);
-
-                }
+                //}
             }
 
 

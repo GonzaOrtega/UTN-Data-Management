@@ -173,6 +173,9 @@ namespace FrbaOfertas.Commons
             comando.Parameters.AddWithValue("@DNI_cliente_origen", Validacion.validarDouble(cupon.DniClienteOrigen));
             comando.Parameters.AddWithValue("@DNI_cliente_destino", Validacion.validarDouble(cupon.DniClienteDestino));
             comando.Parameters.AddWithValue("@Codigo_oferta", Validacion.validarString(cupon.CodOferta));
+            comando.Parameters.AddWithValue("@FechaVencimiento", Validacion.validarDateTime(cupon.FechaVencimiento));
+            comando.Parameters.AddWithValue("@Cantidad", Validacion.validarDouble(cupon.Cantidad));
+
 
             conexion.Open();
             comando.ExecuteReader();

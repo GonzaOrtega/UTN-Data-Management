@@ -47,5 +47,36 @@ namespace FrbaOfertas.AbmCliente
                 MessageBox.Show("Error: el DNI ingresado no es correcto");
             }
         }
+
+        private void txtDNI_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDNI_Enter(object sender, EventArgs e)
+        {
+            if(txtDNI.ForeColor == Color.Gainsboro)
+            {
+                txtDNI.Text = "";
+                txtDNI.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtDNI_Leave(object sender, EventArgs e)
+        {
+            if (txtDNI.Text == "")
+            {
+                txtDNI.Text = "DNI";
+                txtDNI.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

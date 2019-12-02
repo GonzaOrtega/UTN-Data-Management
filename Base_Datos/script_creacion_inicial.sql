@@ -137,6 +137,7 @@ CREATE TABLE GEDEDE.CUPON(
 	DNI_cliente_destino numeric(18,0), 
 	Codigo_oferta nvarchar(50),
 	cantidad int,
+	FechaVencimiento datetime,
 	FOREIGN KEY (DNI_cliente_origen) REFERENCES GEDEDE.clientes (DNI_cliente),
 	FOREIGN KEY (DNI_cliente_destino) REFERENCES GEDEDE.clientes (DNI_cliente),
 	FOREIGN KEY (Codigo_oferta) REFERENCES GEDEDE.ofertas(Codigo_oferta)
@@ -452,10 +453,11 @@ go
 
 
 create procedure GEDEDE.insertarCupon(@DNI_cliente_origen numeric(18,0), 
-	@DNI_cliente_destino numeric(18,0), @Codigo_oferta nvarchar(50))
+	@DNI_cliente_destino numeric(18,0), @Codigo_oferta nvarchar(50), @FechaVencimiento datetime, 
+	@Cantidad int)
 as begin
-	insert into GEDEDE.CUPON (DNI_cliente_origen, DNI_cliente_destino, Codigo_oferta)
-		values (@DNI_cliente_origen, @DNI_cliente_destino, @Codigo_oferta)
+	insert into GEDEDE.CUPON (DNI_cliente_origen, DNI_cliente_destino, Codigo_oferta, FechaVencimiento, cantidad)
+		values (@DNI_cliente_origen, @DNI_cliente_destino, @Codigo_oferta, @FechaVencimiento, @Cantidad)
 end
 go
 

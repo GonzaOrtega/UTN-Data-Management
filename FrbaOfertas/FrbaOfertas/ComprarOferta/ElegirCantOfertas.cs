@@ -154,11 +154,11 @@ namespace FrbaOfertas.ComprarOferta
 
         private bool creditoSeaSuficiente(int cantDeseada)
         {
-            string query = "SELECT * FROM OFERTAS WHERE Codigo_oferta = '" + codOferta + "'";
+            string query = "SELECT * FROM GEDEDE.OFERTAS WHERE Codigo_oferta = '" + codOferta + "'";
             Double preciOferta = Convert.ToDouble(Queries.obtenerDatoTabla(query, 1));
             precioTotal = preciOferta * cantDeseada;
 
-            string queryCliente = "SELECT * FROM CLIENTES WHERE DNI_Cliente = " + dniClienteOrigen;
+            string queryCliente = "SELECT * FROM GEDEDE.CLIENTES WHERE DNI_Cliente = " + dniClienteOrigen;
 
             credito = Convert.ToDouble(Queries.obtenerDatoTabla(queryCliente, 9));
 
@@ -167,7 +167,7 @@ namespace FrbaOfertas.ComprarOferta
 
         private bool cantPedidaEsMenorACantidadMaxima(int cantDeseada)
         {
-            string query = "SELECT * FROM OFERTAS WHERE Codigo_oferta = '" + codOferta + "'";
+            string query = "SELECT * FROM GEDEDE.OFERTAS WHERE Codigo_oferta = '" + codOferta + "'";
             int cantMaximaOferta = Convert.ToInt32(Queries.obtenerDatoTabla(query, 7));
             return cantDeseada <= cantMaximaOferta;
         }

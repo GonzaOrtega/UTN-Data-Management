@@ -98,7 +98,7 @@ namespace FrbaOfertas.ComprarOferta
         private void mostrarCupones()
         {
             List<String> nroCupones;
-            string query = "SELECT * FROM CUPON WHERE Codigo_oferta = '" + compra.CodOferta +
+            string query = "SELECT * FROM GEDEDE.CUPON WHERE Codigo_oferta = '" + compra.CodOferta +
                 "' AND DNI_cliente_origen = " + compra.DniCliente;
             nroCupones = Queries.obtenerNroCuponesDeCliente(query);
             mostrarCuponesEnPantalla(nroCupones);
@@ -109,7 +109,7 @@ namespace FrbaOfertas.ComprarOferta
             string respuesta = "Compra realizada exitosamente\n\nLos cupones para canjear su compra son:\n";
             foreach (String nroCupon in nroCupones)
             {
-                string query = "SELECT * FROM CUPON WHERE Codigo_cupon = " + nroCupon;
+                string query = "SELECT * FROM GEDEDE.CUPON WHERE Codigo_cupon = " + nroCupon;
                 string dniClienteDestino = Convert.ToString(Queries.obtenerDatoTabla(query, 3));
                 respuesta = respuesta + "DNI: " + dniClienteDestino + "\tCodigo de cupon: " + nroCupon + "\n";
             }

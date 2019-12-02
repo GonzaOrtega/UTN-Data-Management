@@ -323,7 +323,7 @@ values('CargarCredito')
 insert into GEDEDE.FUNCIONALIDAD(Descripcion)
 values ('ComprarOferta')
 insert into GEDEDE.FUNCIONALIDAD(Descripcion)
-values('BajarOferta')
+values('Consumo_de_oferta')
 insert into GEDEDE.FUNCIONALIDAD(Descripcion)
 values('FacturarProveedor')
 insert into GEDEDE.FUNCIONALIDAD(Descripcion)
@@ -344,7 +344,7 @@ insert into GEDEDE.ROL_FUNCIONALIDAD(ID_rol,ID_funcionalidad)
  (select ID_rol,ID_funcionalidad
  FROM GEDEDE.ROL r,GEDEDE.FUNCIONALIDAD f
  where r.Nombre like 'Proveedor'
- AND(f.Descripcion  like 'BajarOferta'
+ AND(f.Descripcion  like 'Consumo_de_oferta'
  OR f.Descripcion  like 'ConfeccionarOferta'))
  
  insert into GEDEDE.ROL_FUNCIONALIDAD(ID_rol,ID_funcionalidad)

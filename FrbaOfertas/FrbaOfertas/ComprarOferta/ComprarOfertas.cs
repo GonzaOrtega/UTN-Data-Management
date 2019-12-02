@@ -15,7 +15,7 @@ namespace FrbaOfertas.ComprarOferta
     public partial class ComprarOfertas : Form
     {
         DataTable dataTable = new DataTable();
-
+        bool cerrado = false;
         Double clienteId = 15015312;
 
         public ComprarOfertas()
@@ -55,7 +55,7 @@ namespace FrbaOfertas.ComprarOferta
 
         private void buscarOfertas()
         {
-            string query = "SELECT * FROM OFERTAS";
+            string query = "SELECT * FROM GEDEDE.OFERTAS";
             this.limpiarEstructuras();
             DateTime fechaConfigFile = this.obtenerFechaConfigFile();
 
@@ -96,7 +96,7 @@ namespace FrbaOfertas.ComprarOferta
 
         private void planillaComprarOfertas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == planillaComprarOfertas.Columns["Comprar"].Index)
+            if (e.ColumnIndex == planillaComprarOfertas.Columns["Comprar"].Index && e.RowIndex!=-1)
             {
                 int rowIndex = e.RowIndex;
                 DataGridViewRow row = planillaComprarOfertas.Rows[rowIndex];
@@ -135,6 +135,9 @@ namespace FrbaOfertas.ComprarOferta
         {
             planillaComprarOfertas.DataSource = null;
             dataTable.Clear();
+            if(planillaComprarOfertas.Columns.Count>0)
+            planillaComprarOfertas.Columns.RemoveAt(0);
+            
         }
 
         private bool hayCondicionesDeFiltro()
@@ -142,33 +145,32 @@ namespace FrbaOfertas.ComprarOferta
             return hayCodOferta() || hayDescripcion();
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void ComprarOfertas_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
+                cerrado = true;
                 this.Close();
                 new Funciones.Funciones(usuario).Show();
+         
+        }
+
+        private void ComprarOfertas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing && cerrado == false && cerrado == false)
+            {
+                if (MessageBox.Show("¿Está seguro que desea salir del sistema?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Application.Exit();
+                }
             }
         }
 
-        private void planillaComprarOfertas_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            limpiarEstructuras();
         }
     }
 }

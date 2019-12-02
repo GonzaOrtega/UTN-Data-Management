@@ -118,12 +118,12 @@ CREATE TABLE GEDEDE.FACTURA(
 	FOREIGN KEY (CUIT_proveedor,Razon_social) REFERENCES GEDEDE.proveedor(CUIT_proveedor,Razon_social) 
 	);
 CREATE TABLE GEDEDE.COMPRA(
+	ID_compra int identity Primary Key,
 	Codigo_oferta nvarchar(50),
 	DNI_cliente numeric(18,0),
 	Cantidad_compra numeric(18,0),
 	Fecha_compra datetime,
 	Num_factura numeric(18,0),
-	PRIMARY KEY (Codigo_oferta,DNI_cliente,Fecha_compra),
 	FOREIGN KEY (Num_factura) REFERENCES GEDEDE.FACTURA(Num_factura),
 	FOREIGN KEY (DNI_cliente) REFERENCES GEDEDE.clientes(DNI_cliente),
 	FOREIGN KEY (Codigo_oferta) REFERENCES GEDEDE.OFERTAS(Codigo_oferta)

@@ -35,7 +35,7 @@ namespace FrbaOfertas.CargaCredito
         {
             try
             {
-                if (seIngresaronDatos() && montoEsPositivo())
+                if (seIngresaronDatos() && montoEsPositivo() && validarDNICliente())
                 {
                     // Recordar que se tiene que hacer con un DNI existente en la DB, al mergear
                     credito.DniCliente = Convert.ToDouble(txtDNICliente.Text);
@@ -72,6 +72,13 @@ namespace FrbaOfertas.CargaCredito
             {
                 MessageBox.Show("Error al cargar credito, revisar datos ingresados");
             }
+        }
+
+        private bool validarDNICliente()
+        {
+            string query = "select * from GEDEDE.CLIENTES where DNI_cliente = " + txtDNICliente.Text;
+            Double dniClienteObtenido = Convert.ToDouble(Queries.obtenerDatoTabla(query, 0));
+            return Convert.ToDouble(txtDNICliente.Text) == dniClienteObtenido;
         }
 
         private DateTime obtenerFechaConfigFile()

@@ -51,24 +51,13 @@ namespace FrbaOfertas.CargaCredito
                     tarjeta.TipoTarjeta = Convert.ToString(tipoDePago);
                     tarjeta.Titular = txtTitular.Text;
                     tarjeta.NroTarjeta = Convert.ToInt32(txtNroTarjeta.Text);
-
-                    if (tarjeta.TipoTarjeta.Equals(credito.TipoPago))
-                    {
-                        Queries.insertarTarjeta(tarjeta);
-                        Queries.insertarCarga(credito);
-                        Queries.aumentarCredito(credito.DniCliente, credito.Monto);
-                        MessageBox.Show("Carga realizada satisfactoriamente", "Carga de credito");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error: No existe");
-                    }
+                    
+                    Queries.insertarTarjeta(tarjeta);
+                    Queries.insertarCarga(credito);
+                    Queries.aumentarCredito(credito.DniCliente, credito.Monto);
+                    MessageBox.Show("Carga realizada satisfactoriamente", "Carga de credito");
 
                     this.Close();
-                }
-                catch (System.Data.SqlClient.SqlException ex)
-                {
-                    MessageBox.Show("Error: No existe un cliente con ese DNI. Por favor ingrese otro");
                 }
                 catch (Exception ex)
                 {

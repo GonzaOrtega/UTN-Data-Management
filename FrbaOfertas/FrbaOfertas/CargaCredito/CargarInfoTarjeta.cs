@@ -17,10 +17,12 @@ namespace FrbaOfertas.CargaCredito
 
         Credito credito;
         Tarjeta tarjeta = new Tarjeta();
+        String tipoDePago;
 
-        public CargarInfoTarjeta()
+        public CargarInfoTarjeta(String tipoPago )
         {
             InitializeComponent();
+            tipoDePago = tipoPago;
         }
 
 
@@ -46,7 +48,7 @@ namespace FrbaOfertas.CargaCredito
 
                     // Importante que la fecha de vencimeiento sea mayor a la fecha de hoy
                     tarjeta.FechaVencimiento = dtpFechaVencimiento.Value;
-                    tarjeta.TipoTarjeta = Convert.ToString(cbTipoTarjeta.Text);
+                    tarjeta.TipoTarjeta = Convert.ToString(tipoDePago);
                     tarjeta.Titular = txtTitular.Text;
 
                     if (tarjeta.TipoTarjeta.Equals(credito.TipoPago))
@@ -93,12 +95,20 @@ namespace FrbaOfertas.CargaCredito
         private bool hayDatosIngresados()
         {
             return !String.IsNullOrWhiteSpace(txtTitular.Text) &&
-                !String.IsNullOrWhiteSpace(cbTipoTarjeta.Text);
+                !String.IsNullOrWhiteSpace(tipoDePago);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtNroTarjeta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

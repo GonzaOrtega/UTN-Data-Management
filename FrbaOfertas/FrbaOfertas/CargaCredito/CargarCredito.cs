@@ -45,7 +45,7 @@ namespace FrbaOfertas.CargaCredito
 
                     if (eligieronTarjeta())
                     {
-                        infoTarjeta = new CargarInfoTarjeta();
+                        infoTarjeta = new CargarInfoTarjeta(cbTipoPago.Text);
                         credito.HayTarjeta = true;
                         infoTarjeta.obtenerCredito(credito);
                         infoTarjeta.Show();

@@ -148,6 +148,57 @@ CREATE TABLE GEDEDE.ITEM_FACTURA(
 	Importe numeric (18,2),
 	FOREIGN KEY (Num_factura) REFERENCES GEDEDE.factura (Num_factura)
 );
+----------------------------------------------------------------------------------------------------------Creo Trigger para encriptar la contraseña
+GO
+CREATE TRIGGER GEDEDE.encriptarContrasenia
+ON GEDEDE.USUARIO
+INSTEAD OF INSERT
+AS
+BEGIN
+	INSERT INTO GEDEDE.USUARIO(ID_usuario,Nombre_usuario,contrasenia)
+	(SELECT ID_usuario,Nombre_usuario, HASHBYTES('SHA2_256', contrasenia) FROM inserted)
+END
+----------------------------------------------------------------------------------------------------------Creo Trigger para manejar los deletes en proveedor,cliente y rol
+GO
+Create trigger GEDEDE.borrarRol
+ON GEDEDE.ROL
+INSTEAD OF DELETE
+AS
+BEGIN
+	UPDATE GEDEDE.ROL
+	SET habilitado = 'False'
+	where ID_rol in (select ID_rol from deleted)
+	DELETE GEDEDE.USUARIO_ROL
+	where ID_rol in (select ID_rol from deleted)
+END
+GO
+Create trigger GEDEDE.borrarClientes
+ON GEDEDE.CLIENTES
+INSTEAD OF DELETE
+AS
+BEGIN
+	UPDATE GEDEDE.CLIENTES
+	SET habilitado = 'False'
+	where DNI_cliente in (select DNI_cliente from deleted)
+	UPDATE GEDEDE.TIPO_USUARIO
+	SET DNI_cliente=NULL
+	where DNI_cliente in (select DNI_cliente from deleted)
+END
+GO
+Create trigger GEDEDE.borrarProveedor
+ON GEDEDE.PROVEEDOR
+INSTEAD OF DELETE
+AS
+BEGIN
+	UPDATE GEDEDE.PROVEEDOR
+	SET habilitado = 'False'
+	where CUIT_proveedor in (select CUIT_proveedor from deleted)
+	and Razon_social in (select Razon_social from deleted)
+	UPDATE GEDEDE.TIPO_USUARIO
+	SET CUIT_proveedor=NULL,Razon_social=NULL
+	where CUIT_proveedor in (select CUIT_proveedor from deleted)
+	and Razon_social in (select Razon_social from deleted)
+END
 GO
 ----------------------------------------------------------------------------------------------------------		CREACION_DE_STORED_PROCEDURES
 CREATE PROCEDURE GEDEDE.migrarRubro
@@ -253,57 +304,7 @@ END
 GO
 ----------------------------------------------------------------------------------------------------------Ejecuto stored procedure para realizar la migracion
 exec GEDEDE.iniciarMigracionTablaMaestra
-----------------------------------------------------------------------------------------------------------Creo Trigger para encriptar la contraseña
-GO
-CREATE TRIGGER GEDEDE.encriptarContrasenia
-ON GEDEDE.USUARIO
-INSTEAD OF INSERT
-AS
-BEGIN
-	INSERT INTO GEDEDE.USUARIO(ID_usuario,Nombre_usuario,contrasenia)
-	(SELECT ID_usuario,Nombre_usuario, HASHBYTES('SHA2_256', contrasenia) FROM inserted)
-END
-----------------------------------------------------------------------------------------------------------Creo Trigger para manejar los deletes en proveedor,cliente y rol
-GO
-Create trigger GEDEDE.borrarRol
-ON GEDEDE.ROL
-INSTEAD OF DELETE
-AS
-BEGIN
-	UPDATE GEDEDE.ROL
-	SET habilitado = 'False'
-	where ID_rol in (select ID_rol from deleted)
-	DELETE GEDEDE.USUARIO_ROL
-	where ID_rol in (select ID_rol from deleted)
-END
-GO
-Create trigger GEDEDE.borrarClientes
-ON GEDEDE.CLIENTES
-INSTEAD OF DELETE
-AS
-BEGIN
-	UPDATE GEDEDE.CLIENTES
-	SET habilitado = 'False'
-	where DNI_cliente in (select DNI_cliente from deleted)
-	UPDATE GEDEDE.TIPO_USUARIO
-	SET DNI_cliente=NULL
-	where DNI_cliente in (select DNI_cliente from deleted)
-END
-GO
-Create trigger GEDEDE.borrarProveedor
-ON GEDEDE.PROVEEDOR
-INSTEAD OF DELETE
-AS
-BEGIN
-	UPDATE GEDEDE.PROVEEDOR
-	SET habilitado = 'False'
-	where CUIT_proveedor in (select CUIT_proveedor from deleted)
-	and Razon_social in (select Razon_social from deleted)
-	UPDATE GEDEDE.TIPO_USUARIO
-	SET CUIT_proveedor=NULL,Razon_social=NULL
-	where CUIT_proveedor in (select CUIT_proveedor from deleted)
-	and Razon_social in (select Razon_social from deleted)
-END
+
 ----------------------------------------------------------------------------------------------------------Creado Usuario
 GO
 CREATE PROCEDURE GEDEDE.crearUsuario

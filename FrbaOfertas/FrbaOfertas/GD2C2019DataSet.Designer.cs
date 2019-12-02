@@ -6012,6 +6012,10 @@ namespace FrbaOfertas {
             
             private global::System.Data.DataColumn columnNombre_usuario;
             
+            private global::System.Data.DataColumn columnhabilitado;
+            
+            private global::System.Data.DataColumn columnintentosIngreso;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public USUARIODataTable() {
@@ -6071,6 +6075,22 @@ namespace FrbaOfertas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn habilitadoColumn {
+                get {
+                    return this.columnhabilitado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn intentosIngresoColumn {
+                get {
+                    return this.columnintentosIngreso;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -6106,12 +6126,14 @@ namespace FrbaOfertas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public USUARIORow AddUSUARIORow(TIPO_USUARIORow parentTIPO_USUARIORowByFK__USUARIO__ID_usua__09946309, string contrasenia, string Nombre_usuario) {
+            public USUARIORow AddUSUARIORow(TIPO_USUARIORow parentTIPO_USUARIORowByFK__USUARIO__ID_usua__09946309, string contrasenia, string Nombre_usuario, string habilitado, short intentosIngreso) {
                 USUARIORow rowUSUARIORow = ((USUARIORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         contrasenia,
-                        Nombre_usuario};
+                        Nombre_usuario,
+                        habilitado,
+                        intentosIngreso};
                 if ((parentTIPO_USUARIORowByFK__USUARIO__ID_usua__09946309 != null)) {
                     columnValuesArray[0] = parentTIPO_USUARIORowByFK__USUARIO__ID_usua__09946309[0];
                 }
@@ -6147,6 +6169,8 @@ namespace FrbaOfertas {
                 this.columnID_usuario = base.Columns["ID_usuario"];
                 this.columncontrasenia = base.Columns["contrasenia"];
                 this.columnNombre_usuario = base.Columns["Nombre_usuario"];
+                this.columnhabilitado = base.Columns["habilitado"];
+                this.columnintentosIngreso = base.Columns["intentosIngreso"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6158,12 +6182,17 @@ namespace FrbaOfertas {
                 base.Columns.Add(this.columncontrasenia);
                 this.columnNombre_usuario = new global::System.Data.DataColumn("Nombre_usuario", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre_usuario);
+                this.columnhabilitado = new global::System.Data.DataColumn("habilitado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnhabilitado);
+                this.columnintentosIngreso = new global::System.Data.DataColumn("intentosIngreso", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnintentosIngreso);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_usuario}, true));
                 this.columnID_usuario.AllowDBNull = false;
                 this.columnID_usuario.Unique = true;
                 this.columncontrasenia.MaxLength = 50;
                 this.columnNombre_usuario.MaxLength = 50;
+                this.columnhabilitado.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10175,6 +10204,38 @@ namespace FrbaOfertas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string habilitado {
+                get {
+                    try {
+                        return ((string)(this[this.tableUSUARIO.habilitadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'habilitado\' de la tabla \'USUARIO\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSUARIO.habilitadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public short intentosIngreso {
+                get {
+                    try {
+                        return ((short)(this[this.tableUSUARIO.intentosIngresoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'intentosIngreso\' de la tabla \'USUARIO\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUSUARIO.intentosIngresoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public TIPO_USUARIORow TIPO_USUARIORow {
                 get {
                     return ((TIPO_USUARIORow)(this.GetParentRow(this.Table.ParentRelations["FK__USUARIO__ID_usua__09946309"])));
@@ -10206,6 +10267,30 @@ namespace FrbaOfertas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetNombre_usuarioNull() {
                 this[this.tableUSUARIO.Nombre_usuarioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IshabilitadoNull() {
+                return this.IsNull(this.tableUSUARIO.habilitadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SethabilitadoNull() {
+                this[this.tableUSUARIO.habilitadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsintentosIngresoNull() {
+                return this.IsNull(this.tableUSUARIO.intentosIngresoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetintentosIngresoNull() {
+                this[this.tableUSUARIO.intentosIngresoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17198,38 +17283,51 @@ SELECT ID_usuario, CUIT_proveedor, Razon_social, DNI_cliente FROM GEDEDE.TIPO_US
             tableMapping.ColumnMappings.Add("ID_usuario", "ID_usuario");
             tableMapping.ColumnMappings.Add("contrasenia", "contrasenia");
             tableMapping.ColumnMappings.Add("Nombre_usuario", "Nombre_usuario");
+            tableMapping.ColumnMappings.Add("habilitado", "habilitado");
+            tableMapping.ColumnMappings.Add("intentosIngreso", "intentosIngreso");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[USUARIO] WHERE (([ID_usuario] = @Original_ID_usuario) AND ((@IsNull_contrasenia = 1 AND [contrasenia] IS NULL) OR ([contrasenia] = @Original_contrasenia)) AND ((@IsNull_Nombre_usuario = 1 AND [Nombre_usuario] IS NULL) OR ([Nombre_usuario] = @Original_Nombre_usuario)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [GEDEDE].[USUARIO] WHERE (([ID_usuario] = @Original_ID_usuario) AND ((@IsNull_contrasenia = 1 AND [contrasenia] IS NULL) OR ([contrasenia] = @Original_contrasenia)) AND ((@IsNull_Nombre_usuario = 1 AND [Nombre_usuario] IS NULL) OR ([Nombre_usuario] = @Original_Nombre_usuario)) AND ((@IsNull_habilitado = 1 AND [habilitado] IS NULL) OR ([habilitado] = @Original_habilitado)) AND ((@IsNull_intentosIngreso = 1 AND [intentosIngreso] IS NULL) OR ([intentosIngreso] = @Original_intentosIngreso)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_contrasenia", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contrasenia", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_contrasenia", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contrasenia", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Nombre_usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_habilitado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "habilitado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_habilitado", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "habilitado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_intentosIngreso", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "intentosIngreso", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_intentosIngreso", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "intentosIngreso", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[USUARIO] ([ID_usuario], [contrasenia], [Nombre_usuario]) VALUE" +
-                "S (@ID_usuario, @contrasenia, @Nombre_usuario);\r\nSELECT ID_usuario, contrasenia," +
-                " Nombre_usuario FROM USUARIO WHERE (ID_usuario = @ID_usuario)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [GEDEDE].[USUARIO] ([ID_usuario], [contrasenia], [Nombre_usuario], [habilitado], [intentosIngreso]) VALUES (@ID_usuario, @contrasenia, @Nombre_usuario, @habilitado, @intentosIngreso);
+SELECT ID_usuario, contrasenia, Nombre_usuario, habilitado, intentosIngreso FROM GEDEDE.USUARIO WHERE (ID_usuario = @ID_usuario)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contrasenia", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contrasenia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@habilitado", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "habilitado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@intentosIngreso", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "intentosIngreso", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[USUARIO] SET [ID_usuario] = @ID_usuario, [contrasenia] = @contrasenia, [Nombre_usuario] = @Nombre_usuario WHERE (([ID_usuario] = @Original_ID_usuario) AND ((@IsNull_contrasenia = 1 AND [contrasenia] IS NULL) OR ([contrasenia] = @Original_contrasenia)) AND ((@IsNull_Nombre_usuario = 1 AND [Nombre_usuario] IS NULL) OR ([Nombre_usuario] = @Original_Nombre_usuario)));
-SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = @ID_usuario)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [GEDEDE].[USUARIO] SET [ID_usuario] = @ID_usuario, [contrasenia] = @contrasenia, [Nombre_usuario] = @Nombre_usuario, [habilitado] = @habilitado, [intentosIngreso] = @intentosIngreso WHERE (([ID_usuario] = @Original_ID_usuario) AND ((@IsNull_contrasenia = 1 AND [contrasenia] IS NULL) OR ([contrasenia] = @Original_contrasenia)) AND ((@IsNull_Nombre_usuario = 1 AND [Nombre_usuario] IS NULL) OR ([Nombre_usuario] = @Original_Nombre_usuario)) AND ((@IsNull_habilitado = 1 AND [habilitado] IS NULL) OR ([habilitado] = @Original_habilitado)) AND ((@IsNull_intentosIngreso = 1 AND [intentosIngreso] IS NULL) OR ([intentosIngreso] = @Original_intentosIngreso)));
+SELECT ID_usuario, contrasenia, Nombre_usuario, habilitado, intentosIngreso FROM GEDEDE.USUARIO WHERE (ID_usuario = @ID_usuario)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contrasenia", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contrasenia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@habilitado", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "habilitado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@intentosIngreso", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "intentosIngreso", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_contrasenia", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contrasenia", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_contrasenia", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "contrasenia", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Nombre_usuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_habilitado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "habilitado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_habilitado", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "habilitado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_intentosIngreso", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "intentosIngreso", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_intentosIngreso", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "intentosIngreso", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17242,10 +17340,11 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[9];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_usuario, contrasenia, Nombre_usuario FROM GEDEDE.USUARIO";
+            this._commandCollection[0].CommandText = "SELECT ID_usuario, contrasenia, Nombre_usuario, habilitado, intentosIngreso FROM " +
+                "GEDEDE.USUARIO";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -17255,27 +17354,51 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT ID_usuario, contrasenia, Nombre_usuario FROM GEDEDE.USUARIO WHERE  (contra" +
-                "senia = HASHBYTES(\'SHA2_256\', @Contrasenia)) AND (Nombre_usuario = @Nombre_usuar" +
-                "io)";
+            this._commandCollection[2].CommandText = "SELECT ID_usuario, contrasenia, Nombre_usuario, habilitado, intentosIngreso FROM " +
+                "GEDEDE.USUARIO WHERE (contrasenia = HASHBYTES(\'SHA2_256\', @Contrasenia)) AND (No" +
+                "mbre_usuario = @Nombre_usuario)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Contrasenia", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "contrasenia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "INSERT INTO GEDEDE.USUARIO\r\n                  (ID_usuario, contrasenia, Nombre_us" +
-                "uario)\r\nVALUES (@ID_usuario,@contrasenia,@Nombre_usuario); ";
+            this._commandCollection[3].CommandText = "SELECT ID_usuario, contrasenia, Nombre_usuario, habilitado, intentosIngreso FROM " +
+                "GEDEDE.USUARIO WHERE (Nombre_usuario = @Nombre_usuario)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_usuario", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contrasenia", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "contrasenia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT COUNT(*) AS Expr1\r\nFROM     GEDEDE.USUARIO AS u INNER JOIN\r\n              " +
+            this._commandCollection[4].CommandText = "UPDATE GEDEDE.USUARIO\r\nSET          habilitado = \'False\'\r\nWHERE  (Nombre_usuario " +
+                "= @Original_Nombre_usuario); \r\n";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "INSERT INTO GEDEDE.USUARIO\r\n                  (ID_usuario, contrasenia, Nombre_us" +
+                "uario)\r\nVALUES (@ID_usuario,@contrasenia,@Nombre_usuario); ";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_usuario", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@contrasenia", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "contrasenia", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = "SELECT COUNT(*) AS Expr1\r\nFROM     GEDEDE.USUARIO AS u INNER JOIN\r\n              " +
                 "    GEDEDE.TIPO_USUARIO AS tu ON u.ID_usuario = tu.ID_usuario\r\nWHERE  (u.Nombre_" +
                 "usuario = @Nombre_usuario) AND (tu.DNI_cliente IS NOT NULL)";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = "UPDATE GEDEDE.USUARIO\r\nSET          intentosIngreso = 0\r\nWHERE  (Nombre_usuario =" +
+                " @Original_Nombre_usuario); \r\n";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[8].Connection = this.Connection;
+            this._commandCollection[8].CommandText = "UPDATE GEDEDE.USUARIO\r\nSET          intentosIngreso = intentosIngreso + 1\r\nWHERE " +
+                " (Nombre_usuario = @Nombre_usuario);   \r\n";
+            this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nombre_usuario", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Nombre_usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17353,6 +17476,42 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy1(GD2C2019DataSet.USUARIODataTable dataTable, string Nombre_usuario) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Nombre_usuario == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Nombre_usuario));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual GD2C2019DataSet.USUARIODataTable GetDataByNombre(string Nombre_usuario) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Nombre_usuario == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Nombre_usuario));
+            }
+            GD2C2019DataSet.USUARIODataTable dataTable = new GD2C2019DataSet.USUARIODataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(GD2C2019DataSet.USUARIODataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
@@ -17383,7 +17542,7 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID_usuario, string Original_contrasenia, string Original_Nombre_usuario) {
+        public virtual int Delete(int Original_ID_usuario, string Original_contrasenia, string Original_Nombre_usuario, string Original_habilitado, global::System.Nullable<short> Original_intentosIngreso) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_usuario));
             if ((Original_contrasenia == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -17400,6 +17559,22 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Nombre_usuario));
+            }
+            if ((Original_habilitado == null)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_habilitado));
+            }
+            if ((Original_intentosIngreso.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((short)(Original_intentosIngreso.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -17421,7 +17596,7 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ID_usuario, string contrasenia, string Nombre_usuario) {
+        public virtual int Insert(int ID_usuario, string contrasenia, string Nombre_usuario, string habilitado, global::System.Nullable<short> intentosIngreso) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID_usuario));
             if ((contrasenia == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -17434,6 +17609,18 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Nombre_usuario));
+            }
+            if ((habilitado == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(habilitado));
+            }
+            if ((intentosIngreso.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((short)(intentosIngreso.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -17455,7 +17642,7 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ID_usuario, string contrasenia, string Nombre_usuario, int Original_ID_usuario, string Original_contrasenia, string Original_Nombre_usuario) {
+        public virtual int Update(int ID_usuario, string contrasenia, string Nombre_usuario, string habilitado, global::System.Nullable<short> intentosIngreso, int Original_ID_usuario, string Original_contrasenia, string Original_Nombre_usuario, string Original_habilitado, global::System.Nullable<short> Original_intentosIngreso) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID_usuario));
             if ((contrasenia == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -17469,22 +17656,50 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Nombre_usuario));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ID_usuario));
-            if ((Original_contrasenia == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            if ((habilitado == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_contrasenia));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(habilitado));
             }
-            if ((Original_Nombre_usuario == null)) {
+            if ((intentosIngreso.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((short)(intentosIngreso.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_ID_usuario));
+            if ((Original_contrasenia == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Nombre_usuario));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_contrasenia));
+            }
+            if ((Original_Nombre_usuario == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Nombre_usuario));
+            }
+            if ((Original_habilitado == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_habilitado));
+            }
+            if ((Original_intentosIngreso.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((short)(Original_intentosIngreso.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -17506,8 +17721,8 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string contrasenia, string Nombre_usuario, int Original_ID_usuario, string Original_contrasenia, string Original_Nombre_usuario) {
-            return this.Update(Original_ID_usuario, contrasenia, Nombre_usuario, Original_ID_usuario, Original_contrasenia, Original_Nombre_usuario);
+        public virtual int Update(string contrasenia, string Nombre_usuario, string habilitado, global::System.Nullable<short> intentosIngreso, int Original_ID_usuario, string Original_contrasenia, string Original_Nombre_usuario, string Original_habilitado, global::System.Nullable<short> Original_intentosIngreso) {
+            return this.Update(Original_ID_usuario, contrasenia, Nombre_usuario, habilitado, intentosIngreso, Original_ID_usuario, Original_contrasenia, Original_Nombre_usuario, Original_habilitado, Original_intentosIngreso);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17547,9 +17762,38 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int inhabilitarUsuario(string Original_Nombre_usuario) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            if ((Original_Nombre_usuario == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Original_Nombre_usuario));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertarUsuario(int ID_usuario, string contrasenia, string Nombre_usuario) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             command.Parameters[0].Value = ((int)(ID_usuario));
             if ((contrasenia == null)) {
                 command.Parameters[1].Value = global::System.DBNull.Value;
@@ -17584,7 +17828,7 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual object poseeUnCliente(string Nombre_usuario) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
             if ((Nombre_usuario == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -17612,6 +17856,64 @@ SELECT ID_usuario, contrasenia, Nombre_usuario FROM USUARIO WHERE (ID_usuario = 
             else {
                 return ((object)(returnValue));
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int resetearIntentos(string Original_Nombre_usuario) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
+            if ((Original_Nombre_usuario == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Original_Nombre_usuario));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateIntentos(string Nombre_usuario) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
+            if ((Nombre_usuario == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Nombre_usuario));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

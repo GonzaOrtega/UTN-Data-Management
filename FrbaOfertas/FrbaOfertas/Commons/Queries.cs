@@ -119,6 +119,7 @@ namespace FrbaOfertas.Commons
             comando.Parameters.AddWithValue("@Fecha_Vencimiento", tarjeta.FechaVencimiento);
             comando.Parameters.AddWithValue("@Nombre_tutorial", Validacion.validarString(tarjeta.Titular));
             comando.Parameters.AddWithValue("@Tipo_pago_desc", tarjeta.TipoTarjeta);
+            comando.Parameters.AddWithValue("@NroTarjeta", tarjeta.NroTarjeta);
             //MessageBox.Show(Convert.ToString(Validacion.validarString(tarjeta.TipoTarjeta)));
 
             conexion.Open();

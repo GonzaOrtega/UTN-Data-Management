@@ -19,7 +19,7 @@ namespace FrbaOfertas.CargaCredito
         Tarjeta tarjeta = new Tarjeta();
         String tipoDePago;
 
-        public CargarInfoTarjeta(String tipoPago )
+        public CargarInfoTarjeta(String tipoPago)
         {
             InitializeComponent();
             tipoDePago = tipoPago;
@@ -50,6 +50,7 @@ namespace FrbaOfertas.CargaCredito
                     tarjeta.FechaVencimiento = dtpFechaVencimiento.Value;
                     tarjeta.TipoTarjeta = Convert.ToString(tipoDePago);
                     tarjeta.Titular = txtTitular.Text;
+                    tarjeta.NroTarjeta = Convert.ToInt32(txtNroTarjeta.Text);
 
                     if (tarjeta.TipoTarjeta.Equals(credito.TipoPago))
                     {
@@ -60,10 +61,14 @@ namespace FrbaOfertas.CargaCredito
                     }
                     else
                     {
-                        MessageBox.Show("Error: Tipo de pago especificado es distinto al tipo de tarjeta");
+                        MessageBox.Show("Error: No existe");
                     }
 
                     this.Close();
+                }
+                catch (System.Data.SqlClient.SqlException ex)
+                {
+                    MessageBox.Show("Error: No existe un cliente con ese DNI. Por favor ingrese otro");
                 }
                 catch (Exception ex)
                 {

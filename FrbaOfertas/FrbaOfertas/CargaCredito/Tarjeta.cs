@@ -11,9 +11,11 @@ namespace FrbaOfertas.CargaCredito
         String titular;
         String tipoTarjeta;
         DateTime fechaVencimiento;
+        int nroTarjeta;
 
         public string Titular { get => titular; set => titular = value; }
         public string TipoTarjeta { get => tipoTarjeta; set => tipoTarjeta = value; }
         public DateTime FechaVencimiento { get => fechaVencimiento; set => fechaVencimiento = value; }
+        public int NroTarjeta { get => nroTarjeta; set => nroTarjeta = value; }
     }
 }

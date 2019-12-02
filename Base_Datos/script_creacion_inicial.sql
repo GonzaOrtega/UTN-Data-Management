@@ -43,6 +43,7 @@ CREATE TABLE GEDEDE.TARJETA (
 	Fecha_Vencimiento datetime,
 	Nombre_tutorial nvarchar(1255),
 	Tipo_pago_desc nvarchar(20) check (Tipo_pago_desc IN ('Crédito','Débito')),
+	NroTarjeta int,
 	Primary Key (ID_tarjeta)
 );
 
@@ -431,10 +432,10 @@ go
 
 
 create procedure GEDEDE.insertarTarjeta(@Fecha_Vencimiento datetime,
-	@Nombre_tutorial nvarchar(1255), @Tipo_pago_desc nvarchar(20))
+	@Nombre_tutorial nvarchar(1255), @Tipo_pago_desc nvarchar(20), @NroTarjeta int)
 as begin
-	insert into GEDEDE.TARJETA (Fecha_Vencimiento, Nombre_tutorial, Tipo_pago_desc)
-		values (@Fecha_Vencimiento, @Nombre_tutorial, @Tipo_pago_desc);
+	insert into GEDEDE.TARJETA(Fecha_Vencimiento, Nombre_tutorial, Tipo_pago_desc, NroTarjeta)
+		values (@Fecha_Vencimiento, @Nombre_tutorial, @Tipo_pago_desc, @NroTarjeta);
 end
 go
 

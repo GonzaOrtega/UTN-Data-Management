@@ -61,7 +61,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtDescripcion.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtDescripcion.Location = new System.Drawing.Point(161, 123);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(477, 34);
@@ -73,7 +73,7 @@
             // txtPrecioLista
             // 
             this.txtPrecioLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioLista.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtPrecioLista.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtPrecioLista.Location = new System.Drawing.Point(160, 445);
             this.txtPrecioLista.Name = "txtPrecioLista";
             this.txtPrecioLista.Size = new System.Drawing.Size(477, 34);
@@ -86,7 +86,7 @@
             // txtPrecioOferta
             // 
             this.txtPrecioOferta.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioOferta.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtPrecioOferta.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtPrecioOferta.Location = new System.Drawing.Point(160, 370);
             this.txtPrecioOferta.Name = "txtPrecioOferta";
             this.txtPrecioOferta.Size = new System.Drawing.Size(477, 34);
@@ -205,6 +205,7 @@
             this.tableAdapterManager.CUPONTableAdapter = null;
             this.tableAdapterManager.FACTURATableAdapter = null;
             this.tableAdapterManager.FUNCIONALIDADTableAdapter = null;
+            this.tableAdapterManager.ITEM_FACTURATableAdapter = null;
             this.tableAdapterManager.MaestraTableAdapter = null;
             this.tableAdapterManager.OFERTASTableAdapter = this.oFERTASTableAdapter;
             this.tableAdapterManager.PROVEEDORTableAdapter = null;

@@ -40,20 +40,19 @@
             // 
             this.lblIngrese.AutoSize = true;
             this.lblIngrese.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIngrese.Location = new System.Drawing.Point(32, 48);
+            this.lblIngrese.Location = new System.Drawing.Point(28, 38);
             this.lblIngrese.Name = "lblIngrese";
-            this.lblIngrese.Size = new System.Drawing.Size(780, 32);
+            this.lblIngrese.Size = new System.Drawing.Size(666, 29);
             this.lblIngrese.TabIndex = 0;
             this.lblIngrese.Text = "Ingrese datos del proveedor al que le quiere asignar la oferta";
             // 
             // txtCuit
             // 
             this.txtCuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCuit.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtCuit.Location = new System.Drawing.Point(93, 138);
-            this.txtCuit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCuit.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtCuit.Location = new System.Drawing.Point(83, 110);
             this.txtCuit.Name = "txtCuit";
-            this.txtCuit.Size = new System.Drawing.Size(607, 39);
+            this.txtCuit.Size = new System.Drawing.Size(540, 34);
             this.txtCuit.TabIndex = 1;
             this.txtCuit.Text = "CUIT";
             this.txtCuit.Enter += new System.EventHandler(this.txtCuit_Enter);
@@ -62,11 +61,10 @@
             // txtRazonSocial
             // 
             this.txtRazonSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRazonSocial.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtRazonSocial.Location = new System.Drawing.Point(93, 206);
-            this.txtRazonSocial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtRazonSocial.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtRazonSocial.Location = new System.Drawing.Point(83, 165);
             this.txtRazonSocial.Name = "txtRazonSocial";
-            this.txtRazonSocial.Size = new System.Drawing.Size(607, 39);
+            this.txtRazonSocial.Size = new System.Drawing.Size(540, 34);
             this.txtRazonSocial.TabIndex = 2;
             this.txtRazonSocial.Text = "Razón social";
             this.txtRazonSocial.Enter += new System.EventHandler(this.txtRazonSocial_Enter);
@@ -75,10 +73,9 @@
             // btnSiguiente
             // 
             this.btnSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSiguiente.Location = new System.Drawing.Point(510, 295);
-            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSiguiente.Location = new System.Drawing.Point(453, 236);
             this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(191, 55);
+            this.btnSiguiente.Size = new System.Drawing.Size(170, 44);
             this.btnSiguiente.TabIndex = 3;
             this.btnSiguiente.Text = "SIGUIENTE";
             this.btnSiguiente.UseVisualStyleBackColor = true;
@@ -87,10 +84,9 @@
             // btnAtras
             // 
             this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.Location = new System.Drawing.Point(93, 295);
-            this.btnAtras.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAtras.Location = new System.Drawing.Point(83, 236);
             this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(191, 55);
+            this.btnAtras.Size = new System.Drawing.Size(170, 44);
             this.btnAtras.TabIndex = 4;
             this.btnAtras.Text = "ATRÁS";
             this.btnAtras.UseVisualStyleBackColor = true;
@@ -102,16 +98,15 @@
             // 
             // IngresaProveedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(818, 390);
+            this.ClientSize = new System.Drawing.Size(727, 312);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.txtRazonSocial);
             this.Controls.Add(this.txtCuit);
             this.Controls.Add(this.lblIngrese);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "IngresaProveedor";
             this.Text = "IngresaProveedor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.IngresaProveedor_FormClosing);

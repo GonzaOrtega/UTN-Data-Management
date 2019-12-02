@@ -54,7 +54,7 @@
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtUsuario.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtUsuario.Location = new System.Drawing.Point(157, 148);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(407, 34);
@@ -66,7 +66,7 @@
             // txtContrasenia
             // 
             this.txtContrasenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasenia.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtContrasenia.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtContrasenia.Location = new System.Drawing.Point(157, 215);
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.Size = new System.Drawing.Size(407, 34);

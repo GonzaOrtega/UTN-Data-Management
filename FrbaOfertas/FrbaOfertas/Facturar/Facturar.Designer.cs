@@ -119,7 +119,7 @@
             // 
             // txtRazonSocial
             // 
-            this.txtRazonSocial.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtRazonSocial.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtRazonSocial.Location = new System.Drawing.Point(27, 94);
             this.txtRazonSocial.Name = "txtRazonSocial";
             this.txtRazonSocial.Size = new System.Drawing.Size(282, 34);
@@ -131,7 +131,7 @@
             // 
             // txtCuit
             // 
-            this.txtCuit.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtCuit.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtCuit.Location = new System.Drawing.Point(27, 54);
             this.txtCuit.Name = "txtCuit";
             this.txtCuit.Size = new System.Drawing.Size(282, 34);

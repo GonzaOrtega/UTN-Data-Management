@@ -53,7 +53,7 @@
             // txtCuit
             // 
             this.txtCuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCuit.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtCuit.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtCuit.Location = new System.Drawing.Point(189, 143);
             this.txtCuit.Name = "txtCuit";
             this.txtCuit.Size = new System.Drawing.Size(415, 34);
@@ -65,7 +65,7 @@
             // txtRazonSocial
             // 
             this.txtRazonSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRazonSocial.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtRazonSocial.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtRazonSocial.Location = new System.Drawing.Point(189, 208);
             this.txtRazonSocial.Name = "txtRazonSocial";
             this.txtRazonSocial.Size = new System.Drawing.Size(415, 34);

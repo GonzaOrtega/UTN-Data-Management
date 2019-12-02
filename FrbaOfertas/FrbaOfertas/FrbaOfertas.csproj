@@ -170,6 +170,12 @@
     <Compile Include="Facturar\Facturar.Designer.cs">
       <DependentUpon>Facturar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Funciones\CambiarContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funciones\CambiarContraseña.Designer.cs">
+      <DependentUpon>CambiarContraseña.cs</DependentUpon>
+    </Compile>
     <Compile Include="Funciones\Funciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Facturar\Facturar.resx">
       <DependentUpon>Facturar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funciones\CambiarContraseña.resx">
+      <DependentUpon>CambiarContraseña.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funciones\Funciones.resx">
       <DependentUpon>Funciones.cs</DependentUpon>

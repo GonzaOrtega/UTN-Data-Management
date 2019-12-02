@@ -141,5 +141,10 @@ namespace FrbaOfertas.Funciones
         {
 
         }
+
+        private void btnContrasenia_Click(object sender, EventArgs e)
+        {
+            new CambiarContraseña(usuario).Show();
+        }
     }
 }

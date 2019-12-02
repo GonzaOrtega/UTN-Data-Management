@@ -39,3 +39,4 @@ C:\Users\Chiara\Desktop\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\Frba
 C:\Users\Chiara\Desktop\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.pdb
 C:\Users\Chiara\Desktop\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.AbmCliente.IngresarCliente.resources
 C:\Users\Chiara\Desktop\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.ComprarOferta.ElegirUsuariosDestino.resources
+C:\Users\Chiara\Desktop\tp-GeDeDe-2c-2019\FrbaOfertas\FrbaOfertas\obj\Debug\FrbaOfertas.Funciones.CambiarContraseña.resources

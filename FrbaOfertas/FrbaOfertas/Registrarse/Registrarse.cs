@@ -76,7 +76,20 @@ namespace FrbaOfertas.Registrarse
             }
             return true;
         }
-        private void btnSiguiente_Click(object sender, EventArgs e)
+        private bool validarHabilitado()
+        {
+            if (usuarioTableAdapter1.GetDataByNombre(txtUsuario.Text).Count != 0)
+            {
+                DataRow row = usuarioTableAdapter1.GetDataByNombre(txtUsuario.Text).First();
+                if (row["habilitado"].ToString() == "False")
+                {
+                    MessageBox.Show("El usuario se encuentra inhabilitado", "ERROR", MessageBoxButtons.OK);
+                    return false;
+                }
+            }
+                return true;
+        }
+       private void btnSiguiente_Click(object sender, EventArgs e)
         {
             //Dependiendo el rol va a in a distintos form
             //Y cuando el form me devuelva el cliente lo agregoel usuario y cliente
@@ -89,14 +102,17 @@ namespace FrbaOfertas.Registrarse
                     }
                     else
                     {
-                        if (this.yaPoseeEseROL())
+                        if (validarHabilitado())
                         {
-                            MessageBox.Show("El usuario ya se le ha asignado ese ROL", "ERROR", MessageBoxButtons.OK);
-                        }
-                        else
-                        {
-                            usuarioExistente = true;
-                            this.enviarAlProximoFormulario();
+                            if (this.yaPoseeEseROL())
+                            {
+                                MessageBox.Show("El usuario ya se le ha asignado ese ROL", "ERROR", MessageBoxButtons.OK);
+                            }
+                            else
+                            {
+                                usuarioExistente = true;
+                                this.enviarAlProximoFormulario();
+                            }
                         }
                     }
                 }

@@ -30,6 +30,7 @@ namespace FrbaOfertas.LoginYSeguridad
             }
             else
             {
+
                 MessageBox.Show("Contraseña o Usuario invalidos", "ERROR", MessageBoxButtons.OK);
             }
 

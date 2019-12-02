@@ -69,6 +69,8 @@ CREATE TABLE GEDEDE.USUARIO(
 	ID_usuario int Primary Key,
 	contrasenia nvarchar(50),
 	Nombre_usuario nvarchar(50),
+	habilitado nvarchar(10) check (habilitado IN ('True','False')) default 'True',
+	intentosIngreso smallint,
 	Foreign Key (ID_usuario) REFERENCES GEDEDE.tipo_usuario
 );
 CREATE TABLE GEDEDE.ROL(
@@ -168,7 +170,7 @@ CREATE PROCEDURE GEDEDE.migrarCarga
 AS
 BEGIN
 	insert into GEDEDE.CARGA(Credito,Fecha_carga,Tipo_pago_desc,DNI_Cliente)
-	(select Carga_Credito,Carga_Fecha,Tipo_Pago_Desc,Cli_Dni FROM gd_esquema.Maestra)
+	(select Carga_Credito,Carga_Fecha,Tipo_Pago_Desc,Cli_Dni FROM gd_esquema.Maestra Where Carga_Credito is not null)
 	UPDATE GEDEDE.CLIENTES 
 	set Credito = (SELECT COALESCE(sum (Credito),0) FROM CARGA where CLIENTES.DNI_cliente = CARGA.DNI_Cliente)
 END

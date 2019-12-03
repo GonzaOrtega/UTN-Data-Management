@@ -19,12 +19,14 @@ namespace FrbaOfertas.AbmCliente
         DataTable dataTable = new DataTable();
         Dictionary<String, String> dictionary = new Dictionary<String, String>();
         Double dniglobal;
-        bool esModificar = true;
+        //bool esModificar = true;
         bool cerrar = false;
-        public bool EsModificar { get => esModificar; set => esModificar = value; }
+        public bool EsModificar { get; set; }
+        
 
         public ABMCliente()
         {
+            EsModificar = true;
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
             planillaModificarCliente.CellClick += planillaModificarCliente_CellClick;
@@ -33,6 +35,7 @@ namespace FrbaOfertas.AbmCliente
         int usuario;
         public ABMCliente(int usu)
         {
+            EsModificar = true;
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
             usuario = usu;

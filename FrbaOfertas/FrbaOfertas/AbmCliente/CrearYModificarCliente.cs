@@ -15,9 +15,9 @@ namespace FrbaOfertas.AbmCliente
         ABMCliente buscarCliente = new ABMCliente();
         String nombreUsuario = null;
         String contraseniaUsuario = null;
-        public Cliente Cliente { get => cliente; set => cliente = value; }
-        public bool EsModificado { get => esModificado; set => esModificado = value; }
-        public ABMCliente BuscarCliente { get => buscarCliente; set => buscarCliente = value; }
+        public Cliente Cliente { get; set; }
+        public bool EsModificado { get; set; }
+        public ABMCliente BuscarCliente { get; set; }
 
         public CrearYModificarCliente()
         {

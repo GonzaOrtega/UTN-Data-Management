@@ -42,9 +42,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(34, 12);
+            this.label1.Location = new System.Drawing.Point(23, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(249, 29);
+            this.label1.Size = new System.Drawing.Size(164, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha de vencimiento";
             // 
@@ -52,37 +53,38 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(34, 100);
+            this.label2.Location = new System.Drawing.Point(23, 65);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(205, 29);
+            this.label2.Size = new System.Drawing.Size(133, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre del titular";
             // 
             // txtTitular
             // 
             this.txtTitular.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitular.Location = new System.Drawing.Point(353, 100);
-            this.txtTitular.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTitular.Location = new System.Drawing.Point(235, 65);
+            this.txtTitular.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtTitular.Name = "txtTitular";
-            this.txtTitular.Size = new System.Drawing.Size(402, 35);
+            this.txtTitular.Size = new System.Drawing.Size(269, 26);
             this.txtTitular.TabIndex = 4;
             // 
             // dtpFechaVencimiento
             // 
             this.dtpFechaVencimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaVencimiento.Location = new System.Drawing.Point(353, 12);
-            this.dtpFechaVencimiento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpFechaVencimiento.Location = new System.Drawing.Point(235, 8);
+            this.dtpFechaVencimiento.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dtpFechaVencimiento.Name = "dtpFechaVencimiento";
-            this.dtpFechaVencimiento.Size = new System.Drawing.Size(402, 35);
+            this.dtpFechaVencimiento.Size = new System.Drawing.Size(269, 26);
             this.dtpFechaVencimiento.TabIndex = 5;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(608, 278);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Location = new System.Drawing.Point(405, 181);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 59);
+            this.button1.Size = new System.Drawing.Size(99, 38);
             this.button1.TabIndex = 6;
             this.button1.Text = "Finalizar";
             this.button1.UseVisualStyleBackColor = true;
@@ -91,10 +93,10 @@
             // txtNroTarjeta
             // 
             this.txtNroTarjeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNroTarjeta.Location = new System.Drawing.Point(353, 185);
-            this.txtNroTarjeta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNroTarjeta.Location = new System.Drawing.Point(235, 120);
+            this.txtNroTarjeta.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txtNroTarjeta.Name = "txtNroTarjeta";
-            this.txtNroTarjeta.Size = new System.Drawing.Size(402, 35);
+            this.txtNroTarjeta.Size = new System.Drawing.Size(269, 26);
             this.txtNroTarjeta.TabIndex = 9;
             this.txtNroTarjeta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNroTarjeta_KeyPress);
             // 
@@ -102,19 +104,20 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(34, 185);
+            this.label4.Location = new System.Drawing.Point(23, 120);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 29);
+            this.label4.Size = new System.Drawing.Size(83, 20);
             this.label4.TabIndex = 8;
             this.label4.Text = "Nro tarjeta";
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(39, 278);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Location = new System.Drawing.Point(26, 181);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 59);
+            this.button2.Size = new System.Drawing.Size(80, 38);
             this.button2.TabIndex = 10;
             this.button2.Text = "Salir";
             this.button2.UseVisualStyleBackColor = true;
@@ -122,10 +125,10 @@
             // 
             // CargarInfoTarjeta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(781, 368);
+            this.ClientSize = new System.Drawing.Size(521, 239);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.txtNroTarjeta);
             this.Controls.Add(this.label4);
@@ -134,9 +137,10 @@
             this.Controls.Add(this.txtTitular);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "CargarInfoTarjeta";
             this.Text = "Cargar datos de tarjeta";
+            this.Load += new System.EventHandler(this.CargarInfoTarjeta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

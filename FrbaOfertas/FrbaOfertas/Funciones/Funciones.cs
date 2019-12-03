@@ -10,7 +10,7 @@ namespace FrbaOfertas.Funciones
         int usuario;
         bool cerrado = false;
 
-        public int Usuario { get => usuario; set => usuario = value; }
+        public int Usuario { get; set; }
 
         public Funciones(int ID_Usuario)
         {

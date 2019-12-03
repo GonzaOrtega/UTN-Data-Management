@@ -8,36 +8,36 @@ namespace FrbaOfertas.AbmCliente
 {
     public class Cliente
     {
-        private Double dni;
+        //private Double dni;
 
-        private string nombre;
+        //private string nombre;
 
-        private string apellido;
+        //private string apellido;
 
-        private string direccion;
+        //private string direccion;
 
-        private Double telefono;
+        //private Double telefono;
 
-        private string email;
+        //private string email;
 
-        DateTime fechaVencimiento;
+        //DateTime fechaVencimiento;
 
-        string ciudad;
+        //string ciudad;
 
-        Double credito;
+        //Double credito;
 
-        Double codigoPostal;
+        //Double codigoPostal;
 
         // Getters y setters
-        public double DNI { get => dni; set => dni = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Apellido { get => apellido; set => apellido = value; }
-        public string Direccion { get => direccion; set => direccion = value; }
-        public double Telefono { get => telefono; set => telefono = value; }
-        public string Email { get => email; set => email = value; }
-        public DateTime FechaVencimiento { get => fechaVencimiento; set => fechaVencimiento = value; }
-        public string Ciudad { get => ciudad; set => ciudad = value; }
-        public double Credito { get => credito; set => credito = value; }
-        public double CodigoPostal { get => codigoPostal; set => codigoPostal = value; }
+        public double DNI { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Direccion { get; set; }
+        public double Telefono { get; set; }
+        public string Email { get; set; }
+        public DateTime FechaVencimiento { get; set; }
+        public string Ciudad { get; set; }
+        public double Credito { get; set; }
+        public double CodigoPostal { get; set; }
     }
 }

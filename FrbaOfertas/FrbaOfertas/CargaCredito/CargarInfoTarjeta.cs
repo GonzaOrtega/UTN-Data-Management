@@ -104,5 +104,10 @@ namespace FrbaOfertas.CargaCredito
                 e.Handled = true;
             }
         }
+
+        private void CargarInfoTarjeta_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

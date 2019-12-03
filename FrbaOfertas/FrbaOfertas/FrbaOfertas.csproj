@@ -184,6 +184,7 @@
     </Compile>
     <Compile Include="GD2C2019DataSet.cs">
       <DependentUpon>GD2C2019DataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="GD2C2019DataSet.Designer.cs">
       <AutoGen>True</AutoGen>

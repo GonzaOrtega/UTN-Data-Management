@@ -22,7 +22,7 @@ namespace FrbaOfertas
         public static SqlConnection getConnection()
         {
             SqlConnection connection = new SqlConnection();
-            //connection.ConnectionString = "Data Source=LAPTOP-10J4C3F9\\SQLEXPRESS;Initial Catalog=GD2C2019;User ID=gd;Password=gd2019";
+            //connection.ConnectionString = "Data Source=FAMILIA\\SQLEXPRESS;Initial Catalog=GD2C2019;User ID=gd;Password=gd2019";
            // connection.ConnectionString = "Data Source=" + server + "\\SQLEXPRESS;Initial Catalog=GD2C2019;User ID=" + user + ";Password=" + password + "";
 
             // Usar esta para entregar el tp

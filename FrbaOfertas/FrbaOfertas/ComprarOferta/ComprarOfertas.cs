@@ -177,5 +177,10 @@ namespace FrbaOfertas.ComprarOferta
         {
 
         }
+
+        private void ComprarOfertas_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

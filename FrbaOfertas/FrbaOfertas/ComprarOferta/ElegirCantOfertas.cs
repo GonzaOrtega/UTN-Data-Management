@@ -19,17 +19,17 @@ namespace FrbaOfertas.ComprarOferta
         // Aclaracion, como tenemos como PK al codOferta y DNICliente => Un cliente solo puede comprar una oferta
         // (Independientemente de sus cantidades) solo una vez, porque sino no se cumple unicidad.
         // Lo cual me parece que tiene sentido ya que cuando una compra una oferta, por mas que compre muchas unidades, solo la compra una vez
-        Double dniClienteOrigen;
+        //Double dniClienteOrigen;
 
         // Esta se obtiene por la forma ComprarOfertas
-        String codOferta;
+        //String CodOferta;
 
         // Estas son de esta forma
         int cantCompraDeseada;
         Double precioTotal;
 
-        public double DniClienteOrigen { get => dniClienteOrigen; set => dniClienteOrigen = value; }
-        public string CodOferta { get => codOferta; set => codOferta = value; }
+        public double DniClienteOrigen { get; set; }
+        public string CodOferta { get; set; }
 
         public ElegirCantOfertas()
         {
@@ -82,8 +82,8 @@ namespace FrbaOfertas.ComprarOferta
         {
             Compra compra = new Compra();
             compra.CantCompra = cantCompraDeseada;
-            compra.CodOferta = codOferta;
-            compra.DniCliente = dniClienteOrigen;
+            compra.CodOferta = CodOferta;
+            compra.DniCliente = DniClienteOrigen;
             compra.FechaCompra = obtenerFechaConfigFile();
             compra.PrecioTotal = precioTotal;
             return compra;
@@ -154,11 +154,11 @@ namespace FrbaOfertas.ComprarOferta
 
         private bool creditoSeaSuficiente(int cantDeseada)
         {
-            string query = "SELECT * FROM GEDEDE.OFERTAS WHERE Codigo_oferta = '" + codOferta + "'";
+            string query = "SELECT * FROM GEDEDE.OFERTAS WHERE Codigo_oferta = '" + CodOferta + "'";
             Double preciOferta = Convert.ToDouble(Queries.obtenerDatoTabla(query, 1));
             precioTotal = preciOferta * cantDeseada;
 
-            string queryCliente = "SELECT * FROM GEDEDE.CLIENTES WHERE DNI_Cliente = " + dniClienteOrigen;
+            string queryCliente = "SELECT * FROM GEDEDE.CLIENTES WHERE DNI_Cliente = " + DniClienteOrigen;
 
             credito = Convert.ToDouble(Queries.obtenerDatoTabla(queryCliente, 9));
 
@@ -167,9 +167,9 @@ namespace FrbaOfertas.ComprarOferta
 
         private bool cantPedidaEsMenorACantidadMaxima(int cantDeseada)
         {
-            string query = "SELECT * FROM GEDEDE.OFERTAS WHERE Codigo_oferta = '" + codOferta + "'";
+            string query = "SELECT * FROM GEDEDE.OFERTAS WHERE Codigo_oferta = '" + CodOferta + "'";
             int cantMaximaOferta = Convert.ToInt32(Queries.obtenerDatoTabla(query, 7));
-            string query2 = "select sum(Cantidad_compra) from GEDEDE.compra where DNI_cliente = " + dniClienteOrigen + " and codigo_oferta= '" + codOferta + "' group by  DNI_cliente, codigo_oferta";
+            string query2 = "select sum(Cantidad_compra) from GEDEDE.compra where DNI_cliente = " + DniClienteOrigen + " and codigo_oferta= '" + CodOferta + "' group by  DNI_cliente, codigo_oferta";
             int cantMinimaOferta = Convert.ToInt32(Queries.obtenerDatoTabla(query2, 0));
             return cantDeseada <= cantMaximaOferta - cantMinimaOferta;
         }

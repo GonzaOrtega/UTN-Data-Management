@@ -42,7 +42,7 @@ namespace FrbaOfertas.Commons
             conexion.Open();
             comando.ExecuteReader();
 
-            MessageBox.Show("Cliente creado satisfactoriamente", "Alta cliente");
+           // MessageBox.Show("Cliente creado satisfactoriamente", "Alta cliente");
         }
 
         //public static void modificarTablaDeUna(String query, DataTable dataTable)

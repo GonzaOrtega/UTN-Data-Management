@@ -12,6 +12,7 @@ namespace FrbaOfertas.AbmCliente
 {
     public partial class IngresarCliente : Form
     {
+        bool cerrado = false;
         public IngresarCliente()
         {
             InitializeComponent();
@@ -28,11 +29,10 @@ namespace FrbaOfertas.AbmCliente
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
+            cerrado = true;   
                 this.Close();
                 new Funciones.Funciones(usuario).Show();
-            }
+            
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
@@ -40,6 +40,7 @@ namespace FrbaOfertas.AbmCliente
             try
             {
                 new ComprarOferta.ComprarOfertas(Convert.ToDouble(txtDNI.Text) ,usuario).Show();
+                cerrado = true;
                 this.Close();
 
             }catch(Exception ex)
@@ -76,6 +77,21 @@ namespace FrbaOfertas.AbmCliente
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void IngresarCliente_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing && cerrado == false)
+            {
+                if (MessageBox.Show("¿Está seguro que desea salir del sistema?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Application.Exit();
+                }
             }
         }
     }

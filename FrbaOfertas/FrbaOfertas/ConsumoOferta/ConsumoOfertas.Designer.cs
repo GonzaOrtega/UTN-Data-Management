@@ -42,7 +42,7 @@
             this.label1.Location = new System.Drawing.Point(53, 35);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 29);
+            this.label1.Size = new System.Drawing.Size(199, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ingrese Nro de cupon";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -52,7 +52,7 @@
             this.txtNroCuponIngresado.Location = new System.Drawing.Point(404, 35);
             this.txtNroCuponIngresado.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtNroCuponIngresado.Name = "txtNroCuponIngresado";
-            this.txtNroCuponIngresado.Size = new System.Drawing.Size(225, 35);
+            this.txtNroCuponIngresado.Size = new System.Drawing.Size(225, 30);
             this.txtNroCuponIngresado.TabIndex = 1;
             // 
             // btnCanjear
@@ -82,7 +82,7 @@
             this.txtDNICliente.Location = new System.Drawing.Point(404, 100);
             this.txtDNICliente.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.txtDNICliente.Name = "txtDNICliente";
-            this.txtDNICliente.Size = new System.Drawing.Size(225, 35);
+            this.txtDNICliente.Size = new System.Drawing.Size(225, 30);
             this.txtDNICliente.TabIndex = 5;
             // 
             // label2
@@ -91,13 +91,13 @@
             this.label2.Location = new System.Drawing.Point(53, 100);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(223, 29);
+            this.label2.Size = new System.Drawing.Size(181, 25);
             this.label2.TabIndex = 4;
             this.label2.Text = "Ingrese DNI Cliente";
             // 
             // ConsumoOfertas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
             this.ClientSize = new System.Drawing.Size(714, 268);
@@ -111,6 +111,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "ConsumoOfertas";
             this.Text = "Canjear ofertas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConsumoOfertas_FormClosing);
             this.Load += new System.EventHandler(this.ConsumoOfertas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -37,10 +37,9 @@
             // btnAtras
             // 
             this.btnAtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.Location = new System.Drawing.Point(70, 260);
-            this.btnAtras.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAtras.Location = new System.Drawing.Point(62, 208);
             this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(191, 55);
+            this.btnAtras.Size = new System.Drawing.Size(170, 44);
             this.btnAtras.TabIndex = 9;
             this.btnAtras.Text = "ATRÁS";
             this.btnAtras.UseVisualStyleBackColor = true;
@@ -49,10 +48,9 @@
             // btnSiguiente
             // 
             this.btnSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSiguiente.Location = new System.Drawing.Point(487, 260);
-            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSiguiente.Location = new System.Drawing.Point(433, 208);
             this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(191, 55);
+            this.btnSiguiente.Size = new System.Drawing.Size(170, 44);
             this.btnSiguiente.TabIndex = 8;
             this.btnSiguiente.Text = "SIGUIENTE";
             this.btnSiguiente.UseVisualStyleBackColor = true;
@@ -62,10 +60,9 @@
             // 
             this.txtDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDNI.ForeColor = System.Drawing.Color.Gainsboro;
-            this.txtDNI.Location = new System.Drawing.Point(71, 164);
-            this.txtDNI.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDNI.Location = new System.Drawing.Point(63, 131);
             this.txtDNI.Name = "txtDNI";
-            this.txtDNI.Size = new System.Drawing.Size(607, 39);
+            this.txtDNI.Size = new System.Drawing.Size(540, 34);
             this.txtDNI.TabIndex = 6;
             this.txtDNI.Text = "DNI";
             this.txtDNI.TextChanged += new System.EventHandler(this.txtDNI_TextChanged);
@@ -77,24 +74,26 @@
             // 
             this.lblIngrese.AutoSize = true;
             this.lblIngrese.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIngrese.Location = new System.Drawing.Point(65, 74);
+            this.lblIngrese.Location = new System.Drawing.Point(58, 59);
             this.lblIngrese.Name = "lblIngrese";
-            this.lblIngrese.Size = new System.Drawing.Size(607, 32);
+            this.lblIngrese.Size = new System.Drawing.Size(517, 29);
             this.lblIngrese.TabIndex = 5;
             this.lblIngrese.Text = "Ingrese datos del cliente para comprar la oferta";
             // 
             // IngresarCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
-            this.ClientSize = new System.Drawing.Size(773, 397);
+            this.ClientSize = new System.Drawing.Size(687, 318);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.txtDNI);
             this.Controls.Add(this.lblIngrese);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "IngresarCliente";
             this.Text = "IngresarCliente";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.IngresarCliente_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

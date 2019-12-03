@@ -16,7 +16,7 @@ namespace FrbaOfertas.ConsumoOferta
     public partial class ConsumoOfertas : Form
     {
         Cupon cupon = new Cupon();
-        
+        bool cerrado = false;
         // Valores que me los van a pasar por parametro, por ahora los hardcodeo
         string cuit = "46-76549578-5";
         string razonSocial = "Proveedor N°36S.R.L.";
@@ -171,16 +171,30 @@ namespace FrbaOfertas.ConsumoOferta
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro que desea cancelar?", "Cancelar", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
+            cerrado = true;
                 this.Close();
                 new Funciones.Funciones(usuario).Show();
-            }
+            
         }
 
         private void ConsumoOfertas_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ConsumoOfertas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing && cerrado == false)
+            {
+                if (MessageBox.Show("¿Está seguro que desea salir del sistema?", "WARNING", MessageBoxButtons.YesNo) == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
         }
     }
 }

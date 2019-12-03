@@ -149,7 +149,7 @@ namespace FrbaOfertas.ComprarOferta
                     cupon.DniClienteOrigen = compra.DniCliente;
                     cupon.Cantidad = Convert.ToInt32(entry.Value);
                     cupon.FechaVencimiento = compra.FechaCompra.AddDays(30);
-                    cupon.DniClienteDestino = Convert.ToDouble(entry.Value);
+                    cupon.DniClienteDestino = Convert.ToDouble(txtDNIDestino.Text);
                     Queries.insertarCupon(cupon);
                 //}
             }

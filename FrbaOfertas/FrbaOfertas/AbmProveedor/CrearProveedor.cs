@@ -20,6 +20,12 @@ namespace FrbaOfertas.AbmProveedor
             cbRubro.DataSource = rubroTableAdapter1.GetData();
             cbRubro.ValueMember = "Descripcion";
         }
+        public CrearProveedor(String usuario,String Proveedor)
+        {
+            InitializeComponent();
+           /* cbRubro.DataSource = rubroTableAdapter1.GetData();
+            cbRubro.ValueMember = "Descripcion";*/
+        }
 
         public CrearProveedor(String cuitObtenido, String razonSocialObtennido, 
             string direccion, string ciudad, double telefono, string rubro, 

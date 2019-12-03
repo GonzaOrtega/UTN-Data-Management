@@ -93,7 +93,8 @@ namespace FrbaOfertas.AbmProveedor
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            new CrearProveedor().Show();
+            new Registrarse.Registrarse(this).Show();
+            //new CrearProveedor().Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

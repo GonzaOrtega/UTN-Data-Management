@@ -78,12 +78,14 @@
             // 
             // btnCanjear
             // 
-            this.btnCanjear.Location = new System.Drawing.Point(379, 217);
+            this.btnCanjear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCanjear.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnCanjear.Location = new System.Drawing.Point(354, 218);
             this.btnCanjear.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnCanjear.Name = "btnCanjear";
-            this.btnCanjear.Size = new System.Drawing.Size(152, 51);
+            this.btnCanjear.Size = new System.Drawing.Size(177, 49);
             this.btnCanjear.TabIndex = 7;
-            this.btnCanjear.Text = "Comprar";
+            this.btnCanjear.Text = "COMPRAR";
             this.btnCanjear.UseVisualStyleBackColor = true;
             this.btnCanjear.Click += new System.EventHandler(this.btnCanjear_Click);
             // 

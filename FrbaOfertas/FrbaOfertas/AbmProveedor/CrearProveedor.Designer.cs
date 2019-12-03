@@ -51,6 +51,10 @@
             this.proveedorTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.PROVEEDORTableAdapter();
             this.rubroTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.RUBROTableAdapter();
             this.cbRubro = new System.Windows.Forms.ComboBox();
+            this.tipO_USUARIOTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.TIPO_USUARIOTableAdapter();
+            this.usuariO_ROLTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.USUARIO_ROLTableAdapter();
+            this.usuarioTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.USUARIOTableAdapter();
+            this.rolTableAdapter1 = new FrbaOfertas.GD2C2019DataSetTableAdapters.ROLTableAdapter();
             this.SuspendLayout();
             // 
             // btnLimpiar
@@ -270,6 +274,22 @@
             this.cbRubro.Size = new System.Drawing.Size(338, 33);
             this.cbRubro.TabIndex = 55;
             // 
+            // tipO_USUARIOTableAdapter1
+            // 
+            this.tipO_USUARIOTableAdapter1.ClearBeforeFill = true;
+            // 
+            // usuariO_ROLTableAdapter1
+            // 
+            this.usuariO_ROLTableAdapter1.ClearBeforeFill = true;
+            // 
+            // usuarioTableAdapter1
+            // 
+            this.usuarioTableAdapter1.ClearBeforeFill = true;
+            // 
+            // rolTableAdapter1
+            // 
+            this.rolTableAdapter1.ClearBeforeFill = true;
+            // 
             // CrearProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -330,5 +350,9 @@
         private GD2C2019DataSetTableAdapters.PROVEEDORTableAdapter proveedorTableAdapter1;
         private GD2C2019DataSetTableAdapters.RUBROTableAdapter rubroTableAdapter1;
         private System.Windows.Forms.ComboBox cbRubro;
+        private GD2C2019DataSetTableAdapters.TIPO_USUARIOTableAdapter tipO_USUARIOTableAdapter1;
+        private GD2C2019DataSetTableAdapters.USUARIO_ROLTableAdapter usuariO_ROLTableAdapter1;
+        private GD2C2019DataSetTableAdapters.USUARIOTableAdapter usuarioTableAdapter1;
+        private GD2C2019DataSetTableAdapters.ROLTableAdapter rolTableAdapter1;
     }
 }

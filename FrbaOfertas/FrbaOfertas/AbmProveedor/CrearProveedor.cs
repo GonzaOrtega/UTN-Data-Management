@@ -14,17 +14,21 @@ namespace FrbaOfertas.AbmProveedor
     {
 
         bool esUpdate = false;
+        String nombreUsuario = null;
+        String contraseniaUsuario = null;
         public CrearProveedor()
         {
             InitializeComponent();
             cbRubro.DataSource = rubroTableAdapter1.GetData();
             cbRubro.ValueMember = "Descripcion";
         }
-        public CrearProveedor(String usuario,String Proveedor)
+        public CrearProveedor(String usuario,String  contrasenia)
         {
             InitializeComponent();
-           /* cbRubro.DataSource = rubroTableAdapter1.GetData();
-            cbRubro.ValueMember = "Descripcion";*/
+            cbRubro.DataSource = rubroTableAdapter1.GetData();
+            cbRubro.ValueMember = "Descripcion";
+            nombreUsuario = usuario;
+            contraseniaUsuario = contrasenia;
         }
 
         public CrearProveedor(String cuitObtenido, String razonSocialObtennido, 
@@ -85,6 +89,16 @@ namespace FrbaOfertas.AbmProveedor
             }
             return true;
         }
+        void agregarUsuario()
+        {
+            tipO_USUARIOTableAdapter1.InsertarTipoUsuario(txtCUIT.Text, txtRazonSocial.Text, null);
+            DataRow usuario = tipO_USUARIOTableAdapter1.GetDataByCuitRazonsocial(txtCUIT.Text, txtRazonSocial.Text).First();
+            int id = Convert.ToInt32(usuario["ID_usuario"].ToString());
+            this.usuarioTableAdapter1.InsertarUsuario(id, contraseniaUsuario, nombreUsuario);
+            DataRow rol = rolTableAdapter1.GetDataById("Proveedor").First();
+            usuariO_ROLTableAdapter1.InsertQuery(id, Convert.ToInt32(rol["ID_rol"]));
+            Close();
+        }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (esUpdate && this.validarRubro())
@@ -102,6 +116,7 @@ namespace FrbaOfertas.AbmProveedor
                 if (this.validarPk() && this.validarRubro()) {
                     DataRow id_rubro = rubroTableAdapter1.GetData().Select("Descripcion like '" + cbRubro.Text + "'").First();
                     proveedorTableAdapter1.InsertQuery(txtCUIT.Text, txtRazonSocial.Text, txtDireccion.Text, txtCiudad.Text, Convert.ToDecimal(txtTelefono.Text),Convert.ToInt32(id_rubro["ID_rubro"].ToString()), txtMail.Text, Convert.ToDecimal(txtCP.Text), txtNC.Text);
+                    agregarUsuario();
                     MessageBox.Show("Se ha creado el proveedor", "FELICIDADES", MessageBoxButtons.OK);
                     Close();
                 }

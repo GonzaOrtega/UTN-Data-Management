@@ -14,15 +14,21 @@ namespace FrbaOfertas.Registrarse
 {
     public partial class Registrarse : Form
     {
-        Login log;
+        Login log=null;
         bool usuarioExistente;
         bool cerrado = false;
+        AbmCliente.ABMCliente clienteForm = null;
         public Registrarse(Login login)
         { 
             InitializeComponent();
             log = login;
         }
-       
+       public Registrarse(AbmCliente.ABMCliente cli)
+        {
+            InitializeComponent();
+            clienteForm = cli;
+            cbROL.Visible = false;
+        }
         private void Registrarse_Load(object sender, EventArgs e)
         {
             cbROL.DataSource = this.rolTableAdapter1.GetDataSinAdministrador();
@@ -31,32 +37,41 @@ namespace FrbaOfertas.Registrarse
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
+            if(log!=null)
             log.Show();
             cerrado = true;
             Close();  
         }
         private void enviarAlProximoFormulario()
         {
-            if (cbROL.Text == "Cliente")
+            if (clienteForm != null)
             {
-                new DatosCliente(log,usuarioExistente,txtUsuario.Text,txtContrasenia.Text).Show();
+                new AbmCliente.CrearYModificarCliente(txtUsuario.Text, txtContrasenia.Text).Show();
                 cerrado = true;
                 Close();
             }
             else
             {
-                if (cbROL.Text == "Proveedor")
+                if (cbROL.Text == "Cliente")
                 {
-                    new DatosProveedor(log, usuarioExistente, txtUsuario.Text, txtContrasenia.Text).Show();
+                    new DatosCliente(log, usuarioExistente, txtUsuario.Text, txtContrasenia.Text).Show();
                     cerrado = true;
                     Close();
                 }
-               else
+                else
                 {
-                    MessageBox.Show("Todavia no esta habilitado para loguearse con ese rol", "Error", MessageBoxButtons.OK);
+                    if (cbROL.Text == "Proveedor")
+                    {
+                        new DatosProveedor(log, usuarioExistente, txtUsuario.Text, txtContrasenia.Text).Show();
+                        cerrado = true;
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Todavia no esta habilitado para loguearse con ese rol", "Error", MessageBoxButtons.OK);
+                    }
                 }
             }
-           
         }
 
         private bool yaPoseeEseROL()

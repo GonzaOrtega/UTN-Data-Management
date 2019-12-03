@@ -310,7 +310,8 @@ namespace FrbaOfertas.AbmCliente
 
         private void button3_Click(object sender, EventArgs e)
         {
-            new CrearYModificarCliente().Show();
+            new Registrarse.Registrarse(this).Show();
+            //new CrearYModificarCliente().Show();
         }
 
         private void button4_Click_1(object sender, EventArgs e)

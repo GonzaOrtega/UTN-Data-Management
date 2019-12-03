@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using FrbaOfertas.Commons;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
+using System.Data;
 
 namespace FrbaOfertas.AbmCliente
 {
@@ -11,7 +13,8 @@ namespace FrbaOfertas.AbmCliente
         Cliente cliente = new Cliente();
         bool esModificado = false;
         ABMCliente buscarCliente = new ABMCliente();
-
+        String nombreUsuario = null;
+        String contraseniaUsuario = null;
         public Cliente Cliente { get => cliente; set => cliente = value; }
         public bool EsModificado { get => esModificado; set => esModificado = value; }
         public ABMCliente BuscarCliente { get => buscarCliente; set => buscarCliente = value; }
@@ -20,7 +23,12 @@ namespace FrbaOfertas.AbmCliente
         {
             InitializeComponent();
         }
-
+        public CrearYModificarCliente(String nombre, String contrasenia)
+        {
+            InitializeComponent();
+            nombreUsuario = nombre;
+            contraseniaUsuario = contrasenia;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -77,7 +85,16 @@ namespace FrbaOfertas.AbmCliente
             Queries.updateCliente(cliente);
             this.Close();
         }
-
+        void ingresarUsuario()
+        {
+            tipO_USUARIOTableAdapter1.InsertarTipoUsuario(null, null, Convert.ToDecimal(txtDNI.Text));
+            DataRow usuario = tipO_USUARIOTableAdapter1.GetDataByDni(Convert.ToDecimal(txtDNI.Text)).First();
+            int id = Convert.ToInt32(usuario["ID_usuario"].ToString());
+            this.usuarioTableAdapter1.InsertarUsuario(id, contraseniaUsuario, nombreUsuario);
+            DataRow rol = rolTableAdapter1.GetDataById("Cliente").First();
+            usuariO_ROLTableAdapter1.InsertQuery(id, Convert.ToInt32(rol["ID_rol"]));
+            MessageBox.Show("Se ha agregado exitosamente", "Felicidades", MessageBoxButtons.OK);
+        }
         private void crearCliente()
         {
             if (seCargaronPKs())
@@ -87,7 +104,9 @@ namespace FrbaOfertas.AbmCliente
                     validarCliente();
                     inicializoCliente();
                     Queries.insertarCliente(cliente);
+                    ingresarUsuario();
                     limpiarTextboxes();
+                    Close();
                 }
                 catch (System.Data.SqlClient.SqlException ex)
                 {

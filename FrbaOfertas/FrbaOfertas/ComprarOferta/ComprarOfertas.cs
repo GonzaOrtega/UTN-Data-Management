@@ -172,5 +172,10 @@ namespace FrbaOfertas.ComprarOferta
         {
             limpiarEstructuras();
         }
+
+        private void planillaComprarOfertas_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -169,7 +169,9 @@ namespace FrbaOfertas.ComprarOferta
         {
             string query = "SELECT * FROM GEDEDE.OFERTAS WHERE Codigo_oferta = '" + codOferta + "'";
             int cantMaximaOferta = Convert.ToInt32(Queries.obtenerDatoTabla(query, 7));
-            return cantDeseada <= cantMaximaOferta;
+            string query2 = "select sum(Cantidad_compra) from GEDEDE.compra where DNI_cliente = " + dniClienteOrigen + " and codigo_oferta= '" + codOferta + "' group by  DNI_cliente, codigo_oferta";
+            int cantMinimaOferta = Convert.ToInt32(Queries.obtenerDatoTabla(query2, 0));
+            return cantDeseada <= cantMaximaOferta - cantMinimaOferta;
         }
     }
 }
